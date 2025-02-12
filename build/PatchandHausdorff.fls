@@ -381,6 +381,9 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmrc7t.
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.bbl
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.bbl
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.bbl
@@ -389,6 +392,10 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.aux
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.out
 INPUT c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.out
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
@@ -403,6 +410,8 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\e
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eusm10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmb8a.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\urw\times\utmr8a.pfb
