@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex build/PatchandHausdorff"] 1739337562.8011 "build/PatchandHausdorff.aux" "build/PatchandHausdorff.bbl" "build/PatchandHausdorff" 1740686270.06069 0
+["bibtex build/PatchandHausdorff"] 1741928546.5958 "build/PatchandHausdorff.aux" "build/PatchandHausdorff.bbl" "build/PatchandHausdorff" 1741928556.67564 0
   "./research2.bib" 1737948113 14959 765f3e483aa30d86c4b5eedbe8135bc9 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/bibtex/bst/amscls/amsalpha.bst" 1591023610 28675 71ba1b1ee8387ac88670b0ea0eb2399a ""
-  "build/PatchandHausdorff.aux" 1740686250 1201 e91542dd3071dbe6f15aa823a2d0a024 "pdflatex"
+  "build/PatchandHausdorff.aux" 1741928553 1201 cf6893159db70d7a0f3cbabc52a80e69 "pdflatex"
   (generated)
   "build/PatchandHausdorff.bbl"
   "build/PatchandHausdorff.blg"
   (rewritten before read)
-["pdflatex"] 1740686209.69731 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1740686270.06236 0
+["pdflatex"] 1741928548.57658 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1741928556.6776 0
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1737948772 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -238,11 +238,11 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "PatchandHausdorff.tex" 1740686109 5034 d957bb23b4ac53bb7a7ad875a95172c0 ""
-  "build/PatchandHausdorff.aux" 1740686250 1201 e91542dd3071dbe6f15aa823a2d0a024 "pdflatex"
-  "build/PatchandHausdorff.bbl" 1739337566 369 ded9a028cf97511847c2808f8e161cf0 "bibtex build/PatchandHausdorff"
-  "build/PatchandHausdorff.out" 1740686251 639 46699124b117309d9a313f67dd136172 "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1740686109 5034 d957bb23b4ac53bb7a7ad875a95172c0 ""
+  "PatchandHausdorff.tex" 1741928493 5196 80da0f5605bd5de4810c9e66e5dacd83 ""
+  "build/PatchandHausdorff.aux" 1741928553 1201 cf6893159db70d7a0f3cbabc52a80e69 "pdflatex"
+  "build/PatchandHausdorff.bbl" 1741928548 369 ded9a028cf97511847c2808f8e161cf0 "bibtex build/PatchandHausdorff"
+  "build/PatchandHausdorff.out" 1741928553 639 46699124b117309d9a313f67dd136172 "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1741928493 5196 80da0f5605bd5de4810c9e66e5dacd83 ""
   (generated)
   "build/PatchandHausdorff.aux"
   "build/PatchandHausdorff.log"
