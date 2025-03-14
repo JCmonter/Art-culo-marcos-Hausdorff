@@ -81,6 +81,8 @@ $A$ the base frame
 
 Its point space $S=\pt(A)$.
 
+$NA$ is the assembly of nucleus of $A$.
+ 
 The compact saturated sets of $S$, \[\mathcal{Q}(S).\]
 
 The preframe of open filters of $A$,
@@ -89,6 +91,11 @@ The preframe of open filters of $A$,
 The preframe of open filters of $\Omega(S)$.
 
 \[\Omega(S)^{\wedge}.\]
+
+The set of compact quotients
+\[
+KA=\{j\in NA\mid A_j \mbox{ is compact}\}.
+\]
 
 First we recall that every open filter $F\in A^{\wedge}$ has three faces, that is, determines (and its determine) by :
 
@@ -101,6 +108,7 @@ First we recall that every open filter $F\in A^{\wedge}$ has three faces, that i
 Hoffman-Mislove can be rephrase:
 
 \[\text{There is a bijection between compact quotients of } A \text{ and compact saturated sets of }S\]
+
 \begin{dfn}\label{KOMPACT}
 A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is close.
 \end{dfn}
@@ -143,8 +151,34 @@ q=\bigvee \{y\in A\mid y\notin G\}
 the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then exists $m\in M$ such that $q\leq m$. Sinse $q$ is maximum, $q=m$ or $m=1$, but $m\neq 1$ ($1\in F$ and $M=A\setminus F$), then $m=q\in M$. Hence $u\nleq q$ and this is a contradition. Therefore $v_F=w_F$.
 \end{proof}
 
-A consequence of the Proposition \ref{Bloqtri} is that $v_F=w_F$, so that, $A_{v_F}=A_{w_F}$ and $A_{w_F}\eqsim \mathcal{O}M\eqsim \mathcal{O}Q$. Thus, for all $j\in KA$ we have that $j=v_F$. Then in the Huasdorff case
+A consequence of the Proposition \ref{Bloqtri} is that $v_F=w_F$, so that, $A_{v_F}=A_{w_F}$ and $A_{w_F}\simeq \mathcal{O}M\simeq \mathcal{O}Q$. Thus, for all $j\in KA$ we have that $j=v_F$. Then in the Huasdorff case
 
+\[\begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}
+\]
+where $g$ is an isomorphism and $A_F\simeq \mathcal{O}Q\simeq \mathcal{O}S_\nabla$.\\
+
+On the other hand, $U_*u_{Q'}U^*=v_F$ if and only if $u_{Q'}U^*=U^*v_F$, for the adjuntion properties and $U^*$ the spatial reflection morphism. Therefore
+
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["U", shift left=2, from=1-1, to=2-1]
+	\arrow["U"', shift right=2, from=1-2, to=2-2]
+	\arrow["{U_*}"{pos=0.6}, shift left=3, from=2-1, to=1-1]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+	\arrow["{U_*}"', shift right=2, from=2-2, to=1-2]
+\end{tikzcd}\]
+so that, if $A\in \EuScript{Hrm}rm$ then patch trivial implies $KC$.\\
+
+The above is the proof of the following theorem.
 
 \begin{thm}{C.Hausdorff}
 If $A\in \EuScript{Hrm}rm$. then every compact quotient is isomrphic to a closed quotient of the topology of a Hausdorff space.

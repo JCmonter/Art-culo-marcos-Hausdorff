@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex build/PatchandHausdorff"] 1741930907.87697 "build/PatchandHausdorff.aux" "build/PatchandHausdorff.bbl" "build/PatchandHausdorff" 1741930930.77431 0
+["bibtex build/PatchandHausdorff"] 1741931638.97995 "build/PatchandHausdorff.aux" "build/PatchandHausdorff.bbl" "build/PatchandHausdorff" 1741933370.91193 0
   "./research2.bib" 1737948113 14959 765f3e483aa30d86c4b5eedbe8135bc9 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/bibtex/bst/amscls/amsalpha.bst" 1591023610 28675 71ba1b1ee8387ac88670b0ea0eb2399a ""
-  "build/PatchandHausdorff.aux" 1741930927 1201 6749260251408f94961b38eab74c5f91 "pdflatex"
+  "build/PatchandHausdorff.aux" 1741933366 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
   (generated)
   "build/PatchandHausdorff.bbl"
   "build/PatchandHausdorff.blg"
   (rewritten before read)
-["pdflatex"] 1741930911.41016 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1741930930.77604 0
+["pdflatex"] 1741933352.28807 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1741933370.9139 0
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1737948772 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -71,6 +71,7 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb" 1335366146 10538 4c913b4f5af64465058317e624ed5562 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
@@ -239,11 +240,11 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "PatchandHausdorff.tex" 1741930835 5421 0586ddc59fc657ceb908a3bea14b82bf ""
-  "build/PatchandHausdorff.aux" 1741930927 1201 6749260251408f94961b38eab74c5f91 "pdflatex"
-  "build/PatchandHausdorff.bbl" 1741930910 369 ded9a028cf97511847c2808f8e161cf0 "bibtex build/PatchandHausdorff"
-  "build/PatchandHausdorff.out" 1741930927 639 46699124b117309d9a313f67dd136172 "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1741930835 5421 0586ddc59fc657ceb908a3bea14b82bf ""
+  "PatchandHausdorff.tex" 1741933341 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
+  "build/PatchandHausdorff.aux" 1741933366 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
+  "build/PatchandHausdorff.bbl" 1741931640 369 ded9a028cf97511847c2808f8e161cf0 "bibtex build/PatchandHausdorff"
+  "build/PatchandHausdorff.out" 1741933366 639 46699124b117309d9a313f67dd136172 "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1741933341 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
   (generated)
   "build/PatchandHausdorff.aux"
   "build/PatchandHausdorff.log"

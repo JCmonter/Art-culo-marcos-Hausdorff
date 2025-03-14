@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  13 MAR 2025 23:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  14 MAR 2025 00:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -642,27 +642,43 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package xypdf Info: Line width: 0.43799pt on input line 50.
 
-Overfull \hbox (10.74974pt too wide) detected at line 103
+Overfull \hbox (10.74974pt too wide) detected at line 110
 []\OML/cmm/m/it/10.95 A[]S
  []
 
-LaTeX Font Info:    Trying to load font information for U+eus on input line 108.
+LaTeX Font Info:    Trying to load font information for U+eus on input line 116.
 (C:\Users\jcmon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
 Missing character: There is no r in font eusm10!
 Missing character: There is no m in font eusm10!
-Missing character: There is no r in font eusm10!
-Missing character: There is no m in font eusm10!
 
 
 [1{C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+Missing character: There is no r in font eusm10!
+Missing character: There is no m in font eusm10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
+Underfull \hbox (badness 10000) in paragraph at lines 131--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+
+ []
+
+
+
+[2]
+Missing character: There is no r in font eusm10!
+Missing character: There is no m in font eusm10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
@@ -674,8 +690,6 @@ LaTeX Warning: Empty `thebibliography' environment on input line 10.
 
 )
 
-[2]
-
 [3] (c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
@@ -685,17 +699,17 @@ Package rerunfilecheck Info: File `PatchandHausdorff.out' has not changed.
 (rerunfilecheck)             Checksum: 46699124B117309D9A313F67DD136172;639.
  ) 
 Here is how much of TeX's memory you used:
- 25071 strings out of 473904
- 459333 string characters out of 5726600
- 1938908 words of memory out of 5000000
- 47277 multiletter control sequences out of 15000+600000
+ 25281 strings out of 473904
+ 464370 string characters out of 5726600
+ 1941908 words of memory out of 5000000
+ 47487 multiletter control sequences out of 15000+600000
  582673 words of font info for 108 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 84i,8n,97p,3306b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.pdf (3 pages, 154458 bytes).
+ 84i,15n,97p,3306b,970s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:\Users\jcmon\Desktop\Apuntes\Art-culo-marcos-Hausdorff\build\PatchandHausdorff.pdf (3 pages, 168665 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  14 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
