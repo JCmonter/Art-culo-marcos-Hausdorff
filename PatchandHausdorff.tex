@@ -24,7 +24,7 @@
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\Sp}{sp}
-
+\DeclareMathOperator{\Frm}{Frm}
 
 
 \theoremstyle{plain}
@@ -115,6 +115,42 @@ A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In o
 
 Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.
 
+\begin{lem}\label{F^}
+Let $A\in \Frm$ and $j, k\in NA$ be. We consider $F\in A_j^\wedge$ y $g=j_*kj^*$ where $F=\nabla(k)$. Then $\hat{F}=\nabla(g)\in A^\wedge$.
+\end{lem}
+
+\begin{proof}
+$\hat{F}$ is a filter, because $g$ is a nucleus. Let us consider $X\subseteq A$ such that $\bigvee X\in \hat{F}$. We must prove that $X\cap \hat{F}\neq \emptyset$.\\
+
+If $\bigvee X\in \hat{F}$, then $g(\bigvee X)=(j_*kj^*)(\bigvee X)=1$. Thus
+
+\[
+j^*(\bigvee X)\leq j(\bigvee \{j(x)\mid x\in X\})=j(\bigvee j[X])=\bigvee_j X
+\]
+and 
+\[
+1=(j_*k)(j^*(\bigvee X))\leq (j_*k)(\bigvee_j X).
+\]
+
+$\{j(x)\mid x\in X\}$ is a directed set because $X$ is directed. Then $j(j[X])\subseteq A_j$, $\bigvee_jX\in F$ and $F\in A_j^\wedge$, so that, exists $x\in X$ such that $x=j(x)\in F$. Therefore $k(j(x))=1$ and $(j_*kj^*)(x)=1$, so that, $x\in \nabla(g)=\hat{F}$. Thus $X\cap \hat{F}\neq \emptyset$.
+\end{proof}
+
+\begin{lem}\label{FF^}
+For $F\in A^\wedge_j$ and $\hat{F}\in A^\wedge$ as above, then $F\subseteq \hat{F}$.
+\end{lem}
+
+\begin{proof}
+Let $x\in F$ be, then $j(x)=x$ and $k(x)=1$. Thus 
+\[
+g(x)=(j_*kj^*)(x)=(j_*k)(j(x))=j_*(k(x))=j_*(1)=1.
+\]
+Therefore $x\in \hat{F}$.
+\end{proof}
+
+\begin{lem}\label{Cociente arreglado}
+Let $A\in \Frm$ and $j\in NA$ be. If $A$ is tidy then $A_j$ is tidy.
+\end{lem}
+
 The block structure on a frame is an important problem and its related with some separation properties of frames.
 
 \begin{prop}\label{Bloqtri}
@@ -180,7 +216,7 @@ so that, if $A\in \EuScript{Hrm}rm$ then patch trivial implies $KC$.\\
 
 The above is the proof of the following theorem.
 
-\begin{thm}{C.Hausdorff}
+\begin{thm}\label{C.Hausdorff}
 If $A\in \EuScript{Hrm}rm$. then every compact quotient is isomrphic to a closed quotient of the topology of a Hausdorff space.
 \end{thm}
 
