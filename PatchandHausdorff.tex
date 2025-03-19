@@ -153,6 +153,49 @@ Let $A\in \Frm$ and $j\in NA$ be. If $A$ is tidy then $A_j$ is tidy.
 
 The block structure on a frame is an important problem and its related with some separation properties of frames.
 
+\begin{prop}\label{morfismo}
+For $F\in A^\wedge$ and $Q\in\mathcal{Q}S$, if $j\in [v_Q, w_Q]$, then $U_*jU^*\in [v_F, w_F]$, where $U^*$ is the morfism spatial reflection $U_*$ is the right adjoint.
+\end{prop}
+
+\begin{proof}
+Since $N$ is a functor, we have 
+\[\begin{tikzcd}
+	A & NA \\
+	\\
+	{\mathcal{O}S} & {N\mathcal{O}S}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "U"', from=1-1, to=3-1]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
+	\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
+\end{tikzcd}\]
+and $N(U)_*$ is the right adjoint of $N(U)^\wedge$. Note the following:
+\begin{enumerate}
+	\item $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*k$.
+	\item If $k\in N\mathcal{O}S$ then $N(U)(j)\leq k\Leftrightarrow Uj\leq kU$.
+	\item $N(U)_*k=U_*kU^*$ and $UN(U)_*k=k(U)$.
+\end{enumerate}
+In 3), if $j=k$, $N(U)_*(j)=U_*jU^*$ and $UN(U)_*j=jU$. For $x\in F$
+\[\begin{tikzcd}
+	x\in A & {\mathcal{O}S} & {\mathcal{O}S} & A
+	\arrow["{U^*}", from=1-1, to=1-2]
+	\arrow["j", from=1-2, to=1-3]
+	\arrow["{U_*}", from=1-3, to=1-4]
+\end{tikzcd}\]
+and $U_*(j(U(x))=\bigwedge(S\setminus j(U(x)))$. Note that $U_*(j(U^*(x)))\subseteq \pt A$. Thus
+
+\[
+\begin{split}
+x\in F \Leftrightarrow Q\subseteq U(x) &\Leftrightarrow U(x)\in \nabla(j)=\nabla(Q)\Leftrightarrow S\setminus j(U(x))=\emptyset\\
+& \Leftrightarrow \bigwedge (S\setminus j(U(x)))=1=(U_*jU^*)(x)\\
+&\Leftrightarrow x\in \nabla(U_*jU^*)
+\end{split}
+\]
+Therefor $F=\nabla(U_*jU^*)$.
+\end{proof}
+In this way we have a function 
+\[
+\mho\colon [V_Q, W_Q]\to [V_F, W_F]
+\]
+
 \begin{prop}\label{Bloqtri}
 For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
 
