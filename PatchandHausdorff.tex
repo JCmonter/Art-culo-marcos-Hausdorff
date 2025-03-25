@@ -24,7 +24,7 @@
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\Sp}{sp}
-
+\DeclareMathOperator{\Frm}{Frm}
 
 
 \theoremstyle{plain}
@@ -115,7 +115,86 @@ A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In o
 
 Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.
 
+\begin{lem}\label{F^}
+Let $A\in \Frm$ and $j, k\in NA$ be. We consider $F\in A_j^\wedge$ y $g=j_*kj^*$ where $F=\nabla(k)$. Then $\hat{F}=\nabla(g)\in A^\wedge$.
+\end{lem}
+
+\begin{proof}
+$\hat{F}$ is a filter, because $g$ is a nucleus. Let us consider $X\subseteq A$ such that $\bigvee X\in \hat{F}$. We must prove that $X\cap \hat{F}\neq \emptyset$.\\
+
+If $\bigvee X\in \hat{F}$, then $g(\bigvee X)=(j_*kj^*)(\bigvee X)=1$. Thus
+
+\[
+j^*(\bigvee X)\leq j(\bigvee \{j(x)\mid x\in X\})=j(\bigvee j[X])=\bigvee_j X
+\]
+and 
+\[
+1=(j_*k)(j^*(\bigvee X))\leq (j_*k)(\bigvee_j X).
+\]
+
+$\{j(x)\mid x\in X\}$ is a directed set because $X$ is directed. Then $j(j[X])\subseteq A_j$, $\bigvee_jX\in F$ and $F\in A_j^\wedge$, so that, exists $x\in X$ such that $x=j(x)\in F$. Therefore $k(j(x))=1$ and $(j_*kj^*)(x)=1$, so that, $x\in \nabla(g)=\hat{F}$. Thus $X\cap \hat{F}\neq \emptyset$.
+\end{proof}
+
+\begin{lem}\label{FF^}
+For $F\in A^\wedge_j$ and $\hat{F}\in A^\wedge$ as above, then $F\subseteq \hat{F}$.
+\end{lem}
+
+\begin{proof}
+Let $x\in F$ be, then $j(x)=x$ and $k(x)=1$. Thus 
+\[
+g(x)=(j_*kj^*)(x)=(j_*k)(j(x))=j_*(k(x))=j_*(1)=1.
+\]
+Therefore $x\in \hat{F}$.
+\end{proof}
+
+\begin{lem}\label{Cociente arreglado}
+Let $A\in \Frm$ and $j\in NA$ be. If $A$ is tidy then $A_j$ is tidy.
+\end{lem}
+
 The block structure on a frame is an important problem and its related with some separation properties of frames.
+
+\begin{prop}\label{morfismo}
+For $F\in A^\wedge$ and $Q\in\mathcal{Q}S$, if $j\in [v_Q, w_Q]$, then $U_*jU^*\in [v_F, w_F]$, where $U^*$ is the morfism spatial reflection $U_*$ is the right adjoint.
+\end{prop}
+
+\begin{proof}
+Since $N$ is a functor, we have 
+\[\begin{tikzcd}
+	A & NA \\
+	\\
+	{\mathcal{O}S} & {N\mathcal{O}S}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "U"', from=1-1, to=3-1]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
+	\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
+\end{tikzcd}\]
+and $N(U)_*$ is the right adjoint of $N(U)^\wedge$. Note the following:
+\begin{enumerate}
+	\item $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*k$.
+	\item If $k\in N\mathcal{O}S$ then $N(U)(j)\leq k\Leftrightarrow Uj\leq kU$.
+	\item $N(U)_*k=U_*kU^*$ and $UN(U)_*k=k(U)$.
+\end{enumerate}
+In 3), if $j=k$, $N(U)_*(j)=U_*jU^*$ and $UN(U)_*j=jU$. For $x\in F$
+\[\begin{tikzcd}
+	x\in A & {\mathcal{O}S} & {\mathcal{O}S} & A
+	\arrow["{U^*}", from=1-1, to=1-2]
+	\arrow["j", from=1-2, to=1-3]
+	\arrow["{U_*}", from=1-3, to=1-4]
+\end{tikzcd}\]
+and $U_*(j(U(x))=\bigwedge(S\setminus j(U(x)))$. Note that $U_*(j(U^*(x)))\subseteq \pt A$. Thus
+
+\[
+\begin{split}
+x\in F \Leftrightarrow Q\subseteq U(x) &\Leftrightarrow U(x)\in \nabla(j)=\nabla(Q)\Leftrightarrow S\setminus j(U(x))=\emptyset\\
+& \Leftrightarrow \bigwedge (S\setminus j(U(x)))=1=(U_*jU^*)(x)\\
+&\Leftrightarrow x\in \nabla(U_*jU^*)
+\end{split}
+\]
+Therefor $F=\nabla(U_*jU^*)$.
+\end{proof}
+In this way we have a function 
+\[
+\mho\colon [V_Q, W_Q]\to [V_F, W_F]
+\]
 
 \begin{prop}\label{Bloqtri}
 For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
@@ -180,7 +259,7 @@ so that, if $A\in \EuScript{Hrm}rm$ then patch trivial implies $KC$.\\
 
 The above is the proof of the following theorem.
 
-\begin{thm}{C.Hausdorff}
+\begin{thm}\label{C.Hausdorff}
 If $A\in \EuScript{Hrm}rm$. then every compact quotient is isomrphic to a closed quotient of the topology of a Hausdorff space.
 \end{thm}
 

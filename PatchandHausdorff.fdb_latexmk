@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex PatchandHausdorff"] 1742237635.36022 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1742237637.80028 0
+["bibtex PatchandHausdorff"] 1742872826.20964 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1742872828.90038 0
   "./research2.bib" 1741916034 14959 765f3e483aa30d86c4b5eedbe8135bc9 ""
   "C:/Program Files/MiKTeX/bibtex/bst/amscls/amsalpha.bst" 1591023610 28675 71ba1b1ee8387ac88670b0ea0eb2399a ""
-  "PatchandHausdorff.aux" 1742237636 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
+  "PatchandHausdorff.aux" 1742872827 1418 55bc60245227db215244078684a70ccf "pdflatex"
   (generated)
   "PatchandHausdorff.bbl"
   "PatchandHausdorff.blg"
   (rewritten before read)
-["pdflatex"] 1742237635.77369 "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1742237637.80098 0
+["pdflatex"] 1742872826.52526 "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1742872828.90107 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136793854 2172 fd0c924230362ff848a33632ed45dc23 ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136793854 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -66,10 +66,12 @@
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb" 1335366146 10538 4c913b4f5af64465058317e624ed5562 ""
+  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb" 1247596653 10304 e98704f815e417bc375e9a880a38e542 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136874948 44729 fea0975e20ec51c992338362f05f1146 ""
@@ -241,11 +243,11 @@
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1684648800 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1684648801 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/angel/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1706151760 24215160 14d20017a50056f2c7ac1a0a63ad2d25 ""
-  "PatchandHausdorff.aux" 1742237636 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
-  "PatchandHausdorff.bbl" 1742237635 369 ded9a028cf97511847c2808f8e161cf0 "bibtex PatchandHausdorff"
-  "PatchandHausdorff.out" 1742237636 639 46699124b117309d9a313f67dd136172 "pdflatex"
-  "PatchandHausdorff.tex" 1742237620 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
-  "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1742237620 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
+  "PatchandHausdorff.aux" 1742872827 1418 55bc60245227db215244078684a70ccf "pdflatex"
+  "PatchandHausdorff.bbl" 1742872826 369 ded9a028cf97511847c2808f8e161cf0 "bibtex PatchandHausdorff"
+  "PatchandHausdorff.out" 1742872827 639 46699124b117309d9a313f67dd136172 "pdflatex"
+  "PatchandHausdorff.tex" 1742872822 9464 22343ce2c9d4270f68b44095086d7c71 ""
+  "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1742872822 9464 22343ce2c9d4270f68b44095086d7c71 ""
   (generated)
   "PatchandHausdorff.aux"
   "PatchandHausdorff.log"
