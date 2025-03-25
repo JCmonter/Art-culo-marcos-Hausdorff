@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex PatchandHausdorff"] 1741975511.44707 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1741975515.45301 0
+["bibtex PatchandHausdorff"] 1742415427.14704 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1742415430.17834 0
   "./research2.bib" 1738615069 14959 765f3e483aa30d86c4b5eedbe8135bc9 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/bibtex/bst/amscls/amsalpha.bst" 1591023610 28675 71ba1b1ee8387ac88670b0ea0eb2399a ""
-  "PatchandHausdorff.aux" 1741975513 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
+  "PatchandHausdorff.aux" 1742415429 1418 55bc60245227db215244078684a70ccf "pdflatex"
   (generated)
   "PatchandHausdorff.bbl"
   "PatchandHausdorff.blg"
   (rewritten before read)
-["pdflatex"] 1741975512.05605 "c:/Users/angel/OneDrive/Escritorio/Git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1741975515.4555 0
+["pdflatex"] 1742415427.61994 "c:/Users/angel/OneDrive/Escritorio/Git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1742415430.17921 0
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1724174875 260351 eab9149b5636640eae91a1eee40d7d95 ""
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1616549171 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1616549172 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -70,10 +70,12 @@
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb" 1335366146 10538 4c913b4f5af64465058317e624ed5562 ""
+  "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb" 1247596653 10304 e98704f815e417bc375e9a880a38e542 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136874948 44729 fea0975e20ec51c992338362f05f1146 ""
@@ -241,11 +243,11 @@
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/angel/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "PatchandHausdorff.aux" 1741975513 1201 7f436a40b84c0eb6ef5b05d9d968b8db "pdflatex"
-  "PatchandHausdorff.bbl" 1741975511 369 ded9a028cf97511847c2808f8e161cf0 "bibtex PatchandHausdorff"
-  "PatchandHausdorff.out" 1741975513 639 46699124b117309d9a313f67dd136172 "pdflatex"
-  "PatchandHausdorff.tex" 1741975455 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
-  "c:/Users/angel/OneDrive/Escritorio/Git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1741975455 6489 53ea80e5933c08522a0f05ce9a36ed45 ""
+  "PatchandHausdorff.aux" 1742415429 1418 55bc60245227db215244078684a70ccf "pdflatex"
+  "PatchandHausdorff.bbl" 1742415427 369 ded9a028cf97511847c2808f8e161cf0 "bibtex PatchandHausdorff"
+  "PatchandHausdorff.out" 1742415429 639 46699124b117309d9a313f67dd136172 "pdflatex"
+  "PatchandHausdorff.tex" 1742415380 9464 22343ce2c9d4270f68b44095086d7c71 ""
+  "c:/Users/angel/OneDrive/Escritorio/Git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1742415380 9464 22343ce2c9d4270f68b44095086d7c71 ""
   (generated)
   "PatchandHausdorff.aux"
   "PatchandHausdorff.log"
