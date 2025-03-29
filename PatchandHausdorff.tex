@@ -113,7 +113,124 @@ Hoffman-Mislove can be rephrase:
 A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is close.
 \end{dfn}
 
-Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.
+Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.\\
+
+In (citar el artículo) Sexton says that $A\in \mathbf{Frm}$ is \emph{tidy} if for all $F\in A^\wedge$
+\[
+x\in F\Rightarrow u_d(x)=d\vee x=1
+\]
+where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA$ and $0=0_A$ (the reason for the last two clarifications will be understood later).\\
+
+We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
+
+Let's note that we need open filters $F$ in $A$ and in $A_j$, prenuclei $f$ in $A$ and $A_j$ and elements $d$ in $A$ and in $A_j$. To make writing easier, we will denote by $\hat{F}$, $\hat{f}$ and $\hat{d}$, to the open filter, prenuclei and element associated with the prenucleus, respectively, in the frame $A$. In the frame $A_j$ we use the usual notation, so that, $F$, $f$ and $d$ for the open filter, prenuclei and element associated to the prenucleus.\\
+
+We know that every open filter is admissible. This way, let $F=\nabla(k)$ and $\hat{F}=\nabla(g)$ be, where $k\in NA_j$ and $g=j_*kj^*\in NA$. We must see that $\hat{F}$ is indeed an open filter in $A$. To do this, let us note that $j=j^*$ is a monotonic function, then
+\[
+b\in j^*\hat{F}\Leftrightarrow j_*(b)\in \hat{F} \quad \mbox{ and }\quad a\in j_*F\Leftrightarrow j^*(a)\in F
+\]
+for $a\in A$ and $b\in A_j$. Foremore, if $F\in A_j^\wedge$, then $j_*F\in A^\wedge$.\\
+
+\begin{prop}\label{F=jF}
+With the above notation, $\hat{F}=j_*F$\\
+\end{prop}
+
+\begin{proof}
+First, we note that if $x\in \hat{F}$, then $g(x)=(j_*kj^*)(x)=1$. Thus
+\[
+j((j_*kj^*)(x))=j(1)=1\Rightarrow (kj^*)(x)=1\Rightarrow j^*(x)\in \nabla(k)=F,
+\]
+so that, $x\in j_*F$.\\
+
+On the other hand, if $x\in j_*F$, then 
+\[
+j^*(x)\in F\Rightarrow k(j^*(x))=1\Rightarrow j_*(k(j^*(x)))=1,
+\]
+so that, $x\in \nabla(g)=\hat{F}$. Therefore $\hat{F}\in A^\wedge$.
+\end{proof}
+
+Simmons proves in (citar el Vietoris y los resultados) that the diagram
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+commutes laxly, so that, $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
+
+In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei asociados to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$.\\
+
+We prove something more general here, since we consider the diagram
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{\hat{f}^\infty}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["j", from=1-2, to=2-2]
+	\arrow["{f^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+\begin{lem}
+    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
+\end{lem}
+
+\begin{proof}\label{f1f}
+    By proposition \ref{F=jF} is true that
+    \[
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in \hat{F}=j_*F\}\quad  \mbox{ and } \quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \]
+then, for $a\in A$ it is hold
+\[
+v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+\]
+Therefore $j\circ \hat{f}\leq f\circ j$.
+\end{proof}
+
+For $\hat{f}$ and $f$ be nuclei, we need their idempotent closeds.
+
+\begin{cor}\label{finftyf}
+    For $j$, $f$ and $\hat{f}$ as before, it is hold that $j\circ \hat{f}^\infty\leq f^\infty\circ j$
+\end{cor}
+
+\begin{proof}
+    For an ordinal $\alpha$ we will check that $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$. We will do it by transfinite induction.\\
+
+    If $\alpha=0$, it is trivial.\\
+
+    For the induction step, we assume that for $\alpha$ it holds. Then
+    \[
+    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
+    \]
+    where the first inequality is Lemma \ref{f1f} and the second is true by the induction hypothesis.\\
+
+    If$\lambda$ is a limit ordinal, then (HAZLO)
+\end{proof}
+
+We now have the tools to prove the following:
+
+\begin{prop}
+    Si $A$ es un marco arreglado, entonces $A_j$ es arreglado.
+\end{prop}
+
+\begin{proof}
+Es sencillo probar que $F\subseteq \hat{F}$. De esta manera, Como $A$ es arreglado y $F\in A^\wedge$, se cumple que 
+\[
+x\in F\Rightarrow \hat{d}\vee x=1,
+\]
+donde $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+
+Observemos que si $\hat{d}\leq d$, se cumple que $d\vee x=1$, para $d=d(\alpha)=f^\alpha(j(0))$.\\
+
+Luego, por el Corolario \ref{finftyf}
+\[
+\hat{d}=\hat{d}(\alpha)\leq j(\hat{d}(\alpha))=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d(\alpha)=d.
+\]
+
+Por lo tanto si $x\in F$, entonces $d\vee x=1$ y así $A_j$ es arreglado.
+\end{proof}
+
 
 \begin{lem}\label{F^}
 Let $A\in \Frm$ and $j, k\in NA$ be. We consider $F\in A_j^\wedge$ y $g=j_*kj^*$ where $F=\nabla(k)$. Then $\hat{F}=\nabla(g)\in A^\wedge$.
@@ -212,11 +329,12 @@ For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determ
 
 Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\in A$ such that
 \begin{equation}\label{vFwF en a}
-u\nleq w_F(a)\quad \mbox{ y }\quad \neg u \nleq v_F(a)
+u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
 \end{equation}
-Note that $0\leq a$, then $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for \ref{vFwF en a} we have that
+
+ Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for \ref{vFwF en a} we have that
 \begin{equation}\label{vFwF en 0}
-i)\,u\nleq w_F(0)\quad \mbox{ y }\quad ii)\,\neg u\nleq v_F(0).
+i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
 \end{equation}
 
 For \ref{vFwF en 0}-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for all $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If \ref{vFwF en 0}-$(ii)$ is true, then $u\notin F$, in otherwise 
@@ -227,7 +345,7 @@ and this is a contradition. Thus, for the Birkhoff's separation lemma, exists a 
 \[
 q=\bigvee \{y\in A\mid y\notin G\}
 \]
-the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then exists $m\in M$ such that $q\leq m$. Sinse $q$ is maximum, $q=m$ or $m=1$, but $m\neq 1$ ($1\in F$ and $M=A\setminus F$), then $m=q\in M$. Hence $u\nleq q$ and this is a contradition. Therefore $v_F=w_F$.
+the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then $q\in M$ and $u\nleq q$. Hence $u\leq q$, $u\nleq q$ and this is a contradition.
 \end{proof}
 
 A consequence of the Proposition \ref{Bloqtri} is that $v_F=w_F$, so that, $A_{v_F}=A_{w_F}$ and $A_{w_F}\simeq \mathcal{O}M\simeq \mathcal{O}Q$. Thus, for all $j\in KA$ we have that $j=v_F$. Then in the Huasdorff case
