@@ -109,6 +109,24 @@ Hoffman-Mislove can be rephrase:
 
 \[\text{There is a bijection between compact quotients of } A \text{ and compact saturated sets of }S\]
 
+Also, if $j^*\colon A\to B$ is a monotone morphism and $F\subseteq A$, $G\subseteq B$ filters in $A$, $B$, respectively, we can produce new filters as follows
+\begin{equation}\label{Imagenfiltros}
+b\in j^*F \Leftrightarrow j_*(b)\in F\quad \mbox{ and}\quad a\in j_*G \Leftrightarrow j^*(a)\in G
+\end{equation}
+where $a\in A, b\in B$ and $j_*$ is the right adjoint of $j^*$. Here $j^*F\subseteq B$ and $j_*G\subseteq A$ are filters on $B$ and $A$, respectively.\\
+
+\begin{prop}\label{fF}
+For $j=j^*\colon A\to B$ a monotone morphism and $G\in B^\wedge$, then $j_*G\in A^\wedge$.
+\end{prop}
+
+\begin{proof}
+By (\ref{Imagenfiltros}), $j_*G$ is a filter on $A$. We need $j_*G$ to satisfy the open filter condition. Let $X\subseteq A$ be such that $\bigvee X\in j_*G$, with $X$ directed. Then
+\[
+Y=\{j(x)\mid x\in X\}
+\] 
+is directed and $j(\bigvee X)=\bigvee j[X]=\bigvee Y\in G$. Since $G$ is a open filter, exists $y=j(x)\in Y$ such that $y\in G$. Thus $x\in j_*G$, so that, $j_*G\in A^\wedge$.
+\end{proof}
+
 \begin{dfn}\label{KOMPACT}
 A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is close.
 \end{dfn}
@@ -124,30 +142,6 @@ where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA
 We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
 
 Let's note that we need open filters $F$ in $A$ and in $A_j$, prenuclei $f$ in $A$ and $A_j$ and elements $d$ in $A$ and in $A_j$. To make writing easier, we will denote by $\hat{F}$, $\hat{f}$ and $\hat{d}$, to the open filter, prenuclei and element associated with the prenucleus, respectively, in the frame $A$. In the frame $A_j$ we use the usual notation, so that, $F$, $f$ and $d$ for the open filter, prenuclei and element associated to the prenucleus.\\
-
-We know that every open filter is admissible. This way, let $F=\nabla(k)$ and $\hat{F}=\nabla(g)$ be, where $k\in NA_j$ and $g=j_*kj^*\in NA$. We must see that $\hat{F}$ is indeed an open filter in $A$. To do this, let us note that $j=j^*$ is a monotonic function, then
-\[
-b\in j^*\hat{F}\Leftrightarrow j_*(b)\in \hat{F} \quad \mbox{ and }\quad a\in j_*F\Leftrightarrow j^*(a)\in F
-\]
-for $a\in A$ and $b\in A_j$. Foremore, if $F\in A_j^\wedge$, then $j_*F\in A^\wedge$.\\
-
-\begin{prop}\label{F=jF}
-With the above notation, $\hat{F}=j_*F$\\
-\end{prop}
-
-\begin{proof}
-First, we note that if $x\in \hat{F}$, then $g(x)=(j_*kj^*)(x)=1$. Thus
-\[
-j((j_*kj^*)(x))=j(1)=1\Rightarrow (kj^*)(x)=1\Rightarrow j^*(x)\in \nabla(k)=F,
-\]
-so that, $x\in j_*F$.\\
-
-On the other hand, if $x\in j_*F$, then 
-\[
-j^*(x)\in F\Rightarrow k(j^*(x))=1\Rightarrow j_*(k(j^*(x)))=1,
-\]
-so that, $x\in \nabla(g)=\hat{F}$. Therefore $\hat{F}\in A^\wedge$.
-\end{proof}
 
 Simmons proves in (citar el Vietoris y los resultados) that the diagram
 \[\begin{tikzcd}
@@ -175,16 +169,29 @@ We prove something more general here, since we consider the diagram
 \begin{lem}
     For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
 \end{lem}
-
 \begin{proof}\label{f1f}
-    By proposition \ref{F=jF} is true that
+    By (\ref{Imagenfiltros}) is true that
     \[
-    \hat{f}=\dot{\bigvee}\{v_y\mid y\in \hat{F}=j_*F\}\quad  \mbox{ and } \quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\}\quad  \mbox{ and } \quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
     \]
 then, for $a\in A$ it is hold
 \[
-v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a)).
 \]
+
+Also, for all $a, y\in A$, $(y\succ a)\wedge y=y\wedge a$ and
+\[
+\begin{split}
+j((y\succ a)\wedge y)\leq j(a) & \Leftrightarrow j(y\succ a)\wedge j(y)\leq j(a)\\
+& \Leftrightarrow j(y\succ a)\leq (j(y)\succ j(a)).
+\end{split}
+\]
+
+Thus 
+\[
+v_y(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+\]
+
 Therefore $j\circ \hat{f}\leq f\circ j$.
 \end{proof}
 
@@ -211,62 +218,24 @@ For $\hat{f}$ and $f$ be nuclei, we need their idempotent closeds.
 We now have the tools to prove the following:
 
 \begin{prop}
-    Si $A$ es un marco arreglado, entonces $A_j$ es arreglado.
+    If $A$ is a tidy frame, then $A_j$ is tidy.
 \end{prop}
 
 \begin{proof}
-Es sencillo probar que $F\subseteq \hat{F}$. De esta manera, Como $A$ es arreglado y $F\in A^\wedge$, se cumple que 
+It is easy to prove that $F\subseteq j_*F$. Since $A$ is tidy and $F\in A^\wedge$, it is true that 
 \[
 x\in F\Rightarrow \hat{d}\vee x=1,
 \]
-donde $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+where $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+If $\hat{d}\leq d$, then $d\vee x=1$, for $d=d(\alpha)=f^\alpha(j(0))$.\\
 
-Observemos que si $\hat{d}\leq d$, se cumple que $d\vee x=1$, para $d=d(\alpha)=f^\alpha(j(0))$.\\
-
-Luego, por el Corolario \ref{finftyf}
+Thus, for Corollary \ref{finftyf}
 \[
 \hat{d}=\hat{d}(\alpha)\leq j(\hat{d}(\alpha))=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d(\alpha)=d.
 \]
 
-Por lo tanto si $x\in F$, entonces $d\vee x=1$ y así $A_j$ es arreglado.
+Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
 \end{proof}
-
-
-\begin{lem}\label{F^}
-Let $A\in \Frm$ and $j, k\in NA$ be. We consider $F\in A_j^\wedge$ y $g=j_*kj^*$ where $F=\nabla(k)$. Then $\hat{F}=\nabla(g)\in A^\wedge$.
-\end{lem}
-
-\begin{proof}
-$\hat{F}$ is a filter, because $g$ is a nucleus. Let us consider $X\subseteq A$ such that $\bigvee X\in \hat{F}$. We must prove that $X\cap \hat{F}\neq \emptyset$.\\
-
-If $\bigvee X\in \hat{F}$, then $g(\bigvee X)=(j_*kj^*)(\bigvee X)=1$. Thus
-
-\[
-j^*(\bigvee X)\leq j(\bigvee \{j(x)\mid x\in X\})=j(\bigvee j[X])=\bigvee_j X
-\]
-and 
-\[
-1=(j_*k)(j^*(\bigvee X))\leq (j_*k)(\bigvee_j X).
-\]
-
-$\{j(x)\mid x\in X\}$ is a directed set because $X$ is directed. Then $j(j[X])\subseteq A_j$, $\bigvee_jX\in F$ and $F\in A_j^\wedge$, so that, exists $x\in X$ such that $x=j(x)\in F$. Therefore $k(j(x))=1$ and $(j_*kj^*)(x)=1$, so that, $x\in \nabla(g)=\hat{F}$. Thus $X\cap \hat{F}\neq \emptyset$.
-\end{proof}
-
-\begin{lem}\label{FF^}
-For $F\in A^\wedge_j$ and $\hat{F}\in A^\wedge$ as above, then $F\subseteq \hat{F}$.
-\end{lem}
-
-\begin{proof}
-Let $x\in F$ be, then $j(x)=x$ and $k(x)=1$. Thus 
-\[
-g(x)=(j_*kj^*)(x)=(j_*k)(j(x))=j_*(k(x))=j_*(1)=1.
-\]
-Therefore $x\in \hat{F}$.
-\end{proof}
-
-\begin{lem}\label{Cociente arreglado}
-Let $A\in \Frm$ and $j\in NA$ be. If $A$ is tidy then $A_j$ is tidy.
-\end{lem}
 
 The block structure on a frame is an important problem and its related with some separation properties of frames.
 
