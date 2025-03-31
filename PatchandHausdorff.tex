@@ -212,7 +212,19 @@ For $\hat{f}$ and $f$ be nuclei, we need their idempotent closeds.
     \]
     where the first inequality is Lemma \ref{f1f} and the second is true by the induction hypothesis.\\
 
-    If$\lambda$ is a limit ordinal, then (HAZLO)
+    If$\lambda$ is a limit ordinal, then
+	\[
+	\hat{f}^\lambda=\bigvee\{\hat{f}^\alpha\mid \alpha<\lambda\}, \quad f^\lambda=\bigvee\{f^\alpha\mid \alpha<\lambda\} 
+	\]
+	and 
+	\[
+		j\circ \hat{f}^\lambda=j\circ \bigvee_{\alpha<\lambda}\hat{f}^\alpha=\bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha.
+	\]
+	Thus, by the induction hypothesis, we have that
+	\[
+	j\circ \hat{f}^\alpha\leq f^\alpha\circ j\Rightarrow \bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha\leq \bigvee_{\alpha<\lambda} f^\alpha\circ j.
+	\]
+	Therefore $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$.
 \end{proof}
 
 We now have the tools to prove the following:
