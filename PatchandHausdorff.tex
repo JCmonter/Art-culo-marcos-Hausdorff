@@ -128,7 +128,7 @@ is directed and $j(\bigvee X)=\bigvee j[X]=\bigvee Y\in G$. Since $G$ is a open 
 \end{proof}
 
 \begin{dfn}\label{KOMPACT}
-A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is close.
+A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is closed.
 \end{dfn}
 
 Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.\\
@@ -212,12 +212,24 @@ For $\hat{f}$ and $f$ be nuclei, we need their idempotent closeds.
     \]
     where the first inequality is Lemma \ref{f1f} and the second is true by the induction hypothesis.\\
 
-    If$\lambda$ is a limit ordinal, then (HAZLO)
+    If$\lambda$ is a limit ordinal, then
+	\[
+	\hat{f}^\lambda=\bigvee\{\hat{f}^\alpha\mid \alpha<\lambda\}, \quad f^\lambda=\bigvee\{f^\alpha\mid \alpha<\lambda\} 
+	\]
+	and 
+	\[
+		j\circ \hat{f}^\lambda=j\circ \bigvee_{\alpha<\lambda}\hat{f}^\alpha\leq\bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha.
+	\]
+	Thus, by the induction hypothesis, we have that
+	\[
+	j\circ \hat{f}^\alpha\leq f^\alpha\circ j\Rightarrow \bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha\leq \bigvee_{\alpha<\lambda} f^\alpha\circ j.
+	\]
+	Therefore $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$.
 \end{proof}
 
 We now have the tools to prove the following:
 
-\begin{prop}
+\begin{prop}\label{tidyquout}
     If $A$ is a tidy frame, then $A_j$ is tidy.
 \end{prop}
 
@@ -236,6 +248,13 @@ Thus, for Corollary \ref{finftyf}
 
 Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
 \end{proof}
+
+
+
+\begin{prop}\label{KCquout}
+    If $A$ has KC, then $A_j$ has KC for every $j\in N(A).$
+\end{prop}
+
 
 The block structure on a frame is an important problem and its related with some separation properties of frames.
 
@@ -350,6 +369,14 @@ The above is the proof of the following theorem.
 If $A\in \EuScript{Hrm}rm$. then every compact quotient is isomrphic to a closed quotient of the topology of a Hausdorff space.
 \end{thm}
 
+
+
+
+\begin{cor}\label{Viet}
+	If $A\in \EuScript{Hrm}rm$.
+	\[\EuScript{Q}(S)\cong\pt(V(A))\] 
+	\end{cor}
+
 \begin{prop}\label{Himplies pt}
 Every Hausdorff frame $A$ (in the sense of Johnstone and Shou) is tidy, that is, $A$ is patch trivial. 
 \end{prop}
@@ -363,7 +390,7 @@ Every Hausdorff frame $A$ (in the sense of Johnstone and Shou) is tidy, that is,
 \end{proof}
 
 
-
+EJEMPLOS DE marcos ptrivial que no sean KC
 \bibliographystyle{amsalpha}
 
 \bibliography{research2}
