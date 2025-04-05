@@ -109,14 +109,23 @@ Hoffman-Mislove can be rephrase:
 
 \[\text{There is a bijection between compact quotients of } A \text{ and compact saturated sets of }S\]
 
-Also, if $j^*\colon A\to B$ is a monotone morphism and $F\subseteq A$, $G\subseteq B$ filters in $A$, $B$, respectively, we can produce new filters as follows
+\section{compact quotients}
+
+
+\begin{dfn}\label{KOMPACT}
+	A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is closed.
+\end{dfn}
+	
+Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.\\
+
+If $j^*\colon A\to B$ is a frame morphism and $F\subseteq A$, $G\subseteq B$ filters in $A$, $B$, respectively, we can produce new filters as follows
 \begin{equation}\label{Imagenfiltros}
 b\in j^*F \Leftrightarrow j_*(b)\in F\quad \mbox{ and}\quad a\in j_*G \Leftrightarrow j^*(a)\in G
 \end{equation}
 where $a\in A, b\in B$ and $j_*$ is the right adjoint of $j^*$. Here $j^*F\subseteq B$ and $j_*G\subseteq A$ are filters on $B$ and $A$, respectively.\\
 
 \begin{prop}\label{fF}
-For $j=j^*\colon A\to B$ a monotone morphism and $G\in B^\wedge$, then $j_*G\in A^\wedge$.
+For $j=j^*\colon A\to B$ a frame morphism and $G\in B^\wedge$, then $j_*G\in A^\wedge$.
 \end{prop}
 
 \begin{proof}
@@ -127,13 +136,7 @@ Y=\{j(x)\mid x\in X\}
 is directed and $j(\bigvee X)=\bigvee j[X]=\bigvee Y\in G$. Since $G$ is a open filter, exists $y=j(x)\in Y$ such that $y\in G$. Thus $x\in j_*G$, so that, $j_*G\in A^\wedge$.
 \end{proof}
 
-\begin{dfn}\label{KOMPACT}
-A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is closed.
-\end{dfn}
-
-Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames in the sense of Johnstone and Shu.\\
-
-In (citar el artículo) Sexton says that $A\in \mathbf{Frm}$ is \emph{tidy} if for all $F\in A^\wedge$
+In \cite{R.S.2}, the autor says that $A\in \mathbf{Frm}$ is \emph{tidy} if for all $F\in A^\wedge$
 \[
 x\in F\Rightarrow u_d(x)=d\vee x=1
 \]
@@ -141,9 +144,9 @@ where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA
 
 We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
 
-Let's note that we need open filters $F$ in $A$ and in $A_j$, prenuclei $f$ in $A$ and $A_j$ and elements $d$ in $A$ and in $A_j$. To make writing easier, we will denote by $\hat{F}$, $\hat{f}$ and $\hat{d}$, to the open filter, prenuclei and element associated with the prenucleus, respectively, in the frame $A$. In the frame $A_j$ we use the usual notation, so that, $F$, $f$ and $d$ for the open filter, prenuclei and element associated to the prenucleus.\\
+Let is note that we need open filters $F$ in $A$ and in $A_j$, prenuclei $f$ in $A$ and $A_j$ and elements $d$ in $A$ and in $A_j$. To make writing easier, we will denote by $\hat{F}$, $\hat{f}$ and $\hat{d}$, to the open filter, prenuclei and element associated with the prenucleus, respectively, in the frame $A$. In the frame $A_j$ we use the usual notation, so that, $F$, $f$ and $d$ for the open filter, prenuclei and element associated to the prenucleus.\\
 
-Simmons proves in (citar el Vietoris y los resultados) that the diagram
+Simmons proves in \cite{H.S.(V)} (Lamma 8.9 and Corollary 8.10), that the diagram
 \[\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
@@ -255,6 +258,7 @@ Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
     If $A$ has KC, then $A_j$ has KC for every $j\in N(A).$
 \end{prop}
 
+\section{Admissibility intervals}
 
 The block structure on a frame is an important problem and its related with some separation properties of frames.
 
@@ -392,7 +396,43 @@ Every Hausdorff frame $A$ (in the sense of Johnstone and Shou) is tidy, that is,
 
 EJEMPLOS DE marcos ptrivial que no sean KC
 \bibliographystyle{amsalpha}
+\begin{thebibliography}{99}
+	%\bibitem{D.P.} C. H. Dowker; D. Strauss, \textit{Separation axioms for frames}, Topics in Topology, pp. 223–240. Proc. Colloq., Keszthely, 1972. Colloq. Math. Soc. Janos Bolyai, vol. 8, North-Holland, Amsterdam, 1974.
+  
+	%\bibitem{Ib.} J. R. Isbell, \textit{Atomless parts of spaces}, Math. Scand. 31 (1972) 5–32.
+  
+	\bibitem{P.T.} Johnstone, P. T. (1982). Stone spaces (Vol. 3). Cambridge university press.
+  
+	%\bibitem{J.S.} P. T. Johnstone; S.-H. Sun, \textit{Weak products and Hausdorff locales}, Categorical Algebra and its Applications, pp. 173–193. Lecture Notes in Mathematics, vol. 1348. Springer-Verlag, Berlin, 1988.
+  
+	%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+  
+	%\bibitem{P.S.}J. Paseka; B. Šmarda, \textit{T2-frames and almost compact frames}, Czechoslovak Math. J. 42 (1992) 297–313.
+	
+	\bibitem{J.P.} Picado, J., Pultr, A. (2011). Frames and Locales: topology without points. Springer Science and Business Media.
+	
+	\bibitem{J.P.2} Picado, J., Pultr, A. (2021). Separation in point-free topology. Switzerland: Birkhäuser.
+	
+	%\bibitem{Ro.S.} J. Rosický; B. Šmarda, \textit{T1-locales}, Math. Proc. Cambridge Philos. Soc. 98 (1985) 81–86.
+	
+	%\bibitem{R.S.} RA. Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+  
+	\bibitem{R.S.2} Sexton, R. A., Simmons, H. (2006). An ordinal indexed hierarchy of separation properties. In Topology Proc (Vol. 30, No. 2, pp. 585-625).
 
-\bibliography{research2}
+	\bibitem{R.S.3} Sexton, R. A., Simmons, H. (2006). Point-sensitive and point-free patch constructions. Journal of Pure and Applied Algebra, 207(2), 433-468.
+	  
+	%\bibitem{H.S.3} H. Simmons, \textit{The assembly of a frame}, University of Manchester (2006).
+  
+	%\bibitem{H.W.} H. Wallman, \textit{Lattices and topological spaces}, Ann. Math. 39 (1938) 112–126.
+	
+	%\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2024. Universidad de Guadalajara.
+
+	\bibitem{H.S.(V)} Simmons, H. (2004). The Vietoris modifications of a frame. Unpublished manuscript, 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+	\bibitem{W.A.} Wilansky, A. (1967). Between T1 and T2, this MONTHLY.
+
+\end{thebibliography}
+  
+%\bibliography{research2}
 
 \end{document}
