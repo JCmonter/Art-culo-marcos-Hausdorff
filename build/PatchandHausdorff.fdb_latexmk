@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743837877.37587 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1743837887.51486 0
+["pdflatex"] 1743916042.2204 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1743916049.11655 0
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1737948772 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -62,6 +62,7 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
@@ -234,10 +235,10 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "PatchandHausdorff.tex" 1743837849 16503 768e0088ee180ab5d70a189388aade94 ""
-  "build/PatchandHausdorff.aux" 1743837885 1961 a8426f3f25bbe8b0afbf932389af9633 "pdflatex"
-  "build/PatchandHausdorff.out" 1743837885 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1743837849 16503 768e0088ee180ab5d70a189388aade94 ""
+  "PatchandHausdorff.tex" 1743916002 18972 f20f9fe3a7dbe0274427e7feaaee431f ""
+  "build/PatchandHausdorff.aux" 1743916047 2033 a10c7edd4d431ecb5131e7642e76db4e "pdflatex"
+  "build/PatchandHausdorff.out" 1743916047 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1743916002 18972 f20f9fe3a7dbe0274427e7feaaee431f ""
   (generated)
   "build/PatchandHausdorff.aux"
   "build/PatchandHausdorff.log"
