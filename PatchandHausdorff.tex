@@ -307,11 +307,47 @@ Thus, for Corollary \ref{finftyf}
 Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
 \end{proof}
 
-
-
 \begin{prop}\label{KCquout}
     If $A$ has KC, then $A_j$ has KC for every $j\in N(A).$
 \end{prop}
+
+\begin{proof}
+We consider $k\in NA_j$ such that $(A_j)_k$ is compact. Since any open filter is admissible, we have $\nabla(k)\in A_j^\wedge$ and by Proposition \ref{fF} $j_*\nabla(K)\in A^\wedge$.\\
+
+Let $l=j_*\circ  k\circ j^*\in NA$ be, then $A_l$ is a compact quotient of $A$ and exists $a\in A$ such that $l=u_a$.\\
+
+We need that $k=u_b$ for some $b\in A_j$. For $x\in A_j$ and $b=j(a)$
+\[
+\begin{split}
+u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
+& =j(k(j(a))\vee x)\\
+& =j(u_a(x))\\
+& =j(k(x))\\	
+&=k(x).
+\end{split}
+\]
+Therefore $u_b=k$.
+\end{proof}
+
+\begin{prop}\label{KCT1}
+If $A$ is a $KC$ frame, the $A$ is a $T_1$ frame.
+\end{prop}
+
+\begin{proof}
+A frame is $T_1$ if and only if for all $p\in \pt A$, $p$ is maximum. Let $p\in \pt A$ and $a\in A$ be such that $p\leq a\leq 1$. We consider 
+\[
+w_p(x)=\left\{\begin{array}{lcc}
+1 & \mbox{ si } & x\nleq p\\
+\\
+p & \mbox{ si } & x\leq p
+\end{array}\right.
+\]
+for $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ is a filter completely prime (in particular, $P\in A^\wedge$). Since $A$ is $KC$, then $A_{w_p}$ is a closed compact quotient. Thus $u_p=w_p$, futhermore
+\[
+u_p(a)=a\quad \mbox{and}\quad w_p(a)=1.
+\]
+that is, $a=1$. Therefore $p$ is maximum. 
+\end{proof}
 
 \section{Admissibility intervals}
 

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743916042.2204 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1743916049.11655 0
+["pdflatex"] 1744010090.40768 "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "build/PatchandHausdorff.pdf" "PatchandHausdorff" 1744010098.25103 0
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1737948772 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -235,10 +235,10 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "PatchandHausdorff.tex" 1743916002 18972 f20f9fe3a7dbe0274427e7feaaee431f ""
-  "build/PatchandHausdorff.aux" 1743916047 2033 a10c7edd4d431ecb5131e7642e76db4e "pdflatex"
-  "build/PatchandHausdorff.out" 1743916047 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1743916002 18972 f20f9fe3a7dbe0274427e7feaaee431f ""
+  "PatchandHausdorff.tex" 1744010076 20239 25b6fd20e5a436a1d4ead43b3f7642f2 ""
+  "build/PatchandHausdorff.aux" 1744010096 2072 d4164b8bc55325fd568cfa444f5d6985 "pdflatex"
+  "build/PatchandHausdorff.out" 1744010096 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1744010076 20239 25b6fd20e5a436a1d4ead43b3f7642f2 ""
   (generated)
   "build/PatchandHausdorff.aux"
   "build/PatchandHausdorff.log"
