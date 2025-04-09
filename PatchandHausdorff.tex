@@ -136,7 +136,7 @@ Y=\{f(x)\mid x\in X\}
 is directed and $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Since $G$ is a open filter, exists $y=f(x)\in Y$ such that $y\in G$. Thus $x\in f_*G$, so that, $f_*G\in A^\wedge$.
 \end{proof}
 
-In \cite{R.S.2}, the autor says that $A\in \mathbf{Frm}$ is \emph{tidy} if for all $F\in A^\wedge$
+In \cite{sexton2003point}, the autor says that $A\in \mathbf{Frm}$ is \emph{tidy} if for all $F\in A^\wedge$
 \[
 x\in F\Rightarrow u_d(x)=d\vee x=1
 \]
@@ -144,7 +144,7 @@ where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA
 
 We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
 
-Simmons proves in \cite{H.S.(V)} (Lamma 8.9 and Corollary 8.10), that the diagram
+Simmons proves in \cite{simmons2004vietoris} (Lamma 8.9 and Corollary 8.10), that the diagram
 \[\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
@@ -314,7 +314,12 @@ Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
 \begin{proof}
 We consider $k\in NA_j$ such that $(A_j)_k$ is compact. Since any open filter is admissible, we have $\nabla(k)\in A_j^\wedge$ and by Proposition \ref{fF} $j_*\nabla(K)\in A^\wedge$.\\
 
-Let $l=j_*\circ  k\circ j^*\in NA$ be, then $A_l$ is a compact quotient of $A$ and exists $a\in A$ such that $l=u_a$.\\
+Let $l=j_*\circ  k\circ j^*\in NA$ be, then $A_l$ is a compact quotient of $A$ and exists $a\in A$ such that $l=u_a$. Thus, we have 
+\[
+\begin{tikzcd}
+	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
+	\end{tikzcd}\]
+and $a\vee x=k(j(x))$. Therefore, if $x=a$, $k(j(x))=a$.\\
 
 We need that $k=u_b$ for some $b\in A_j$. For $x\in A_j$ and $b=j(a)$
 \[
