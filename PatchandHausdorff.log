@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.28)  8 APR 2025 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.28)  9 APR 2025 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -671,6 +671,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--126
  []
 
 
+LaTeX Warning: Citation `sexton2003point' on page 2 undefined on input line 139.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 142--144
 
  []
@@ -679,6 +682,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--144
 Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
+
+
+LaTeX Warning: Citation `simmons2004vietoris' on page 2 undefined on input line 147.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 155--157
@@ -732,34 +738,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 298--301
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 315--318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+Underfull \hbox (badness 10000) in paragraph at lines 323--325
 
  []
 
 
 
 [5]
+
+[6]
 Missing character: There is no r in font eusm10!
 Missing character: There is no m in font eusm10!
 
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--413
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 445--447
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 
  []
 
@@ -769,7 +770,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 445--447
 Missing character: There is no r in font eusm10!
 Missing character: There is no m in font eusm10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--461
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
 
  []
 
@@ -777,28 +778,36 @@ Missing character: There is no r in font eusm10!
 Missing character: There is no m in font eusm10!
 Missing character: There is no r in font eusm10!
 Missing character: There is no m in font eusm10!
+(PatchandHausdorff.bbl
 
+LaTeX Warning: Empty `thebibliography' environment on input line 10.
+
+)
 
 [8] (PatchandHausdorff.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `PatchandHausdorff.out' has not changed.
 (rerunfilecheck)             Checksum: 351171AC24CA1260291009CE78A2B040;967.
  ) 
 Here is how much of TeX's memory you used:
- 25774 strings out of 473522
- 474692 string characters out of 5714609
- 883013 words of memory out of 5000000
- 48316 multiletter control sequences out of 15000+600000
+ 25820 strings out of 473522
+ 476100 string characters out of 5714609
+ 883802 words of memory out of 5000000
+ 48367 multiletter control sequences out of 15000+600000
  583441 words of font info for 108 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 84i,15n,97p,3314b,1016s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,97p,3314b,1051s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/angel/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PatchandHausdorff.pdf (8 pages, 239816 bytes).
+Output written on PatchandHausdorff.pdf (8 pages, 237577 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
