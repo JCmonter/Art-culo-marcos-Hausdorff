@@ -153,7 +153,7 @@ Simmons proves in \cite{simmons2004vietoris} (Lamma 8.9 and Corollary 8.10), tha
 	\arrow["{U_A}", from=1-2, to=2-2]
 	\arrow["{F^\infty}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-commutes laxly, so that, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei asociados to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenucleis $f$ and $F$ respectively.\\
+commutes laxly, so that, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenuclei $f$ and $F$ respectively.\\
 
 We prove something more general here, since we consider the diagram
 \[\begin{tikzcd}
@@ -164,10 +164,10 @@ We prove something more general here, since we consider the diagram
 	\arrow["j", from=1-2, to=2-2]
 	\arrow["{f^\infty}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-where $\hat{f}^\infty$ is the nuclei associated to the filters $j_*F\in A^\wedge$ and $j\in NA$.  
+where $\hat{f}^\infty$ is the nuclei associated to the filter $j_*F\in A^\wedge$ and $j\in NA$.  
 
 \begin{lem}\label{f1f}
-    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
+    For $j$, $f$ and $\hat{f}$ as above, it holds that $j\circ \hat{f}\leq f\circ j$.
 \end{lem}
 \begin{proof}
     By (\ref{Imagenfiltros}) is true that
@@ -239,7 +239,7 @@ By the Corollary \ref{finftyf}, we have that $j\circ \hat{f}^\infty\leq f^\infty
 	\arrow["{(v_F)^*}"', shift right, from=3-1, to=3-3]
 	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
 \end{tikzcd}\]
-Here, $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_+F}$, respectively. The morfism $H\colon A\to A_F$ is defined by $H=v_F\circ j$. Futhermore, $(v_F)_*$ and $(v_{j_*F})_*$ are inclusions.\\
+Here, $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_*F}$, respectively. The morfism $H\colon A\to A_F$ is defined by $H=v_F\circ j$. Futhermore, $(v_F)_*$ and $(v_{j_*F})_*$ are inclusions.\\
 
 Let $h\colon A_{j_*F}\to A_j$ be such that, for $x\in A_{j_*F}$, $h(x)=H(x)$. Therefore, if $h=H_{\mid{A_{j_*F}}}$, then the above diagram commutes.\\
 
@@ -265,15 +265,17 @@ It is enough to check the comparison $h\circ \hat{\bigvee}\leq \tilde{\bigvee}\c
 \[
 h\circ \hat{\bigvee}=H\circ v_{j_*F}\circ \bigvee=v_F\circ j\circ v_{j_*F}\circ \bigvee\leq v_F\circ v_F\circ j\circ \bigvee
 \]
-where the inequality is the Corollary \ref{finftyf}. Futhermore, $v_F\circ v_F=v_F$, Then
+where the inequality is the Corollary \ref{finftyf}. Futhermore, $v_F\circ v_F=v_F$, then
 \[
 h\circ\hat{\bigvee}\leq v_F\circ j\circ \bigvee =H\circ \bigvee=\tilde{\bigvee}\circ H=\tilde{\bigvee}\circ h.
 \]
 Therefore $h\circ\hat{\bigvee}=\tilde{\bigvee}\circ h$.
 \end{proof}
 
-The following is the commutative diagram (mejor: poner que el diagrama conmuta como una prop )
+With this we prove the following.
 
+\begin{prop}\label{VFsquare}
+The diagram
 \[\begin{tikzcd}
 	A & {A_{j_*F}} \\
 	{A_j} & {A_F}
@@ -282,7 +284,10 @@ The following is the commutative diagram (mejor: poner que el diagrama conmuta c
 	\arrow["h", from=1-2, to=2-2]
 	\arrow["{v_F}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-and with this we could analyze some compact quotients, for example, closed compact quotients.
+is commutative.
+\end{prop}
+
+With the above diagram, we could analyze some compact quotients, for example, closed compact quotients.
 
 \begin{dfn}\label{ccquotien}
 Let $A$ be a frame and $F\in A^\wedge$. The compact quotient $A_F$ is closed if $A_F=A_{u_d}$ for some $d\in A$.
@@ -422,16 +427,16 @@ Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\i
 u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
 \end{equation}
 
- Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for \ref{vFwF en a} we have that
+ Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for (\ref{vFwF en a}) we have that
 \begin{equation}\label{vFwF en 0}
 i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
 \end{equation}
 
-For \ref{vFwF en 0}-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for all $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If \ref{vFwF en 0}-$(ii)$ is true, then $u\notin F$, in otherwise 
+For (\ref{vFwF en 0})-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for some $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If (\ref{vFwF en 0})-$(ii)$ is true, then $u\notin F$, in otherwise 
 \[
 u\in F\Rightarrow v_u\leq f \Rightarrow v_u(0)=\neg u\leq f(0)
 \] 
-and this is a contradition. Thus, for the Birkhoff's separation lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
+and this is a contradition. Thus, for the Birkhoff's separation Lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
 \[
 q=\bigvee \{y\in A\mid y\notin G\}
 \]
