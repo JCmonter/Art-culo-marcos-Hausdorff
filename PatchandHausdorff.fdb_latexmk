@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex PatchandHausdorff"] 0 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1745444791.93988 0
+["bibtex PatchandHausdorff"] 0 "PatchandHausdorff.aux" "PatchandHausdorff.bbl" "PatchandHausdorff" 1745444864.78601 0
   "C:/Program Files/MiKTeX/bibtex/bst/amscls/amsalpha.bst" 1591023610 28675 71ba1b1ee8387ac88670b0ea0eb2399a ""
   "PatchandHausdorff.aux" 0 -1 0 "pdflatex"
   "refer.bib" 0 -1 0 ""
@@ -7,7 +7,7 @@
   "PatchandHausdorff.bbl"
   "PatchandHausdorff.blg"
   (rewritten before read)
-["pdflatex"] 1745444789.12605 "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1745444791.94059 0
+["pdflatex"] 1745444862.10747 "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" "PatchandHausdorff.pdf" "PatchandHausdorff" 1745444864.7867 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136793854 2172 fd0c924230362ff848a33632ed45dc23 ""
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136793854 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -66,7 +66,6 @@
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
-  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
@@ -244,11 +243,11 @@
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1684648800 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/angel/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1684648801 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/angel/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1706151760 24215160 14d20017a50056f2c7ac1a0a63ad2d25 ""
-  "PatchandHausdorff.aux" 1745444790 1932 5359e9edb166510dc4394fae7ed0abb0 "pdflatex"
+  "PatchandHausdorff.aux" 1745444863 1977 9e6d9dd1d9b5a47847681b076bd9cffa "pdflatex"
   "PatchandHausdorff.bbl" 1743735761 369 ded9a028cf97511847c2808f8e161cf0 "bibtex PatchandHausdorff"
-  "PatchandHausdorff.out" 1745444790 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
-  "PatchandHausdorff.tex" 1745444788 20754 7c4d7d357623d72de7b9e94e9ef2f665 ""
-  "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1745444788 20754 7c4d7d357623d72de7b9e94e9ef2f665 ""
+  "PatchandHausdorff.out" 1745444863 967 351171ac24ca1260291009ce78a2b040 "pdflatex"
+  "PatchandHausdorff.tex" 1745444861 20764 2ef3913ee245dba99dc94c08e632728e ""
+  "d:/desktop/git/Art-culo-marcos-Hausdorff/PatchandHausdorff.tex" 1745444861 20764 2ef3913ee245dba99dc94c08e632728e ""
   (generated)
   "PatchandHausdorff.aux"
   "PatchandHausdorff.log"
