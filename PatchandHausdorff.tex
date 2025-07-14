@@ -409,40 +409,41 @@ In this way we have a function
 \mho\colon [V_Q, W_Q]\to [V_F, W_F]
 \]
 
-%\begin{prop}\label{Bloqtri}
-%For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
-%
-%\end{prop}
+Lo que sigue es lo que se debe comentar.
+\begin{prop}\label{Bloqtri}
+For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
 
-%\begin{proof}
-%  We know that for all $F\in A^\wedge$ the following holds: $v_F\leq w_F$. As a contradition, suppose that exists $F\in A^\wedge$ such that $w_F\nleq v_F$, that is, exists $a\in A$ such that $w_F(a)\nleq v_F(a)$.\\
+\end{prop}
 
-%  Note that $w_F(a)\neq 1$, otherwise 
-%  \[
-%  1=w_F(a)=\bigwedge \{p\in M\mid a\leq p\}\leq p
-%  \]
-%  and this is a contradition because $p\neq 1$.\\
+\begin{proof}
+  We know that for all $F\in A^\wedge$ the following holds: $v_F\leq w_F$. As a contradition, suppose that exists $F\in A^\wedge$ such that $w_F\nleq v_F$, that is, exists $a\in A$ such that $w_F(a)\nleq v_F(a)$.\\
 
-%Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\in A$ such that
-%\begin{equation}\label{vFwF en a}
-%u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
-%\end{equation}
+  Note that $w_F(a)\neq 1$, otherwise 
+  \[
+  1=w_F(a)=\bigwedge \{p\in M\mid a\leq p\}\leq p
+  \]
+  and this is a contradition because $p\neq 1$.\\
 
-% Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for (\ref{vFwF en a}) we have that
-%\begin{equation}\label{vFwF en 0}
-%i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
-%\end{equation}
+Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\in A$ such that
+\begin{equation}\label{vFwF en a}
+u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
+\end{equation}
 
-%For (\ref{vFwF en 0})-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for some $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If (\ref{vFwF en 0})-$(ii)$ is true, then $u\notin F$, in otherwise 
-%\[
-%u\in F\Rightarrow v_u\leq f \Rightarrow v_u(0)=\neg u\leq f(0)
-%\] 
-%and this is a contradition. Thus, for the Birkhoff's separation Lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
-%\[
-%q=\bigvee \{y\in A\mid y\notin G\}
-%\]
-%the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then $q\in M$ and $u\nleq q$. Hence $u\leq q$, $u\nleq q$ and this is a contradition.
-%\end{proof}
+ Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for (\ref{vFwF en a}) we have that
+\begin{equation}\label{vFwF en 0}
+i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
+\end{equation}
+
+For (\ref{vFwF en 0})-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for some $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If (\ref{vFwF en 0})-$(ii)$ is true, then $u\notin F$, in otherwise 
+\[
+u\in F\Rightarrow v_u\leq f \Rightarrow v_u(0)=\neg u\leq f(0)
+\] 
+and this is a contradition. Thus, for the Birkhoff's separation Lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
+\[
+q=\bigvee \{y\in A\mid y\notin G\}
+\]
+the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then $q\in M$ and $u\nleq q$. Hence $u\leq q$, $u\nleq q$ and this is a contradition.
+\end{proof}
 
 %A consequence of the Proposition \ref{Bloqtri} is that $v_F=w_F$, so that, $A_{v_F}=A_{w_F}$ and $A_{w_F}\simeq \mathcal{O}M\simeq \mathcal{O}Q$. Thus, for all $j\in KA$ we have that $j=v_F$. Then in the Huasdorff case
 %For \ref{vFwF en 0}-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for all $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If \ref{vFwF en 0}-$(ii)$ is true, then $u\notin F$, in otherwise 
