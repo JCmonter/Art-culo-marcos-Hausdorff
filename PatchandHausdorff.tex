@@ -4,7 +4,7 @@
 \usepackage{times}
 \usepackage{amsmath,amssymb,latexsym,amscd}   
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=red,linktocpage=true}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true}
 %\input xypic
 %\xyoption{all}
 \usepackage{graphicx}
@@ -140,11 +140,12 @@ In \cite{sexton2003point}, the autor says that $A\in \mathbf{Frm}$ is \emph{tidy
 \[
 x\in F\Rightarrow u_d(x)=d\vee x=1
 \]
-where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA$ and $0=0_A$ (the reason for the last two clarifications will be understood later).\\
+where $d=d(\alpha)=f^\alpha(0)$, $f=\dot{\bigvee}\{v_y\mid y\in F\}$, $v_y\in NA$ and $0=0_A$ (the reason for the last two clarifications will be understood later a que te refieres).\\
 
-We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
+We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for all 
+$F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
 
-Simmons proves in \cite{simmons2004vietoris} (Lamma 8.9 and Corollary 8.10), that the diagram
+In \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} the author shows, that the diagram
 \[\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
@@ -153,7 +154,7 @@ Simmons proves in \cite{simmons2004vietoris} (Lamma 8.9 and Corollary 8.10), tha
 	\arrow["{U_A}", from=1-2, to=2-2]
 	\arrow["{F^\infty}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-commutes laxly, so that, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenuclei $f$ and $F$ respectively.\\
+commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenuclei $f$ and $F$ respectively.\\
 
 We prove something more general here, since we consider the diagram
 \[\begin{tikzcd}
@@ -290,6 +291,7 @@ is commutative.
 HAY QUE PONER LA PRUEBA
 With the above diagram, we could analyze some compact quotients, for example, closed compact quotients.
 
+%ESTA DEFINICION ES OBSOLETA%
 \begin{dfn}\label{ccquotien}
 Let $A$ be a frame and $F\in A^\wedge$. The compact quotient $A_F$ is closed if $A_F=A_{u_d}$ for some $d\in A$.
 \end{dfn}
@@ -317,7 +319,7 @@ Therefore if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
     If $A$ has KC, then $A_j$ has KC for every $j\in N(A).$
 \end{prop}
 
-\begin{proof}
+\begin{proof} %HAY que redactyar mejor la prueba%
 We consider $k\in NA_j$ such that $(A_j)_k$ is compact. 
 Since any open filter is admissible, we have $\nabla(k)\in A_j^\wedge$ 
 and by Proposition \ref{fF} $j_*\nabla(K)\in A^\wedge$.\\
@@ -359,13 +361,13 @@ for $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ is a filter completely pri
 \[
 u_p(a)=a\quad \mbox{and}\quad w_p(a)=1.
 \]
-that is, $a=1$. Therefore $p$ is maximum. 
+that is, $a=1$. Therefore $p$ is maximal. 
 \end{proof}
 
 \section{Admissibility intervals}
 
 The block structure on a frame is an important problem and its related with some separation properties of frames.
-
+%ESTO SE USA ???????????????%
 \begin{prop}\label{morfismo}
 For $F\in A^\wedge$ and $Q\in\mathcal{Q}S$, if $j\in [v_Q, w_Q]$, then $U_*jU^*\in [v_F, w_F]$, where $U^*$ is the morfism spatial reflection $U_*$ is the right adjoint.
 \end{prop}
@@ -410,40 +412,40 @@ In this way we have a function
 \]
 
 Lo que sigue es lo que se debe comentar.
-\begin{prop}\label{Bloqtri}
-For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
+%\begin{prop}\label{Bloqtri}
+%For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
 
-\end{prop}
+%\end{prop}
 
-\begin{proof}
-  We know that for all $F\in A^\wedge$ the following holds: $v_F\leq w_F$. As a contradition, suppose that exists $F\in A^\wedge$ such that $w_F\nleq v_F$, that is, exists $a\in A$ such that $w_F(a)\nleq v_F(a)$.\\
+%\begin{proof}
+ % We know that for all $F\in A^\wedge$ the following holds: $v_F\leq w_F$. As a contradition, suppose that exists $F\in A^\wedge$ such that $w_F\nleq v_F$, that is, exists $a\in A$ such that $w_F(a)\nleq v_F(a)$.\\
 
-  Note that $w_F(a)\neq 1$, otherwise 
-  \[
-  1=w_F(a)=\bigwedge \{p\in M\mid a\leq p\}\leq p
-  \]
-  and this is a contradition because $p\neq 1$.\\
+  %Note that $w_F(a)\neq 1$, otherwise 
+  %\[
+  %1=w_F(a)=\bigwedge \{p\in M\mid a\leq p\}\leq p
+  %\]
+  %and this is a contradition because $p\neq 1$.\\
 
-Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\in A$ such that
-\begin{equation}\label{vFwF en a}
-u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
-\end{equation}
+%Then $1\neq w_F(a)\nleq v_F(a)$ and for the property ($\mathbf{H}$), exists $u\in A$ such that
+%\begin{equation}\label{vFwF en a}
+%u\nleq w_F(a)\quad \mbox{ and }\quad \neg u \nleq v_F(a)
+%\end{equation}
 
- Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for (\ref{vFwF en a}) we have that
-\begin{equation}\label{vFwF en 0}
-i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
-\end{equation}
+ %Due to monotony, $w_F(0)\leq w_F(a)$ and $v_F(0)\leq v_F(a)$- Thus, for (\ref{vFwF en a}) we have that
+%\begin{equation}\label{vFwF en 0}
+%i)\,u\nleq w_F(0)\quad \mbox{ and }\quad ii)\,\neg u\nleq v_F(0).
+%\end{equation}
 
-For (\ref{vFwF en 0})-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for some $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If (\ref{vFwF en 0})-$(ii)$ is true, then $u\notin F$, in otherwise 
-\[
-u\in F\Rightarrow v_u\leq f \Rightarrow v_u(0)=\neg u\leq f(0)
-\] 
-and this is a contradition. Thus, for the Birkhoff's separation Lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
-\[
-q=\bigvee \{y\in A\mid y\notin G\}
-\]
-the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then $q\in M$ and $u\nleq q$. Hence $u\leq q$, $u\nleq q$ and this is a contradition.
-\end{proof}
+%For (\ref{vFwF en 0})-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for some $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If (\ref{vFwF en 0})-$(ii)$ is true, then $u\notin F$, in otherwise 
+%\[
+%u\in F\Rightarrow v_u\leq f \Rightarrow v_u(0)=\neg u\leq f(0)
+%\] 
+%and this is a contradition. Thus, for the Birkhoff's separation Lemma, exists a completely prime filter $G$ such that $u\notin G\supseteq F$. We take
+%\[
+%q=\bigvee \{y\in A\mid y\notin G\}
+%\]
+%the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, then $q\in M$ and $u\nleq q$. Hence $u\leq q$, $u\nleq q$ and this is a contradition.
+%\end{proof}
 
 %A consequence of the Proposition \ref{Bloqtri} is that $v_F=w_F$, so that, $A_{v_F}=A_{w_F}$ and $A_{w_F}\simeq \mathcal{O}M\simeq \mathcal{O}Q$. Thus, for all $j\in KA$ we have that $j=v_F$. Then in the Huasdorff case
 %For \ref{vFwF en 0}-$(i)$ is true that $u\nleq \bigwedge M$, in particular, $u\nleq p$ for all $p\in M$. Therefore, $\neg u\leq p$ and $\neg u\leq w_F(0)$. If \ref{vFwF en 0}-$(ii)$ is true, then $u\notin F$, in otherwise 
@@ -500,12 +502,35 @@ the point corresponding to $G$. Thus, $u\notin G$, $u\leq q$. If $q\notin F$, th
 %\begin{prop}\label{Himplies pt}
 %Every Hausdorff frame $A$ (in the sense of Johnstone and Shou) is tidy, that is, $A$ is patch trivial. 
 %\end{prop}
-EJEMPLOS DE marcos ptrivial que no sean KC
+
+\begin{thm}\label{haus1}
+Let $A\in\EuScript{Hrm}rm$ then for every $F\in A^{\wedge}$ then for the  corresponding $\mathcal{Q}$ compact saturated we have \[\mathcal{O}\mathcal{Q}\cong\uparrow\mathcal{Q}'\], that is,
+the frame of opens of the point space of $A_{F}$ is isomorphic to a compact closed quotient of a Hausdorff space.
+\end{thm}
+%AUN NO ME GUSTA COMO ESTA REDACTADO ESTO%
+
+
+\begin{proof}
+
+
+
+\end{proof}
+
+EJEMPLOS DE marcos pt que no sean KC
 
 HAY que COMENTAR LAS COSAS QUE ESTAN MAL comentar me refiero a ponerlas entre 
 
 %%
 	
+
+
+
+Trivially {\rm KC} implies patch trivial (or equivalently tidy) we want some converse of this fact.
+
+
+
+
+
 
 Following articulo de igor.,
 
@@ -515,56 +540,26 @@ that is to said for every point $p$ the nucleus ${\rm w}_{p}$ is alone is tis bl
 
 \end{dfn}
 
+\begin{dfn}\label{KQ}
+Let $A$ be a frame a nucleus $k$ on $A$ it said to be \emph{kq} if $A_{j}$ is a compact frame. 
+\end{dfn}
+
+\begin{dfn}\label{KCH}
+	A frame $A$ is \emph{Compact closed Hausdorff} ({\rm KCH} for short) is every compact quotient of $A$ is closed and Hausdorff.
+\end{dfn}
 
 
 
+Denote by $\mathfrak{Q}A=\{kq\text{ fitted nuclei }\}=\{v_{F}\mid F\in A^{\wedge}\}$
+
+\cite{escardo2001regular} \cite{escardo2006compactly}
 
 
 
-
-
-
-AQUI LA BIBLIO EN BIBTEX O BIBLATEX
 
 
 \bibliographystyle{amsalpha}
-%\begin{thebibliography}{99}
-	%\bibitem{D.P.} C. H. Dowker; D. Strauss, \textit{Separation axioms for frames}, Topics in Topology, pp. 223–240. Proc. Colloq., Keszthely, 1972. Colloq. Math. Soc. Janos Bolyai, vol. 8, North-Holland, Amsterdam, 1974.
-  
-	%\bibitem{Ib.} J. R. Isbell, \textit{Atomless parts of spaces}, Math. Scand. 31 (1972) 5–32.
-  
-	%\bibitem{P.T.} Johnstone, P. T. (1982). Stone spaces (Vol. 3). Cambridge university press.
-  
-	%\bibitem{J.S.} P. T. Johnstone; S.-H. Sun, \textit{Weak products and Hausdorff locales}, Categorical Algebra and its Applications, pp. 173–193. Lecture Notes in Mathematics, vol. 1348. Springer-Verlag, Berlin, 1988.
-  
-	%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
-  
-	%\bibitem{P.S.}J. Paseka; B. Šmarda, \textit{T2-frames and almost compact frames}, Czechoslovak Math. J. 42 (1992) 297–313.
-	
-	%\bibitem{J.P.} Picado, J., Pultr, A. (2011). Frames and Locales: topology without points. Springer Science and Business Media.
-	
-	%\bibitem{J.P.2} Picado, J., Pultr, A. (2021). Separation in point-free topology. Switzerland: Birkhäuser.
-	
-	%\bibitem{Ro.S.} J. Rosický; B. Šmarda, \textit{T1-locales}, Math. Proc. Cambridge Philos. Soc. 98 (1985) 81–86.
-	
-	%\bibitem{R.S.} RA. Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
-  
-	%\bibitem{R.S.2} Sexton, R. A., Simmons, H. (2006). An ordinal indexed hierarchy of separation properties. In Topology Proc (Vol. 30, No. 2, pp. 585-625).
 
-	%\bibitem{R.S.3} Sexton, R. A., Simmons, H. (2006). Point-sensitive and point-free patch constructions. Journal of Pure and Applied Algebra, 207(2), 433-468.
-	  
-	%\bibitem{H.S.3} H. Simmons, \textit{The assembly of a frame}, University of Manchester (2006).
-  
-	%\bibitem{H.W.} H. Wallman, \textit{Lattices and topological spaces}, Ann. Math. 39 (1938) 112–126.
-	
-	%\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2024. Universidad de Guadalajara.
-
-	%\bibitem{H.S.(V)} Simmons, H. (2004). The Vietoris modifications of a frame. Unpublished manuscript, 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
-
-	%\bibitem{W.A.} Wilansky, A. (1967). Between T1 and T2, this MONTHLY.
-
-%\end{thebibliography}
-%\bibliography{refer} 
 \bibliography{research2}
 
 \end{document}

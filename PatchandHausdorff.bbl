@@ -7,6 +7,15 @@
 \providecommand{\href}[2]{#2}
 \begin{thebibliography}{Sim04}
 
+\bibitem[Esc01]{escardo2001regular}
+Mart{\i}n~H{\"o}tzel Escard{\'o}, \emph{The regular-locally compact
+  coreflection of a stably locally compact locale}, Journal of Pure and Applied
+  Algebra \textbf{157} (2001), no.~1, 41--55.
+
+\bibitem[Esc06]{escardo2006compactly}
+Mart{\'\i}n~H Escard{\'o}, \emph{Compactly generated hausdorff locales}, Annals
+  of Pure and Applied Logic \textbf{137} (2006), no.~1-3, 147--163.
+
 \bibitem[Sex03]{sexton2003point}
 Rosemary~A Sexton, \emph{A point-free and point-sensitive analysis of the patch
   assembly}, The University of Manchester (United Kingdom), 2003.
