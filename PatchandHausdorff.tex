@@ -542,14 +542,15 @@ that is, to said for every point $p$ the nucleus ${\rm w}_{p}$ is alone in its b
 
 %QUIERO UN TEOREMA TIPO FIT Y SUBFIT PARA p-fit frames%
 
-for each $p\in\pt(A)$, the nucleus ${\rm w}_{p}$ is the largest memeber of his block, that is,
+In general for each $p\in\pt(A)$, the nucleus ${\rm w}_{p}$ is the largest memeber of his block, that is,
 \[[v_{\mathcal{P}},{\rm w}_{p}]\] the corresponding block, here $\mathcal{P}=\{x\in A\mid x\nleq p\}$ 
-in this case we know how to calculate \[v_{\mathcal{P}}.\]
+in this case we know how to calculate \[v_{\mathcal{P}}.\] using the prenucleus $f_{\mathcal{P}}$
 we know that \[v_{\mathcal{P}}=f_{\mathcal{P}}^{\infty}=(\dot{\bigvee}\{{\rm v}_{x}\mid x\in\mathcal{P}\})^{\infty}\]
 moreover:
 
 \[
-f_{\mathcal{P}}(x)=\left\{\begin{array}{lcc}
+f_{\mathcal{P}}(x)=\left\{
+	\begin{array}{lcc}
 1 & \mbox{ si } & x\nleq p\\
 \\
 \leq p & \mbox{ si } & x\leq p
@@ -560,15 +561,18 @@ for $x\in A$.
 
 and in fact ${\rm w_{p}}=u_{p}\vee v_{\mathcal{P}}=f_{\mathcal{P}}\circ u_{p}$. If ${\rm w_{p}}$ is fitted, that is, \[{\rm w_{p}}=v_{\mathcal{P}}\]
 
-then one need to have $u_{p}\leq v_{\mathcal{P}}$ then \[\]
+then one need to have $u_{p}\leq v_{\mathcal{P}}$ then \[p\leq v_{\mathcal{P}}(0)\] by the equation of $f_{\mathcal{P}}$ we have \[0\leq\ldots\leq f_{\mathcal{P}}^{\alpha}(0)\leq\ldots\leq\]
 
 
 \begin{prop}\label{pfitequiv}
-Let $A$ be a frame
+Let $A$ be a frame for each $p\in\pt(A)$ the following are equivalent:
  \begin{itemize}
-\item[(i)]
-\item[(ii)]
-\item[(iii)]   
+\item[(i)] ${\rm w}_{p}$ is fitted.
+\item[(ii)] ${\rm w}_{p}$ is alone in its block.
+\item[(iii)] $u_{p}\leq v_{\mathcal{P}}$.
+\item[(iv)] $u_{p}\leq f_{\mathcal{P}}$.
+\item[(v)] $f_{\mathcal{P}}\circ u_{p}=v_{\mathcal{P}}$.
+\item[(vi)] aqui debe de ir una formula de primer de orden.
  \end{itemize}
 \end{prop}	
 
