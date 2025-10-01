@@ -31,16 +31,18 @@
 \newcommand{\niton}{\not\owns}
 
 \theoremstyle{plain}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{theorem*}{Teorema}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposición}
 
 \theoremstyle{definition}
-\newtheorem{dfn}[thm]{Definition}
-\newtheorem{obs}[thm]{Remark}
-\newtheorem{ej}[thm]{Example}
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{ej}[thm]{Ejemplo}
+
+\renewcommand{\proofname}{Demostración}
   %%
     %\providecommand{\corollaryname}{Corollary}
   %\providecommand{\examplename}{Example}
@@ -275,7 +277,7 @@ siguiente.
     Se sigue del hecho de que la propiedad Hausdorff es conservativa y por el Teorema 8.4.4 de \cite{sexton2006point}
 \end{proof}
 
-La eficiencia es una propiedad más fuerte que ser $T_1$. La pregunta natural que surge es ¿Resulta ser más fuerte que $T_2$ (o las propiedades tipo Hausdorff en $\Frm$)?
+La eficiencia es una propiedad más fuerte que ser $T_1$. La pregunta natural que surge es ¿resulta ser más fuerte que $T_2$ (o las propiedades tipo Hausdorff en $\Frm$)?
 
 %\begin{prop}
  %   Todo marco Hausdorff es arreglado.
@@ -394,14 +396,15 @@ Por lo tanto, si $x\in F$, entonces $d\vee x=1$ y $A_j$ es eficiente.
 \end{proof}
 
 \begin{dfn}\label{KC y KCH}
+Sea $A\in \Frm$ decimos que $A$ es:
 \begin{enumerate}
-    \item Decimos que un marco es $KC$ si cada cociente compacto es cerrado.
+    \item $KC$ si cada cociente compacto es cerrado.
 
-    \item Decimos que un marco es \emph{Hausdorff cerrado compacto} (o $KCH$ de manera abreviada) si cada cociente compacto de $A$ es cerrado y Hausdorff.
+    \item \emph{Hausdorff cerrado compacto} (o $KCH$ de manera abreviada) si cada cociente compacto de $A$ es cerrado y Hausdorff.
 \end{enumerate}
 \end{dfn}
 
-En otras palabras, la Definición \ref{KC y KCH} nos dice que si $j\in NA$, entonces $j\in \mathfrak{C}A$. De manera adicional, para $2)$ pedimos que $A_j$ cumpla la propiedad $\mathbf{(H)}$.\\
+En otras palabras, la Definición \ref{KC y KCH} nos dice que si $j\in NA$, entonces $\nabla(j)\in A^\wedge$ y $j=u_a$ para algún $a\in A$. De manera adicional, para $2)$ pedimos que $A_j$ cumpla la propiedad $\mathbf{(H)}$.\\
 
 \subsection{Propiedades de los marcos $KC$}
 
@@ -471,6 +474,9 @@ Las siguientes afirmaciones son ciertas:
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
 aquellos núcleos que producen cociente compacto y cerrado.\\
 
+Lo presentado en esta sección es una generalización de lo hecho por Escardó en \cite{escardo2006compactly}. En este caso, el lugar de utilizar la propiedad
+$\mathbf{(fH)}$, usamos la eficiencia (o $KC$ cuando sea necesario).
+
 \begin{dfn}\label{Definicion2.1}
 Para $A\in \Frm$ y $j\in NA$, decimos que $j$ es $kq$ (por cociente compacto) si $A_j$ es compacto.  
 \end{dfn}
@@ -539,8 +545,8 @@ KCH\Rightarrow KC\Rightarrow \mbox{Eficiente}.
         \item $\mathfrak{c}A$ es una sección superior.
         \item Si $X\subseteq \mathfrak{c}A$, entonces $\bigvee X\in \mathfrak{c}A$ y si $c, c'\in \mathfrak{c}A$ entonces $(c\succ c')\in \mathfrak{c}A$.
         \item Si $c, c'\in \mathfrak{c}A$, entonces $c\wedge c'\in \mathfrak{c}A$.
-        \item $\mathfrak{c}A\subseteq A$ es un submarco.
-        \item $\mathfrak{c}A$ es un premarco compacto de $A$ con implicación.
+        \item $\mathfrak{c}A\subseteq A$ es un premarco con implicación.
+        \item $\mathfrak{c}A$ es un premarco compacto.
     \end{enumerate}
 \end{lem}
 
@@ -674,9 +680,9 @@ Los siguientes resultados son consecuencias del Lema \ref{Lema2.7}.
         \item $\alpha_A$ es un isomorfismo.
         \item Si $j\in \mathfrak{K}A$, $j$ es ajustado.
         \item Para todo $c\in \mathfrak{c}A$ y $d, d'\in A_{u_c}$
-        \begin{equation}\label{saju}
+        \[
             d\leq d'\Leftrightarrow \nabla(u_d)\subseteq \nabla(u_{d'}).
-        \end{equation}
+        \]
     \end{enumerate}
 \end{cor}
 
@@ -734,7 +740,7 @@ Además, si el marco $A$ es eficiente $\mathfrak{C}A\simeq \mathfrak{Q}A$. Enton
 donde $\hat{\alpha}(j)=\nabla(j)$
 
 
-\subsection{La construcción del límite} 
+\subsection{Algunos núcleos de $N\mathfrak{c}A$} 
 
 Consideremos $A\in \Frm$ y $a, b\in A$. Sabemos que $a\prec b$ si y solo si existe $x\in A$ tal que $a\wedge x=0$ y $c\vee c=1$. En otras palabras, para $x=\neg a$, $x\vee b=1$.
 
@@ -767,7 +773,7 @@ c\mapsto A_{u_c}\quad \mbox{ y }\quad c\leq d\mapsto i_{dc}
 \]
 son la asignación en objetos y flechas, respectivamente.\\
 
-Consideremos un cono sobre $F$ dado por $(\mathfrak{Nc}A, \{\pi_c\colon \mathfrak{Nc}A\to A_{u_c}\}_{c\in \mathfrak{c}A})$. De manera similar que en la categoría de conjuntos, 
+Consideremos un cono sobre $F$ dado por $(\hat{A}, \{\pi_c\colon \hat{A}\to A_{u_c}\}_{c\in \mathfrak{c}A})$. De manera similar que en la categoría de conjuntos, 
 \[
 \prod_{c\in \mathfrak{c}A}F(c)=\prod_{c\in \mathfrak{c}A}A_{u_c}=\{j\colon \mathfrak{c}A\to \bigcup A_{u_c}\mid j(c)\in A_{u_c}\}
 \]
@@ -779,14 +785,14 @@ j\in \prod_{c\in \mathfrak{c}A}A_{u_c} \Leftrightarrow c\leq j(c).
 Además, si $c\leq j(c)$ entonces $\pi_c(j)=j(c)=c\vee j(c)$, es decir, para $c\leq d$, $j(d)=i_{dc}(j(c))=d\vee j(c)$ y $j\colon \mathfrak{c}A\to \mathfrak{c}A$. Por lo tanto
 \begin{equation}\label{compatibilidad}
 \begin{split}
-\mathfrak{Nc}A&=\{j\in \prod_{c\in \mathfrak{c}A}A_{u_c}\mid j(d)=i_{dc}(j(c))\}\\
+\hat{A}&=\{j\in \prod_{c\in \mathfrak{c}A}A_{u_c}\mid j(d)=i_{dc}(j(c))\}\\
 &=\{j\colon \mathfrak{c}A\to \mathfrak{c}A\mid j(c)\in A_{u_c}\}
 \end{split}
 \end{equation}
 para todo $c\leq d$. 
 
 \begin{prop}\label{Flimite}
-    Si $c\leq d\in \mathfrak{c}A$, entonces $\mathfrak{Nc}A$ es un cono límite sobre $F$.
+    Si $c\leq d\in \mathfrak{c}A$, entonces $\hat{A}$ es un cono límite sobre $F$.
 \end{prop}
 
 \begin{proof}
@@ -795,41 +801,41 @@ para todo $c\leq d$.
     \[
     i_{dc}\circ \pi_c(j)=i_{dc}(j(c))= d\vee j(c)=j(d)= \pi_d(j),
     \]
-es decir, los triángulos del cono conmutan. Por lo tanto, $\mathfrak{Nc}A$ es un cono sobre $F$.
+es decir, los triángulos del cono conmutan. Por lo tanto, $\hat{A}$ es un cono sobre $F$.
 
-\item Sea $(Y,\{f_c\colon Y\to A_{u_c}\}_{c\in C_A})$ cualquier otro cono sobre $F$, esto es,
+\item Sea $(Y,\{f_c\colon Y\to A_{u_c}\}_{c\in \mathfrak{c}A})$ cualquier otro cono sobre $F$, esto es,
 para todo $c\le d$ se cumple $i_{dc}\circ f_c=f_d$. 
-Consideremos el morfismo $u:Y\to \lim F$ definido por
+Consideremos el morfismo $u:Y\to \hat{A}$ definido por
 \[
-(u(y))(c)=f_c(y)\qquad (y\in Y,\ c\in C_A).
+(u(y))(c)=f_c(y)\qquad (y\in Y,\ c\in \mathfrak{c}A).
 \]
 Primero vemos que $u(y)\in\lim F$ para cada $y\in Y$. Si $c\le d$, entonces
 \[
 (u(y))(d)=f_d(y)=(i_{dc}\circ f_c)(y)=i_{dc}(f_c(y))
 =d\vee(u(y))(c),
 \]
-y por (\ref{compatibilidad}), $u(y)\in \mathfrak{Nc}A.$.
+y por (\ref{compatibilidad}), $u(y)\in \hat{A}.$
 
 Además, por definición de $u$ y de las proyecciones, para cada $c$ se tiene
 \[
 \pi_c\circ u \;=\; f_c,
 \]
-de modo que $u$ es un morfismo de conos $(Y\to \mathfrak{Nc}A)$. Veamos que $u$ es único.\\
+de modo que $u$ es un morfismo de conos $(Y\to \hat{A})$. Veamos que $u$ es único.\\
 
-Si $v\colon Y\to \mathfrak{Nc}A$ es otro morfismo de conos con 
-$\pi_c\circ v = f_c$ para todo $c$, entonces para todo $y\in Y$ y $c\in C_A$,
+Si $v\colon Y\to \hat{A}$ es otro morfismo de conos con 
+$\pi_c\circ v = f_c$ para todo $c$, entonces para todo $y\in Y$ y $c\in\mathfrak{c}A$,
 \[
 (v(y))(c)=\pi_c(v(y))=f_c(y)=(u(y))(c).
 \]
 De aquí que $v(y)=u(y)$ para todo $y$, luego $v=u$.
 \end{enumerate}
-Por lo tanto $\mathfrak{Nc}A$ satisface la propiedad universal del cono límite.
+Por lo tanto $\hat{A}$ satisface la propiedad universal del cono límite.
 \end{proof}
 
 \begin{lem}\label{Lema3.1}
     Para cualquier $A\in \Frm$ y cada función $j\colon \mathfrak{c}A\to \mathfrak{c}A$ las siguientes son equivalentes:
     \begin{enumerate}
-        \item $j\in \mathfrak{Nc}A$.
+        \item $j\in \hat{A}$.
         \item $j(d)=j(c)\vee d$ para todo $d\geq c\in \mathfrak{c}A$.
         \item $j(c\vee a)=j(c)\vee a$ para todo $c\in \mathfrak{c}A$ y $a\in A$.
         \item $j(c\vee e)=j(c)\vee e$ para todo $c, e\in \mathfrak{c}A$.
@@ -838,7 +844,7 @@ Por lo tanto $\mathfrak{Nc}A$ satisface la propiedad universal del cono límite.
 
 \begin{proof}
     \begin{description}
-        \item[$1)\Leftrightarrow 2)$] Se cumple por la construcción de $\mathfrak{Nc}A$.
+        \item[$1)\Leftrightarrow 2)$] Se cumple por la construcción de $\hat{A}$.
         \item[$2)\Rightarrow 3)$] Tomando $c\leq d=c\vee a$, $d\in \mathfrak{c}A$, pues $\mathfrak{c}A$ es una sección superior. De esta manera, por $2)$
         \[
         j(d)=j(c)\vee d=j(c)\vee c\vee a=j(c)\vee a,
@@ -850,11 +856,11 @@ Por lo tanto $\mathfrak{Nc}A$ satisface la propiedad universal del cono límite.
 \end{proof}
 
 \begin{lem}\label{Lema3.3}
-    Para $A\in \Frm$ si $j\in \mathfrak{Nc}A$, entonces $j$ es un núcleo en $\mathfrak{c}A$.
+    Para $A\in \Frm$ si $j\in \hat{A}$, entonces $j$ es un núcleo en $\mathfrak{c}A$.
 \end{lem}
 
 \begin{proof}
-    Verifiquemos que $j\in \mathfrak{Nc}A$ cumple las condiciones de núcleo.
+    Verifiquemos que $j\in \hat{A}$ cumple las condiciones de núcleo.
     \begin{enumerate}
         \item Por construcción, $c\leq j(c)$, es decir, $j$ infla.
         \item Notemos que para $d=j(c)$, entonces $j(d)=j(j(c))=j(c)\vee j(c)=j(c)$. Por lo tanto $j$ es idempotente.
@@ -922,7 +928,7 @@ j\!\Big(\bigvee X\Big)\;=\;\bigvee j[X].
 \begin{thm}\label{Teorema3.4}
     Para $A$ un marco Hausdorff y cualquier núcleo $j\colon \mathfrak{c}A\to \mathfrak{c}A$ las siguientes son equivalentes
     \begin{enumerate}
-        \item $j\in \mathfrak{Nc}A$.
+        \item $j\in \hat{A}$.
         \item $j$ preserva supremos no vacíos.
         \item $j$ es Scott-continuo.
         \item $\nabla(j)\in \mathfrak{c}A^\wedge$.
