@@ -116,7 +116,7 @@ Hoffman-Mislove can be rephrase:
 	A frame has $\mathrm{KC}$ if every compact quotient of $A$ is a closed one. In other words every compact sublocale is closed.
 \end{dfn}
 	
-Denote by $\EuScript{Hrm}rm$ the subcategory of $Frm$ of Hausdorff frames, that is, $A\in\EuScript{Hrm}rm$ if and only if: 
+Denote by $\EuScript{Hrm}$ the subcategory of $Frm$ of Hausdorff frames, that is, $A\in\EuScript{Hrm}$ if and only if: 
 
 
 \begin{dfn}\label{Efficient}
@@ -152,15 +152,20 @@ We want translate this same notion, but for $A_j$ when $j\in NA$, so that, for a
 $F\in A_j^\wedge$, if $x\in F$ then $d\vee x=1$, with $d$ similar to before, because for this case we have that $v_y\in NA_j$ and $0_{A_j}=j(0)$.\\
 
 In \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} the author shows, that the diagram
-\[\begin{tikzcd}
+\[
+\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
 	\arrow["{f^\infty}", from=1-1, to=1-2]
 	\arrow["{U_A}"', from=1-1, to=2-1]
 	\arrow["{U_A}", from=1-2, to=2-2]
 	\arrow["{F^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $U_A$ is the spatial reflection morphism, $f^\infty$ and $F^\infty$ represent the associated nuclei to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenuclei $f$ and $F$ respectively.\\
+\end{tikzcd}
+\]
+commutes laxly, that is, \[U_A\circ f^\infty\leq F^\infty \circ U_A.\] 
+In this diagram $U_A$ is the spatial reflection morphism, 
+$f^\infty$ and $F^\infty$ represent the associated nuclei to the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$. 
+Also $f^\infty$ and $F^\infty$ are idempotent closeds associated to the prenuclei $f$ and $F$ respectively.
 
 We prove something more general here, since we consider the diagram
 \[\begin{tikzcd}
@@ -665,18 +670,63 @@ Denote by $\mathfrak{f}A=\{kq\text{ fitted nuclei }\}=\{v_{F}\mid F\in A^{\wedge
 
 denote by $\mathfrak{C}A=\{a\in A\mid {\rm u}_{a}\in\mathfrak{K}A\}$
 
+\section{The pro-compact fit completion of a frame}
 
 
 
+Here we are going to construct the pro-compact fit completion of a frame $A$. 
 
-\cite{escardo2001regular} \cite{escardo2006compactly}
+This construction is similar to the pro-compact closed completion of a frame, 
+
+but here we consider only compact fitted quotients.
 
 
-\cite{sexton2006point}
+
+Firs we consider the family 
+\[\{A\rightarrow A_{F}\mid v_{F}\in\mathfrak{f}A\}\] of compact fitted quotients of $A$.
+
+
+Denote by $F^{*}\colon A\rightarrow A_{F}$ the canonical morphism to the compact fitted quotient, that is,
+
+\[F^{*}(a)=v_{F}(a)\;\;\forall a\in A\]
+
+
+If $v_{F}\leq v_{G}$
+
+
+\[
+\begin{tikzcd}
+   & A \arrow[dl, "v_{F}^{*}"'] \arrow[dr] & \\
+   A_{F} \arrow[rr, "(FG)"'] & &  A_{G}
+\end{tikzcd}
+\]
+
+
+where $(FG)(v_{F}(a))=v_{G}(a)$ for all $a\in A$.
+
+this cones have a limit in the category of frames, denote by $\hat{A}$ this limit and by 
+
+$\pi_{F}\colon \hat{A}\rightarrow A_{F}$ the canonical projection for each $F$.
+
+thus in particular we have a unique morphism $\gamma\colon A \rightarrow \hat{A}$ such that 
+the follwing diagram commutes
+
+$\pi_{F}\circ \gamma=v_{F}^{*}$ for all $F$.
+
+
+\[\begin{tikzcd}
+ & & A\ar[rr] \ar[dr]  &  \hat{A} \ar[dl] & \\
+& &   A_{F}
+\end{tikzcd}
+\]
+
+
+As shown in \cite{escardo2001regular}, ...
+
+
 
 
 \bibliographystyle{amsalpha}
-
 \bibliography{research2}
 
 \end{document}
