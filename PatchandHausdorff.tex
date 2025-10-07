@@ -714,14 +714,25 @@ the follwing diagram commutes
 $\pi_{F}\circ \gamma=v_{F}^{*}$ for all $F$.
 
 
-\[\begin{tikzcd}
- & & A\ar[rr] \ar[dr]  &  \hat{A} \ar[dl] & \\
-& &   A_{F}
+\[
+\begin{tikzcd}
+   A\ar[rr, "\gamma"] \ar[rd, "v_{F}^{*}"']  &  & \hat{A} \ar[ld, "\pi_{F}"]\\
+                 & A_{F} &
 \end{tikzcd}
 \]
 
 
-As shown in \cite{escardo2001regular}, ...
+The morphism $\gamma\colon A\rightarrow \hat{A}$ is given by \[\gamma(a)\colon\mathfrak{f}A\rightarrow \bigcup_{F\in\mathfrak{f}A} A_{F}\] therefore $\gamma(a)(F)=v_{F}(a)$
+
+the left adjoint of $\gamma$ is given by \[\gamma_{*}(f)=\bigvee\{a\in A\mid \gamma(a)\leq f\}\]
+
+\[\gamma(a)\leq f\Leftrightarrow a\leq\gamma_{*}(f)\]
+
+note that if  $f\in\hat{A}$ then for a $v_{F}$ we have $f(v_{F})\in A_{F}$ thus $f(v_{F})=v_{F}(x)$ for some $x\in A$, therefore \[f(v_{F})=v_{F}(x)=\gamma(x)(v_{F})\]  
+
+
+
+As shown in \cite{escardo2001regular}
 
 
 
