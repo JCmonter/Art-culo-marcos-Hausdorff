@@ -478,6 +478,118 @@ Para verificar la prueba del hecho antes mencionado seguiremos el siguiente cami
     \item Si $\{A_i\}_{i\in I}$ es una familia de marcos eficientes, entonces $\bigoplus_{i\in I} A_i$ es eficiente.
 \end{enumerate}
 
+Recordemos que para $A, B\in \Frm$, $A\oplus B$ está dado por 
+\[
+A\oplus B=\mathcal{D}(A\times B)/\sim
+\]
+donde $[U]$ representa un elemento de $A\oplus B$, donde $\downarrow U\in \mathcal{D}(A\times B)$ y los generadores básicos
+están dados por $a\oplus b=[\downarrow (a, b)]$, donde $a\in A$ y $b\in B$. La relación $\sim$ está dada por todos los elementos
+\[
+(\bigcup_{i\in I} \downarrow (a_i, b))\sim (\downarrow (\bigvee_{i\in I} a_i, b))\quad \mbox{ y }\quad (\bigcup_{i\in J} \downarrow (a, b_j))\sim (\downarrow (a, \bigvee_{j\in J} b_j))
+\]
+tales que 
+\[
+(\bigcup_{i\in I} \downarrow (a_i, b))\leq (s, s')\Leftrightarrow (\downarrow (\bigvee_{i\in I} a_i, b))\leq (s,s')
+\]
+y
+\[
+\quad (\bigcup_{i\in J} \downarrow (a, b_j))\leq (s, s')\Leftrightarrow (\downarrow (a, \bigvee_{j\in J} b_j))\leq (s, s')
+\]
+para $a, a_i, s\in A$ y $b, b_i, s'\in B$.\\
+
+\textbf{¿Qué es un filtro abierto en $A\oplus B$?}
+
+Sabemos que el conjunto $\mathcal{D}(A\times B)$ dotado con el orden dado por la inclusión y las operaciones
+\[
+\bigvee_i U_i=\bigcup_i U_i\quad \mbox{ y }\quad U\wedge V=U\cap V
+\]
+es un marco. De manera adicional, $A\oplus B$ es un marco\\
+
+Un subconjunto $F\subseteq A\oplus B$ es un filtro abierto si:
+\begin{enumerate}
+\item $1\oplus 1\in F$.
+\item Si $a\oplus b\leq a'\oplus b'$ y $a\oplus b\in F$, entonces $a'\oplus b'\in F$.
+\item Si $a\oplus b, a'\oplus b'\in F$, entonces $(a\oplus b)\wedge (a'\oplus b')=(a\wedge a')\oplus (b\wedge b')\in F$.
+\item Si $X\subseteq A\oplus B$ dirigido con $\bigvee X\in F$, entonces existe $a\oplus b\in X$ tal que $a\oplus b\in F$.
+\end{enumerate}
+
+De esta manera, para $F\in (A\oplus B)^\wedge$, usando la proyecciones, definimos
+\[
+F_A=\{a\in A\mid a\oplus 1\in F\}\quad \mbox{ y }\quad F_B=\{b\in B\mid 1\oplus b\in F\}.
+\]
+Con esto tenemos que $a\oplus b\in F$ si y solo si $a\in F_A$ y $b\in F_B$, con $F_A\in A^\wedge$ y $F_B\in B^\wedge$. De manera adicional, podemos ver $F\in (A\oplus B)^\wedge$ como
+\[
+F=\uparrow \{a\oplus 1\mid a\in F_A\}\cup \uparrow \{1\oplus b\mid b\in F_B\}.
+\]
+
+\textbf{La noción de eficiencia en $A\oplus B$.}
+
+Como $A\oplus B\in \Frm$, podemos definir la implicación y, en consecuencia, tenemos que $v_{(a,b)}$ es un núcleo en $A\oplus B$. De esta manera, para $F\in (A\oplus B)^\wedge$, definimos la función
+\[
+f=\dot{\bigvee}\{v_{(a,b)}\mid (a,b)\in F\}
+\]
+y al usuar la caracterización de $F$ tenemos que 
+\[
+f=\dot{\bigvee}\{v_{(a,1)}\mid a\in F_A\}\vee \dot{\bigvee}\{v_{(1,b)}\mid b\in F_B\}.
+\]
+Así podemos dar las iteraciones 
+\[
+f^0=\id, \quad f^{\alpha+1}=f\circ f^\alpha\quad \mbox{ y }\quad f^\lambda=\bigvee_{\alpha<\lambda}f^\alpha
+\]
+y el elemento relacionado con el grado de eficiencia es $d(\alpha)=f^\alpha(0)$, donde $\alpha, \lambda \in \Ord$. Por lo tanto 
+\[
+v_{a\oplus 1}(x\oplus y)\geq  v_a(x)\oplus y\quad \mbox{ y }\quad v_{1\oplus b}(x\oplus y)\geq x\oplus v_b(y)
+\]
+
+\begin{prop}\label{iteracion de f}
+Para todo $\alpha\in \Ord$ se cumple que 
+\begin{equation}\label{desigualdad f}
+f^\alpha(0)\leq f_1^\alpha(0)\oplus f_2^\alpha(0),
+\end{equation}
+donde $f_1=\dot{\bigvee}\{v_{a\oplus 1}\mid a\in F_A\}$ y $f_2=\dot{\bigvee}\{v_{1\oplus b}\mid b\in F_B\}$. Y en consecuencia, 
+\begin{equation}\label{desigualdad d}
+d(\alpha)\geq d_{F_A}(\alpha)\oplus d_{F_B}(\alpha)
+\end{equation}
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+Usando lo anterior podemos dar la noción de eficiencia para $F\in (A\oplus B)^\wedge$:
+\emph{Si $x\oplus y\in F$, entonces $d(\alpha)\vee (x\oplus y)=1\oplus 1$}.
+
+\begin{prop}\label{Paso 1}{[Caso base]}
+Si $A\in \Frm$ es un marco eficiente, entonces $A\oplus A$ es eficiente.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{prop}\label{Paso 2}{[Caso 2]}
+Si $A, B\in \Frm$ son marcos $\alpha$-eficientes, entonces $A\oplus B$ es eficiente.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{prop}\label{Paso 3}{[Caso 3]}
+Si $A, B\in \Frm$ son marcos $\alpha$-eficiente y $\beta$-eficiente, respectivamente, entonces $A\oplus B$ es eficiente.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+\begin{prop}\label{Paso 4}{[Caso 4]}
+Si $\{A_i\}\subseteq \Frm$ es una familia de marcos eficiente, entonces $\bigoplus_{i\in I} A_i$ es eficiente.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
 \section{Familias particulares de núcleos}
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
 aquellos núcleos que producen cociente compacto y cerrado.\\
