@@ -458,6 +458,75 @@ u_p(a)=a\quad \mbox{and}\quad w_p(a)=1.
 es decir, $a=1$. Por lo tanto $p$ es máximo. 
 \end{proof}
 
+\begin{prop}\label{tidyplus}
+Si $A_1, A_2\in \Frm$ son marcos eficientes, entonces $A_1\oplus A_2$ es un marco eficiente.
+\end{prop}
+
+\begin{proof}
+Consideremos $A_1, A_2\in \Frm$ $\alpha$-eficientes. Por la construcción de $A_1\oplus A_2$ tenemos el siguiente diagrama
+\[
+\begin{tikzcd}
+A_i \arrow[r, "\alpha_i"] \arrow[rrr, "\iota_i", bend left] & A_1\times A_2  \arrow[r, "\downarrow(\_)"] & \mathcal{D}(A_1\times A_2) \arrow[r, "\sim"] & A_1\oplus A_2 \arrow[lll, "(\iota_i)_*", bend left]
+\end{tikzcd}
+\]
+donde $\alpha_1(a)=(a, 1)$ y $\alpha_2(b)=(1, b)$ para $a\in A_1$ y $b\in A_2$. Además, como $\iota_i\in \Frm$, $(\iota_i)_*$ es su adjunto derecho.\\
+
+Consideremos $F\in (A_1\oplus A_2)^\wedge$ y, por la Proposición \ref{fF}, $(\iota_i)_*[F]\in A_i^\wedge$. Como $A_i$ es eficiente, para $x_i\in (\iota_i)_*F$ se cumple que $d_i\vee x_i=1$, donde 
+\[
+d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}
+\]
+Por (\ref{Imagenfiltros}) se tiene que si $x_i\in (\iota_i)_*F$, entonces $\iota_i(x_i)\in F$, es decir.
+\[
+x_1\oplus 1, 1\oplus x_2\in F
+\]
+y al ser $F$ un filtro, se cumple que $x_1\oplus 1\wedge 1\oplus x_2=x_1\oplus x_2\in F$.\\
+
+Además, para cada $i=1, 2$ tenemos el siguiente diagrama
+
+\[\begin{tikzcd}
+	{A_i} && {A_i} \\
+	{A_1\oplus A_2} && {A_1\oplus A_2}
+	\arrow["{f_i}", from=1-1, to=1-3]
+	\arrow["{\iota_i}"', from=1-1, to=2-1]
+	\arrow["{\iota_i}", from=1-3, to=2-3]
+	\arrow["f"', from=2-1, to=2-3]
+\end{tikzcd}\]
+donde $f=\dot\{v_{\iota_i}(y)\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f\circ \iota_i$.\\
+    
+Consideremos $a\in A_i$, entonces $v_y(a)\leq f_i(a)$ y $\iota_i(v_y(a))\leq \iota_i(f_i(a))$. Además,
+\[
+\begin{split}
+\iota_i((y\succ a)\wedge y)=\iota_i(y\wedge a)\leq \iota_i(a)& \Leftrightarrow \iota_i(y\succ a)\wedge \iota_i(y)\leq \iota_i(a)\\
+& \Leftrightarrow \iota_i(y\succ a)\leq (\iota_i(y)\succ \iota_i(a)).
+\end{split}
+\]
+Luego 
+\[
+\iota_i(f_i(a))\leq (\iota_1(y)\succ \iota_i(a))=v_{\iota_i(y)}(\iota_i(a))\leq f(\iota_i(a)).
+\]
+Por lo tanto $\iota_i\circ f_i\leq f\circ \iota_i$. De aquí que, por inducción transfinita, $\iota_i\circ f_i^\alpha\leq f^\alpha\circ \iota_i$ para todo ordinal $\alpha$. Entonces
+\[
+(\iota_i\circ f_i^\alpha)(0)\leq (f^\alpha\circ \iota_i)(0)\Rightarrow \iota_i(d_i)\leq f^\alpha(0\oplus 0).
+\]
+Notemos que $\iota_1(d_1)=d_1\oplus 1\leq d\oplus 1$ y $\iota_2(d_2)=1\oplus d_2\leq 1\oplus d$. Entonces 
+\[
+d_1\oplus d_2\leq d\oplus d\Rightarrow x_1\oplus x_2\vee d_1\oplus d_2\leq x_1\oplus x_2\vee d\oplus d,
+\]
+pero $x_1\oplus x_2\vee d_1\oplus d_2=(x_1\vee d_1)\oplus (x_2\vee d_2)=1\oplus 1$. Por lo tanto 
+\[
+x_1\oplus x_2\vee d\oplus d=1\oplus 1,
+\]
+es decir, $A_1\oplus A_2$ es eficiente.
+\end{proof}
+
+\begin{cor}\label{Paso 3}
+Si $A_1, A_2\in \Frm$ son marcos $\alpha$-eficiente y $\beta$-eficiente, respectivamente, entonces $A_1\oplus A_2$ es eficiente.
+\end{cor}
+
+\begin{proof}
+Sin perdida de generalidad, consideremos $\gamma=\max\{\alpha, \beta\}$. Entonces $A_1$ y $A_2$ son $\gamma$-eficientes y por la Proposición \ref{tidyplus}, $A_1\oplus A_2$ es eficiente.
+\end{proof}
+
 \begin{prop}\label{coprod}
 Las siguientes afirmaciones son ciertas:
 \begin{itemize}
@@ -465,130 +534,6 @@ Las siguientes afirmaciones son ciertas:
 \item[(2)] La clase de marcos $KC$ es cerrada bajo coproductos. 
 \end{itemize}	
 \end{prop}
-
-\begin{proof}
-
-\end{proof}
-
-Para verificar la prueba del hecho antes mencionado seguiremos el siguiente camino.
-\begin{enumerate}
-    \item Para $A\in \Frm$ $\alpha$-eficiente, veremos si $A\oplus A$ es $\alpha$-eficiente.
-    \item Si $A, B\in \Frm$ son $\alpha$-eficientes, entonces $A\oplus B$ es $\alpha$-eficiente.
-    \item Si $A, B\in \Frm$ con $A$ $\alpha$-eficiente y $B$ $\beta$-eficiente, entonces $A\oplus B$ es $\max\{\alpha, \beta\}$-eficiente.
-    \item Si $\{A_i\}_{i\in I}$ es una familia de marcos eficientes, entonces $\bigoplus_{i\in I} A_i$ es eficiente.
-\end{enumerate}
-
-Recordemos que para $A, B\in \Frm$, $A\oplus B$ está dado por 
-\[
-A\oplus B=\mathcal{D}(A\times B)/\sim
-\]
-donde $[U]$ representa un elemento de $A\oplus B$, donde $\downarrow U\in \mathcal{D}(A\times B)$ y los generadores básicos
-están dados por $a\oplus b=[\downarrow (a, b)]$, donde $a\in A$ y $b\in B$. La relación $\sim$ está dada por todos los elementos
-\[
-(\bigcup_{i\in I} \downarrow (a_i, b))\sim (\downarrow (\bigvee_{i\in I} a_i, b))\quad \mbox{ y }\quad (\bigcup_{i\in J} \downarrow (a, b_j))\sim (\downarrow (a, \bigvee_{j\in J} b_j))
-\]
-tales que 
-\[
-(\bigcup_{i\in I} \downarrow (a_i, b))\leq (s, s')\Leftrightarrow (\downarrow (\bigvee_{i\in I} a_i, b))\leq (s,s')
-\]
-y
-\[
-\quad (\bigcup_{i\in J} \downarrow (a, b_j))\leq (s, s')\Leftrightarrow (\downarrow (a, \bigvee_{j\in J} b_j))\leq (s, s')
-\]
-para $a, a_i, s\in A$ y $b, b_i, s'\in B$.\\
-
-\textbf{¿Qué es un filtro abierto en $A\oplus B$?}
-
-Sabemos que el conjunto $\mathcal{D}(A\times B)$ dotado con el orden dado por la inclusión y las operaciones
-\[
-\bigvee_i U_i=\bigcup_i U_i\quad \mbox{ y }\quad U\wedge V=U\cap V
-\]
-es un marco. De manera adicional, $A\oplus B$ es un marco\\
-
-Un subconjunto $F\subseteq A\oplus B$ es un filtro abierto si:
-\begin{enumerate}
-\item $1\oplus 1\in F$.
-\item Si $a\oplus b\leq a'\oplus b'$ y $a\oplus b\in F$, entonces $a'\oplus b'\in F$.
-\item Si $a\oplus b, a'\oplus b'\in F$, entonces $(a\oplus b)\wedge (a'\oplus b')=(a\wedge a')\oplus (b\wedge b')\in F$.
-\item Si $X\subseteq A\oplus B$ dirigido con $\bigvee X\in F$, entonces existe $a\oplus b\in X$ tal que $a\oplus b\in F$.
-\end{enumerate}
-
-De esta manera, para $F\in (A\oplus B)^\wedge$, usando la proyecciones, definimos
-\[
-F_A=\{a\in A\mid a\oplus 1\in F\}\quad \mbox{ y }\quad F_B=\{b\in B\mid 1\oplus b\in F\}.
-\]
-Con esto tenemos que $a\oplus b\in F$ si y solo si $a\in F_A$ y $b\in F_B$, con $F_A\in A^\wedge$ y $F_B\in B^\wedge$. De manera adicional, podemos ver $F\in (A\oplus B)^\wedge$ como
-\[
-F=\uparrow \{a\oplus 1\mid a\in F_A\}\cup \uparrow \{1\oplus b\mid b\in F_B\}.
-\]
-
-\textbf{La noción de eficiencia en $A\oplus B$.}
-
-Como $A\oplus B\in \Frm$, podemos definir la implicación y, en consecuencia, tenemos que $v_{(a,b)}$ es un núcleo en $A\oplus B$. De esta manera, para $F\in (A\oplus B)^\wedge$, definimos la función
-\[
-f=\dot{\bigvee}\{v_{(a,b)}\mid (a,b)\in F\}
-\]
-y al usuar la caracterización de $F$ tenemos que 
-\[
-f=\dot{\bigvee}\{v_{(a,1)}\mid a\in F_A\}\vee \dot{\bigvee}\{v_{(1,b)}\mid b\in F_B\}.
-\]
-Así podemos dar las iteraciones 
-\[
-f^0=\id, \quad f^{\alpha+1}=f\circ f^\alpha\quad \mbox{ y }\quad f^\lambda=\bigvee_{\alpha<\lambda}f^\alpha
-\]
-y el elemento relacionado con el grado de eficiencia es $d(\alpha)=f^\alpha(0)$, donde $\alpha, \lambda \in \Ord$. Por lo tanto 
-\[
-v_{a\oplus 1}(x\oplus y)\geq  v_a(x)\oplus y\quad \mbox{ y }\quad v_{1\oplus b}(x\oplus y)\geq x\oplus v_b(y)
-\]
-
-\begin{prop}\label{iteracion de f}
-Para todo $\alpha\in \Ord$ se cumple que 
-\begin{equation}\label{desigualdad f}
-f^\alpha(0)\leq f_1^\alpha(0)\oplus f_2^\alpha(0),
-\end{equation}
-donde $f_1=\dot{\bigvee}\{v_{a\oplus 1}\mid a\in F_A\}$ y $f_2=\dot{\bigvee}\{v_{1\oplus b}\mid b\in F_B\}$. Y en consecuencia, 
-\begin{equation}\label{desigualdad d}
-d(\alpha)\geq d_{F_A}(\alpha)\oplus d_{F_B}(\alpha)
-\end{equation}
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
-
-Usando lo anterior podemos dar la noción de eficiencia para $F\in (A\oplus B)^\wedge$:
-\emph{Si $x\oplus y\in F$, entonces $d(\alpha)\vee (x\oplus y)=1\oplus 1$}.
-
-\begin{prop}\label{Paso 1}{[Caso base]}
-Si $A\in \Frm$ es un marco eficiente, entonces $A\oplus A$ es eficiente.
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
-
-\begin{prop}\label{Paso 2}{[Caso 2]}
-Si $A, B\in \Frm$ son marcos $\alpha$-eficientes, entonces $A\oplus B$ es eficiente.
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
-
-\begin{prop}\label{Paso 3}{[Caso 3]}
-Si $A, B\in \Frm$ son marcos $\alpha$-eficiente y $\beta$-eficiente, respectivamente, entonces $A\oplus B$ es eficiente.
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
-\begin{prop}\label{Paso 4}{[Caso 4]}
-Si $\{A_i\}\subseteq \Frm$ es una familia de marcos eficiente, entonces $\bigoplus_{i\in I} A_i$ es eficiente.
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
 
 \section{Familias particulares de núcleos}
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
