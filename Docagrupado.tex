@@ -189,7 +189,7 @@ Ahora probaremos lo anterior, pero para cualquier ordinal.
 \end{proof}
 
 \begin{obs}\label{j monotono}
-El Lema \ref{f1f} y el Corolario \ref{finftyf} también se cumplen si $j$ es monótono y preserva ínfimos finitos.
+El Lema \ref{f1f} y el Corolario \ref{finftyf} también se cumplen si $j$ solo es monótono y preserva ínfimos finitos.
 \end{obs}
 
 Por el Corolario \ref{finftyf}, $j\circ \hat{f}^\infty\leq f^\infty\circ j$ se cumple. Además, por el Teorema H-M, $f^\infty=v_F$ y $\hat{f}^\infty=v_{j_*F}$. 
@@ -495,7 +495,7 @@ Además, para cada $i=1, 2$ tenemos el siguiente diagrama
 	\arrow["{\iota_i}", from=1-3, to=2-3]
 	\arrow["f_F"', from=2-1, to=2-3]
 \end{tikzcd}\]
-donde $f_F=\dot\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f\circ \iota_i$.\\
+donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f_F\circ \iota_i$.\\
     
 Consideremos $a\in A_i$, entonces $v_y(a)\leq f_i(a)$ y $\iota_i(v_y(a))\leq \iota_i(f_i(a))$. Además,
 \[
@@ -506,17 +506,38 @@ Consideremos $a\in A_i$, entonces $v_y(a)\leq f_i(a)$ y $\iota_i(v_y(a))\leq \io
 \]
 Luego 
 \[
-\iota_i(f_i(a))\leq (\iota_1(y)\succ \iota_i(a))=v_{\iota_i(y)}(\iota_i(a))\leq f(\iota_i(a)).
+\iota_i(f_i(a))\leq (\iota_1(y)\succ \iota_i(a))=v_{\iota_i(y)}(\iota_i(a))\leq f_F(\iota_i(a)).
 \]
-Por lo tanto $\iota_i\circ f_i\leq f\circ \iota_i$. De aquí que, por inducción transfinita, $\iota_i\circ f_i^\alpha\leq f^\alpha\circ \iota_i$ para todo ordinal $\alpha$. Entonces
+Por lo tanto $\iota_i\circ f_i\leq f_F\circ \iota_i$. Verifiquemos que $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$ también es cierto. Por inducción transfinita 
+\begin{itemize}
+\item Si $\alpha=0$, es trivial.
+\item Para el paso de inducción, supongamos que para $\alpha$ se cumple. Luego
 \[
-(\iota_i\circ f_i^\alpha)(0)\leq (f^\alpha\circ \iota_i)(0)\Rightarrow \iota_1(d_1)\leq f^\alpha(0\oplus 1)\;\mbox{ y }\;\iota_2(d_2)\leq f^\alpha(1\oplus 0).
+\iota_i\circ f_i^{\alpha+1}=\iota_i\circ f_i\circ f_i^{\alpha}\leq  f_F\circ \iota_i\circ f_i^\alpha\leq f_F\circ f^\alpha_F\circ \iota_i=f^{\alpha+1}_F\circ \iota_i,
+\]
+donde la primera desigualdad es lo demostrado antes y la segunda es la hipótesis de inducción.
+\item Si $\lambda$ es un ordinal límite, entonces
+\[
+f_i^\lambda=\bigvee\{f_i^\alpha\mid \alpha<\lambda\}, \quad f^\lambda_F=\bigvee\{f^\alpha_F\mid \alpha<\lambda\}
+\]
+y
+\[  
+\iota_i\circ f_i^\lambda=\iota_i\circ \bigvee_{\alpha<\lambda}f_i^\alpha\leq\bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha.
+\]
+Por la hipótesis de inducción tenemos que
+\[
+\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i\Rightarrow \bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha\leq \bigvee_{\alpha<\lambda} f_F^\alpha\circ \iota_i.
+\]
+\end{itemize}
+Así, evaluando en $0\in A_i$ se cumple que
+\[
+(\iota_i\circ f_i^\alpha)(0)\leq (f^\alpha_F\circ \iota_i)(0)\Rightarrow \iota_1(d_1)\leq f^\alpha_F(0\oplus 1)\;\mbox{ y }\;\iota_2(d_2)\leq f^\alpha_F(1\oplus 0).
 \]
 Luego 
 \[
-d_1\oplus d_2=d_1\oplus 1\wedge 1\oplus d_2\leq f^\alpha(0\oplus 1)\wedge f^\alpha(1\oplus 0)=f^\alpha(0\oplus 0). 
+d_1\oplus d_2=d_1\oplus 1\wedge 1\oplus d_2\leq f^\alpha_F(0\oplus 1)\wedge f^\alpha_F(1\oplus 0)=f^\alpha_F(0\oplus 0). 
 \]
-De aquí que, para $d=d(\alpha)=f^\alpha(0\oplus 0)$, se cumple que
+De aquí que, para $d=d(\alpha)=f^\alpha_F(0\oplus 0)$, se cumple que
 \[
 (x_1\oplus x_2)\vee d_1\oplus d_2\leq (x_1\oplus x_2)\vee d,
 \]
@@ -550,7 +571,7 @@ x_i\in (\iota_i)_*F\Leftrightarrow \iota_i(x_i)\in F.
 \]
 Sin perdida de generalidad, consideremos $\alpha=\sup\{\alpha_i\mid i\in I\}$, entonces cada $A_i$ es $\alpha$-eficiente. Por hipotesis, para $x_i\in (\iota_i)_*F$ se cumple que $x_i\vee d_i=1$, donde
 \[
-d_i=d_i(\alpha)=f_i^\wedge(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
+d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
 \]
 
 \textbf{Afirmación:} Para cada $x_i\in (\iota_i)_*F$ se cumple que $\langle x_i\rangle\in F$.\\
@@ -564,7 +585,9 @@ Notemos que para cada $A_i$ tenemos el siguiente diagrama
     \arrow["{\iota_i}", from=1-3, to=2-3]
     \arrow["f_F"', from=2-1, to=2-3]
 \end{tikzcd}\]
-donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Por el Lema \ref{f1f} y el Corolario \ref{finftyf}, se cumple que $\iota_i\circ f_i^\alpha\leq f^\alpha_F\circ \iota_i$ para todo ordinal $\alpha$. Entonces
+donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$.\\
+
+Si tomamos $a\in A_i$, de manera similar que en la prueba de la Proposición \ref{tidyplus}, se puede verificar que $\iota_i\circ f_i\leq f_F\circ \iota_i$ y por inducción transfinita, $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$. Evaluando en $0\in A_i$ se cumple que
 \[
 (\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\Leftrightarrow \langle d_i\rangle=\iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
 \]
