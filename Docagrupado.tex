@@ -188,6 +188,10 @@ Ahora probaremos lo anterior, pero para cualquier ordinal.
 	Por lo tanto $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$.
 \end{proof}
 
+\begin{obs}\label{j monotono}
+El Lema \ref{f1f} y el Corolario \ref{finftyf} también se cumplen si $j$ es monótono y preserva ínfimos finitos.
+\end{obs}
+
 Por el Corolario \ref{finftyf}, $j\circ \hat{f}^\infty\leq f^\infty\circ j$ se cumple. Además, por el Teorema H-M, $f^\infty=v_F$ y $\hat{f}^\infty=v_{j_*F}$. 
 Con esto en mente, tenemos el siguiente diagrama
 \[\begin{tikzcd}
@@ -489,9 +493,9 @@ Además, para cada $i=1, 2$ tenemos el siguiente diagrama
 	\arrow["{f_i}", from=1-1, to=1-3]
 	\arrow["{\iota_i}"', from=1-1, to=2-1]
 	\arrow["{\iota_i}", from=1-3, to=2-3]
-	\arrow["f"', from=2-1, to=2-3]
+	\arrow["f_F"', from=2-1, to=2-3]
 \end{tikzcd}\]
-donde $f=\dot\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f\circ \iota_i$.\\
+donde $f_F=\dot\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f\circ \iota_i$.\\
     
 Consideremos $a\in A_i$, entonces $v_y(a)\leq f_i(a)$ y $\iota_i(v_y(a))\leq \iota_i(f_i(a))$. Además,
 \[
@@ -531,13 +535,53 @@ Si $A_1, A_2\in \Frm$ son marcos $\alpha$-eficiente y $\beta$-eficiente, respect
 Sin perdida de generalidad, consideremos $\gamma=\max\{\alpha, \beta\}$. Entonces $A_1$ y $A_2$ son $\gamma$-eficientes y por la Proposición \ref{tidyplus}, $A_1\oplus A_2$ es eficiente.
 \end{proof}
 
-\begin{prop}\label{coprod}
-Las siguientes afirmaciones son ciertas:
-\begin{itemize}
-\item[(1)] La clase de marcos eficientes es cerrada bajo coproductos.
-\item[(2)] La clase de marcos $KC$ es cerrada bajo coproductos. 
-\end{itemize}	
+\begin{prop}\label{coprodE}
+La clase de marcos eficientes es cerrada bajo coproductos.
 \end{prop}
+
+\begin{proof}
+Sean $\{A_i\}_{i\in I}$ una familia de marcos eficientes y $\{\alpha_i\}_{i\in I}\subseteq \Ord$ los grados de eficiencia de cada $A_i$. Sabemos que 
+\[
+\bigoplus_{i\in I} A_i\in \Frm \quad \mbox{ y }\quad (\iota_i\colon A_i\to \bigoplus_{i\in I} A_i)\in \Frm,
+\]
+entonces $(\iota_i)_*$ es el adjunto derecho de $\iota_i$. Además, para $F\in (\bigoplus_{i\in I} A_i)^\wedge$, por la Proposición \ref{fF}, $(\iota_i)_*F\in A_i^\wedge$ y por (\ref{Imagenfiltros}), 
+\[
+x_i\in (\iota_i)_*F\Leftrightarrow \iota_i(x_i)\in F.
+\]
+Sin perdida de generalidad, consideremos $\alpha=\sup\{\alpha_i\mid i\in I\}$, entonces cada $A_i$ es $\alpha$-eficiente. Por hipotesis, para $x_i\in (\iota_i)_*F$ se cumple que $x_i\vee d_i=1$, donde
+\[
+d_i=d_i(\alpha)=f_i^\wedge(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
+\]
+
+\textbf{Afirmación:} Para cada $x_i\in (\iota_i)_*F$ se cumple que $\langle x_i\rangle\in F$.\\
+
+Notemos que para cada $A_i$ tenemos el siguiente diagrama
+\[\begin{tikzcd}
+    {A_i} && {A_i} \\
+    {\bigoplus_{i\in I} A_i} && {\bigoplus_{i\in I} A_i}
+    \arrow["{f_i}", from=1-1, to=1-3]
+    \arrow["{\iota_i}"', from=1-1, to=2-1]
+    \arrow["{\iota_i}", from=1-3, to=2-3]
+    \arrow["f_F"', from=2-1, to=2-3]
+\end{tikzcd}\]
+donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Por el Lema \ref{f1f} y el Corolario \ref{finftyf}, se cumple que $\iota_i\circ f_i^\alpha\leq f^\alpha_F\circ \iota_i$ para todo ordinal $\alpha$. Entonces
+\[
+(\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\Leftrightarrow \langle d_i\rangle=\iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
+\]
+Luego, $\langle x_i\rangle \vee \langle d_i\rangle\leq \langle x_i\rangle \vee d$, pero 
+\[
+\langle x_i\rangle \vee \langle d_i\rangle=\langle x_i\vee d_i\rangle = \langle 1\rangle,
+\]
+es decir, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ y por lo tanto $\langle x_i\rangle \vee d= \langle 1\rangle$. Así, por la afirmación anterior, $ \bigoplus_{i\in I} A_i$ es eficiente.
+\end{proof}
+
+\begin{prop}\label{coprodKC}
+La clase de marcos $KC$ es cerrada bajo coproductos. 
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
 
 \section{Familias particulares de núcleos}
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
