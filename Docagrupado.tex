@@ -574,7 +574,11 @@ Sin perdida de generalidad, consideremos $\alpha=\sup\{\alpha_i\mid i\in I\}$, e
 d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
 \]
 
-\textbf{Afirmación:} Para cada $x_i\in (\iota_i)_*F$ se cumple que $\langle x_i\rangle\in F$.\\
+\noindent
+\textbf{Afirmación:} Para cada $x_i\in (\iota_i)_*F$ se cumple que $\langle x_i\rangle=\bigoplus \iota_i(x_i)\in F$.\\
+
+Sabemos que $\bigoplus \iota_i(x_i)=\bigvee \iota_i(x_i)$. Luego, $\iota_i(x_i)\leq \bigvee \iota_j(x_j)$ para todo $i\in I$ y $j\in I$. 
+Por lo tanto, al ser $F$ filtro, se cumple que $\bigvee \iota_i(x_I)\in F$.\\
 
 Notemos que para cada $A_i$ tenemos el siguiente diagrama
 \[\begin{tikzcd}
@@ -589,8 +593,10 @@ donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$.\\
 
 Si tomamos $a\in A_i$, de manera similar que en la prueba de la Proposición \ref{tidyplus}, se puede verificar que $\iota_i\circ f_i\leq f_F\circ \iota_i$ y por inducción transfinita, $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$. Evaluando en $0\in A_i$ se cumple que
 \[
-(\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\Leftrightarrow \langle d_i\rangle=\iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
+(\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\Leftrightarrow \iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
 \]
+y $\langle d_i\rangle =\bigoplus \iota_i(d_i)\leq d$.\\
+
 Luego, $\langle x_i\rangle \vee \langle d_i\rangle\leq \langle x_i\rangle \vee d$, pero 
 \[
 \langle x_i\rangle \vee \langle d_i\rangle=\langle x_i\vee d_i\rangle = \langle 1\rangle,
