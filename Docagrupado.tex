@@ -514,14 +514,15 @@ De esta manera se cumple que $h\colon A_{j_*F}\to A_j$ es un morfismo de marcos 
 
 \begin{prop}\label{VFsquare}
 El diagrama
-\[\begin{tikzcd}
+\begin{equation}\label{Cuadrado}
+    \begin{tikzcd}
 	A & {A_{j_*F}} \\
 	{A_j} & {A_F}
 	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
 	\arrow["j"', from=1-1, to=2-1]
 	\arrow["h", from=1-2, to=2-2]
 	\arrow["{v_F}"', from=2-1, to=2-2]
-\end{tikzcd}\]
+\end{tikzcd}\end{equation}
 es conmutativo.
 \end{prop}
 
@@ -929,10 +930,16 @@ y obtenemos lo que queríamos.
 
 Un caso particular del lema anterior es cuando $\alpha=\infty$.
 \begin{cor}\label{cor:infinito}
+Para $X\in \mathcal{O}S$ y $U\in \mathcal{O}S$ se cumple que
 \begin{equation}\label{eq:infinito}
-\partial_F^\infty(X)=(v_F(X'))'.
+    \begin{split}
+\partial_F^\infty(X)=(v_F(X'))' & \iff \partial_F^\infty(U')'=(v_F(U))\\
+& \iff \partial_F^\infty(X)'=(v_F(X')).
+    \end{split}
 \end{equation}
 \end{cor}
+
+Agregar en esta parte el análogo a la sucesión de $d$-elementos.
 
 \subsection{Espacios Apilados}
 Si consideramos $S\in \Top$, por el Torema de Hofmann-Mislove, tenemos una correspondencia biyectiva entre 
@@ -1031,48 +1038,122 @@ Si consideramos $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$, cada filtro a
 Relacionamos ambos intervalos de admisibilidad por medio del levantamiento.
 
 \begin{prop}\label{morfismo}
-    Para $F\in A^\wedge$, $Q\in\mathcal{Q}S$ y $\nabla=\nabla(Q)$, si $k\in [v_\nabla, w_\nabla]$, entonces $\mathcal{U}_*j\mathcal{U}\in [v_F, w_F]$.
+    Para $F\in A^\wedge$, $Q\in\mathcal{Q}S$ y $\nabla=\nabla(Q)$, si $k\in [v_\nabla, w_\nabla]$, entonces $\mathcal{U}_*\circ k\circ\mathcal{U}\in [v_F, w_F]$.
 \end{prop}
 
 \begin{proof}
-Since $N$ is a functor, we have 
-\[\begin{tikzcd}
-	A & NA \\
-	\\
-	{\mathcal{O}S} & {N\mathcal{O}S}
-	\arrow[""{name=0, anchor=center, inner sep=0}, "U"', from=1-1, to=3-1]
-	\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
-	\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
-\end{tikzcd}\]
-and $N(U)_*$ is the right adjoint of $N(U)^\wedge$. Note the following:
-\begin{enumerate}
-	\item $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*k$.
-	\item If $k\in N\mathcal{O}S$ then $N(U)(j)\leq k\Leftrightarrow Uj\leq kU$.
-	\item $N(U)_*k=U_*kU^*$ and $UN(U)_*k=k(U)$.
-\end{enumerate}
-In 3), if $j=k$, $N(U)_*(j)=U_*jU^*$ and $UN(U)_*j=jU$. For $x\in F$
-\[\begin{tikzcd}
-	x\in A & {\mathcal{O}S} & {\mathcal{O}S} & A
-	\arrow["{U^*}", from=1-1, to=1-2]
-	\arrow["j", from=1-2, to=1-3]
-	\arrow["{U_*}", from=1-3, to=1-4]
-\end{tikzcd}\]
-and $U_*(j(U(x))=\bigwedge(S\setminus j(U(x)))$. Note that $U_*(j(U^*(x)))\subseteq \pt A$. Thus
+Si $k\in [v_\nabla, w_\nabla]$, entonces $\mathcal{U}_*\circ k\circ \mathcal{U}\in NA$. Además, para $F\in A^\wedge$ si $j\in [v_F, w_F]$, entonces $F=\nabla(j)$. De esta manera debemos probar que $F=\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})$.\\
 
+Por el Teorema de Hofmann-Mislove tenemos que
+\[
+x\in F\iff Q\subseteq \mathcal{U}(x)\iff \mathcal{U}(x)\in \nabla=\nabla(Q).
+\]
+
+Además, para todo $x\in A$
+\[
+(\mathcal{U}_*\circ k\circ\mathcal{U})(x)=\mathcal{U}_*(k(\mathcal{U}(x)))=\bigwedge(S\setminus k(\mathcal{U}(x))).
+\]
+
+Como $k\in [v_\nabla, w_\nabla]$, entonces $\nabla=\nabla(k)$, es decir, para $V\in \nabla$ se cumple que $k(V)=S$. Por lo tanto,
 \[
 \begin{split}
-x\in F \Leftrightarrow Q\subseteq U(x) &\Leftrightarrow U(x)\in \nabla(j)=\nabla(Q)\Leftrightarrow S\setminus j(U(x))=\emptyset\\
-& \Leftrightarrow \bigwedge (S\setminus j(U(x)))=1=(U_*jU^*)(x)\\
-&\Leftrightarrow x\in \nabla(U_*jU^*)
+x\in F\iff \mathcal{U}(x)\in \nabla &\iff S\setminus k(\mathcal{U}(x))=\emptyset\\
+&\iff \bigwedge(S\setminus k(\mathcal{U}(x)))=1\\
+&\iff x\in \nabla(\mathcal{U}_*\circ k\circ \mathcal{U})
 \end{split}
 \]
-Therefor $F=\nabla(U_*jU^*)$.
 \end{proof}
-In this way we have a function 
-\[
-\mho\colon [V_Q, W_Q]\to [V_F, W_F]
-\]
 
+Lo anterior define un morfismo $\mho\colon [v_\nabla, w_\nabla]\to [v_F, w_F]$. Podría resultar interesante analizar que clase de morfismo es $\mho$. 
+Por ejemplo, notemos que ocurre con los extremos del intervalo en $NA$.\\
+
+Consideremos $k\in [v_\nabla, w_\nabla]$. Ya que $v_F$ es un núcleo ajustado, entonces se cumple que 
+\begin{equation}\label{comparacionvF}
+v_F\leq \mathcal{U}_*\circ k\circ \mathcal{U}. 
+\end{equation}
+
+De manera similar, dado que $w_F$ es el mayor elemento de su bloque, entonces
+\begin{equation}\label{comparacionwF}
+\mathcal{U}_*\circ k\circ \mathcal{U}\leq w_F.
+\end{equation}
+
+\begin{prop}\label{igualdadwF}
+Para $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$ se cumple que 
+\[
+w_F=\mathcal{U}_*\circ w_\nabla\circ \mathcal{U}.
+\]
+\end{prop}
+
+\begin{proof}
+Por (\ref{comparacionwF}), debemos verificar que $w_F\leq \mathcal{U}_*\circ w_\nabla\circ \mathcal{U}$. Para ello, consideremos $x\in A$
+\end{proof}
+
+\subsection{Modificaciones de parches}
+Sabemos que si $A\in \Frm$ y $S\in \Top$, ambos tienen modificaciones de parches asociadas. En el caso de $A$, tenemos el marco de parches $PA$ 
+y, en el caso de $S$, está el espacio de parches $^pS$. Considerando $S=\pt A$, podemos relacionar ambas contrucciones a partir del siguiente diagrama
+\begin{equation}\label{Diagramaparches}
+\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=3-2, to=3-3]
+\end{tikzcd}\end{equation}
+donde $\mathcal{O}^fS$ es conocida como la topología frontal (o topología de Skulla). Para ver más detalles sobre este diagrama se puede consultar
+\cite{sexton2006point}.\\
+
+Un caso particular del diagrama (\ref{Cuadrado}) lo podemos obtener al considerar $j^*=\mathcal{U}_A$. Así,
+\[\begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Se puede probar que $\pt A_F=Q$, es decir, tenemos tenemos la reflexión espacial
+\[
+\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q
+\]
+y este es un cociente de $A$ a través de $v_F$.\\ 
+
+Adicionalmente, tenemos el morfismo de marcos
+\[\begin{tikzcd}
+	A & {\mathcal{O}S} & {\mathcal{O}S_\nabla} & {\mathcal{O}Q}
+	\arrow["{\mathcal{U}_A}", from=1-1, to=1-2]
+	\arrow["{v_\nabla}", from=1-2, to=1-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}", from=1-3, to=1-4]
+\end{tikzcd}\]
+que también es un cociente de $A$ a través de $v_nabla$, pues también se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
+\[
+x\mapsto \mathcal{U}_A(x)\cap Q
+\]
+para $x\in A$. Por lo tanto tenemos el diagrama conmutativo
+\begin{equation}\label{Qcuadrado}
+\begin{tikzcd}
+	A && {A_F} & \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
+	\arrow["g"', from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
+\end{tikzcd}\end{equation}
+
+Dado que el diagrama anterior esta codificado a través de $F\in A^\wedge$ y el $Q\in \mathcal{Q}S$ asociado, 
+denominamos a (\ref{Qcuadrado}) como el \emph{$Q$-cuadrado}.
 
 %\begin{prop}\label{Bloqtri}
 %For every $A\in \EuScript{Hrm}rm$ the interval corresponding to the block determined by a open filter $F\in A^{\wedge}$ is trivial, that is,\[[v_{F},w_{F}]=\{*\}\]
@@ -1166,9 +1247,17 @@ In this way we have a function
 %\end{prop}
 
 \begin{thm}\label{haus1}
-Let $A\in\EuScript{H}rm$ then for every $F\in A^{\wedge}$ with corresponding $\mathcal{Q}$ compact saturated we have \[\mathcal{O}\mathcal{Q}\cong\uparrow\mathcal{Q}'\], that is,
-the frame of opens of the point space of $A_{F}$ is isomorphic to a compact closed quotient of a Hausdorff space.
+Bajo las hipótesis del $Q$-cuadrado (\ref{Qcuadrado}). Si $A\in \Frm$ satisface la propiedad $\mathbf{(H)}$, entonces
+\[
+\mathcal{O}Q\cong \uparrow Q'.
+\]
+En otras palabras, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un cociente compacto
+y cerrado de un espacio Huasdorff.
 \end{thm}
+
+\begin{proof}
+
+\end{proof}
 
 \subsection{Nociones de apilamiento}
 Nosotros damos sus análogos en la teoría de marcos, es decir, 
