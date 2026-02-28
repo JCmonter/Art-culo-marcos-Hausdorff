@@ -1,13 +1,13 @@
 %\documentclass[1p]{elsarticle}
 \documentclass[11pt]{amsart}
 \usepackage[mathscr]{eucal}
+\usepackage[spanish, es-noshorthands]{babel}
 \usepackage{times}
 \usepackage{amsmath,amssymb,latexsym,amscd}   
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true}
 %\input xypic
 %\xyoption{all}
-\usepackage{graphicx}
 \usepackage[all,cmtip]{xy}
 \usepackage{fancyhdr}
 \usepackage{mathalfa}
@@ -130,6 +130,7 @@ Cuestiones básicas sobre teoría de marcos y la interacción que tiene esta con
 \cite{Johnstone82,PicadoPultr,picado2021separation}.
 \section{Cuestiones en marcos}
 
+\subsection{Axiomas de separación}
 \subsection{Núcleos}
 Cuando trabajamos con marcos podemos construir nuevos marcos a partir de otros ya dados. En lo que sigue, consideramos un marco fijo $A$
 y diremos que este es nuestro marco principal. Haciendo uso de este marco, definimos las siguientes clases de funciones.
@@ -1117,11 +1118,11 @@ Un caso particular del diagrama (\ref{Cuadrado}) lo podemos obtener al considera
 	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
 	\arrow["{v_F}", from=1-1, to=1-2]
 	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
-	\arrow["g", from=1-2, to=2-2]
+	\arrow["h", from=1-2, to=2-2]
 	\arrow["{v_\nabla}"', from=2-1, to=2-2]
 \end{tikzcd}\]
 
-Se puede probar que $\pt A_F=Q$, es decir, tenemos tenemos la reflexión espacial
+Se puede probar que $\pt A_F=Q$, es decir, tenemos la reflexión espacial
 \[
 \mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q
 \]
@@ -1134,7 +1135,7 @@ Adicionalmente, tenemos el morfismo de marcos
 	\arrow["{v_\nabla}", from=1-2, to=1-3]
 	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}", from=1-3, to=1-4]
 \end{tikzcd}\]
-que también es un cociente de $A$ a través de $v_nabla$, pues también se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
+y es un cociente de $A$ a través de $v_\nabla$, pues se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
 \[
 x\mapsto \mathcal{U}_A(x)\cap Q
 \]
@@ -1147,7 +1148,7 @@ para $x\in A$. Por lo tanto tenemos el diagrama conmutativo
 	\arrow["{v_F}", from=1-1, to=1-3]
 	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
 	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
-	\arrow["g"', from=1-3, to=3-3]
+	\arrow["h"', from=1-3, to=3-3]
 	\arrow["{v_\nabla}"', from=3-1, to=3-3]
 	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
 \end{tikzcd}\end{equation}
@@ -1256,12 +1257,28 @@ y cerrado de un espacio Huasdorff.
 \end{thm}
 
 \begin{proof}
+Por hipótesis, $A$ satisface $\mathbf{(H)}$. Como la propiedad $\mathbf{(H)}$ es cerrada bajo cocientes, $A_F$ y $\mathcal{O}S$ satisfacen $\mathbf{(H)}$.
+Además, $\mathbf{(H)}$ es conservativa, es decir, $S=\pt A$ es un espacio $T_2$. Al ser $S$ $T_2$, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y, por la Proposición \ref{Propiedadesapilado}, $S$ 
+es fuertemente apilado. Por la Definición \ref{def:apilado}, $v_\nabla=[Q']$.\\
+
+Ya que $Q'\in \mathcal{O}S$, se cumple que $[Q']=u_{Q'}$ y este es complementado en $N\mathcal{O}S$. Además,
+\[
+\mathcal{O}S_{u_{Q'}}=\uparrow Q'=\mathcal{O}S_{v_\nabla}.
+\]
+
+Por \cite[Propocisión VI.3.3]{PicadoPultr} se cumple que $\mathcal{O}S_{v_\nabla}$ es espacial. De aquí que $g$ es un isomorfismo.\\
+
+Por lo tanto, $\mathcal{O}\pt A_F\cong \mathcal{O}S_\nabla$, es decir, $\mathcal{O}Q\cong \uparrow Q'$.
 
 \end{proof}
 
 \subsection{Nociones de apilamiento}
-Nosotros damos sus análogos en la teoría de marcos, es decir, 
-las definiciones en $\Frm$.
+Notemos que por la Definición \ref{def:apilado} tenemos las igualdades
+\[
+[Q']=v_F\quad \text{y}\quad\overline{Q}=\partial_\nabla^\infty(S).
+\]
+para decir cuando un espacio $S$ es fuertemente apilado y apilado, respectivamente. Nosotros damos sus análogos 
+en $\Frm$. Para ello, hacemos uso del levantamiento.
 
 \begin{dfn}\label{def:apilado-marcos}
 Siguiendo la notación anterior, consideremos $A\in \Frm$. Decimos que $A$ es:
@@ -2111,118 +2128,120 @@ j\!\Big(\bigvee X\Big)\;=\;\bigvee j[X].
 \cite{klinke2013yet}
 
 \section{El enfoque de Igor}
-Following articulo de igor \cite{Arrieta2024LocalicSeparation}
-\subsection{Cosas de Ángel}
-Trivially {\rm KC} implies patch trivial (or equivalently tidy) we want some converse of this fact.
+\cite{Arrieta2024LocalicSeparation}
+%LO QUE SIGUE SE COMENTO SOLO PARA QUE NO APARECIERA EN LA ENTREGA DEL REPORTE MENSUAL
+%Following articulo de igor 
+%\subsection{Cosas de Ángel}
+%Trivially {\rm KC} implies patch trivial (or equivalently tidy) we want some converse of this fact.
 
-\begin{dfn}\label{pfit}
-A frame $A$ has \emph{fitted points} ({\rm p-fit} for short) if for every point $p\in\pt(A)$ the nucleus \[{\rm w}_{p} \text{ is fitted }\]
-that is, to said for every point $p$ the nucleus ${\rm w}_{p}$ is alone in its block.
-\end{dfn}
+%\begin{dfn}\label{pfit}
+%A frame $A$ has \emph{fitted points} ({\rm p-fit} for short) if for every point $p\in\pt(A)$ the nucleus \[{\rm w}_{p} \text{ is fitted }\]
+%that is, to said for every point $p$ the nucleus ${\rm w}_{p}$ is alone in its block.
+%\end{dfn}
 
 %QUIERO UN TEOREMA TIPO FIT Y SUBFIT PARA p-fit frames%
 
-In general for each $p\in\pt(A)$, the nucleus ${\rm w}_{p}$ is the largest memeber of his block, that is,
-\[[v_{\mathcal{P}},{\rm w}_{p}]\] the corresponding block, here $\mathcal{P}=\{x\in A\mid x\nleq p\}$ 
-in this case we know how to calculate \[v_{\mathcal{P}}.\] using the prenucleus $f_{\mathcal{P}}$
-we know that \[v_{\mathcal{P}}=f_{\mathcal{P}}^{\infty}=(\dot{\bigvee}\{{\rm v}_{x}\mid x\in\mathcal{P}\})^{\infty}\]
-moreover:
+%In general for each $p\in\pt(A)$, the nucleus ${\rm w}_{p}$ is the largest memeber of his block, that is,
+%\[[v_{\mathcal{P}},{\rm w}_{p}]\] the corresponding block, here $\mathcal{P}=\{x\in A\mid x\nleq p\}$ 
+%in this case we know how to calculate \[v_{\mathcal{P}}.\] using the prenucleus $f_{\mathcal{P}}$
+%we know that \[v_{\mathcal{P}}=f_{\mathcal{P}}^{\infty}=(\dot{\bigvee}\{{\rm v}_{x}\mid x\in\mathcal{P}\})^{\infty}\]
+%moreover:
 
-\[
-f_{\mathcal{P}}(x)=\left\{
-	\begin{array}{lcc}
-1 & \mbox{ si } & x\nleq p\\
-\\
-\leq p & \mbox{ si } & x\leq p
-\end{array}\right.
-\]
-for $x\in A$.
-
-
-and in fact ${\rm w_{p}}=u_{p}\vee v_{\mathcal{P}}=f_{\mathcal{P}}\circ u_{p}$. If ${\rm w_{p}}$ is fitted, that is, \[{\rm w_{p}}=v_{\mathcal{P}}\]
-
-then one need to have $u_{p}\leq v_{\mathcal{P}}$ then \[p\leq v_{\mathcal{P}}(0)\] by the equation of $f_{\mathcal{P}}$ we have \[0\leq\cdots\leq f_{\mathcal{P}}^{\alpha}(0)\leq\cdots\leq\]
+%\[
+%f_{\mathcal{P}}(x)=\left\{
+%	\begin{array}{lcc}
+%1 & \mbox{ si } & x\nleq p\\
+%\\
+%\leq p & \mbox{ si } & x\leq p
+%\end{array}\right.
+%\]
+%for $x\in A$.
 
 
-\begin{prop}\label{pfitequiv}
-Let $A$ be a frame for each $p\in\pt(A)$ the following are equivalent:
- \begin{itemize}
-\item[(i)] ${\rm w}_{p}$ is fitted.
-\item[(ii)] ${\rm w}_{p}$ is alone in its block.
-\item[(iii)] $u_{p}\leq v_{\mathcal{P}}$.
-\item[(iv)] $u_{p}\leq f_{\mathcal{P}}$.
-\item[(v)] $f_{\mathcal{P}}\circ u_{p}=v_{\mathcal{P}}$.
-\item[(vi)] aqui debe de ir una formula de primer de orden.
- \end{itemize}
-\end{prop}	
+%and in fact ${\rm w_{p}}=u_{p}\vee v_{\mathcal{P}}=f_{\mathcal{P}}\circ u_{p}$. If ${\rm w_{p}}$ is fitted, that is, \[{\rm w_{p}}=v_{\mathcal{P}}\]
+
+%then one need to have $u_{p}\leq v_{\mathcal{P}}$ then \[p\leq v_{\mathcal{P}}(0)\] by the equation of $f_{\mathcal{P}}$ we have \[0\leq\cdots\leq f_{\mathcal{P}}^{\alpha}(0)\leq\cdots\leq\]
 
 
-\begin{prop}\label{fitpro}
-In a {\rm p-fit} frame for each $p\in\pt(A)$ the nucleus ${\rm w}_{p}$ is a maximal element in $\mathrm{p}A$.
-\end{prop}
+%\begin{prop}\label{pfitequiv}
+%Let $A$ be a frame for each $p\in\pt(A)$ the following are equivalent:
+ %\begin{itemize}
+%\item[(i)] ${\rm w}_{p}$ is fitted.
+%\item[(ii)] ${\rm w}_{p}$ is alone in its block.
+%\item[(iii)] $u_{p}\leq v_{\mathcal{P}}$.
+%\item[(iv)] $u_{p}\leq f_{\mathcal{P}}$.
+%\item[(v)] $f_{\mathcal{P}}\circ u_{p}=v_{\mathcal{P}}$.
+%\item[(vi)] aqui debe de ir una formula de primer de orden.
+% \end{itemize}
+%\end{prop}	
 
 
-
-\begin{proof}\label{maxp}
-First we dealing with the basics $v_{F}$ for $F\in A^{\wedge}$ of the patch frame, given any ${\rm w}_{p}$ suppose that  
-${\rm w}_{p} \leq v_{F}$ then by (propiedades generales de los w) $v_{F}={\rm w}_{b}$ where $b=v_{F}(0)$ thus \[{\rm w}_{p}\leq {\rm w}_{b}\Leftrightarrow {\rm w}_{p}(b)=b\]
- since ${\rm w}_{p}$ is two valuated we have $b=1$ or $b=p$  if the first case occur then we are done, for the case $b=p$ we have $v_{f}(p)=p$ that is, to say, $p\notin F$,
- then by the Birkhoff's separation lemma we can find a completely prime filter $D$ such that \[F\subseteq G\niton p\] let $q$ the corresponding point associated to $G$, then $p\leq q$ since $A$ is 
- {\rm p-fit} $v_{G}={\rm w}_{q}$ and thus ${\rm w}_{p}\leq {\rm w}_{q}$ wich is equivalent to ${\rm w}_{p}(q)=q$ again since we are dealing with points one neccesary has $p=q$.
-
- Now consider any closed ${\rm u}_{c}$ such that, ${\rm w}_{p}\leq {\rm u}_{c}$ then ${\rm w}_{p}(c)=1$ and thus $1=c$.
-
- Therefore in basics of the patch the nuclei ${\rm w}_{p}$ are maximal, now consider any $k\in\mathrm{p}A$ such that $k\in\mathfrak{K}A$
-\end{proof}
-
-
-\begin{prop}\label{kcf}
-Let $A$ be a frame then if \[v_{F}\neq v_{G}\]
-\end{prop}
+%\begin{prop}\label{fitpro}
+%In a {\rm p-fit} frame for each $p\in\pt(A)$ the nucleus ${\rm w}_{p}$ is a maximal element in $\mathrm{p}A$.
+%\end{prop}
 
 
 
+%\begin{proof}\label{maxp}
+%First we dealing with the basics $v_{F}$ for $F\in A^{\wedge}$ of the patch frame, given any ${\rm w}_{p}$ suppose that  
+%${\rm w}_{p} \leq v_{F}$ then by (propiedades generales de los w) $v_{F}={\rm w}_{b}$ where $b=v_{F}(0)$ thus \[{\rm w}_{p}\leq {\rm w}_{b}\Leftrightarrow {\rm w}_{p}(b)=b\]
+ %since ${\rm w}_{p}$ is two valuated we have $b=1$ or $b=p$  if the first case occur then we are done, for the case $b=p$ we have $v_{f}(p)=p$ that is, to say, $p\notin F$,
+ %then by the Birkhoff's separation lemma we can find a completely prime filter $D$ such that \[F\subseteq G\niton p\] let $q$ the corresponding point associated to $G$, then $p\leq q$ since $A$ is 
+ %{\rm p-fit} $v_{G}={\rm w}_{q}$ and thus ${\rm w}_{p}\leq {\rm w}_{q}$ wich is equivalent to ${\rm w}_{p}(q)=q$ again since we are dealing with points one neccesary has $p=q$.
 
-\begin{dfn}\label{tame}
-A frame $A$ is \emph{tame} if does not have wild points.
-\end{dfn}
+ %Now consider any closed ${\rm u}_{c}$ such that, ${\rm w}_{p}\leq {\rm u}_{c}$ then ${\rm w}_{p}(c)=1$ and thus $1=c$.
+
+% Therefore in basics of the patch the nuclei ${\rm w}_{p}$ are maximal, now consider any $k\in\mathrm{p}A$ such that $k\in\mathfrak{K}A$
+%\end{proof}
 
 
-\begin{prop}\label{fitpro1}
-	In a tame {\rm p-fit} frame the patch frame  $\mathrm{p}A$ is ${\rm T}_{1}$.
-	\end{prop}
-
-Since every hausdorff frame is tame and {\rm p-fit} we have:
-
-	\begin{cor}\label{fitpro2}
-		If $A\in\EuScript{H}rm$ then, the patch frame  $\mathrm{p}A$ is ${\rm T}_{1}$.
-	\end{cor}	
+%\begin{prop}\label{kcf}
+%Let $A$ be a frame then if \[v_{F}\neq v_{G}\]
+%\end{prop}
 
 
 
 
-
-\begin{dfn}\label{KQ}
-Let $A$ be a frame a nucleus $k$ on $A$ it said to be \emph{kq} if $A_{j}$ is a compact frame. 
-\end{dfn}
-Denote by 
-\[
-\mathfrak{K}A=\{j\in NA\mid j \text{ is } kq\}.
-\]
-
-\begin{dfn}\label{KCH}
-A frame $A$ is \emph{compact closed Hausdorff} ({\rm KCH} for short) if every compact quotient of $A$ is closed and Hausdorff.
-\end{dfn}
+%\begin{dfn}\label{tame}
+%A frame $A$ is \emph{tame} if does not have wild points.
+%\end{dfn}
 
 
+%\begin{prop}\label{fitpro1}
+%	In a tame {\rm p-fit} frame the patch frame  $\mathrm{p}A$ is ${\rm T}_{1}$.
+%	\end{prop}
 
-Denote by $\mathfrak{f}A=\{kq\text{ fitted nuclei }\}=\{v_{F}\mid F\in A^{\wedge}\}$
+%Since every hausdorff frame is tame and {\rm p-fit} we have:
+
+%	\begin{cor}\label{fitpro2}
+%		If $A\in\EuScript{H}rm$ then, the patch frame  $\mathrm{p}A$ is ${\rm T}_{1}$.
+%	\end{cor}	
 
 
 
 
-denote by $\mathfrak{C}A=\{a\in A\mid {\rm u}_{a}\in\mathfrak{K}A\}$
 
+%\begin{dfn}\label{KQ}
+%Let $A$ be a frame a nucleus $k$ on $A$ it said to be \emph{kq} if $A_{j}$ is a compact frame. 
+%\end{dfn}
+%Denote by 
+%\[
+%\mathfrak{K}A=\{j\in NA\mid j \text{ is } kq\}.
+%\]
+
+%\begin{dfn}\label{KCH}
+%A frame $A$ is \emph{compact closed Hausdorff} ({\rm KCH} for short) if every compact quotient of $A$ is closed and Hausdorff.
+%\end{dfn}
+
+
+
+%Denote by $\mathfrak{f}A=\{kq\text{ fitted nuclei }\}=\{v_{F}\mid F\in A^{\wedge}\}$
+
+
+
+
+%denote by $\mathfrak{C}A=\{a\in A\mid {\rm u}_{a}\in\mathfrak{K}A\}$
+%AQUI TERMINA LO COMENTADO
 
 \section{El enfoque de Balmer y Gallauer}
 \cite{BalmerGallauer2025PatchDensity}
@@ -2257,9 +2276,9 @@ denote by $\mathfrak{C}A=\{a\in A\mid {\rm u}_{a}\in\mathfrak{K}A\}$
     En los marcos linealmente ordenados todos los elementos son semiprimos. Por lo tanto existen primos que no son máximos.
 \end{proof}
 
-EJEMPLOS DE marcos pt que no sean KC
+%EJEMPLOS DE marcos pt que no sean KC
 
-HAY que COMENTAR LAS COSAS QUE ESTAN MAL comentar me refiero a ponerlas entre 
+%HAY que COMENTAR LAS COSAS QUE ESTAN MAL comentar me refiero a ponerlas entre 
 
 
 \bibliographystyle{amsalpha}
