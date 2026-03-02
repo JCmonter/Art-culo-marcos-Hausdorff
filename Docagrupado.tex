@@ -3,7 +3,8 @@
 \usepackage[mathscr]{eucal}
 \usepackage[spanish, es-noshorthands]{babel}
 \usepackage{times}
-\usepackage{amsmath,amssymb,latexsym,amscd}   
+\usepackage{amsmath,amssymb,latexsym,amscd}
+\usepackage{booktabs}   
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true}
 %\input xypic
@@ -129,8 +130,6 @@ y el segundo nociones topológicas. Debido a la relación que existe entre las n
 Cuestiones básicas sobre teoría de marcos y la interacción que tiene esta con la teoría de espacios topológicos puede ser consultada en 
 \cite{Johnstone82,PicadoPultr,picado2021separation}.
 \section{Cuestiones en marcos}
-
-\subsection{Axiomas de separación}
 \subsection{Núcleos}
 Cuando trabajamos con marcos podemos construir nuevos marcos a partir de otros ya dados. En lo que sigue, consideramos un marco fijo $A$
 y diremos que este es nuestro marco principal. Haciendo uso de este marco, definimos las siguientes clases de funciones.
@@ -527,8 +526,170 @@ El diagrama
 es conmutativo.
 \end{prop}
 
+\subsection{Axiomas de separación}
+Por la relación que existe entre las categorías $\Frm$ y $\Top$, es posible definir dentro de un marco distintos tipos de axiomas de separación. 
+Parte de lo que se incluye en esta subsección es información presentada en \cite{picado2021separation}.\\
+
+Para poder realizar una clasificación sobre las propiedades que se mencionaran, introducimos la siguiente definción.
+
+\begin{dfn}\label{PropFrm}
+Sea $\mathcal{P}$ una propiedad definida en marcos. Decimos que la propiedad $\mathcal{P}$ es:
+\begin{itemize}
+\item \emph{hereditaria} si para todo marco $A$ que satisface $\mathcal{P}$ y todo $j\in NA$, el cociente $A_j$ satisface $\mathcal{P}$.
+\item \emph{coproductiva} si para cada familia $\{A_i\}_{i\in I}$ de marcos que satisfacen $\mathcal{P}$, entonces $\bigoplus_{i\in I}A_i$ satisface $\mathcal{P}$, donde $\bigoplus$ representa el coproducto en $\Frm$.
+\item \emph{conservativa} si existe una propiedad topológica $\mathcal{P}'$, definida sobre espacios $T_0$, tal que para todo $S\in \Top_0$,
+\[
+\mathcal{O}S\text{ satisface }\mathcal{P}\text{ si y solo si }S\text{ satisface }\mathcal{P}'.
+\]
+\end{itemize}
+\end{dfn}
+
+Consideramos $A\in Frm$ y $S=\pt A$. Sabemos que $p\in \pt A$ si y solo si $p\neq 1$ y
+\begin{equation}\label{primo}
+a\wedge b\leq p \Rightarrow a\leq p \; \text{o}\; b\leq p,
+\end{equation}
+para todo $a, b\in A$. A los elementos de $\pt A$ también podemos llamarlos \emph{primos}.\\
+
+De manera adicional, decimos que $m\in A$ es \emph{máximo} si 
+\[
+a\leq m\Rightarrow a=m \text{ o } a=1
+\]
+para todo $a\in A$. Podemos verificar que si $m$ es máximo, entonces $m\in \pt A$. Veamos cuando el reciproco es cierto.
+
+\begin{dfn}\label{FrmT1}
+Un marco $A$ es $T_1$ si para cada $p\in \pt A$, p es máximo.
+\end{dfn}
+
+Si $A=\mathcal{O}S$ los elementos primos son de la forma $S\setminus\overline{\{x\}}$ para $x\in S$.
+
+\begin{prop}
+Consideremos $S\in \Top$ y $A=\mathcal{O}S$. $\mathcal{O}S$ es $T_1$ si y solo si $S$ es $T_1$.
+\end{prop}
+
+Para probar lo anterior, hacemos uso del hecho de que es espacios $T_1$ se satisface que para todo $x\in S$
+\[
+\{x\}=\overline{\{x\}}.
+\]
+
+Siguiendo la idea de la Definición \ref{PropFrm}, tenemos que $T_1$ es una propiedad conservativa. Veamos más ejemplos de esta clase de propiedades.
+
+\begin{dfn}\label{Bpordebajo}
+Sean $A\in \Frm$ y $a, b\in A$. Decimos que $a$ está \emph{bastante por debajo} de $b$, y lo denotamos por $a\prec b$, 
+\[
+\exists x\in A\text{ tal que }a\wedge c=0 \text{ y }b\vee c=1.
+\]
+\end{dfn}
+Cuando trabajamos en marcos se cumple que para cada $a\in A$ existe $\neg a$ tal que $a\wedge \neg a=0$, la condición de la definición anterior 
+se puede reescribir de la siguiente manera
+\[
+a\prec b\iff \neg a\vee b=1.
+\]
+
+\begin{dfn}\label{reg}
+Decimos que $A\in \Frm$ es \emph{regular} (o que satisface $\mathbf{(reg)}$) si para todo $a\in A$ se cumple que
+\[
+a=\bigvee\{x\in A\mid x\prec a\}.
+\]
+\end{dfn}
+
+Equivalentemente, podemos decir que $A$ es regular si para cada $a, b\in A$, con $a\nleq b$, existen $x, y\in A$
+tales que 
+\[
+a\vee x=q, \quad y\nleq b, \quad x\wedge y=0.
+\]
+
+\begin{prop}
+Consideremos $S\in \Top$ y $A=\mathcal{O}S$. $\mathcal{O}S$ es regular si y solo si $S$ es regular.
+\end{prop}
+
+\begin{dfn}\label{norm}
+Decimos que $A\in \Frm$ es \emph{normal} (o que satisface $\mathbf{(nor)}$ si para cada $a, b\in A$ tales que $a\vee b=1$ existen $x, y\in A$ tales que
+\[
+a\vee x=1, \quad b\vee y=1,\quad x\wedge y=0.
+\]
+\end{dfn}
+
+\begin{prop}
+Consideremos $S\in \Top$ y $A=\mathcal{O}S$. $\mathcal{O}S$ es normal si y solo si $S$ es normal.
+\end{prop}
+
+La teoría de separación en marcos es más rica que la teoría en espacios topológicos. Esto se debe a que en marcos existe más de una noción para decir
+que un marco es Hausdorff.
+
+\begin{dfn}\label{dH}
+Decimos que $A\in \Frm$ es \emph{débilmente Hausdorff} (o que satisface $\mathbf{(dH)}$) si
+\end{dfn}
+
+\begin{dfn}\label{H}
+Decimos que $A\in \Frm$ es \emph{Hausdorff} (o que satisface $\mathbf{(H)}$) si
+\end{dfn}
+
+\begin{dfn}\label{fH}
+Decimos que $A\in \Frm$ es \emph{fuertemente Hausdorff} (o que satisface $\mathbf{(fH)}$) si
+\end{dfn}
+
+\begin{dfn}\label{Hp}
+Decimos que $A\in \Frm$ es \emph{Hausdorff punteado} (o que satisface $\mathbf{(Hp)}$) si
+\end{dfn}
+
+De igual manera que en el caso espacial, los axiomas en $\Frm$ se relacionan de manera jerárquica. Los siguientes diagramas muestran
+como se relacionan todos los que hemos mencionado hasta este momento
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(aju)}} & {\mathbf{(saju)}} \\
+	&& {T_1}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(fH)}} & {\mathbf{(H)}} & {\mathbf{(dH)}} & {T_1} \\
+	&&& {\mathbf{(Hp)}}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[Rightarrow, from=1-3, to=2-4]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(H)}+\mathbf{(saju)}} & {\mathbf{(dH)}+\mathbf{(saju)}}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Leftrightarrow, from=1-2, to=1-3]
+\end{tikzcd}\]
+
+Para culminar este apartado, agregamos la siguiente tabla para tener un resumen del comportamiento de todas estas propiedades.
+
+\begin{table}[htbp]
+\centering
+\label{tabla-separacion}
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccccc}
+\toprule
+\textbf{Propiedad}
+& $\mathbf{T_1}$
+& $\mathbf{(dH)}$
+& $\mathbf{(Hp)}$
+& $\mathbf{(H)}$
+& $\mathbf{(fH)}$
+& $\mathbf{(reg)}$
+& $\mathbf{(norm)}$
+& $\mathbf{(saju)}$
+& $\mathbf{(aju)}$ \\
+\midrule
+\textbf{Hereditaria}  & \checkmark & & & \checkmark & \checkmark & \checkmark & \checkmark & & \checkmark \\
+\textbf{Coproductiva} & \checkmark  & & & \checkmark & \checkmark & \checkmark & \checkmark & & \\
+\textbf{Conservativa} & \checkmark & & & \checkmark & & \checkmark & \checkmark & & \\
+\bottomrule
+\end{tabular}
+}
+\caption{Comportamiento estructural de algunos axiomas de separación en $\Frm$.}
+\end{table}
+
 \subsection{El marco de parches y marcos eficientes}
-Todo lo que se menciona en esta subsección es parte del trabajo de Rosemary A. Sexto. Esto puede ser consultado en \cite{sexton2003point,sexton2006ordinal,sexton2006point}.\\
+Parte de lo que se menciona en esta subsección es trabajo de Rosemary A. Sexto. Esto puede ser consultado en \cite{sexton2003point,sexton2006ordinal,sexton2006point}. Algunos otros resultados son parte de nuestro trabajo de investigación\\
 
 Sabemos que $A\in \Frm$ está relacionado con su ensamble $NA$ por medio del morfimos $\eta_A$. Sexton construye un nuevo marco
 ubicado entre el marco principal $A$ y $NA$ a este marco se le conoce como el marco de marches y lo denotamos por $PA$. Este marco esta 
