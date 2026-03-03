@@ -1458,16 +1458,23 @@ donde $\mathcal{O}^fS$ es conocida como la topología frontal (o topología de S
 \subsection{Nociones de apilamiento}
 Notemos que por la Definición \ref{def:apilado} tenemos las igualdades
 \[
-[Q']=v_F\quad \text{y}\quad\overline{Q}=\partial_\nabla^\infty(S).
+[Q']=v_\nabla\quad \text{y}\quad\overline{Q}=\partial_\nabla^\infty(S).
 \]
-para decir cuando un espacio $S$ es fuertemente apilado y apilado, respectivamente. Nosotros damos sus análogos 
-en $\Frm$. Para ello, hacemos uso del levantamiento.
+que nos indican cuando un espacio $S$ es fuertemente apilado o apilado, respectivamente.\\
 
+Si queremos tener las nociones análogas de apilado y fuertemente apilado en $\Frm$ lo ideal sería trasladar las igualdades anteriores
+a través del levantamiento de $[Q']$ hacía el núcleo $v_F$. Por (\ref{comparacionvF}) se cumple que 
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+
+Siguiendo la idea de los espacios fuertemente apilados, obtenemos la igualdad entre ambos núcleos 
+si ocurre lo siguiente.
 \begin{dfn}\label{def:apilado-marcos}
-Siguiendo la notación anterior, consideremos $A\in \Frm$. Decimos que $A$ es:
+Considerando la notación anterior, tomamos $A\in \Frm$. Decimos que $A$ es:
 \begin{enumerate}
-  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
   \item fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
 \end{enumerate}
 \end{dfn}
 
@@ -1504,7 +1511,28 @@ v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
 es decir, $\mathcal{O}S$ es apilado.\\
 \end{proof}
 
-Nuestro siguiente paso será el verificar cual es el comportamiento de las nociones de apilamiento en conjunto con la eficiencia. 
+Nuestro siguiente paso es verificar cual es el comportamiento de las nociones de apilamiento en conjunto con otras propiedades.\\
+
+Recordemos que si un espacio es $T_1$ y fuertemente apilado, entonces se satisface que $w_\nabla=v_\nabla$. Adicionalmente, por la Proposición \ref{Propiedadesapilado}, se cumple que
+si $S$ es apilado y $T_1$, entonces es sobrio.\\
+
+Lo anterior nos hace cuestionarnos si las nociones en marcos tienen el mismo comportamiento, es decir, si $A$ es $T_1$ y fuertemente apilado, 
+\[
+¿v_F=w_F?
+\]
+Si lo anterior ocurre, ¿qué información nos proporciona con respecto al marco $A$? Además, se cumple que si $A$ es 
+apilado y $T_1$, ¿$A$ es espacial?\\
+
+Con respecto a la eficiencia, en espacios se satisface que 
+\[
+\text{Eficiente}\iff \text{Empaquetado y apilado}.
+\]
+
+Ya que la noción de empaquetado no es una propiedad espacial, debemos preguntarnos si existe una propiedad en marcos tal que
+\[
+\text{Eficiente}\iff \mathcal{P}\text{ y Apilado},
+\]
+donde la propiedad $\mathcal{P}$ es la noción análoga a empaquetado.
 
 \subsection{El marco $[0,1]$}
 
