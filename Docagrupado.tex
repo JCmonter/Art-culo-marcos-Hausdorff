@@ -914,6 +914,25 @@ es decir, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ y por lo tanto $\lan
 \section{Cuestiones en espacios topológicos}
 Recordamos brevemente algunas nociones topológicas que serán utilizadas para motivar las construcciones libres de puntos posteriores.\\
 
+Si consideramos $p, q\in S$ cualesquiera dos puntos, podemos definir una relación de orden entre estos de la siguiente manera
+\[
+p\sqsubseteq q\iff q\in \overline{\{q\}}.
+\]
+A esta relación se le conoce como el \emph{orden de especialización} y, bajo el supuesto de que $S$ es $T_0$, este es un orden parcial. Si $S$ es $T_1$, entonces es una igualdad.\\
+
+Al tener una comparación entre los puntos del espacio, podemos realizar la comparación de los puntos contenidos en cualquier subconjunto. Si consideramos $E\subseteq S$, definimos
+\[
+\uparrow E=\{p\in S\mid (\exists\, q\in E)[q\sqsubseteq p]\} \quad \text{y}\quad \downarrow E=\{p\in S\mid (\exists\, q\in E)[q\sqsubseteq p]\}.
+\]
+Y decimos que $E\subseteq S$ es \emph{saturado} si $E=\uparrow E$. De manera equivalente, decimos que $E$ es saturado si se cumple que
+\begin{equation}\label{saturado}
+E=\bigcap\{U\in \mathcal{O}S\mid E\subseteq U\}.
+\end{equation}
+
+Notemos que (\ref{saturado}) nos dice que todo conjunto abierto es saturado, pero el reciproco no es cierto. Pueden existir muchos subconjuntos
+saturados que no son abiertos. Nosotros nos centramos en aquellos subconjuntos $Q\subseteq S$ tales que son saturados y compactos. Denotamos por $\mathcal{Q}S$ 
+a la colección de dichos subconjuntos.\\
+
 Para un espacio $S$ que es $T_2$ se satisface que si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$, donde $\mathcal{C}S$ es la colección
 de subconjuntos cerrados de $S$. Podemos tener la condición anterior si tomamos una clase más general de espacios.
 
@@ -1401,7 +1420,7 @@ El análisis desarrollado en las subsecciones anteriores sugiere una posible con
 libres de puntos de apilado introducidas. En particular, surge la pregunta de si estas nociones permiten caracterizar la eficiencia
 bajo hipótesis de separación adecuadas.\\
 
-Las siguientes cuestiones forman parte del trabajo en curso y orientan las etapas posteriores de la investigación.
+Las siguientes cuestiones forman parte del trabajo en curso y orientan las etapas posteriores de la investigación.\\
 
 Recordemos que si un espacio es $T_1$ y fuertemente apilado, entonces se satisface que $w_\nabla=v_\nabla$. Adicionalmente, por la Proposición \ref{Propiedadesapilado}, se cumple que
 si $S$ es apilado y $T_1$, entonces es sobrio.\\
@@ -1411,7 +1430,119 @@ Lo anterior nos hace cuestionarnos si las nociones en marcos tienen el mismo com
 \text{¿}v_F=w_F?
 \]
 Si lo anterior ocurre, ¿qué información nos proporciona con respecto al marco $A$? Además, se cumple que si $A$ es 
-apilado y $T_1$, ¿$A$ es espacial?\\
+apilado y $T_1$, ¿$A$ es espacial?
+
+\begin{prop}\label{v_F=w_F}
+Sean $A\in \Frm$, $F\in A^\wedge$ y $Q\in \mathcal{Q}S$. Si $A$ es fuertemente apilado y $T_1$, entonces $v_F=w_F$. 
+\end{prop}
+
+\begin{proof}
+Sabemos que para $F\in A^\wedge$, siempre se cumple que $v_F\leq w_F$.\\
+
+Por fuertemente apilado y por la Proposición \ref{igualdadwF} tenemos que
+\[
+v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+respectivamente. De aquí que
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+es decir, $v_F=w_F$.
+\end{proof}
+
+Notemos que la Definición \ref{def:apilado-marcos} está dada para cualquier pareja $(F,Q)$
+asociada por el Teorema de Hofmann--Mislove. En particular, si $q\in S=\pt A$, entonces
+$\uparrow q\in \mathcal{Q}S$ y el filtro abierto asociado está dado por
+\[
+F=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}.
+\]
+
+Si $A$ es apilado, se cumple que
+\[
+v_F(0)=(\mathcal{U}_*\circ[(\uparrow q)']\circ \mathcal{U})(0)
+=\mathcal{U}_*(((\uparrow q)')^\circ).
+\]
+
+Por la fórmula del adjunto derecho,
+\[
+\mathcal{U}_*(((\uparrow q)')^\circ)
+=\bigvee\{x\in A\mid \mathcal{U}(x)\subseteq (\uparrow q)'\}.
+\]
+
+Recordemos que
+\[
+\mathcal{U}(x)=\{p\in S\mid x\nleq p\},
+\qquad
+\mathcal{U}(x)'=\{p\in S\mid x\leq p\}.
+\]
+
+Por lo tanto,
+\[
+\mathcal{U}(x)\subseteq (\uparrow q)'
+\quad\Longleftrightarrow\quad
+\uparrow q\subseteq \mathcal{U}(x)'.
+\]
+
+Ahora bien,
+\[
+p\in \uparrow q
+\quad\Longleftrightarrow\quad
+q\sqsubseteq p
+\quad\Longleftrightarrow\quad
+p\leq q,
+\]
+pues $\sqsubseteq$ es el orden de especialización en $S$, el cual corresponde al orden
+opuesto del marco $A$.\\
+
+Así,
+\[
+\uparrow q\subseteq \mathcal{U}(x)'
+\quad\Longleftrightarrow\quad
+\forall p\in S,\ (p\leq q \Rightarrow x\leq p).
+\]
+
+De esta manera obtenemos
+\[
+v_F(0)
+=\bigvee\{x\in A\mid \forall p\in S,\ (p\leq q \Rightarrow x\leq p)\}.
+\]
+
+Si además $A$ es $T_1$, entonces todo punto es máximo en $A$. En particular, si
+$p\in S$ satisface $p\leq q$, necesariamente $p=q$. Por lo tanto la condición
+anterior se reduce a $x\leq q$, y así
+
+\[
+v_F(0)
+=\bigvee\{x\in A\mid x\leq q\}
+=\bigvee \downarrow q
+=q.
+\]
+
+Notemos que $v_F(0)\in A_F$ y $v_F(q)=v_F(0)=0_{A_F}$. Ya que $q$ es máximo en $A$, entonces $q$ es máximo en $A_F$.
+Por lo tanto, $A_F=\{q<1\}$.\\
+
+Ahora, $F=\nabla(v_F)$ y $x\in F$ si y solo si $v_F(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
+\[
+v_F(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{si} & x\leq q 
+\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F\\ \\ q, & \text{si} & x\not\in F \end{array} \right.,
+\]
+es decir, la pareja $(F, \uparrow q)$ proporciona un filtro abierto que permite distinguir 
+cuando un elemento de $A$ está en el filtro o no.
+
+\begin{thm}\label{Testespacial}
+Si $A$ es un marco $T_1$ y apilado, entonces $A$ es espacial.
+\end{thm}
+
+\begin{proof}
+Consideremos $a, b\in A$ tales que $a\nleq b$. Debemos verificar que existe $p\in \pt A$ tal que 
+\[
+a\nleq p\quad \text{y}\quad b\leq p.
+\]
+\end{proof}
 
 Con respecto a la eficiencia, en espacios se satisface que 
 \[
