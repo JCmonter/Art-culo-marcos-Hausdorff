@@ -1,0 +1,121 @@
+\documentclass[11pt]{amsart}
+\usepackage[mathscr]{eucal}
+\usepackage[spanish, es-noshorthands]{babel}
+\usepackage{times}
+\usepackage{amsmath,amssymb,latexsym,amscd}
+\usepackage{booktabs}   
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true}
+%\input xypic
+%\xyoption{all}
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+%\usepackage[sans]{dsfont}
+\usepackage{upgreek}
+%\usepackage{mathpazo}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\newcommand{\niton}{\not\owns}
+
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Teorema}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposición}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{ej}[thm]{Ejemplo}
+
+\renewcommand{\proofname}{Demostración}
+  %%
+    %\providecommand{\corollaryname}{Corollary}
+  %\providecommand{\examplename}{Example}
+  %\providecommand{\lemmaname}{Lemma}
+  %\providecommand{\propositionname}{Proposition}
+  %\providecommand{\remarkname}{Remark}
+%\providecommand{\theoremname}{Theorem}
+%\providecommand{\subexamplename}{Subexample}
+  %\providecommand{\definitionname}{Definition}
+\begin{document}
+%\begin{frontmatter}
+
+\title{Cosas probadas y preguntas abiertas}
+
+
+\author{}
+\email{}
+\address{}
+
+
+\address{}
+%$\cortext[cor1]{Corresponding author}
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\maketitle
+
+\begin{prop}\label{EficienteFapilado}
+  Si $A\in \Frm$ es eficiente y el diagrama 
+
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
+	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta, entonces $A$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente lo cual implica lo siguiente:
+\[
+A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
+\]
+De aquí que si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y $Q'\in \mathcal{O}S$. Luego, al ser $S$ apilado tenemos que
+$\overline{Q}=Q(\infty)$, es decir, $Q'=v_\nabla(\emptyset)$ y al ser $\mathcal{O}S$ eficiente, $[Q']=v_\nabla$.\\
+  
+
+Además, si $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, entonces
+\[
+v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
+\]
+es decirc 
+\[
+[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
+\]
+Por propiedades del adjunto derecho 
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ y } v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+Por lo tanto $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, es decir, $A$ es fuertemente apilado.
+\end{proof}
+
+Un corolario que surge de la prueba anterior es el siguiente
+
+\begin{cor}
+Si $\mathcal{O}S$ es eficiente y $S$ es empaquetado, entonces $S$ es fuertemente apilado.
+\end{cor}
+
+\end{document}
