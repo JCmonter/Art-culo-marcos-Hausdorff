@@ -775,6 +775,49 @@ Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
 es decir, $v_F=w_F$.
 \end{proof}
 
+\begin{prop}\label{focales}
+Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
+\end{prop}
+
+\begin{proof}
+Por lo mencionado en la prueba de la proposición anterior, si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que 
+\[
+v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=[Q'](0)=[M'](0)=w_F(0).
+\]
+
+Para la otra implicación, supongamos que $v_F(0)=w_F(0)$. Consideremos $p, q\in \pt A$ tales que $q\leq p$. De aquí que
+por \eqref{filtro-p} y \eqref{nucleo-ajustado-p} se cumple que $v_{F_p}(q)=q$. Además, como $0\leq q$, entonces
+\[
+q=v_{F_p}(q)\geq v_{F_p}(0)=w_{F_p}(0).
+\]
+
+\textbf{Afirmación:} Si consideramos $M=\{m\in A\setminus F_p\mid[\forall a\in A\setminus F_p] (a\leq m)\}$, entonces el núcleo
+\[
+w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}
+\]
+tiene la forma \eqref{nucleo-wp}.\\
+
+\textbf{Demostración de la afirmación:} Notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. De aquí que
+\[
+M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
+\]
+
+Luego, $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
+\[
+w_{F_p}(x)=p \text{ si } x\leq p\quad \text{y}\quad w_{F_p}(x)=1 \text{ si } x\nleq p.
+\]
+
+Por lo tanto $w_{F_p}=w_p$.\\
+
+De aquí que $p=w_p(0)=w_{F_p}(0)\leq v_{F_p}(0)=q$. Por lo tanto, $p=q$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+
+Para ver que $A$ es apilado, recordemos que
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+\]
+y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+\end{proof}
+
 Notemos que la Definición \ref{def:apilado-marcos} está dada para cualquier pareja $(F,Q)$
 asociada por el Teorema de Hofmann--Mislove. En particular, si $q\in S=\pt A$, entonces
 $\uparrow q\in \mathcal{Q}S$ y el filtro abierto asociado está dado por
