@@ -74,6 +74,10 @@
 
 \maketitle
 \section{Resultados probados}
+Sea $f\colon A\to B$ un morfismo de marcos con adjunto derecho $f_*\colon B\to A$. Si $F\subseteq A$ y $G\subseteq B$ son filtros, definimos:
+\begin{equation}\label{Imagenfiltros}
+b\in f^*F \Longleftrightarrow f_*(b)\in F\qquad a\in f_*G \Longleftrightarrow f(a)\in G.
+\end{equation}
 \begin{prop}\label{fF}
 Para $f=f^*\colon A\to B$ un morfismo de marcos y $G\in B^\wedge$, entonces $f_*G\in A^\wedge$.
 \end{prop}
@@ -87,16 +91,21 @@ es dirigido y $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Como $G$ es un filtro 
 \end{proof}
 
 En \cite[Lema 8.9 y Corolario 8.10]{simmons2004vietoris} muestran que el diagrama
-\[\begin{tikzcd}
+\begin{equation}\label{Qlaxo}
+\begin{tikzcd}
 	A & A \\
 	{\mathcal{O}S} & {\mathcal{O}S}
 	\arrow["{f^\infty}", from=1-1, to=1-2]
 	\arrow["{U_A}"', from=1-1, to=2-1]
 	\arrow["{U_A}", from=1-2, to=2-2]
 	\arrow["{F^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}\]
+\end{tikzcd}
+\end{equation}
 conmuta laxamente, es decir, $U_A\circ f^\infty\leq F^\infty \circ U_A$. En este diagrama $f^\infty$ y $F^\infty$ representan los
-núcleos ajustados asociados a los filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$, respectivamente.\\
+núcleos ajustados asociados a los filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$, respectivamente, es decir, 
+\[
+f^\infty=v_F\quad\text{y}\quad F^\infty =v_\nabla.
+\]
 
 Aquí probamos algo más general, ya que consideremos $j\in NA$, $F\in A_j^\wedge$ y $j_*F\in A^\wedge$ para producir el diagrama
 \[\begin{tikzcd}
@@ -110,7 +119,7 @@ Aquí probamos algo más general, ya que consideremos $j\in NA$, $F\in A_j^\wedg
 donde $\hat{f}^\infty$ y $f^\infty$ son los núcleos ajustados asociados a los filtros $j_*F$ y $F$, respectivamente.\\
 
 El siguiente lema es parte del análisis desarrollado en este trabajo y constituye una herramienta clave en la construcción de los diagramas conmutativos
-porteriores.
+posteriores.
 
 \begin{lem}\label{f1f}
     Para $j=j^*$, $f$ y $\hat{f}$ como antes se cumple que $j\circ \hat{f}\leq f\circ j$.
@@ -177,7 +186,10 @@ Ahora probaremos lo anterior, pero para cualquier ordinal.
 El Lema \ref{f1f} y el Corolario \ref{finftyf} también se cumplen si $j$ solo es monótono y preserva ínfimos finitos.
 \end{obs}
 
-Recordando que $v_F=f^\infty$ y $v_{j_*F}=\hat{f}^\infty$, el Corolario \ref{finftyf} nos dice que $j\circ v_{j_*F}\leq v_F\circ j$.\\
+Recordando que $v_F=f^\infty$ y $v_{j_*F}=\hat{f}^\infty$, el Corolario \ref{finftyf} nos dice que 
+\[j
+\circ v_{j_*F}\leq v_F\circ j
+\]
 
 El objetivo ahora es comparar los cocientes compactos inducidos por $F$ y por $j_*F$, y construir un morfismo entre ellos que haga conmutar el diagrama correspondiente.\\
 
@@ -225,37 +237,37 @@ conmuta.\\
 
 Debemos verificar que $h$ es un morfismo de marcos. Por la definición de $h$, este es un $\wedge$-morfismo. Restaría comprobar que es un $\bigvee$-morfismo.\\
 
-Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente. De esta manera, denotamos por $\hat{\bigvee}$ al supremo en $A_{j_*F}$ y por $\tilde{\bigvee}$ al supremo en $A_F$. Por lo tanto
+Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente, esto es
 \[
-\hat{\bigvee}=v_{j_*F}\circ \bigvee\quad\mbox{ y }\quad \tilde{\bigvee}=v_{F}\circ \bigvee,
+\bigvee_{v_{j_*F}}X=v_{j_*F}(\bigvee X) \quad\text{y}\quad \bigvee_{v_F}=v_F(\bigvee_{j} Y)
 \] 
-es decir, para $X\subseteq A$, $Y\subseteq A_j$,
-\[
-	\hat{\bigvee}X=v_{j_*F}(\bigvee X)\quad\mbox{ y }\quad \tilde{\bigvee}Y=v_{F}(\bigvee Y).
-\]
+donde $X\subseteq A$, $Y\subseteq A_j$.\\
 
-Como $H$ es un morfismo de marcos, $H\circ \bigvee=\tilde{\bigvee}\circ H$. Necesitamos algo similar para el morfismo $h$.
+Como $H$ es un morfismo de marcos, $H\circ \bigvee=\bigvee_{v_F}\circ H$. Necesitamos algo similar para el morfismo $h$.
 
 \begin{lem}\label{bigvee g}
-$h\circ \hat{\bigvee}=\tilde{\bigvee}\circ h$.
+Siguiendo la información anterior, se cumple que
+\[
+h\circ \bigvee_{v_{j_*F}}=\bigvee_{v_F}\circ h.
+\]
 \end{lem}
 
 \begin{proof}
 Basta probar que 
 \[
-h\circ \hat{\bigvee}\leq \tilde{\bigvee}\circ h
+h\circ \bigvee_{v_{j_*F}}\leq \bigvee_{v_F}\circ h
 \]
 ya que la otra desigualdad se obtiene por definición de los supremos en los cocientes.\\
 
 Notemos que
 \[
-h\circ \hat{\bigvee}=H\circ v_{j_*F}\circ \bigvee=v_F\circ j\circ v_{j_*F}\circ \bigvee\leq v_F\circ v_F\circ j\circ \bigvee
+h\circ \bigvee_{v_{j_*F}}=H\circ v_{j_*F}\circ \bigvee=v_F\circ j\circ v_{j_*F}\circ \bigvee\leq v_F\circ v_F\circ j\circ \bigvee
 \]
 donde la desigualdad es el Corolario \ref{finftyf}. Además, por la idempotencia de $v_F$ 
 \[
-h\circ\hat{\bigvee}\leq v_F\circ j\circ \bigvee =H\circ \bigvee=\tilde{\bigvee}\circ H=\tilde{\bigvee}\circ h.
+h\circ\bigvee_{v_{j_*F}}\leq v_F\circ j\circ \bigvee =H\circ \bigvee=\bigvee_{v_F}\circ H=\bigvee_{v_F}\circ h.
 \]
-Por lo tanto $h\circ\hat{\bigvee}=\tilde{\bigvee}\circ h$.
+Por lo tanto $h\circ\bigvee_{v_{j_*F}}=\bigvee_{v_F}\circ h$.
 \end{proof}
 
 La construcción anterior culmina en el siguiente resultado, que establece la conmutatividad del diagrama inducido por los cocientes compactos.
@@ -1091,505 +1103,19 @@ p & \mbox{ si } & x\leq p
 \]
 para $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ es un filtro completamente primo (en particular, $P\in A^\wedge$). Como $A$ es $KC$, entonces $A_{w_p}$ es un cociente compacto cerrado. Así $u_p=w_p$ y
 \[
-u_p(a)=a\quad \mbox{and}\quad w_p(a)=1.
+u_p(a)=a\quad \mbox{y}\quad w_p(a)=1.
 \]
 es decir, $a=1$. Por lo tanto $p$ es máximo. 
 \end{proof}
 
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
 aquellos núcleos que producen cociente compacto y cerrado.\\
-
-Lo presentado en esta sección es una generalización de lo hecho por Escardó en \cite{escardo2006compactly}. En este caso, el lugar de utilizar la propiedad
-$\mathbf{(fH)}$, usamos la eficiencia (o $KC$ cuando sea necesario).
-
-\begin{dfn}\label{Definicion2.1}
-Para $A\in \Frm$ y $j\in NA$, decimos que $j$ es $kq$ (por cociente compacto) si $A_j$ es compacto.  
-\end{dfn}
-
-Denotamos por 
-\[
-\mathfrak{K}A=\{j\in NA\mid j \mbox{ es } kq\}.
-\]
-
-Sabemos que los $u$-núcleos producen cocientes cerrados. De esta manera, un $u$-núcleo produce cociente compacto si $u_{\bullet}\in \mathfrak{K}A$ para $\bullet\in A$. Consideremos los subconjuntos
-\[
-\mathfrak{C}A=\{u_\bullet\in NA\mid u_\bullet\in \mathfrak{K}A\}\quad \mbox{ y }\quad \mathfrak{c}A=\{c\in A\mid u_c\in \mathfrak{K}A\}.
-\]
-donde $\mathfrak{C}A\cong \mathfrak{c}A$. El uso de cada uno de ellos depende del enfoque que ocupemos, ya sea como elementos del marco principal o como núcleos.
-
-Para $j, k\in NA$ tenemos la relación de equivalencia dada por 
-\[
-j\sim k \Leftrightarrow \nabla(j)=\nabla(k),
-\]
-donde $\nabla( \_ )$ es el filtro de admisibilidad correspondiente al respectivo núcleos.\\
-
-La clase de cada núcleo define un bloque en $NA$ y se puede demostrar que cada uno de estos bloques tiene menor elemento. Al menor elemento del bloque se le conoce como núcleo ajustado y todo núcleo ajustado tiene la forma
-\[
-f=\dot\bigvee \{v_a\mid a\in F\}
-\]
-donde $F$ es un filtro en $A$ y $\dot{\bigvee}$ es el supremo puntual.
-
-\begin{lem}\label{cn ajustado}
-    Consideremos $j\in NA$ y supongamos que $j$ es ajustado. Entonces
-    \[
-    j\leq k\Leftrightarrow \nabla(j)\subseteq \nabla(k)
-    \]
-    para todo $k\in NA$.
-\end{lem}
-
-Si $F\in A^\wedge$, $F=\nabla(j)$ para algún $j$ en $NA$, el bloque de $j$ siempre tiene un mayor y un menor elemento. Denotamos al menor elemento del bloque por  $v_F=f^\infty$.\\
-
-Por último, si el marco $A$ es eficiente, se cumple que $v_F=u_d$, donde $d=v_F(0)$. Notemos que la eficiencia proporciona un cociente compacto y cerrado (el respectivo $v_F$), 
-para cada $F\in A^\wedge$.\\
-
-Con todo lo anterior tenemos la siguiente relación entre los distintos núcleos mencionado hasta este momento
-\[
-\mathfrak{f}\mathfrak{C}A\subseteq \mathfrak{C}A\subseteq \mathfrak{K}A\subseteq NA
-\]
-donde $\mathfrak{f}\mathfrak{C}A$ es el conjunto de núcleos $v_F=u_d$ que se obtienen cuando un marco es eficiente. Además, con respecto a los marcos se cumple que
-\[
-KCH\Rightarrow KC\Rightarrow \mbox{Eficiente}.
-\]
-
-\begin{lem}\label{Lema2.2}
-    Para $c\in A$ las siguientes son equivalentes:
-    \begin{enumerate}
-        \item $c\in \mathfrak{c}A$.
-        \item $A_{u_c}$ es un marco compacto.
-        \item $\nabla(u_c)\in A^\wedge$.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    $1)\Rightarrow 2)$ se cumple por caracterización de marcos compactos. Si se cumple $3)$, entonces $c\in \mathfrak{c}A$. Por último, $2) \Leftrightarrow 3)$ es cierto por la caracterización de cocientes compactos y filtros admisibles. 
-\end{proof}
-
-\begin{lem}\label{Lema2.3}
-    Lo siguiente se cumple:
-    \begin{enumerate}
-        \item $\mathfrak{c}A$ es una sección superior.
-        \item Si $X\subseteq \mathfrak{c}A$, entonces $\bigvee X\in \mathfrak{c}A$ y si $c, c'\in \mathfrak{c}A$ entonces $(c\succ c')\in \mathfrak{c}A$.
-        \item Si $c, c'\in \mathfrak{c}A$, entonces $c\wedge c'\in \mathfrak{c}A$.
-        \item $\mathfrak{c}A\subseteq A$ es un premarco con implicación.
-        \item $\mathfrak{c}A$ es un premarco compacto.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    \begin{enumerate}
-        \item Sean $c\leq c'$ tal que $c\in \mathfrak{c}A$, entonces $\nabla(u_c)\subseteq \nabla(u_{c'})$. Consideremos $X\subseteq A$ dirigido con $\bigvee X\in \nabla(u_{c'})$. Debemos probar que 
-        \[
-        \nabla(u_{c'})\cap X\neq \emptyset.
-        \]
-        
-        Notemos que 
-        \[
-        c'\vee (\bigvee X)=1\Rightarrow c\vee (c'\vee (\bigvee X))=1\Rightarrow c'\vee (\bigvee X)\in \nabla(u_c). 
-        \]
-        y el conjunto $Y=\{c'\vee x\mid x\in X\}$ es dirigido tal que $\bigvee Y\in \nabla(u_c)$. Al ser $\nabla(u_c)$ abierto, se tiene que existe $y\in Y$ tal que $y\in \nabla(u_c)$ con $y=c'\vee x$. Además, $y\in \nabla(u_{c'})$, es decir,
-        \[
-        y\vee c'=(c'\vee x)\vee c'= c'\vee x=1
-        \]
-        Por lo tanto $x\in \nabla(u_{c'})\in A^\wedge$ y así $c'\in \mathfrak{c}A$.
-        \item Se cumple por ser sección superior.
-        \item Si $c, c'\in \mathfrak{c}A$, entonces $u_c, u_{c'}\in \mathfrak{K}A$. De esta manera, debemos verificar que $u_{c\wedge c'}\in \mathfrak{K}A$. Por propiedades de los $u$-núcleos $u_{c\wedge c'}=u_c\wedge u_{c'}$, entonces
-        \[
-            \nabla(u_{c\wedge c'})=\nabla(u_c\wedge u_{c'})=\nabla(u_c)\cap \nabla(u_{c'}).
-        \]
-        Consideremos $X\subseteq A$ dirigido tal que $\bigvee X\in \nabla(u_{c\wedge c'})$. De aquí que $\bigvee X\in \nabla(u_c)\cap \nabla(u_{c'})$. Como ambos son filtros abiertos, existe $x\in X$ tal que $x\in \nabla(u_c)$ y $x\in \nabla(u_{c'})$, es decir, $x\in \nabla(u_c)\cap \nabla(u_{c'})$. Por lo tanto $\nabla(u_{c\wedge c'})\in A^\wedge$, es decir, $c\wedge c'\in \mathfrak{C}A$.
-        \item Es consecuencia de $1)$, $2)$ y $3)$.
-        \item Sea $X$ un conjunto dirigido de elementos en $\mathfrak{c}A$ tal que $\bigvee X=1$ y consideremos $c\in \mathfrak{c}A$. Como $u_c$ es $kq$, entonces $A_{u_c}$ es compacto y así $1$ es compacto en $A_{u_c}$, es decir, para
-        \[
-        \bigvee X=\bigvee^{u_c}X=1
-        \]
-        existe $x\in X$ tal que $x=1$ y $1\in A_{u_c}$.  Por lo tanto, $\mathfrak{c}A$ es compacto.
-    \end{enumerate}
-\end{proof}
-
-\begin{lem}\label{Lema2.8y2.9}
-    Sea $A\in \Frm$ y $\alpha_A\colon \mathfrak{c}A\to A^\wedge$ la función definida por
-    \[
-    \alpha_A(c)=\{x\in A\mid c\vee x=1\}=\nabla(u_c).
-    \]
-    Lo siguiente se cumple:
-    \begin{enumerate}
-        \item $\alpha_A$ es un morfismo de premarcos.
-        \item Si $A$ es eficiente, $\alpha_A$ es sobreyectiva.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    \begin{enumerate}
-        \item Veamos primero que $\alpha_A$ preserva la estructura de un premarco.
-    \begin{enumerate}
-        \item Si $c\leq c'$,  entonces $\alpha_A(c)=\nabla(u_c)\subseteq \alpha_A(c')=\nabla(u_{c'})$.
-        \item Consideremos $1\in \mathfrak{c}A$, entonces 
-        \[
-        \alpha_A(1)=\nabla(\tp)=A,
-        \]
-        de aquí que, $\alpha_A$ preserva el mayor elemento.
-        \item Sean $c_1, c_2\in \mathfrak{c}A$ y $X\subseteq \mathfrak{c}A$ dirigido. De aquí que
-        \[
-        \begin{split}
-            \alpha_A(c_1\wedge c_2)&=\{x\in A\mid (c_1\wedge c_2)\vee x=1\}\\
-            &=\{x\in A\mid (c_1\vee x)\wedge (c_2\vee x)=1\}\\
-            &=\{x\in A\mid c_1\vee x=1 \mbox{ y }c_1\vee x=1\}\\
-            &=\nabla(u_{c_1})\cap \nabla(u_{c_2})\\
-            &=\alpha_A(c_1)\cap \alpha_A(c_2).
-        \end{split}
-        \]
-        y
-        \[
-        \begin{split}
-        \alpha_A(\bigvee X)&=\{x\in A\mid (\bigvee X)\vee x=1\}\\
-        &=\bigvee\{x\in A\mid x'\vee x=1, x'\in X\}\\
-        &=\bigvee \alpha_A[X],
-        \end{split}
-        \]
-        donde $\{x\in A\mid x'\vee x=1, x'\in X\}$ dirigido.
-        \end{enumerate}
-        \item Por último, notemos que para un marco eficiente, el morfismo $\alpha_A$ es suprayectivo ya que si $F=\nabla(j)\in A^\wedge$, entonces
-        \[
-        v_F=u_d
-        \]
-        donde $d=v_F(0)\in A$, es decir, $\alpha_A(d)=\nabla(u_d)=\nabla(v_F)=\nabla(j)$
-    \end{enumerate}
-\end{proof}
-
-\begin{cor}
-    Consideremos $c\in \mathfrak{c}A$ tal que $u_c$ es ajustado, entonces $\alpha_A$ es inyectiva. 
-\end{cor}
-
-\begin{proof}
-    Consideremos $\nabla(u_c)=\nabla(u_d)$, con $d\in \mathfrak{c}A$. De aquí que $\nabla(u_c)\subseteq \nabla(u_d)$ y $\nabla(u_c)\supseteq\nabla(u_d)$. Aplicando dos veces el Lema \ref{cn ajustado} tenemos que 
-    \[
-    u_c\leq u_d\quad\mbox{ y }\quad u_c\geq u_d.
-    \]
-    Por lo tanto, evaluando ambos núcleos en $0$ obtenemos $c=d$.
-\end{proof}
-
-Notemos que el morfismo $\alpha_A$ no siempre es suprayectivo, pero existen maneras de asegurar que esto ocurra.
-
-\begin{lem}\label{Lema2.7}
-    Para un marco eficiente y $c\in \mathfrak{c}A$ las siguientes son equivalentes
-    \begin{enumerate}
-        \item $\alpha_A$ es un isomorfismo.
-        \item Si $u_c\in \mathfrak{C}A$, $u_c$ es ajustado.
-        \item Para todo $c\in \mathfrak{c}A$ y $d, d'\in A_{u_c}$
-        \begin{equation}\label{saju}
-            d\leq d'\Leftrightarrow \nabla(u_d)\subseteq \nabla(u_{d'}).
-        \end{equation}
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-\begin{description}
-        \item[$1)\Rightarrow 2)$] Si $c\in \mathfrak{c}A$, entonces $u_c\in NA$ y tomemos $F=\nabla(u_c)\in A^\wedge$. Sea $v_F$ el respectivo núcleo ajustado del bloque, es decir, $v_F\leq u_c$. Además, por la eficiencia $v_F=u_d$ y  $\nabla(u_d)=\nabla(u_c)$. Al ser $\alpha_A$ inyectiva, $d=c$. Por lo tanto $u_c$ es ajustado. 
-
-        \item[$2)\Rightarrow 3)$] Supongamos que $\nabla(u_c)\in A^\wedge$ y que $u_c$ es ajustado para $c\in \mathfrak{c}A$. Notemos que la implicación $\Rightarrow)$ de (\ref{saju}) siempre es cierta, pues si $d\leq d'$ y $d\vee e=1$, entonces $d'\vee e=1$. Así solo basta probar la otra implicación.\\
-
-        Queremos demostrar que $\nabla(u_d)\subseteq \nabla(u_{d'})$ implica que $d\leq d'$. Por el Lema \ref{cn ajustado}
-        \[
-        \nabla(u_d)\subseteq \nabla(u_{d'})\Leftrightarrow u_d\leq u_{d'}\Leftrightarrow d\leq d'.
-        \]
-
-        \item[$3)\Rightarrow 1)$] Si $A$ es un marco es eficiente, por el Lema \ref{Lema2.8y2.9}, se cumple que $\alpha_A$ es suprayectiva. Para la inyectividad, consideremos $\alpha_A(d)=\alpha_A(d')$, es decir, $\nabla(u_d)=\nabla(u_{d'})$. Luego, aplicando dos veces (\ref{saju}), se cumple que $d=d'$. Por lo tanto, $\alpha_A$ es inyectiva.
-    \end{description}
-\end{proof}
-
-Los siguientes resultados son consecuencias del Lema \ref{Lema2.7}.
-
-\begin{cor}
-        Para un marco $KC$ las siguientes son equivalentes
-    \begin{enumerate}
-        \item $\alpha_A$ es un isomorfismo.
-        \item Si $j\in \mathfrak{K}A$, $j$ es ajustado.
-        \item Para todo $c\in \mathfrak{c}A$ y $d, d'\in A_{u_c}$
-        \[
-            d\leq d'\Leftrightarrow \nabla(u_d)\subseteq \nabla(u_{d'}).
-        \]
-    \end{enumerate}
-\end{cor}
-
-\begin{cor}
-    Para todo $c\in \mathfrak{c}A$, $u_c$ es ajustado si y solo si $\alpha_A$ es isomorfismo y $A$ es eficiente.
-\end{cor}
-
-\begin{obs}
-Si $A$ es un marco eficiente, $j\in \mathfrak{K}A$ y $F=\nabla(j)\in A^\wedge$, entonces $j\in [v_F, w_F]$. Por la eficiencia  
-\[
-u_d=v_F\leq j\leq w_F\Rightarrow \nabla(u_d)=\nabla(j),
-\]
-es decir, si consideremos $j\in \mathfrak{K}A$ le asignamos un elemento $d\in \mathfrak{c}A$ a través de
-\[
-\varphi\colon\mathfrak{K}A\to \mathfrak{C}A
-\]
-donde $\varphi(j)=u_d$.
-
-\end{obs}
-
-\textbf{PREGUNTA:} ¿Podemos caracterizar a los marcos eficientes por medio de las funciones $\alpha_A$ y $\varphi$?\\
-
-Para $\mathfrak{Q}S=\{j\in \mathfrak{K}A\mid j \mbox{ es ajustado}\}$ tenemos 
-\[\begin{tikzcd}
-	{\mathfrak{K}A} && {\mathfrak{C}A} & {\mbox{ y }} & {\mathfrak{K}A} && {\mathfrak{Q}A}
-	\arrow["\varphi", shift left=3, from=1-1, to=1-3]
-	\arrow["i", shift left=3, from=1-3, to=1-1]
-	\arrow["{\varphi'}", shift left=3, from=1-5, to=1-7]
-	\arrow["\iota", shift left=3, from=1-7, to=1-5]
-\end{tikzcd}\]
-donde $\iota\colon \mathfrak{C}A\to \mathfrak{K}A$ es una inclusión.\\
-
-Notemos que $\varphi$ y $\varphi'$ son morfismos que desinflan pues $\varphi(k),\varphi'(k)\leq k$. Además, son monótonos, ya que para $j, k\in \mathfrak{K}A$ con $j\leq k$, se cumple que $u_d=\varphi(j)\leq j\leq k$. De aquí que $\nabla(u_d)\subseteq\nabla(k)=\nabla(u_{d'})$, donde $u_{d'}=\varphi(k)$. Como $u_d$ es un núcleo ajustado
-\[
-\nabla(u_d)\subseteq \nabla(u_{d'})\Rightarrow u_d\leq u_{d'}.
-\]
-El mismo argumento se aplica para $\varphi'$.\\
-
-Verifiquemos que $\varphi\dashv \iota$, es decir, para $j\in \mathfrak{K}A$ y $u_c\in \mathfrak{C}S$ se cumple que 
-\[
-\varphi(j)\leq u_c\Leftrightarrow j\leq \iota(u_c).
-\]
-La implicación $\Leftarrow)$ es trivial. Para la otra implicación, Supongamos que $\varphi(j)\leq u_c$ y $j\nleq \iota(u_c)=u_c$. Como $u_d$ es ajustado, es el menor elemento de su bloque y como $j\nleq u_c$. Tenemos dos opciones
-\[
-i)\;  u_d\leq u_c\leq j\leq w_F \quad \mbox{o}\quad ii)\;u_d\leq u_c\; \mbox{ y }\;u_c\notin [u_d, w_F].
-\]
-Si ocurre $i)$, entonces 
-Además, si el marco $A$ es eficiente $\mathfrak{C}A\simeq \mathfrak{Q}A$. Entonces tenemos el diagrama 
-
-\[
-\begin{tikzcd}
-\mathfrak{C}A \arrow[r, "i"] \arrow[rr, "\alpha", bend left] & \mathfrak{K}A \arrow[r, "\hat{\alpha}"] \arrow[l, "\varphi", bend left] & A^\wedge
-\end{tikzcd}
-\]
-donde $\hat{\alpha}(j)=\nabla(j)$
-
-
-\subsection{Algunos núcleos de $N\mathfrak{c}A$} 
-
-Consideremos $A\in \Frm$ y $a, b\in A$. Sabemos que $a\prec b$ si y solo si existe $x\in A$ tal que $a\wedge x=0$ y $c\vee c=1$. En otras palabras, para $x=\neg a$, $x\vee b=1$.
-
-\begin{dfn}\label{Bb en CA}
-    Para $c\in \mathfrak{c}A$ y $a,b\in A_{u_c}$ decimos que $a\prec_c b$ para tener la relación \emph{bastante por debajo} en el marco $A_{u_c}$.
-\end{dfn}
-
-El elemento $(a\succ c)$ es la negación de $a$ en $A_{u_c}$. De aquí que
-\[
-a\prec_cb\Leftrightarrow b\vee (a\succ c)=1.
-\]
-
-Si $c\leq d$, entonces 
-\[
-A_{u_c}=\uparrow c\supseteq \uparrow d=A_{u_d}
-\]
-produce un morfismo de marcos $i_{dc}\colon A_{u_d}\to A_{u_c}$ dado por $i_{dc}(x)=d\vee x$. De esta manera para $c\leq d\leq e$ tenemos
-\[\begin{tikzcd}
-	{A_{u_e}} && {A_{u_d}} \\
-	& {A_{u_c}}
-	\arrow["{i_{ed}}"', from=1-3, to=1-1]
-	\arrow["{i_{ec}}", from=2-2, to=1-1]
-	\arrow["{i_{dc}}"', from=2-2, to=1-3]
-\end{tikzcd}\]
-y $i_{cc}\colon A_{u_c}\to A_{u_c}$ es la identidad.\\
-
-La construcción anterior produce un funtor $F\colon \mathfrak{c}A\to \Frm$ donde 
-\[
-c\mapsto A_{u_c}\quad \mbox{ y }\quad c\leq d\mapsto i_{dc}
-\]
-son la asignación en objetos y flechas, respectivamente.\\
-
-Consideremos un cono sobre $F$ dado por $(\hat{A}, \{\pi_c\colon \hat{A}\to A_{u_c}\}_{c\in \mathfrak{c}A})$. De manera similar que en la categoría de conjuntos, 
-\[
-\prod_{c\in \mathfrak{c}A}F(c)=\prod_{c\in \mathfrak{c}A}A_{u_c}=\{j\colon \mathfrak{c}A\to \bigcup A_{u_c}\mid j(c)\in A_{u_c}\}
-\]
-para todo $c\in \mathfrak{c}A$ y $j$ una función. De aquí que $j(c)\in A_{u_c}$ si y solo si $c\leq j(c)$, es decir, 
-\[
-j\in \prod_{c\in \mathfrak{c}A}A_{u_c} \Leftrightarrow c\leq j(c).
-\]
-
-Además, si $c\leq j(c)$ entonces $\pi_c(j)=j(c)=c\vee j(c)$, es decir, para $c\leq d$, $j(d)=i_{dc}(j(c))=d\vee j(c)$ y $j\colon \mathfrak{c}A\to \mathfrak{c}A$. Por lo tanto
-\begin{equation}\label{compatibilidad}
-\begin{split}
-\hat{A}&=\{j\in \prod_{c\in \mathfrak{c}A}A_{u_c}\mid j(d)=i_{dc}(j(c))\}\\
-&=\{j\colon \mathfrak{c}A\to \mathfrak{c}A\mid j(c)\in A_{u_c}\}
-\end{split}
-\end{equation}
-para todo $c\leq d$. 
-
-\begin{prop}\label{Flimite}
-    Si $c\leq d\in \mathfrak{c}A$, entonces $\hat{A}$ es un cono límite sobre $F$.
+\begin{prop}
+$A$ es eficiente y apilado si y solo si $A$ es KC.
 \end{prop}
 
 \begin{proof}
-\begin{enumerate}
-    \item Por construcción, cada proyección $\pi_c$ está bien definida. Además, si $c\leq d$
-    \[
-    i_{dc}\circ \pi_c(j)=i_{dc}(j(c))= d\vee j(c)=j(d)= \pi_d(j),
-    \]
-es decir, los triángulos del cono conmutan. Por lo tanto, $\hat{A}$ es un cono sobre $F$.
 
-\item Sea $(Y,\{f_c\colon Y\to A_{u_c}\}_{c\in \mathfrak{c}A})$ cualquier otro cono sobre $F$, esto es,
-para todo $c\le d$ se cumple $i_{dc}\circ f_c=f_d$. 
-Consideremos el morfismo $u:Y\to \hat{A}$ definido por
-\[
-(u(y))(c)=f_c(y)\qquad (y\in Y,\ c\in \mathfrak{c}A).
-\]
-Primero vemos que $u(y)\in\lim F$ para cada $y\in Y$. Si $c\le d$, entonces
-\[
-(u(y))(d)=f_d(y)=(i_{dc}\circ f_c)(y)=i_{dc}(f_c(y))
-=d\vee(u(y))(c),
-\]
-y por (\ref{compatibilidad}), $u(y)\in \hat{A}.$
-
-Además, por definición de $u$ y de las proyecciones, para cada $c$ se tiene
-\[
-\pi_c\circ u \;=\; f_c,
-\]
-de modo que $u$ es un morfismo de conos $(Y\to \hat{A})$. Veamos que $u$ es único.\\
-
-Si $v\colon Y\to \hat{A}$ es otro morfismo de conos con 
-$\pi_c\circ v = f_c$ para todo $c$, entonces para todo $y\in Y$ y $c\in\mathfrak{c}A$,
-\[
-(v(y))(c)=\pi_c(v(y))=f_c(y)=(u(y))(c).
-\]
-De aquí que $v(y)=u(y)$ para todo $y$, luego $v=u$.
-\end{enumerate}
-Por lo tanto $\hat{A}$ satisface la propiedad universal del cono límite.
-\end{proof}
-
-\begin{lem}\label{Lema3.1}
-    Para cualquier $A\in \Frm$ y cada función $j\colon \mathfrak{c}A\to \mathfrak{c}A$ las siguientes son equivalentes:
-    \begin{enumerate}
-        \item $j\in \hat{A}$.
-        \item $j(d)=j(c)\vee d$ para todo $d\geq c\in \mathfrak{c}A$.
-        \item $j(c\vee a)=j(c)\vee a$ para todo $c\in \mathfrak{c}A$ y $a\in A$.
-        \item $j(c\vee e)=j(c)\vee e$ para todo $c, e\in \mathfrak{c}A$.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-    \begin{description}
-        \item[$1)\Leftrightarrow 2)$] Se cumple por la construcción de $\hat{A}$.
-        \item[$2)\Rightarrow 3)$] Tomando $c\leq d=c\vee a$, $d\in \mathfrak{c}A$, pues $\mathfrak{c}A$ es una sección superior. De esta manera, por $2)$
-        \[
-        j(d)=j(c)\vee d=j(c)\vee c\vee a=j(c)\vee a,
-        \]
-        pues $c\leq j(c)$.
-        \item[$3)\Rightarrow 4)$] Si $e\in \mathfrak{c}A$, $e\in A$ y aplicando $3)$ obtenemos lo que queremos.
-        \item[$4)\Rightarrow 2)$] Si $c\leq d$, se cumple que $c\vee d=d$, tomando $e=d$ y aplicando $4)$ se tiene $j(d)=j(c)\vee d$. 
-    \end{description}
-\end{proof}
-
-\begin{lem}\label{Lema3.3}
-    Para $A\in \Frm$ si $j\in \hat{A}$, entonces $j$ es un núcleo en $\mathfrak{c}A$.
-\end{lem}
-
-\begin{proof}
-    Verifiquemos que $j\in \hat{A}$ cumple las condiciones de núcleo.
-    \begin{enumerate}
-        \item Por construcción, $c\leq j(c)$, es decir, $j$ infla.
-        \item Notemos que para $d=j(c)$, entonces $j(d)=j(j(c))=j(c)\vee j(c)=j(c)$. Por lo tanto $j$ es idempotente.
-        \item Consideremos $c=d\wedge d'$, entonces $c\leq d, d'$. Luego
-        \[
-        j(d)=j(d\wedge d')\vee d\quad \mbox{ y }\quad j(d')=j(d\wedge d')\vee d'.
-        \]
-        De aquí que 
-        \[
-        \begin{split}
-            j(d)\wedge j(d')& =(j(d\wedge d')\vee d)\wedge (j(d\wedge d')\vee d')\\
-            & =j(d\wedge d')\vee (d\wedge d')\\
-            &=j(d\wedge d')
-        \end{split}
-        \]
-        donde la segunda igual se da por la distributividad y la última del hecho de que $j$ infla. Así $j$ respeta ínfimos.
-    \end{enumerate}
-    Por lo tanto, $j$ es un núcleo en $\mathfrak{c}A$.
-\end{proof}
-
-Sabemos que si $j\in NA$, entonces $j^{-1}(1)$ es un filtro.
-
-\begin{lem}\label{Lema3.3}
-    Para cualquier núcleo $j$ en una semiretícula de Heyting $A$ y cualquier $a\in A$, la desigualdad $v_a\leq j$ se cumple si y solo si $j(a)=1$, donde $v_a(x)=(a\succ x)$.
-\end{lem}
-
-\begin{proof}
-Es consecuencia de las propiedades de los $v$-núcleos.
-\end{proof}
-
-Enunciamos un lema auxiliar para la prueba del siguiente teorema.
-
-\begin{lem}\label{lem:nucleo-dirigidos-a-arbitrarios}
-Sea $A$ un marco y $j\colon A\to A$ un núcleo. 
-Si $j$ preserva supremos finitos y supremos dirigidos, entonces $j$ preserva todos los supremos arbitrarios, es decir,
-\[
-j(\bigvee X)=\bigvee j[X]
-\]
-para todo $X\subseteq A$.
-\end{lem}
-
-\begin{proof}
-Sea $X\subseteq A$ y consideremos el conjunto
-\[
-\mathcal{F}(X)=\{\bigvee F\mid F\subseteq X\text{ es finito}\}.
-\]
-Notemos que $\mathcal{F}(X)$ es dirigido pues $u=\bigvee F$ y $v=\bigvee G$ con $F,G$ finitos, 
-entonces $w=\bigvee(F\cup G)\in\mathcal{F}(X)$ y $u\le w$, $v\le w$.
-
-Además, 
-\[
-\bigvee X\;=\;\bigvee \mathcal{F}(X).
-\]
-
-Por hipótesis $j$ preserva supremos finitos y dirigidos, entonces
-\[
-j(\bigvee X)=j(\bigvee \mathcal{F}(X))=\bigvee_{u\in \mathcal{F}(X)} j(u)=\bigvee_{F\subseteq_{\mathrm{fin}} X} j(\bigvee F)=\bigvee_{F\subseteq_{\mathrm{fin}} X} \bigvee j[F].
-\]
-Finalmente, como $\{\bigvee j[F]\mid F\subseteq_{\mathrm{fin}} X\}$ es dirigido y su supremo coincide con $\bigvee j[X]$, tenemos que
-\[
-j\!\Big(\bigvee X\Big)\;=\;\bigvee j[X].
-\]
-\end{proof}
-
-\begin{thm}\label{Teorema3.4}
-    Para $A$ un marco Hausdorff y cualquier núcleo $j\colon \mathfrak{c}A\to \mathfrak{c}A$ las siguientes son equivalentes
-    \begin{enumerate}
-        \item $j\in \hat{A}$.
-        \item $j$ preserva supremos no vacíos.
-        \item $j$ es Scott-continuo.
-        \item $\nabla(j)\in \mathfrak{c}A^\wedge$.
-    \end{enumerate}
-\end{thm}
-
-\begin{proof}
-    \begin{description}
-        \item[$1)\Rightarrow 2)$] Consideremos $c, d\in \mathfrak{c}A$, entonces
-        \[
-        j(c\vee d)=j(c)\vee c\vee d=j(c)\vee d\leq j(c)\vee j(d).
-        \]
-        Por monotonía se cumple que $j(c)\vee j(d)\leq j(c\vee d)$. Por lo tanto $j(c\vee d)=j(c)\vee j(d).$
-
-        Para los supremos dirigidos, consideremos $\mathcal{D}\subseteq \mathfrak{c}A$ dirigido y tomemos $c\in \mathcal{D}$. Como $\bigvee \mathcal{D}\in \mathfrak{c}A$ se cumple que 
-        \[
-        j(\bigvee \mathcal{D})=j(c\vee \bigvee \mathcal{D})=j(c)\vee\bigvee \mathcal{D}=\bigvee_{d\in \mathcal{D}}j(c)\vee d=\bigvee_{d\in \mathcal{D}}j(c\vee d)=\bigvee_{e\in \mathcal{D}}j(e)
-        \]
-        donde la última igual se cumple por ser $\mathcal{D}$ dirigido. 
-
-        De aquí que, por el Lema \ref{lem:nucleo-dirigidos-a-arbitrarios} se cumple que $j$ preserva cualquier supremo.
-
-        \item[$2)\Rightarrow 3)$] Si $j$ preserva supremos dirigidos, $j$ es Scott continuo.
-
-        \item[$3)\Rightarrow 4)$] Por la prueba del Lema \ref{Lema2.3} $5)$, como $\mathfrak{c}A$ es compacto se tiene que para $X\subseteq \mathfrak{c}A$, con $X$ dirigido, existe $x\in X$ tal que $x=1$ y $x\in A_{u_c}$ para $c\in \mathfrak{c}A$ y $1=\bigvee X$. como $j$ es Scott continuo
-        \[
-        j(\bigvee X)=\bigvee j[X]=1,
-        \]
-        es decir, $\bigvee X\in \nabla(j)$. de aquí que existe $j(x)\in j[X]$ tal que $j(x)=1$, entonces $x\in \nabla(j)$. Por lo tanto, $X\cap\nabla(j)\neq\emptyset$ y $\nabla(j)\in \mathfrak{c}A^\wedge$.
-
-        \item[$4)\Rightarrow 1)$] Sabemos que $j\in \lim F$ si $j(d)=j(c)\vee d$ para $c\leq d$. Como $j$ es monótona
-        \[
-        j(c)\leq j(d)\Rightarrow d\vee j(c)\leq d\vee j(d)=j(d)
-        \]
-        siempre se cumple. De esta manera, basta con verificar que $j(d)\leq d\vee j(c)$. Consideremos $e\in A_{u_c}$ tal que $e\vee j(d)=1$ y como $e\vee j(d)\leq j(e\vee d)$, entonces $j(e\vee d)=1$, es decir, $e\vee d\in \nabla(j)$.
-    \end{description}
 \end{proof}
 
 \section{Preguntas abiertas}
@@ -1603,7 +1129,7 @@ j\!\Big(\bigvee X\Big)\;=\;\bigvee j[X].
     
     \item ¿Si un marco es subajustado produce cocientes compactos?
           %por que queriamos esto?%
-    \item ¿Cuándo el intervalo $[v_\nabla (0), w_\nabla(0)]$ colapsa?
+    \item ¿Cuándo el intervalo $[v_\nabla (0), w_\nabla(0)]$ colapsa?$\checkmark$
 
     \item Para $V_{v_\nabla}\wedge U_{w_\nabla}\in N^2A$ y $V_{v_\nabla(0)}\wedge U_{w_\nabla(0)}\in NA$, ¿qué relación existe entre estos núcleos?
 
@@ -1622,12 +1148,26 @@ j\!\Big(\bigvee X\Big)\;=\;\bigvee j[X].
 
 \item Si $k\in NA$ es continuo, ¿qué sabemos sobre $\nabla(k)$?
 
-\item ¿Qué significa la noción de apilado para marcos?
+\item ¿Qué significa la noción de apilado para marcos? $\checkmark$
 
 \item El cuadrado que relaciona un marco $A$ con la topología de su espacio de puntos conmuta laxamente en $\mathbf{Pos}$, es decir, $U_Av_F\leq \nabla^\infty U_A$. ¿Cuándo se da la igualdad? 
 
-\item ¿Cuál es el comportamiento del $Q$-cuadrado y los intervalos $[v_\_, w_\_]$ cuando se supone alguna propiedad tipo Hausdorff
+\item ¿Cuál es el comportamiento del $Q$-cuadrado y los intervalos $[v_\_, w_\_]$ cuando se supone alguna propiedad tipo Hausdorff? $\checkmark$
 
+\item ¿Si $A$ es apilado y $T_1$, entonces $A$ es espacial?
+
+\item ¿Cuál es el análogo del Teorema 7.4 del artículo \cite{sexton2006ordinal}?
+
+\item ¿$A$ es eficiente y apilado si y solo si $A$ es KC?
+
+\item ¿Cuál es el análogo del Teorema 7.8 del artículo \cite{sexton2006ordinal}? 
+ 
 \end{enumerate}
+
+
+\bibliographystyle{amsalpha}
+
+\bibliography{research2}
+
 
 \end{document}
