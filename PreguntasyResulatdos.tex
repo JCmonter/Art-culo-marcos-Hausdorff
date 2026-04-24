@@ -748,31 +748,9 @@ Lo anterior nos hace cuestionarnos si las nociones en marcos tienen el mismo com
 \text{¿}v_F=w_F?
 \]
 Si lo anterior ocurre, ¿qué información nos proporciona con respecto al marco $A$? Además, se cumple que si $A$ es 
-apilado y $T_1$, ¿$A$ es espacial?
+apilado y $T_1$, ¿$A$ es espacial?\\ 
 
-\begin{prop}\label{v_F=w_F}
-Sean $A\in \Frm$, $F\in A^\wedge$ y $Q\in \mathcal{Q}S$. Si $A$ es fuertemente apilado y $T_1$, entonces $v_F=w_F$. 
-\end{prop}
-
-\begin{proof}
-Sabemos que para $F\in A^\wedge$, siempre se cumple que $v_F\leq w_F$.\\
-
-Por fuertemente apilado y por la Proposición \ref{igualdadwF} tenemos que
-\[
-v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-respectivamente. De aquí que
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}=\mathcal{U}_*\circ[M']\circ \mathcal{U},
-\]
-es decir, $v_F=w_F$.
-\end{proof}
-
-Si tomamos $p\in \pt A$ y el par HM $(F_p, \uparrow p)$, se cumple que para 
+Antes de reponder esto, necesitamos algunos resultados auxiliares. Si tomamos $p\in \pt A$ y el par HM $(F_p, \uparrow p)$, se cumple que para 
 \[
 M=\{m\in A\setminus F_p\mid(\forall a\in A\setminus F_p) [a\leq m]\},
 \]
@@ -808,11 +786,104 @@ q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p.
 Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
 \end{proof}
 
+Recordemos que por \eqref{Qlaxo}, para toda terna HM $(F, Q, \nabla)$ tenemos que 
+\[
+\mathcal{U}\circ v_F\leq v_\nabla \circ \mathcal{U}. 
+\]
+
+Además, si $A$ es fuertemente apilado, entonces $v_F=\mathcal{U}_*[Q']\mathcal{U}$ y por lo tanto
+\[
+\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\leq \mathcal{U}_*\circ [Q']\mathcal{U}
+\]
+
+Por lo tanto, $v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}$ y, por propiedades del adjunto, $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.\\
+	
+Con esto hemos probado que si $A$ es fuertemente apilado, entonces el diagrama \eqref{Qlaxo} es conmutativo. El siguiente resultado nos menciona 
+bajo que condiciones tenemos la otra implicación.
+
+\begin{prop}\label{EficienteFapilado}
+  Si $A\in \Frm$ es eficiente y el diagrama 
+
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
+	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta, entonces $A$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente lo cual implica lo siguiente:
+\[
+A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
+\]
+De aquí que si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y $Q'\in \mathcal{O}S$. Luego, al ser $S$ apilado tenemos que
+$\overline{Q}=Q(\infty)$, es decir, $Q'=v_\nabla(\emptyset)$ y al ser $\mathcal{O}S$ eficiente, $[Q']=v_\nabla$.\\
+  
+Además, si $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, entonces
+\[
+v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
+\]
+es decirc 
+\[
+[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
+\]
+Por propiedades del adjunto derecho 
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ y } v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+Por lo tanto $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, es decir, $A$ es fuertemente apilado.
+\end{proof}
+
+Un corolario que surge de la prueba anterior es el siguiente
+
+\begin{cor}
+Si $\mathcal{O}S$ es eficiente y $S$ es empaquetado, entonces $S$ es fuertemente apilado.
+\end{cor}
+
 Recordemos que para el morfismo reflexión espacial $\mathcal{U}_A$ tenemos el núcleo $\Sp_A$ dado por
 \[
 \Sp_A(x)=\bigwedge\{p\in \pt A\mid x\leq p\}
 \]
-para $x\in A$. Con esto en mente, podemos enunciar el siguiente resultado.
+para $x\in A$. Combinando este hecho con lo mencionado en la Proposición \ref{maximosenpt} podemos caracterizar el colapso de 
+los intervalos de admisibilidad.
+
+\begin{prop}\label{v_F=w_F}
+Sean $A\in \Frm$ y $(F, Q)$ cualquier par HM. $A$ es fuertemente apilado y $T_1$ si y solo si $v_F=w_F$. 
+\end{prop}
+
+\begin{proof}
+Sabemos que para cualquier par HM $(F, Q)$ siempre se cumple que $v_F\leq w_F$. Por fuertemente apilado y por la Proposición \ref{igualdadwF} tenemos que
+\[
+v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}\quad \text{y}\quad w_F=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+respectivamente. De aquí que
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}=\mathcal{U}_*\circ[M']\circ \mathcal{U},
+\]
+es decir, $v_F=w_F$.\\
+
+Para la otra impliación, supongamos que $v_F=w_F$ para todo par HM y veamos que $A$ es fuertemente apilado y $T_1$.\\
+
+Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F$, se cumple que $v_F(0)=w_F(0)$ para todo par HM.
+
+De aquí que $p=w_p(0)=w_{F_p}(0)\leq v_{F_p}(q)=q$. Por lo tanto, $p=q$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+
+Para ver que $A$ es apilado, recordemos que
+\[
+v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+\]
+y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+\end{proof}
+
+\textbf{requiero corregir la demostración anterior y la siguiente}
 
 \begin{prop}\label{focales}
 Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
@@ -915,50 +986,6 @@ v_F(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{s
 \]
 es decir, la pareja $(F, \uparrow q)$ proporciona un filtro abierto que permite distinguir 
 cuando un elemento de $A$ está en el filtro o no.
-
-\begin{prop}\label{EficienteFapilado}
-  Si $A\in \Frm$ es eficiente y el diagrama 
-
-\[\begin{tikzcd}
-	A & A \\
-	{\mathcal{O}S} & {\mathcal{O}S}
-	\arrow["{v_F}", from=1-1, to=1-2]
-	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
-	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
-	\arrow["{v_\nabla}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-conmuta, entonces $A$ es fuertemente apilado.
-\end{prop}
-
-\begin{proof}
-Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente lo cual implica lo siguiente:
-\[
-A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
-\]
-De aquí que si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y $Q'\in \mathcal{O}S$. Luego, al ser $S$ apilado tenemos que
-$\overline{Q}=Q(\infty)$, es decir, $Q'=v_\nabla(\emptyset)$ y al ser $\mathcal{O}S$ eficiente, $[Q']=v_\nabla$.\\
-  
-
-Además, si $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, entonces
-\[
-v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
-\]
-es decirc 
-\[
-[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
-\]
-Por propiedades del adjunto derecho 
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ y } v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
-\]
-Por lo tanto $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, es decir, $A$ es fuertemente apilado.
-\end{proof}
-
-Un corolario que surge de la prueba anterior es el siguiente
-
-\begin{cor}
-Si $\mathcal{O}S$ es eficiente y $S$ es empaquetado, entonces $S$ es fuertemente apilado.
-\end{cor}
 
 \subsection{El marco $[0,1]$}
 Siguiendo la idea presentada en \cite{simmons2006regularity} (o, de manera alternativa, en \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado 
