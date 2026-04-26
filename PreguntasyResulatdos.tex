@@ -870,24 +870,26 @@ Como $A$ es $T_1$, se cumple que $S$ es $T_1$, entonces $Q=M$. Por lo tanto
 \]
 es decir, $v_F=w_F$.\\
 
-Para la otra impliación, supongamos que $v_F=w_F$ para todo par HM y veamos que $A$ es fuertemente apilado y $T_1$.\\
+Para la otra implicación, supongamos que $v_F=w_F$ para todo par HM y veamos que $A$ es fuertemente apilado y $T_1$.\\
 
-Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F$, se cumple que $v_F(0)=w_F(0)$ para todo par HM.
+Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F$, se cumple que $v_F(0)=w_F(0)$ para todo par HM y, por la Proposición \ref{maximosenpt}, $p$ es máximo en $\pt A$.
 
-De aquí que $p=w_p(0)=w_{F_p}(0)\leq v_{F_p}(q)=q$. Por lo tanto, $p=q$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+De aquí que 
+\[
+p\leq a\leq \sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q
+\]
+para algún $q\in \pt A$, pero $p$ es máximo, entonces $p\leq a\leq p$. Por lo tanto, $p=a$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
 
-Para ver que $A$ es apilado, recordemos que
+Para ver que $A$ es fuertemente apilado, recordemos que
 \[
 v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
 \]
-y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+y por hipótesis $v_F=w_F$, es decir, $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F$. Por lo tanto, $A$ es fuertemente apilado.
 \end{proof}
 
-\textbf{requiero corregir la demostración anterior y la siguiente}
-
-\begin{prop}\label{focales}
+\begin{cor}\label{focales}
 Consideremos $A\in \Frm$ y ($F, Q$) cualquier par HM. $A$ es $T_1$ y apilado si y solo si $v_F(0)=w_F(0)$.
-\end{prop}
+\end{cor}
 
 \begin{proof}
 Si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que 
@@ -895,11 +897,8 @@ Si $A$ es $T_1$ se cumple que $M=Q$ y por apilado tenemos que
 v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
 \]
 
-Para la otra implicación, supongamos que $v_F(0)=w_F(0)$ para todo par HM y veamos que $A$ es $T_1$ y apilado.\\
-
-Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$.
-
-De aquí que $p=w_p(0)=w_{F_p}(0)\leq v_{F_p}(q)=q$. Por lo tanto, $p=q$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
+Para la otra implicación, supongamos que $v_F(0)=w_F(0)$ para todo par HM y veamos que $A$ es $T_1$ y apilado. La prueba de que $A$ es $T_1$ es análoga a la 
+demostración de la Proposición \ref{v_F=w_F}, por lo que nos centraremos en demostrar que $A$ es apilado.\\
 
 Para ver que $A$ es apilado, recordemos que
 \[
