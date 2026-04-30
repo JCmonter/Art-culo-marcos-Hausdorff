@@ -876,7 +876,7 @@ Primero, consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Como $v_F=w_F
 
 De aquí que 
 \[
-p\leq a\leq \sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q
+p\leq a\leq \Sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q
 \]
 para algún $q\in \pt A$, pero $p$ es máximo, entonces $p\leq a\leq p$. Por lo tanto, $p=a$ y todo punto es máximo, es decir, $A$ es $T_1$.\\
 
@@ -907,84 +907,23 @@ v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
 y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
 \end{proof}
 
-Notemos que la Definición \ref{def:apilado-marcos} está dada para cualquier pareja $(F,Q)$
-asociada por el Teorema de Hofmann--Mislove. En particular, si $q\in S=\pt A$, entonces
-$\uparrow q\in \mathcal{Q}S$ y el filtro abierto asociado está dado por
+Notemos que si para cada par HM $(F, Q)$ se cumple que $v_F(0)=w_F(0)$, entonces $A$ es apilado y todo punto es máximo en $\pt A$.
+En particular, para cada $q\in \pt A$, tenemos el par $(F_q, \uparrow q)$, donde 
 \[
-F=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}.
+F_q=\{x\in A\mid x\nleq q\}
 \]
+es un filtro completamente primo.\\
 
-Si $A$ es apilado, se cumple que
-\[
-v_F(0)=(\mathcal{U}_*\circ[(\uparrow q)']\circ \mathcal{U})(0)
-=\mathcal{U}_*(((\uparrow q)')^\circ).
-\]
+Por apilado, se cumple que $v_{F_q}(0)=q$. Además $v_{F_q}(q)=v_{F_q}(0)=0_{A_{F_q}}$. \\
 
-Por la fórmula del adjunto derecho,
-\[
-\mathcal{U}_*(((\uparrow q)')^\circ)
-=\bigvee\{x\in A\mid \mathcal{U}(x)\subseteq (\uparrow q)'\}.
-\]
-
-Recordemos que
-\[
-\mathcal{U}(x)=\{p\in S\mid x\nleq p\},
-\qquad
-\mathcal{U}(x)'=\{p\in S\mid x\leq p\}.
-\]
-
-Por lo tanto,
-\[
-\mathcal{U}(x)\subseteq (\uparrow q)'
-\quad\Longleftrightarrow\quad
-\uparrow q\subseteq \mathcal{U}(x)'.
-\]
-
-Ahora bien,
-\[
-p\in \uparrow q
-\quad\Longleftrightarrow\quad
-q\sqsubseteq p
-\quad\Longleftrightarrow\quad
-p\leq q,
-\]
-pues $\sqsubseteq$ es el orden de especialización en $S$, el cual corresponde al orden
-opuesto del marco $A$.\\
-
-Así,
-\[
-\uparrow q\subseteq \mathcal{U}(x)'
-\quad\Longleftrightarrow\quad
-\forall p\in S,\ (p\leq q \Rightarrow x\leq p).
-\]
-
-De esta manera obtenemos
-\[
-v_F(0)
-=\bigvee\{x\in A\mid \forall p\in S,\ (p\leq q \Rightarrow x\leq p)\}.
-\]
-
-Si además $A$ es $T_1$, entonces todo punto es máximo en $A$. En particular, si
-$p\in S$ satisface $p\leq q$, necesariamente $p=q$. Por lo tanto la condición
-anterior se reduce a $x\leq q$, y así
-
-\[
-v_F(0)
-=\bigvee\{x\in A\mid x\leq q\}
-=\bigvee \downarrow q
-=q.
-\]
-
-Notemos que $v_F(0)\in A_F$ y $v_F(q)=v_F(0)=0_{A_F}$. Ya que $q$ es máximo en $A$, entonces $q$ es máximo en $A_F$.
+Si $S$ es $T_1$, $q$ es máximo en $A$, entonces $q$ es máximo en $A_F$.
 Por lo tanto, $A_F=\{q<1\}$.\\
 
-Ahora, $F=\nabla(v_F)$ y $x\in F$ si y solo si $v_F(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
+Ahora, $F_q=\nabla(v_{F_q})$ y $x\in F_q$ si y solo si $v_{F_q}(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
 \[
-v_F(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{si} & x\leq q 
-\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F\\ \\ q, & \text{si} & x\not\in F \end{array} \right.,
+v_{F_q}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq q\\ \\ q, & \text{si} & x\leq q 
+\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F\\ \\ q, & \text{si} & x\not\in F \end{array} \right.=w_{F_q}(x).
 \]
-es decir, la pareja $(F, \uparrow q)$ proporciona un filtro abierto que permite distinguir 
-cuando un elemento de $A$ está en el filtro o no.
 
 \subsection{El marco $[0,1]$}
 Siguiendo la idea presentada en \cite{simmons2006regularity} (o, de manera alternativa, en \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado 
