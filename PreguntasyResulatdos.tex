@@ -1359,8 +1359,49 @@ es un isomorfismo, entonces $A$ es fuertemente apilado.
 
 
 \begin{proof}
-Consider any open filter $F$ on $A$
-	
+Consider any open filter $F$ on $A$ and the compact saturated determined by it, say $Q$, 
+thus we have the nuclei $\mathrm{v}_{F}$ and $U_{*}[Q']U=Q[U]$, we neee to observe the action of 
+$\mathrm{p}U$ on these two nuclei, in order to do that remember that we have a conmutative diagram:
+
+
+
+\[\begin{tikzcd}
+	A & \mathrm{p}A & NA \\
+	{\mathcal{O}S} & {\mathrm{p}
+	\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["\iota",hook, from=1-2, to=1-3]
+	\arrow["{\mathrm{p}(\mathcal{U}_A)}", from=1-2, to=2-2]
+	\arrow["{N(\mathcal{U}_A)}", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow["\imath "',hook, from=2-2, to=2-3]
+	\arrow["\pi", from=2-2, to=3-2]
+	\arrow["\sigma", from=2-3, to=3-3]
+	\arrow[hook, from=3-2, to=3-3]
+\end{tikzcd}\]
+
+since $N(\mathcal{U})\iota=\imath\mathrm{p}\mathcal{U}$, that is, $\mathrm{p}\mathcal{U}$ 
+is the restriction of $N(\mathcal{U})$ to $\mathrm{p}A$, then 
+
+\[\mathrm{p}\mathcal{U}(\mathrm{v}_{F})=N(\mathcal{U})(\mathrm{v}_{F})=\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
+
+since the morphism $\mathcal{U}$ transforms open filters we have 
+
+
+
+\[\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}=\bigvee\{u_{v_{\mathcal{U}F}}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
+
+
+But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathcal{U}F}$.
+
+
+
+
+
+
 \end{proof}
 
 
