@@ -1,0 +1,1580 @@
+\documentclass[11pt]{amsart}
+\usepackage[mathscr]{eucal}
+\usepackage[spanish, es-noshorthands]{babel}
+\usepackage{times}
+\usepackage{amsmath,amssymb,latexsym,amscd}
+\usepackage{booktabs}   
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true}
+%\input xypic
+%\xyoption{all}
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+%\usepackage[sans]{dsfont}
+\usepackage{upgreek}
+%\usepackage{mathpazo}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Sp}{sp} 
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Fil}{Fil}
+\newcommand{\niton}{\not\owns}
+
+\theoremstyle{plain}
+\newtheorem*{theorem*}{Teorema}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposición}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definición}
+\newtheorem{obs}[thm]{Observación}
+\newtheorem{ej}[thm]{Ejemplo}
+
+\renewcommand{\proofname}{Demostración}
+  %%
+    %\providecommand{\corollaryname}{Corollary}
+  %\providecommand{\examplename}{Example}
+  %\providecommand{\lemmaname}{Lemma}
+  %\providecommand{\propositionname}{Proposition}
+  %\providecommand{\remarkname}{Remark}
+%\providecommand{\theoremname}{Theorem}
+%\providecommand{\subexamplename}{Subexample}
+  %\providecommand{\definitionname}{Definition}
+\begin{document}
+%\begin{frontmatter}
+
+\title{Cosas probadas y preguntas abiertas}
+
+
+\author{}
+\email{}
+\address{}
+
+
+\address{}
+%$\cortext[cor1]{Corresponding author}
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\maketitle
+\section{Cuestiones de marcos}
+Sea $f\colon A\to B$ un morfismo de marcos con adjunto derecho $f_*\colon B\to A$. Si $F\subseteq A$ y $G\subseteq B$ son filtros, definimos:
+\begin{equation}\label{Imagenfiltros}
+b\in f^*F \Longleftrightarrow f_*(b)\in F\qquad a\in f_*G \Longleftrightarrow f(a)\in G.
+\end{equation}
+\begin{prop}\label{fF}
+Para $f=f^*\colon A\to B$ un morfismo de marcos y $G\in B^\wedge$, entonces $f_*G\in A^\wedge$.
+\end{prop}
+
+\begin{proof}
+Por (\ref{Imagenfiltros}), $f_*G$ es un filtro en $A$. Necesitamos que $f_*G$ satisfaga la condición de filtro abierto. Sea $X\subseteq A$ tal que $\bigvee X\in f_*G$, con $X$ dirigido. Entonces
+\[
+Y=\{f(x)\mid x\in X\}
+\] 
+es dirigido y $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Como $G$ es un filtro abierto y $f(\bigvee X)=\bigvee f[X]\in G$, existe $x\in X$ tal que $f(x)\in G$. Por lo tanto, $x\in f_*G$.
+\end{proof}
+
+En \cite[Lema 8.9 y Corolario 8.10]{simmons2004vietoris} muestran que el diagrama
+\begin{equation}\label{Qlaxo}
+\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+conmuta laxamente, es decir, $U_A\circ f^\infty\leq F^\infty \circ U_A$. En este diagrama $f^\infty$ y $F^\infty$ representan los
+núcleos ajustados asociados a los filtros $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$, respectivamente, es decir, 
+\[
+f^\infty=v_F\quad\text{y}\quad F^\infty =v_\nabla.
+\]
+
+Aquí probamos algo más general, ya que consideremos $j\in NA$, $F\in A_j^\wedge$ y $j_*F\in A^\wedge$ para producir el diagrama
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["j^*"', from=1-1, to=2-1]
+	\arrow["j^*", from=1-2, to=2-2]
+	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+donde $\hat{f}^\infty$ y $f^\infty$ son los núcleos ajustados asociados a los filtros $j_*F$ y $F$, respectivamente.\\
+
+El siguiente lema es parte del análisis desarrollado en este trabajo y constituye una herramienta clave en la construcción de los diagramas conmutativos
+posteriores.
+
+\begin{lem}\label{f1f}
+    Para $j=j^*$, $f$ y $\hat{f}$ como antes se cumple que $j\circ \hat{f}\leq f\circ j$.
+\end{lem}
+\begin{proof}
+    Recordemos que, por (\ref{Imagenfiltros})
+    \[
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\} \qquad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \]
+entonces para $a\in A$ se cumple
+\[
+v_y(a)=(y\succ a)\leq \hat{f}(a)\leq j(\hat{f}(a)).
+\]
+
+También, para todo $a, y\in A$, $(y\succ a)\wedge y=y\wedge a$ y
+\[
+\begin{split}
+j((y\succ a)\wedge y)\leq j(a) & \Leftrightarrow j(y\succ a)\wedge j(y)\leq j(a)\\
+& \Leftrightarrow j(y\succ a)\leq (j(y)\succ j(a)).
+\end{split}
+\]
+
+Así 
+\[
+v_y(a)\leq j(\hat{f}(a))\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)).
+\]
+
+Por lo tanto $j\circ \hat{f}\leq f\circ j$.
+\end{proof}
+
+Ahora probaremos lo anterior, pero para cualquier ordinal.
+
+\begin{cor}\label{finftyf}
+    Para $j$, $f$ y $\hat{f}$ como antes, se cumple que $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$
+\end{cor}
+
+\begin{proof}
+    Para $\alpha\in \Ord$ verificaremos que $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$. Lo haremos con inducción transfinita.\\
+
+    Si $\alpha=0$, es trivial.\\
+
+    Para el paso de inducción, supongamos que para $\alpha$ se cumple. Luego
+    \[
+    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
+    \]
+    donde la primera desigualdad es el Lema \ref{f1f} y la segunda es la hipótesis de inducción.\\
+
+    Si $\lambda$ es un ordinal límite, entonces
+	\[
+	\hat{f}^\lambda=\bigvee\{\hat{f}^\alpha\mid \alpha<\lambda\}, \quad f^\lambda=\bigvee\{f^\alpha\mid \alpha<\lambda\} 
+	\]
+	y
+	\[
+		j\circ \hat{f}^\lambda=j\circ \bigvee_{\alpha<\lambda}\hat{f}^\alpha\leq\bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha.
+	\]
+	Por la hipótesis de inducción tenemos que 
+	\[
+	j\circ \hat{f}^\alpha\leq f^\alpha\circ j\Rightarrow \bigvee_{\alpha<\lambda}j\circ \hat{f}^\alpha\leq \bigvee_{\alpha<\lambda} f^\alpha\circ j.
+	\]
+	Por lo tanto $j\circ \hat{f}^\lambda\leq f^\lambda\circ j$.
+\end{proof}
+
+\begin{obs}\label{j monotono}
+El Lema \ref{f1f} y el Corolario \ref{finftyf} también se cumplen si $j$ solo es monótono y preserva ínfimos finitos.
+\end{obs}
+
+Recordando que $v_F=f^\infty$ y $v_{j_*F}=\hat{f}^\infty$, el Corolario \ref{finftyf} nos dice que 
+\[j
+\circ v_{j_*F}\leq v_F\circ j
+\]
+
+El objetivo ahora es comparar los cocientes compactos inducidos por $F$ y por $j_*F$, y construir un morfismo entre ellos que haga conmutar el diagrama correspondiente.\\
+
+Si consideramos $j, v_F$ y $v_{j_*F}$ tenemos el siguiente diagrama
+\begin{equation}\label{diagrama H}
+    \begin{tikzcd}
+	A && {A_{j_*F}} \\
+	\\
+	{A_j} && {A_F}
+	\arrow["{(v_{j_*F})^*}", shift left, from=1-1, to=1-3]
+	\arrow["j"', from=1-1, to=3-1]
+	\arrow["H"', from=1-1, to=3-3]
+	\arrow["{(v_{j_*F})_*}", shift left, from=1-3, to=1-1]
+	\arrow["{(v_F)^*}"', shift right, from=3-1, to=3-3]
+	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
+\end{tikzcd}
+\end{equation}
+donde $A_F$ y $A_{j_*F}$ son los cocientes compactos producidos por $v_F$ y $v_{j_*F}$, respectivamente.\\
+
+Definimos el morfismo 
+\[
+H\colon A\to A_F, \qquad H=v_F\circ j.
+\]
+
+Queremos definir un morfismos de marcos entre los cocientes compactos $A_{j_*F}$ y $A_F$ de tal manera que 
+el diagrama (\ref{diagrama H}) sea un cuadrado conmutativo.\\
+
+Definimos
+\[
+h\colon A_{j_*F}\to A_j, \qquad h=H|_{A_{j_*F}},
+\]
+es decir, $h(x)=H(x)$ para todo $x\in A_{j_*F}$.\\
+
+Notemos que, por el Corolario \ref{finftyf}, se cumple que $H(A_{j_*F})\subseteq A_F$, por lo que la restricción anterior 
+está bien definida. Así, si $h=H_{\mid{A_{j_*F}}}$, el diagrama 
+\[\begin{tikzcd}
+	A & {A_{j_*F}} \\
+	{A_j} & {A_F}
+	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_F}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta.\\
+
+Debemos verificar que $h$ es un morfismo de marcos. Por la definición de $h$, este es un $\wedge$-morfismo. Restaría comprobar que es un $\bigvee$-morfismo.\\
+
+Los supremos en $A_{j_*F}$ y $A_F$ son calculados de manera diferente, esto es
+\[
+\bigvee_{v_{j_*F}}X=v_{j_*F}(\bigvee X) \quad\text{y}\quad \bigvee_{v_F}=v_F(\bigvee_{j} Y)
+\] 
+donde $X\subseteq A$, $Y\subseteq A_j$.\\
+
+Como $H$ es un morfismo de marcos, $H\circ \bigvee=\bigvee_{v_F}\circ H$. Necesitamos algo similar para el morfismo $h$.
+
+\begin{lem}\label{bigvee g}
+Siguiendo la información anterior, se cumple que
+\[
+h\circ \bigvee_{v_{j_*F}}=\bigvee_{v_F}\circ h.
+\]
+\end{lem}
+
+\begin{proof}
+Basta probar que 
+\[
+h\circ \bigvee_{v_{j_*F}}\leq \bigvee_{v_F}\circ h
+\]
+ya que la otra desigualdad se obtiene por definición de los supremos en los cocientes.\\
+
+Notemos que
+\[
+h\circ \bigvee_{v_{j_*F}}=H\circ v_{j_*F}\circ \bigvee=v_F\circ j\circ v_{j_*F}\circ \bigvee\leq v_F\circ v_F\circ j\circ \bigvee
+\]
+donde la desigualdad es el Corolario \ref{finftyf}. Además, por la idempotencia de $v_F$ 
+\[
+h\circ\bigvee_{v_{j_*F}}\leq v_F\circ j\circ \bigvee =H\circ \bigvee=\bigvee_{v_F}\circ H=\bigvee_{v_F}\circ h.
+\]
+Por lo tanto $h\circ\bigvee_{v_{j_*F}}=\bigvee_{v_F}\circ h$.
+\end{proof}
+
+La construcción anterior culmina en el siguiente resultado, que establece la conmutatividad del diagrama inducido por los cocientes compactos.
+\begin{prop}\label{VFsquare}
+El diagrama
+\begin{equation}\label{Cuadrado}
+    \begin{tikzcd}
+	A & {A_{j_*F}} \\
+	{A_j} & {A_F}
+	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_F}"', from=2-1, to=2-2]
+\end{tikzcd}\end{equation}
+es conmutativo.
+\end{prop}
+
+\section{Marcos eficientes}
+
+\begin{prop}\label{tidyquout}
+    Si $A$ es un marco eficiente, entonces $A_j$ es un marco eficiente.
+\end{prop}
+
+\begin{proof}
+Observemos primero que $F\subseteq j_*F$. Como $A$ es eficiente y $F\in A^\wedge$, se cumple que 
+\[
+x\in F\Rightarrow \hat{d}\vee x=1,
+\]
+donde $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+
+Si $\hat{d}\leq d$, entonces $d\vee x=1$, para $d=d(\alpha)=f^\alpha(j(0))$.\\
+
+Así, por el Corolario \ref{finftyf}
+\[
+\hat{d}=\hat{d}(\alpha)\leq j(\hat{d}(\alpha))=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d(\alpha)=d.
+\]
+
+Por lo tanto, si $x\in F$, entonces $d\vee x=1$ y $A_j$ es eficiente.
+\end{proof}
+
+Analizamos ahora la estabilidad de la eficiencia bajo coproductos binarios.
+\begin{prop}\label{tidyplus}
+Si $A_1, A_2\in \Frm$ son marcos eficientes, entonces $A_1\oplus A_2$ es un marco eficiente.
+\end{prop}
+
+\begin{proof}
+Consideremos $A_1, A_2\in \Frm$ $\alpha$-eficientes. Por la construcción de $A_1\oplus A_2$ tenemos el siguiente diagrama
+\[
+\begin{tikzcd}
+A_i \arrow[r, "\alpha_i"] \arrow[rrr, "\iota_i", bend left] & A_1\times A_2  \arrow[r, "\downarrow(\_)"] & \mathcal{L}(A_1\times A_2) \arrow[r, "\sim"] & A_1\oplus A_2 \arrow[lll, "(\iota_i)_*", bend left]
+\end{tikzcd}
+\]
+donde $\alpha_1(a)=(a, 1)$ y $\alpha_2(b)=(1, b)$ para $a\in A_1$ y $b\in A_2$. Además, como $\iota_i\in \Frm$, $(\iota_i)_*$ es su adjunto derecho.\\
+
+Consideremos $F\in (A_1\oplus A_2)^\wedge$ y, por la Proposición \ref{fF}, $(\iota_i)_*[F]\in A_i^\wedge$. Como $A_i$ es eficiente, para $x_i\in (\iota_i)_*F$ se cumple que $d_i\vee x_i=1$, donde 
+\[
+d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}
+\]
+Por (\ref{Imagenfiltros}) se tiene que si $x_i\in (\iota_i)_*F$, entonces $\iota_i(x_i)\in F$, es decir.
+\[
+x_1\oplus 1, 1\oplus x_2\in F
+\]
+y al ser $F$ un filtro, se cumple que $x_1\oplus 1\wedge 1\oplus x_2=x_1\oplus x_2\in F$.\\
+
+Además, para cada $i=1, 2$ tenemos el siguiente diagrama
+
+\[\begin{tikzcd}
+	{A_i} && {A_i} \\
+	{A_1\oplus A_2} && {A_1\oplus A_2}
+	\arrow["{f_i}", from=1-1, to=1-3]
+	\arrow["{\iota_i}"', from=1-1, to=2-1]
+	\arrow["{\iota_i}", from=1-3, to=2-3]
+	\arrow["f_F"', from=2-1, to=2-3]
+\end{tikzcd}\]
+donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$. Veamos que $\iota_i\circ f_i\leq f_F\circ \iota_i$.\\
+    
+Consideremos $a\in A_i$, entonces $v_y(a)\leq f_i(a)$ y $\iota_i(v_y(a))\leq \iota_i(f_i(a))$. Además,
+\[
+\begin{split}
+\iota_i((y\succ a)\wedge y)=\iota_i(y\wedge a)\leq \iota_i(a)& \Leftrightarrow \iota_i(y\succ a)\wedge \iota_i(y)\leq \iota_i(a)\\
+& \Leftrightarrow \iota_i(y\succ a)\leq (\iota_i(y)\succ \iota_i(a)).
+\end{split}
+\]
+Luego 
+\[
+\iota_i(f_i(a))\leq (\iota_1(y)\succ \iota_i(a))=v_{\iota_i(y)}(\iota_i(a))\leq f_F(\iota_i(a)).
+\]
+Por lo tanto $\iota_i\circ f_i\leq f_F\circ \iota_i$. Verifiquemos que $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$ también es cierto. Por inducción transfinita 
+\begin{itemize}
+\item Si $\alpha=0$, es trivial.
+\item Para el paso de inducción, supongamos que para $\alpha$ se cumple. Luego
+\[
+\iota_i\circ f_i^{\alpha+1}=\iota_i\circ f_i\circ f_i^{\alpha}\leq  f_F\circ \iota_i\circ f_i^\alpha\leq f_F\circ f^\alpha_F\circ \iota_i=f^{\alpha+1}_F\circ \iota_i,
+\]
+donde la primera desigualdad es lo demostrado antes y la segunda es la hipótesis de inducción.
+\item Si $\lambda$ es un ordinal límite, entonces
+\[
+f_i^\lambda=\bigvee\{f_i^\alpha\mid \alpha<\lambda\}, \quad f^\lambda_F=\bigvee\{f^\alpha_F\mid \alpha<\lambda\}
+\]
+y
+\[  
+\iota_i\circ f_i^\lambda=\iota_i\circ \bigvee_{\alpha<\lambda}f_i^\alpha\leq\bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha.
+\]
+Por la hipótesis de inducción tenemos que
+\[
+\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i\Rightarrow \bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha\leq \bigvee_{\alpha<\lambda} f_F^\alpha\circ \iota_i.
+\]
+\end{itemize}
+Así, evaluando en $0\in A_i$ se cumple que
+\[
+(\iota_i\circ f_i^\alpha)(0)\leq (f^\alpha_F\circ \iota_i)(0)\Rightarrow \iota_1(d_1)\leq f^\alpha_F(0\oplus 1)\;\mbox{ y }\;\iota_2(d_2)\leq f^\alpha_F(1\oplus 0).
+\]
+Luego 
+\[
+d_1\oplus d_2=d_1\oplus 1\wedge 1\oplus d_2\leq f^\alpha_F(0\oplus 1)\wedge f^\alpha_F(1\oplus 0)=f^\alpha_F(0\oplus 0). 
+\]
+De aquí que, para $d=d(\alpha)=f^\alpha_F(0\oplus 0)$, se cumple que
+\[
+(x_1\oplus x_2)\vee d_1\oplus d_2\leq (x_1\oplus x_2)\vee d,
+\]
+pero $x_1\oplus x_2\vee d_1\oplus d_2=(x_1\vee d_1)\oplus (x_2\vee d_2)=1\oplus 1$. Por lo tanto 
+\[
+x_1\oplus x_2\vee d=1\oplus 1,
+\]
+es decir, $A_1\oplus A_2$ es eficiente.
+\end{proof}
+
+\begin{cor}\label{Paso 3}
+Si $A_1, A_2\in \Frm$ son marcos $\alpha$-eficiente y $\beta$-eficiente, respectivamente, entonces $A_1\oplus A_2$ es eficiente.
+\end{cor}
+
+\begin{proof}
+Sin perdida de generalidad, consideremos $\gamma=\max\{\alpha, \beta\}$. Entonces $A_1$ y $A_2$ son $\gamma$-eficientes y por la Proposición \ref{tidyplus}, $A_1\oplus A_2$ es eficiente.
+\end{proof}
+
+Generalizamos el resultado anterior a coproductos arbitrarios.
+\begin{prop}\label{coprodE}
+La clase de marcos eficientes es cerrada bajo coproductos.
+\end{prop}
+
+\begin{proof}
+Sean $\{A_i\}_{i\in I}$ una familia de marcos eficientes y $\{\alpha_i\}_{i\in I}\subseteq \Ord$ los grados de eficiencia de cada $A_i$. Sabemos que 
+\[
+\bigoplus_{i\in I} A_i\in \Frm \quad \mbox{ y }\quad (\iota_i\colon A_i\to \bigoplus_{i\in I} A_i)\in \Frm,
+\]
+entonces $(\iota_i)_*$ es el adjunto derecho de $\iota_i$. Además, para $F\in (\bigoplus_{i\in I} A_i)^\wedge$, por la Proposición \ref{fF}, $(\iota_i)_*F\in A_i^\wedge$ y por (\ref{Imagenfiltros}), 
+\[
+x_i\in (\iota_i)_*F\Leftrightarrow \iota_i(x_i)\in F.
+\]
+Sin perdida de generalidad, consideremos $\alpha=\sup\{\alpha_i\mid i\in I\}$, entonces cada $A_i$ es $\alpha$-eficiente. Por hipótesis, para $x_i\in (\iota_i)_*F$ se cumple que $x_i\vee d_i=1$, donde
+\[
+d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
+\]
+
+\noindent
+\textbf{Afirmación:} Para cada $x_i\in (\iota_i)_*F$ se cumple que $\langle x_i\rangle=\bigoplus \iota_i(x_i)\in F$.\\
+
+Sabemos que $\bigoplus \iota_i(x_i)=\bigvee \iota_i(x_i)$. Luego, $\iota_i(x_i)\leq \bigvee \iota_j(x_j)$ para todo $i\in I$ y $j\in I$. 
+Por lo tanto, al ser $F$ filtro, se cumple que $\bigvee \iota_i(x_I)\in F$.\\
+
+Notemos que para cada $A_i$ tenemos el siguiente diagrama
+\[\begin{tikzcd}
+    {A_i} && {A_i} \\
+    {\bigoplus_{i\in I} A_i} && {\bigoplus_{i\in I} A_i}
+    \arrow["{f_i}", from=1-1, to=1-3]
+    \arrow["{\iota_i}"', from=1-1, to=2-1]
+    \arrow["{\iota_i}", from=1-3, to=2-3]
+    \arrow["f_F"', from=2-1, to=2-3]
+\end{tikzcd}\]
+donde $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$.\\
+
+Si tomamos $a\in A_i$, de manera similar que en la prueba de la Proposición \ref{tidyplus}, se puede verificar que $\iota_i\circ f_i\leq f_F\circ \iota_i$ y por inducción transfinita, $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$. Evaluando en $0\in A_i$ se cumple que
+\[
+(\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\Leftrightarrow \iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
+\]
+y $\langle d_i\rangle =\bigoplus \iota_i(d_i)\leq d$.\\
+
+Luego, $\langle x_i\rangle \vee \langle d_i\rangle\leq \langle x_i\rangle \vee d$, pero 
+\[
+\langle x_i\rangle \vee \langle d_i\rangle=\langle x_i\vee d_i\rangle = \langle 1\rangle,
+\]
+es decir, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ y por lo tanto $\langle x_i\rangle \vee d= \langle 1\rangle$. Así, por la afirmación anterior, $ \bigoplus_{i\in I} A_i$ es eficiente.
+\end{proof} 
+
+\begin{cor}
+  La subcategoría de marcos eficientes es coreflexiva en $\Frm$.
+\end{cor}
+
+\begin{lem}\label{inducciontransfinita}
+Para todo $\alpha\in \Ord$ y $X\in CS$, se cumple
+\begin{equation}\label{eq:induccion}
+\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
+\end{equation}
+\end{lem}
+
+\begin{proof}
+Procedemos por inducción transfinita sobre $\alpha\in \Ord$.
+
+\smallskip
+\noindent\textbf{Caso base $\alpha=0$.}
+Por definición, $\partial_F^0=\id$, es decir, $\partial_F^0(X)=X$ y $f_F^0=\id$, luego
+\[
+\partial_F^0(X)=X=(X'')=\big(f_F^0(X')\big)'.
+\]
+
+\smallskip
+\noindent\textbf{Caso sucesor.}
+Supongamos que la afirmación es cierta para $\alpha$ y probemos para $\alpha+1$.
+Por definición de iteración,
+\[
+\partial_F^{\alpha+1}(X)=\partial_F\big(\partial_F^\alpha(X)\big).
+\]
+Además,
+\[
+\partial_F^{\alpha+1}(X)
+=(f_F((\partial_F^\alpha(X))'))'.
+\]
+Por hipótesis inducción, $\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'$ y sustituyendo obtenemos
+\[
+\partial_F^{\alpha+1}(X)=(f_F(f_F^\alpha(X')))'=\big(f_F^{\alpha+1}(X')\big)'
+\]
+que es lo que queríamos.
+
+\smallskip
+\noindent\textbf{Caso límite.}
+Sea $\lambda$ un ordinal límite y supongamos que lo anterior se cumple para todo $\alpha<\lambda$.
+Por definición de la iteración,
+\[
+\partial_F^\lambda(X)=\bigcap_{\alpha<\lambda}\partial_F^\alpha(X).
+\]
+Por De Morgan,
+\[
+\big(\partial_F^\lambda(X)\big)'
+=\Big(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\Big)'
+=\bigcup_{\alpha<\lambda}\big(\partial_F^\alpha(X)\big)'.
+\]
+Usando la hipótesis de inducción, para todo $\alpha<\lambda$,
+\[
+\big(\partial_F^\alpha(X)\big)'=f_F^\alpha(X'),
+\]
+Luego,
+\[
+\big(\partial_F^\lambda(X)\big)'=\bigcup_{\alpha<\lambda} f_F^\alpha(X')=f_F^\lambda(X').
+\]
+Por lo tanto,
+\[
+\big(\partial_F^\lambda(X)\big)'=f_F^\lambda(X'),
+\]
+es decir,
+\[
+\partial_F^\lambda(X)=\big(f_F^\lambda(X')\big)'.
+\]
+y obtenemos lo que queríamos.
+\end{proof}
+
+Un caso particular del lema anterior es cuando $\alpha=\infty$.
+
+\begin{cor}\label{cor:infinito}
+Para $X\in \mathcal{O}S$ y $U\in \mathcal{O}S$ se cumple que
+\begin{equation}\label{eq:infinito}
+    \begin{split}
+\partial_F^\infty(X)=(v_F(X'))' & \iff \partial_F^\infty(U')'=(v_F(U))\\
+& \iff \partial_F^\infty(X)'=(v_F(X')).
+    \end{split}
+\end{equation}
+\end{cor}
+
+\begin{lem}\label{lem:auxiliar}
+Si $A=\mathcal{O}S$ y $E\subseteq S$ se cumple que
+\[
+\mathcal{U}_*[E]\mathcal{U}=[E].
+\]
+\end{lem}
+
+\begin{proof}
+Como el marco $A$ es espacial se cumple que $\mathcal{U}$ es un isomorfismo. De aquí que si $U\in \mathcal{O}\pt A$ existe $V\in \pt A$ tal que $U=\mathcal{U}(V)$ y como $U\in \pt A$, se cumple que $U=V$. Luego
+\[
+\begin{split}
+(\mathcal{U}_*[E]\mathcal{U})(U)&=\mathcal{U}_*[E](\mathcal{U}(U))=\mathcal{U}_*([E](U))\\
+&=\mathcal{U}_*(E\cup U)^{\circ}=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (E\cup U)^{\circ}\}\\
+&=(E\cup U)^{\circ}=[E](U).
+\end{split}
+\]
+Por lo tanto $\mathcal{U}_*[E]\mathcal{U}=[E]$.
+\end{proof}
+
+\begin{prop}\label{morfismo} .
+    Para $F\in A^\wedge$, $Q\in\mathcal{Q}S$ y $\nabla=\nabla(Q)$, si $k\in [v_\nabla, w_\nabla]$, entonces $\mathcal{U}_*\circ k\circ\mathcal{U}\in [v_F, w_F]$.
+\end{prop}
+
+\begin{proof}
+Si $k\in [v_\nabla, w_\nabla]$, entonces $\mathcal{U}_*\circ k\circ \mathcal{U}\in NA$. Además, para $F\in A^\wedge$ si $j\in [v_F, w_F]$, entonces $F=\nabla(j)$. De esta manera debemos probar que $F=\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})$.\\
+
+Por el Teorema de Hofmann-Mislove tenemos que
+\[
+x\in F\iff Q\subseteq \mathcal{U}(x)\iff \mathcal{U}(x)\in \nabla=\nabla(Q).
+\]
+
+Además, para todo $x\in A$
+\[
+(\mathcal{U}_*\circ k\circ\mathcal{U})(x)=\mathcal{U}_*(k(\mathcal{U}(x)))=\bigwedge(S\setminus k(\mathcal{U}(x))).
+\]
+
+Como $k\in [v_\nabla, w_\nabla]$, entonces $\nabla=\nabla(k)$, es decir, para $V\in \nabla$ se cumple que $k(V)=S$. Por lo tanto,
+\[
+\begin{split}
+x\in F\iff \mathcal{U}(x)\in \nabla &\iff S\setminus k(\mathcal{U}(x))=\emptyset\\
+&\iff \bigwedge(S\setminus k(\mathcal{U}(x)))=1\\
+&\iff x\in \nabla(\mathcal{U}_*\circ k\circ \mathcal{U})
+\end{split}
+\]
+\end{proof}
+
+Lo anterior define un morfismo $\mho\colon [v_\nabla, w_\nabla]\to [v_F, w_F]$. Podría resultar interesante analizar que clase de morfismo es $\mho$. 
+Por ejemplo, notemos que ocurre con los extremos del intervalo en $NA$.\\
+
+Consideremos $k\in [v_\nabla, w_\nabla]$. Ya que $v_F$ es un núcleo ajustado, entonces se cumple que 
+\begin{equation}\label{comparacionvF}
+v_F\leq \mathcal{U}_*\circ k\circ \mathcal{U}. 
+\end{equation}
+
+De manera similar, dado que $w_F$ es el mayor elemento de su bloque, entonces
+\begin{equation}\label{comparacionwF}
+\mathcal{U}_*\circ k\circ \mathcal{U}\leq w_F.
+\end{equation}
+
+\begin{prop}\label{igualdadwF}
+Para $F\in A^\wedge$ y $\nabla\in \mathcal{O}S^\wedge$ se cumple que 
+\[
+w_F=\mathcal{U}_*\circ w_\nabla\circ \mathcal{U}.
+\]
+\end{prop}
+
+\begin{proof}
+Por (\ref{comparacionwF}), debemos verificar que $w_F\leq \mathcal{U}_*\circ w_\nabla\circ \mathcal{U}$. Por la fórmula de la adjunción,
+lo anterior es equivalente a 
+\[
+\mathcal{U}\circ w_F\leq w_\nabla\circ \mathcal{U},
+\]
+es decir, para todo $x\in A$ se cumple que 
+\[
+\mathcal{U}(w_F(x))\subseteq [M'](\mathcal{U}(x))=(M'\cup \mathcal{U}(x))^\circ.
+\]
+Ya que $\mathcal{U}(w_F(x))\in \mathcal{O}S$, es suficiente demostrar que $\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x)$.
+A manera de contradicción, consideremos $y\in \mathcal{U}(w_F(x))$ tal que $y\notin M'$ y $y\notin \mathcal{U}(x)$. De aqui que
+\[
+y\in M\quad\text{ y }\quad x\leq y.
+\]
+
+Por hipótesis, $y\in \mathcal{U}(w_F(x))$, entonces 
+\[
+w_F(x)\nleq y\quad \text{ y }\quad w_F(x)=\bigwedge\{m\in M\mid x\leq m\},
+\]
+es decir, $w_F(x)\leq y$ lo cual es una contradicción.\\ 
+
+Por lo tanto, $\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x)$.
+\end{proof}
+
+
+Un caso particular del diagrama (\ref{Cuadrado}) lo podemos obtener al considerar $j^*=\mathcal{U}_A$. Así,
+\[\begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Se puede probar que $\pt A_F=Q$, es decir, tenemos la reflexión espacial
+\[
+\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q
+\]
+y este es un cociente de $A$ a través de $v_F$.\\ 
+
+Adicionalmente, tenemos el morfismo de marcos
+\[\begin{tikzcd}
+	A & {\mathcal{O}S} & {\mathcal{O}S_\nabla} & {\mathcal{O}Q}
+	\arrow["{\mathcal{U}_A}", from=1-1, to=1-2]
+	\arrow["{v_\nabla}", from=1-2, to=1-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}", from=1-3, to=1-4]
+\end{tikzcd}\]
+y es un cociente de $A$ a través de $v_\nabla$, pues se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
+\[
+x\mapsto \mathcal{U}_A(x)\cap Q
+\]
+para $x\in A$. 
+
+La construcción culmina en el siguiente diagrama, que sintetiza la interacción entre cocientes compactos, separación y levantamientos de núcleos.
+\begin{equation}\label{Qcuadrado}
+\begin{tikzcd}
+	A && {A_F} & \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
+	\arrow["h"', from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
+\end{tikzcd}\end{equation}
+
+Dado que el diagrama anterior esta codificado a través de $F\in A^\wedge$ y el $Q\in \mathcal{Q}S$ asociado, 
+denominamos a (\ref{Qcuadrado}) como el \emph{$Q$-cuadrado}.
+
+\begin{thm}\label{haus1}
+Bajo las hipótesis del $Q$-cuadrado (\ref{Qcuadrado}). Si $A\in \Frm$ satisface la propiedad $\mathbf{(H)}$, entonces
+\[
+\mathcal{O}Q\cong \uparrow Q'.
+\]
+En otras palabras, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un cociente compacto
+y cerrado de un espacio Huasdorff.
+\end{thm}
+
+\begin{proof}
+Por hipótesis, $A$ satisface $\mathbf{(H)}$. Como la propiedad $\mathbf{(H)}$ es cerrada bajo cocientes, $A_F$ y $\mathcal{O}S$ satisfacen $\mathbf{(H)}$.
+Además, $\mathbf{(H)}$ es conservativa, es decir, $S=\pt A$ es un espacio $T_2$. Al ser $S$ $T_2$, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$. Además,
+\[
+S \text{ es }T_2\Rightarrow S \text{ es fuertemente apilado}\Rightarrow v_\nabla=[Q'].
+\]
+
+Ya que $Q'\in \mathcal{O}S$, se cumple que $[Q']=u_{Q'}$ y este es complementado en $N\mathcal{O}S$. Además,
+\[
+\mathcal{O}S_{u_{Q'}}=\uparrow Q'=\mathcal{O}S_{v_\nabla}.
+\]
+
+Por \cite[Propocisión VI.3.3]{PicadoPultr} se cumple que $\mathcal{O}S_{v_\nabla}$ es espacial. De aquí que $g$ es un isomorfismo.\\
+
+Por lo tanto, $\mathcal{O}\pt A_F\cong \mathcal{O}S_\nabla$, es decir, $\mathcal{O}Q\cong \uparrow Q'$.
+
+\end{proof}
+
+\section{Marcos apilados y fuertemente apilados}
+
+\begin{dfn}\label{def:apilado-marcos}
+Sea $A\in \Frm$.
+\begin{enumerate}
+  \item Diremos que $A$ es fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+  \item Diremos que $A$ es apilado $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+\end{enumerate}
+\end{dfn}
+
+Trivialmente tenemos que fuertemente apilado implica apilado. Nuestro objetivo 
+es demostrar que las propiedades anteriores son conservativas, es decir, que un espacio $S$ es 
+apilado (fuertemente apilado) si y sólo si su marco de abiertos $\mathcal{O}S$ es apilado (fuertemente apilado). 
+
+\begin{prop}\label{apiladoconservativa}
+Las nociones de fuertemente apilado y apilado son conservativas.
+\end{prop}
+
+\begin{proof}
+Consideremos $S\in \Top$, $A=\mathcal{O}S$, $F\in A^\wedge$ y $Q\in \mathcal{Q}S$.\\
+
+Primero, supongamos que $S$ es fuertemente apilado. De aquí que $v_F=[Q']$ y por el Lema \ref{lem:auxiliar} tenemos que $\mathcal{U}_*[Q']\mathcal{U}=[Q']=v_F$. Por lo tanto $\mathcal{O}S$ es fuertemente apilado.\\
+
+Supongamos ahora que $S$ es apilado. Por lo anterior se cumple que 
+\[
+\overline{Q}=\partial_F^\infty(S)\iff \overline{Q}'=(\partial_F^{\infty}(S))'.
+\]
+
+Además, 
+\[
+\begin{split}
+(\mathcal{U}_*[Q']\mathcal{U})(\emptyset)&=\mathcal{U}_*([Q'](\{V\in \pt\mathcal{O}S\mid \emptyset \not\subseteq V\}))\\
+&=\mathcal{U}_*([Q'](\emptyset))=\mathcal{U}_*(Q')^{\circ}\\
+&=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (Q')^\circ\}\\
+&=(Q')^{\circ}=\overline{Q}'.
+\end{split}
+\]
+Por el Corolario \ref{cor:infinito} tenemos que $v_F(\emptyset)=(\partial_F^\infty(\emptyset'))'$. Por lo tanto 
+\[
+v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
+\]
+es decir, $\mathcal{O}S$ es apilado.\\
+\end{proof}
+
+Recordemos que si un espacio es $T_1$ y fuertemente apilado, entonces se satisface que $w_\nabla=v_\nabla$. Adicionalmente, en el caso espacial, también se cumple que
+si $S$ es apilado y $T_1$, entonces es sobrio.\\
+
+Lo anterior nos hace cuestionarnos si las nociones en marcos tienen el mismo comportamiento, es decir, si $A$ es $T_1$ y fuertemente apilado, 
+\[
+\text{¿}v_F=w_F?
+\]
+Si lo anterior ocurre, ¿qué información nos proporciona con respecto al marco $A$? Además, se cumple que si $A$ es 
+apilado y $T_1$, ¿$A$ es espacial?\\ 
+
+Antes de responder esto, necesitamos algunos resultados auxiliares. Si tomamos $p\in \pt A$ y el par HM $(F_p, \uparrow p)$, se cumple que para 
+\[
+M=\{m\in A\setminus F_p\mid(\forall a\in A\setminus F_p) [a\leq m]\},
+\]
+el núcleo $w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}$ es $w_p(x)$.\\
+
+Para verificar lo anterior, notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
+\[
+M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
+\]
+
+De aquí que $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
+\begin{equation}\label{igualdadwF_p}
+w_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ 
+	p, & \text{si} & x\leq p 
+\end{array} \right.=w_p(x)
+\end{equation}
+para todo $x\in A$. Por lo tanto $w_{F_p}=w_p$.\\
+
+\begin{prop}\label{maximosenpt}
+Sea $A\in \Frm$ y $(F, Q)$ cualquier par HM. Si $v_F(0)=w_F(0)$, entonces todo punto de $A$ es máximo en $\pt A$.
+\end{prop}
+
+\begin{proof}
+Consideremos $p,q\in \pt A$ tales que $p\leq q$. Notemos que para $q\in \pt A$, tenemos el par HM $(F_q, \uparrow q)$, donde 
+\[
+F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in \pt A)[r\leq q\Rightarrow x\nleq q]\}.
+\]
+
+Por hipótesis, $v_{F_q}(0)=w_{F_q}(0)$ y por \eqref{igualdadwF_p}
+\[
+q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p.
+\]
+Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
+\end{proof}
+
+Recordemos que por \eqref{Qlaxo}, para toda terna HM $(F, Q, \nabla)$ tenemos que 
+\[
+\mathcal{U}\circ v_F\leq v_\nabla \circ \mathcal{U}. 
+\]
+
+Además, si $A$ es fuertemente apilado, entonces $v_F=\mathcal{U}_*[Q']\mathcal{U}$ y por lo tanto
+\[
+\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\leq \mathcal{U}_*\circ [Q']\mathcal{U}
+\]
+
+Por lo tanto, $v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}$ y, por propiedades del adjunto, $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.\\
+	
+Con esto hemos probado que si $A$ es fuertemente apilado, entonces el diagrama \eqref{Qlaxo} es conmutativo. El siguiente resultado nos menciona 
+bajo que condiciones tenemos la otra implicación.
+
+\begin{prop}\label{EficienteFapilado}
+  Si $A\in \Frm$ es eficiente y el diagrama 
+
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
+	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+conmuta, entonces $A$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Sean $A\in\Frm$, $S=\pt A$ y $(F, Q)$ un par HM. Por hipótesis, $A$ es eficiente y por resultados previos tenemos las implicaciones
+\[
+A\text{ eficiente }\Rightarrow \mathcal{O}S\text{ eficiente }\Rightarrow S \text{ apilado y empaquetado.}
+\]
+De aquí que, por empaquetado, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$ y $Q'\in \mathcal{O}S$. Luego, al ser $S$ apilado tenemos que
+$\overline{Q}=\partial_\nabla^\infty(S)$, es decir, $Q'=v_\nabla(\emptyset)$ y al ser $\mathcal{O}S$ eficiente, $v_\nabla=u_{Q'}=[Q']$.\\
+  
+Además, si $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, entonces
+\[
+v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
+\]
+es decir,
+\[
+[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ y } \mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
+\]
+Por propiedades del adjunto derecho 
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ y } v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+Por lo tanto $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, es decir, $A$ es fuertemente apilado.
+\end{proof}
+
+Un corolario que surge de la prueba anterior es el siguiente
+
+\begin{cor}
+Si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado.
+\end{cor}
+
+\begin{proof}
+Ya que $S$ es fuertemente apilado si y solo si $v_\nabla=[Q']$, el resultado se sigue del hecho de que 
+\[
+\mathcal{O}S \text{ eficiente } \Rightarrow S \text{ apilado y empaquetado}
+\] 
+\end{proof}
+
+Si $F\in A^\wedge$, podemos construir el conjunto
+\[
+M=\{m\in A\setminus F\mid a\leq m, \forall a\in A\setminus F\}.
+\]
+De manera particular, si $p\in \pt A$, entonces para el par HM $(F_p, \uparrow p)$ el conjunto $M$ es de la forma
+\[
+M=\{m\in A\setminus F_p\mid a\leq m, \forall a\in A\setminus F_p\}.
+\]
+
+Notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
+\[
+M=\{m\in \downarrow p\mid a\leq m, \forall a\in \downarrow p\}=\{p\}.
+\]
+
+De aquí que $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
+\begin{equation}\label{igualdadwF_p}
+w_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ 
+	p, & \text{si} & x\leq p 
+\end{array} \right.=w_p(x)
+\end{equation}
+para todo $x\in A$. Por lo tanto $w_{F_p}=w_p$.\\
+
+\begin{prop}\label{maximosenpt}
+Sea $A\in \Frm$ y $(F, Q)$ cualquier par HM. Si $v_F(0)=w_F(0)$, entonces todo punto de $A$ es máximo en $\pt A$.
+\end{prop}
+
+\begin{proof}
+Consideremos $p,q\in \pt A$ tales que $p\leq q$. Notemos que para $q\in \pt A$, tenemos el par HM $(F_q, \uparrow q)$, donde 
+\[
+F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in \pt A)[r\leq q\Rightarrow x\nleq q]\}.
+\]
+
+Por hipótesis, $v_{F_q}(0)=w_{F_q}(0)$ y por \eqref{igualdadwF_p}
+\[
+q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p,
+\]
+donde la última igualdad es consecuencia de que $p\notin F_q$. Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
+\end{proof}
+
+Recordemos que para el morfismo reflexión espacial $\mathcal{U}_A$ tenemos el núcleo $\Sp_A$ dado por
+\[
+\Sp_A(x)=\bigwedge\{p\in \pt A\mid x\leq p\}
+\]
+para $x\in A$. Combinando este hecho con lo mencionado en la Proposición \ref{maximosenpt} podemos dar información sobre el colapso de 
+los intervalos de admisibilidad.
+
+\begin{prop}\label{focales}
+Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaciones:
+\begin{enumerate}
+\item Si $A$ es $T_1$ y apilado, entonces $v_F(0)=w_F(0)$.
+\item Si $v_F(0)=w_F(0)$, entonces $A$ es apilado.
+\item Si $v_F(0)=w_F(0)$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	\mbox{}
+
+	\begin{enumerate}
+		\item Si $A$ es $T_1$, se cumple que
+		\[
+		\mathcal{O}S\text{ es }T_1\Rightarrow S\text{ es }T_1\Rightarrow Q=M
+		\]
+		y al ser $A$ apilado
+		\[
+		v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
+		\]
+		\item Recordemos que para todo par HM se cumple 
+		\begin{equation}\label{interad}
+		v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
+		\end{equation}
+		y por hipótesis $v_F(0)=w_F(0)$, es decir, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Por lo tanto, $A$ es apilado.
+		\item Consideremos $p\in \pt A$ y $a\in A$ tales que $p\leq a$. Por hipótesis $\{q\in \pt A\mid a\leq q\}\neq \emptyset$. Luego 
+		\[
+		p\leq a\leq \Sp (a)=\bigwedge{q\in \pt A\mid a\leq q}\leq q
+		\]
+		para algún $q\in Y$. Así, $p\leq a\leq q$ y por la Proposición \ref{maximosenpt}, $p=q$. Por lo tanto, $p=a$ y todo punto es máximo en $A$, 
+		es decir, $A$ es $T_1$.
+	\end{enumerate}
+\end{proof}
+
+Como consecuencia del resultado anterior tenemos el siguiente.
+
+\begin{cor}\label{vF=wF}
+Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaciones::
+\begin{enumerate}
+\item Si $A$ es $T_1$ y fuertemente apilado, entonces $v_F=w_F$.
+\item Si $v_F=w_F$, entonces $A$ es fuertemente apilado.
+\item Si $v_F=w_F$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+	\mbox{}
+
+	\begin{enumerate}
+	\item Si $A$ es fuertemente apilado $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ y por $T_1$ se cumple que $Q=M$. Por lo tanto $v_F=w_F$.
+	\item Se sigue de \eqref{interad}.
+	\item Se sigue de la Proposición \ref{focales}.
+	\end{enumerate}
+\end{proof}
+
+Notemos que si para cada par HM $(F, Q)$ se cumple que $v_F(0)=w_F(0)$, entonces $A$ es apilado y todo punto es máximo en $\pt A$.
+En particular, para cada $p\in \pt A$ y el par $(F_p, \uparrow p)$ se cumple que $v_{F_p}(0)=p$. Además $v_{F_p}(p)=v_{F_p}(0)=0_{A_{F_p}}$. \\
+
+Si $A$ es $T_1$, $p$ es máximo en $A$, entonces $p$ es máximo en $A_{F_p}$ y por lo tanto, $A_{F_p}=\{q, 1\}$.\\
+
+Ahora, $F_{F_p}=\nabla(v_{F_p})$ y $x\in F_p$ si y solo si $v_{F_p}(x)=1$. De esta manera, bajo las hipótesis anteriores, se cumple que 
+\[
+v_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ p, & \text{si} & x\leq p 
+\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F_p\\ \\ p, & \text{si} & x\not\in F_p \end{array} \right.=w_{F_p}(x).
+\]
+
+Por lo tanto, si $A$ es $T_1$ y apilado, entonces $v_{F_p}=w_{F_p}$ para cada $p\in \pt A$. Con esto en mente, podríamos preguntarnos si existe alguna manera de 
+recuperar la noción fuertemente apilado por medio de $T_1$ y apilado.\\
+
+\textbf{Lo siguiente debe cosiderarse por separado}\\
+
+Para los fines de la investigación que estamos realizando, no puede ocurrir que $S=\emptyset$, donde $S=\pt A$.
+Por lo tanto, en nuestro caso siempre suponemos que $S\neq \emptyset$.\\
+
+Notemos que para $a\nleq b$ como antes, se cumple que $\uparrow a$ es un filtro en $A$ y $\downarrow b$ es un ideal. Además, se cumple que 
+\[
+\uparrow a\, \cap \downarrow b = \emptyset.
+\]
+
+Denotamos por $\Fil(A)$ al conjunto de todos los filtros en $A$. Si consideremos el conjunto
+\[
+\mathcal{F}(a,b)=\{F\in \Fil(A)\mid a\in F\text{ y }b\notin F\},
+\]
+entonces por Lema de Zorn se cumple que existe un filtro máximo $\mathcal{M}\in \mathcal{F}(a,b)$. Ya que $\mathcal{M}\in \Fil(A)$, podemos construir el núcleo ajustado que admite a $\mathcal{M}$, esto es
+\[
+\mathcal{M}\subseteq \nabla(v_{\mathcal{M}})
+\]
+donde $v_\mathcal{M}$ es el núcleo ajustado. Dado que $v_\mathcal{M}\in NA$, tenemos el marco cociente $A_{v_{\mathcal{M}}}$ (y por fines de practicidad lo denotaremos por $A_\mathcal{M}$), cuyo espacio de puntos está dado por
+\[
+\pt(A_\mathcal{M})=S\setminus \mathcal{M}
+\]
+
+Considerando que $S\neq \emptyset$, debemos verificar que ocurre cuando 
+\[
+\pt(A_\mathcal{M})=\emptyset\quad \text{ y }\quad \pt(A_\mathcal{M})\neq \emptyset.
+\]
+
+Si $\pt(A_\mathcal{M})=\emptyset$, entonces $S\subseteq \mathcal{M}$, es decir, para todo $p\in S$, $p \in \mathcal{M}$. De aquí que $p\nleq b$, pues si ocurriera que $p\leq b$, entonces $b\in \mathcal{M}$ y sería una contradicción. \\
+
+Luego, como $\mathcal{M}\in \Fil(A)$, entonces $p\vee b\in\mathcal{M}$ y, al ser $A$ un marco $T_1$, se cumple que
+\[
+p\vee b=p\quad \text{o}\quad p\vee b=1  \iff b\leq p\quad \text{o}\quad b\nleq p.
+\]
+
+Por lo tanto, tenemos los siguientes escenarios:
+\[
+\text{1) } p\nleq b\;\text{ y }\; b\leq p, \qquad \text{2) } p\nleq b\; \text{ y }\;b\nleq p. 
+\]
+para todo $p\in S$.\\
+
+Si $\pt(A_\mathcal{M})\neq \emptyset$, existe  $p\in S$ tal que $p\notin \mathcal{M}$.
+Luego, como $p\notin \mathcal{M}$, se cumple que $a\nleq p$, pues de lo contrario, si $a\leq p$ eso implicaría que $p\in \mathcal{M}$ y sería una contradicción.\\
+
+Dado que $p\notin \mathcal{M}$, podemos construir el filtro generado por $\langle \mathcal{M}\cup \{p\}\rangle$ y por la maximalidad de $\mathcal{M}$, este filtro satisface que 
+\[
+b\in \langle\mathcal{M}\cup \{p\}\rangle \quad \text{y}\quad \exists\, m\in \mathcal{M} \text{ tal que }m\wedge p\leq b.
+\]
+
+Ya que $v_\mathcal{M}\in NA$, entonces $v_\mathcal{M}(m\wedge p)\leq v_\mathcal{M}(b)$ y por lo tanto $p\leq v_\mathcal{M}(b)$. Al ser $A$ un marco $T_1$, entonces
+\[
+p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
+\]
+
+De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.\\
+
+\textbf{Hasta aquí llega lo que se debe considerar}\\
+
+Consideremos los siguientes hechos preliminares:
+
+\begin{enumerate}
+\item Consideremos a $A^\wedge$ como un espacio topológico donde los abiertos básicos de $\mathcal{O}(A^\wedge)$ están dados por 
+\[
+  D(x)=\{F\in A^\wedge\mid x\in F\}
+\]
+donde $x\in A$.
+\item Para $A\in \Frm$, podemos construir un marco $VA$ como en \cite{simmons2004vietoris}. Cada elemento en $\pt(VA)$ es de la forma
+\[
+(F, a), \quad \text{donde } F\in A^\wedge \text{ y }a\in [v_F(0), w_F(0)]. 
+\]
+\item Tenemos la función continua suprayectiva $\pi\colon \pt(VA)\to A^\wedge$, dada por la asignación
+\[
+(F,a)\mapsto F.
+\]
+\item Al aplicar el funtor $\mathcal{O}(-)$ a $\pi$ obtenemos el morfismo de marcos
+\[
+\mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge)\to \mathcal{O}(\pt(VA)).
+\]
+\item Los abiertos básicos en $\pt(VA)$ están dados por 
+\begin{equation}\label{fibra}
+(F,a)\in [-](x)\iff x\in F\quad \text{y}\quad (F,a)\in \langle -\rangle(x)\iff x\nleq a.
+\end{equation}
+En particular
+\begin{equation}\label{fibra2}
+a\in [F](x)\iff x\in F\quad \text{y}\quad a\in \langle F\rangle(x)\iff x\nleq a.
+\end{equation}
+\end{enumerate}
+
+Con todo lo anterior, podemos enunciar la siguiente proposición.
+
+\begin{prop}
+Sean $A, VA\in \Frm$ y $A^\wedge$ la familia de filtros abiertos de $A$. Las siguientes afirmaciones son ciertas:
+\begin{enumerate}
+\item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ bajo la función continua $\pi$.
+\item Si el morfismo $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$, entonces $A$ es apilado.
+\item Si el morfismo $\mathcal{O}(\pi)=\pi^{-1}$ induce que $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ y $A$ es espacial, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+  $\mbox{}$
+\begin{enumerate}
+\item Supongamos que $A$ es $T_1$ y apilado, entonces para cada $F\in A^\wedge$ se cumple que 
+\[
+v_F(0)=w_F(0).
+\]
+Consideremos $(F,a), (G,b)\in \pt(VA)$ tales que $\pi(F,a)=F=\pi(G,a)=G$. Por $T_1$ y apilado se cumple que
+\[
+a=v_F(0)=v_G(0)=b.
+\]
+Por lo tanto $(F,a)=(G,b)$, es decir, $\pi$ es inyectiva. Al ser también suprayectiva, entonces $\pi$ es biyectiva.\\
+
+Resta demostrar que $\pi^{-1}\colon A^\wedge\to \pt(VA)$ es continua. Para ello recordemos que por \eqref{fibra}
+\[
+(F,a)\in [-](x)\iff x\in F\iff (F,a)\in \pi^{-1}(D(x))\iff \pi([-](x))=D(x).
+\]
+Para los otros abiertos básicos, por \eqref{fibra2} tenemos que
+\[
+a\notin \langle F\rangle(x)\iff x\leq a\iff v_F(x)\leq a.
+\]
+Por $T_1$ y apilado tenemos que $a=v_F(0)$ y así
+\[
+v_F(0)\notin \langle F\rangle(x)\iff x\leq v_F(0)\iff v_F(x)=v_F(0).
+\]
+Dado que $v_F(0)\neq 1$, tenemos que 
+\[
+v_F(0)\notin \langle F\rangle(x)\iff x\notin F
+\]
+o equivalentemente 
+\[
+a\in \langle F\rangle(x)\iff (F, a)\in \langle -\rangle(x)\iff x\in F. 
+\]
+Por lo tanto, $\pi(\langle -\rangle(x))=D(x)$ y $\pi^{-1}$ es una función continua. Así, $\pi$ es un homeomorfismo y se cumple que
+\[
+\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA)).
+\]
+
+\item Supongamos que $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ bajo $\mathcal{O}(\pi)=\pi^{-1}$. De aquí que, al ser $\pi^{-1}$ biyectiva, entonces $\pi$
+también lo es. Luego, si $F\in A^\wedge$, entonces $(F, v_F(0)), (F, w_F(0))\in \pt(VA)$ y así
+\[
+\pi(F, v_F(0))=F=\pi(F, w_F(0)).
+\]
+Por la inyectividad de $\pi$ tenemos que $v_F(0)=w_F(0)$ y por lo tanto $A$ es apilado.
+
+\item Supongamos que $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ y $A$ espacial. Consideremos $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Por la espacialidad tenemos que 
+\[
+a=\bigwedge\{q\in \pt A\mid a\leq q\}
+\]
+para todo $a\in A$. Además, por el inciso anterior tenemos que 
+\[
+\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))\Rightarrow v_F(0)=w_F(0)\Rightarrow \text{ todo punto es máximo en }\pt A.
+\]
+Luego,
+\[
+p\leq a=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p.
+\]
+Por lo tanto $p=a$ y $A$ es $T_1$.
+\end{enumerate}
+\end{proof}
+
+Observése que en el inciso 3), basta suponer que
+\[
+\mathcal{V}(a)=\{q\in \pt A\mid a\leq q\}\neq \emptyset
+\]
+para que el resultado sea cierto. De esta manera, podría ocurrir que los resultados en los cuales pedimos que $A$ sea espacial,
+basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$.\\
+
+La siguiente es una posible consecuencia del caso espacial
+\[
+\text{Si }A \text{ es }T_1 \text{ y apilado }\Rightarrow A \text{ es espacial}.
+\]
+
+Considerando lo antes mencionado con respecto al conjunto $\mathcal{V}(-)$, nuestra hipótesis es que en realidad, en el caso general se cumple lo siguiente
+\[
+\mathbf{\text{Afirmación:}} \text{ Existen marcos }T_1\text{ y apilados que no son espaciales.}
+\]
+
+La idea para construir el ejemplo de un marco que cumpla las condiciones anteriores se sigue de lo presentado en \cite{PasekaSmarda1992}. En este artículo exhiben una familia de marcos 
+Hausdorff, en el sentido de Johnstone y Shu-Hao, que no son espaciales. Para estudiar con mayor detalle los marcos apilados y fuertemente apilados, primero veremos como se comportan bajo cocientes.\\
+
+Recordemos que para $(f\colon A\to B)\in \Frm$, $j\in NA$ y $k\in NB$, por las propiedades del funtor $N(-)$, se cumple que
+\[
+N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j\quad\text{ y }\quad N(f)_*(k)=f_*\circ k\circ f\in NA,
+\]
+donde $f_*$ es el adjundo derecho de $f$. Siguiendo esta notación, denominamos a $N(f)(j)$ como un \emph{empuje} y a $N(f)_*(k)$ como un \emph{levantamiento}. 
+
+\begin{prop}
+Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado.
+\end{prop}
+
+\begin{proof}
+Consideremos $S=\pt A$, $S_j=\pt A_j$ y sea $F\in A_j^{\wedge}$. Así, podemos obtener los siguientes:
+\[
+G=j_*(F),\quad Q=S_j\setminus F,\quad R=S\setminus G,
+\]
+donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to A_j$ y $x\in G$ si y solo si $j(x)\in F$. Considerando las reflexiones espaciales $\mathcal{U}\colon A\to \mathcal{O}S$ y $\mathcal{U}_j\colon A_j\to \mathcal{O}S_j$ tenemos el siguiente diagrama
+
+\[\begin{tikzcd}
+	&&&& A && {\mathcal{O}S} \\
+	\\
+	A && {\mathcal{O}S} && {A_j} && {\mathcal{O}S_j} \\
+	\\
+	{A_j} && {\mathcal{O}S_j}
+	\arrow["{\mathcal{U}}", from=1-5, to=1-7]
+	\arrow["{j^*}"'{pos=0.7}, from=1-5, to=3-5]
+	\arrow["sj", from=1-7, to=3-7]
+	\arrow["{v_{G}}", from=3-1, to=1-5]
+	\arrow["{\mathcal{U}}", from=3-1, to=3-3]
+	\arrow["{j^*}"', from=3-1, to=5-1]
+	\arrow["{[R']}"{pos=0.4}, from=3-3, to=1-7]
+	\arrow["sj"{pos=0.6}, from=3-3, to=5-3]
+	\arrow["{\mathcal{U}_j}"', from=3-5, to=3-7]
+	\arrow["{v_F}"{pos=0.7}, from=5-1, to=3-5]
+	\arrow["{\mathcal{U}_j}"', from=5-1, to=5-3]
+	\arrow["{[Q']}"', from=5-3, to=3-7]
+\end{tikzcd}\]
+y usando los adjuntos derechos de $\mathcal{U}$ y $\mathcal{U}_j$ obtenemos
+\[
+v_F, \quad l=N(\mathcal{U}_j)_*([Q']),\quad m=N(j^*)(N(\mathcal{U})_*)([R']),\quad n=N(j^*)(N(\mathcal{U}_j\circ j^*)_*)([Q']) 
+\]
+son núcleos en $NA_j$. Veamos cuál es la relación entre todos estos núcleos.\\
+
+Primero, por construcción, tenemos que $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ y debemos verificar la otra desigualdad para que $A_j$ sea fuertemente apilado.\\
+
+Por hipótesis, se cumple que $v_G=N(\mathcal{U})_*([R'])$. Además, para $x\in A$, se cumple que $j(v_x)\leq v_{j(x)}$ y, por definición de los núcleos ajustados asociados a $F$ y $G$, 
+\begin{equation}\label{eq1}
+j\circ v_G\leq v_F.
+\end{equation}
+
+Además, para $(j\colon A\to A_j)\in\Frm$ 
+\[
+N(j^*)(v_G)=\bigvee\{u_{j(v_G(a))}\wedge v_{j(a)}\mid a\in A\}\quad \text{y}\quad v_F=\bigvee\{u_{v_F(a)}\wedge v_a\mid a\in A_j\}. 
+\]
+Notemos que, por \eqref{eq1}, tenemos $u_{j(v_G)}\leq u_{v_F}$ y por lo tanto 
+\begin{equation}\label{eq2}
+m\leq v_F. 
+\end{equation}
+
+Para $l$ y $n$ notemos que
+\[
+n=\bigvee\{u_{j^*(n(x))}\wedge v_{j^*(x)}\mid x\in A\}\quad \text{y}\quad l=\bigvee\{u_{l(x)}\wedge v_x\mid x\in A_j\},
+\]
+donde 
+\[
+j^*(n(x))=j^*((j_*\circ \mathcal{U}_{j*}\circ [Q']\circ U_j\circ j^*)(x))\quad \text{y}\quad l(x)=N(\mathcal{U}_j)_*([Q'])(x).
+\]
+
+Luego
+\[
+\begin{split}
+j^*(n(x))&=j^*(j_*(\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}))\\
+&= \bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}
+\end{split}
+\]
+y ya que para $x\in A_j$ se cumple que $j(x)=x$, entonces
+\[
+l(x)=\bigvee\{a\in A\mid \mathcal{U}_j\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
+\]
+Por lo tanto $j(n(x))=l(x)$.\\
+
+Desarrollando $m(x)$ tenemos
+\[
+m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [R']\circ\mathcal{U})(x)}\wedge v_{j^*(x)}\mid x\in A\}.
+\]
+
+Dado que $A_j\subseteq A$, se cumple que $Q=R\cap A_j$ y así
+\[
+m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)}\wedge v_x\mid x\in A_j\}.
+\]
+
+Notemos que 
+\[
+\begin{split}
+j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)&= j^*(\bigvee\{a\in A\mid \mathcal{U}(a)\subseteq Q'\cup \mathcal{U}(x)\})\\
+&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}
+\end{split}
+\]
+y como $x\in A_j$
+\[
+\begin{split}
+\mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(j^*(x))&\iff \mathcal{U}(j^*(a))\cap S_j\subseteq (Q'\cup \mathcal{U}(j^*(x)))\cap S_j\\
+&\iff \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x)),
+\end{split}
+\]
+es decir, 
+\[
+\begin{split}
+\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x))\}\\
+&=j^*(N(\mathcal{U}_j\circ j)_*)([Q']).
+\end{split}
+\]
+Por lo tanto 
+\[
+\bigvee\{u_{j^*(N(\mathcal{U}_j\circ j)_*)[Q'](x)}\wedge x\mid x\in A\}=m(x).
+\]
+Ya que $(N(\mathcal{U}_j\circ j)_*)([Q'])\leq j(N(\mathcal{U}_j\circ j)_*)([Q'])$ y por \eqref{eq2} 
+\[
+l\leq m\leq v_F\leq l
+\]
+y así $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, es decir, $A_j$ es fuertemente apilado.
+\end{proof}
+
+Como todo marco fuertemente apilado es apilado, podemos afirmar lo siguiente.
+
+\begin{cor}
+Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es apilado. 
+\end{cor}
+
+\begin{proof}
+Por la proposición anterior, Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
+\end{proof}
+
+Si $A$ es un marco Hausdorff, entonces $A$ es $T_1$. De esta manera, para poder utilizar el ejemplo de Paseka y Smarda basta que $\mathbf{(H)}$ implique apilado.
+
+\begin{prop}
+Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Marcos KC}
+
+\begin{dfn}\label{KC y KCH}
+Sea $A\in \Frm$ decimos que $A$ es:
+\begin{enumerate}
+    \item $KC$ si cada cociente compacto es cerrado.
+
+    \item \emph{Hausdorff cerrado compacto} (o $KCH$ de manera abreviada) si cada cociente compacto de $A$ es cerrado y Hausdorff.
+\end{enumerate}
+\end{dfn}
+
+La Definición \ref{KC y KCH} nos dice que si $j\in NA$, entonces $\nabla(j)\in A^\wedge$ y $j=u_a$ para algún $a\in A$. De manera adicional, para $2)$ pedimos que $A_j$ cumpla la propiedad $\mathbf{(H)}$.\\
+
+\begin{prop}\label{KCquout}
+    Si $A\in \Frm$ comple $KC$, entonces $A_j$ cumple $KC$ para cada $j\in N(A).$
+\end{prop}
+
+\begin{proof} %HAY que redactyar mejor la prueba%
+Consideremos $k\in NA_j$ tal que $(A_j)_k$ es compacto. 
+Como cualquier filtro abierto es admisible, tenemos que $\nabla(k)\in A_j^\wedge$ 
+y por la Proposición \ref{fF} $j_*\nabla(K)\in A^\wedge$.\\
+
+Sea $l=j_*\circ  k\circ j^*\in NA$, entonces $A_l$ es un cociente compacto de $A$ y existe $a\in A$ tal que $l=u_a$. Así
+\[
+\begin{tikzcd}
+	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
+	\end{tikzcd}\]
+y $a\vee x=k(j(x))$. Por lo tanto, si $x=a$, $k(j(x))=a$.\\
+
+Necesitamos que $k=u_b$ para algún $b\in A_j$. Para $x\in A_j$ y $b=j(a)$
+\[
+\begin{split}
+u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
+& =j(k(j(a))\vee x)\\
+& =j(u_a(x))\\
+& =j(k(x))\\	
+&=k(x).
+\end{split}
+\]
+Por lo tanto $u_b=k$.
+\end{proof}
+
+\begin{prop}\label{KCT1}
+Si $A$ es un marco $KC$, entonces $A$ es un marco $T_1$.
+\end{prop}
+
+\begin{proof}
+Sean $p\in \pt A$ y $a\in A$ tales que $p\leq a\leq 1$. Consideremos 
+\[
+w_p(x)=\left\{\begin{array}{lcc}
+1 & \mbox{ si } & x\nleq p\\
+\\
+p & \mbox{ si } & x\leq p
+\end{array}\right.
+\]
+para $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ es un filtro completamente primo (en particular, $P\in A^\wedge$). Como $A$ es $KC$, entonces $A_{w_p}$ es un cociente compacto cerrado. Así $u_p=w_p$ y
+\[
+u_p(a)=a\quad \mbox{y}\quad w_p(a)=1.
+\]
+es decir, $a=1$. Por lo tanto $p$ es máximo. 
+\end{proof}
+
+Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
+aquellos núcleos que producen cociente compacto y cerrado.\\
+
+\begin{prop}
+$A$ es eficiente y apilado si y solo si $A$ es KC.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Ejemplos}
+
+\subsection{El marco $[0,1]$}
+Siguiendo la idea presentada en \cite{simmons2006regularity} (o, de manera alternativa, en \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado 
+\[
+A=[0,1].
+\] 
+En este caso se cumplen las siguientes observaciones.
+\begin{enumerate}
+\item Para todo $a,b\in A$ la implicación $(a\succ b)$ está dada por
+\[
+(a\succ b)=\begin{cases}
+1, & \text{si } a\leq b,\\
+b, & \text{si } a>b.
+\end{cases}
+\]
+\item Para $a, x\in A$, los núcleos distinguidos $u_a, v_a, w_a$ están dados por
+\[
+u_a(x)=\begin{cases}
+  x & \text{si }a\leq x,\\
+  a & \text{si }x< a,
+\end{cases}, \quad v_a(x)=\begin{cases}
+1 & \text{si } x\geq a,\\
+a & \text{si } x<a,
+\end{cases} \quad w_a(x)=\begin{cases}
+1 & \text{si } x>a,\\
+a & \text{si } x\leq a.
+\end{cases}
+\]
+
+\item Si $F\subseteq A$ es un filtro, entonces $F$ es siempre admisible y tiene la forma
+\[
+F=\nabla(w_a)=(a, 1]\quad \mbox{ o }\quad F=\nabla(v_a)=[a, 1]
+\]
+para algún $a\in A$. En particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
+
+\item Si $F\in A^\wedge$, el núcleo ajustado asociado $v_F$ se calcula como
+\begin{equation}\label{eq:lm}
+v_F(x)=l_m(x)=\begin{cases}
+1 & \text{si } x> m,\\
+x & \text{si } x\leq m.
+\end{cases}
+\end{equation}
+donde $l_m=v_m\wedge w_m$ y $m=\bigwedge F$.
+\item Para $S=\pt A$ se cumple que $S=[0,1)$ y los abiertos en $\mathcal{O}S$ son de la forma
+\[
+\mathcal{U}_A(x)=\{p\in S\mid p<x\}=[0,x).
+\]
+\item El marco $A$ no es $T_1$, pues ningún $p\in S$ es máximo. En consecuencia, $A$ no satisface ninguna propiedad de separación más fuerte en $\Frm$.
+\item Para $F\in A^\wedge$ el conjunto compacto saturado asociado $Q\in \mathcal{Q}S$ es de la forma $Q=[0,m]$.
+\item Se cumple que $[Q']=v_F$; por lo tanto, $S$ es fuertemente apilado.
+\item Ya que $[0, x)\in \mathcal{O}S$, entonces $[x, 1]\in \mathcal{C}S$ y $Q=[0, m]$. Por lo tanto, los subconjuntos compactos no son cerrados; es decir, $S$ no es empaquetado.
+\item El marco $A$ no es eficiente.
+
+\end{enumerate}
+
+Todo lo anterior resume las principales características del marco $[0,1]$. En lo que sigue, realizaremos el análisis de las construcciones de parches tanto de 
+$A$ como de su espacio de puntos $S$.\\
+
+Recordemos que para $A\in \Frm$ y $S\in \Top$ tenemos 
+\[
+\text{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}\quad \text{y}\quad \text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
+\]
+donde Pbase genera al marco de parches de $A$ y pbase genera la topología del espacio de parches de $S$. Por \eqref{eq:lm} tenemos que 
+\[
+\text{Pbase}=\{u_a\wedge l_m\mid a\in [0,1], m\in [0,1)\}.
+\]
+
+Para $x\in A$  se cumple
+\[
+(u_a\wedge l_m)(x)=u_a(x)\wedge l_m(x)..
+\]
+
+Analizamos por casos la relación entre $x$ y $m$.
+\begin{description}
+\item[Caso 1] Si $x<m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge x=x$.
+\item[Caso 2] Si $x=m$, entonces $(u_a\wedge l_m)(x)=u_a(m)\wedge m=x$.
+\item[Caso 3] Si $x>m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x)$.
+\end{description}
+
+En los primeros 2 casos el valor de $a$ no afecta la evaluación. La dependencia esencial aparece cuando Además $u_a\wedge l_m=\id$, es decir, los generadores básicos de la 
+$m<x$, donde interviene la relación entre $a$ y $m$.
+\begin{description}
+\item[Caso 3.1] Si $m<x<a$, entonces $(u_a\wedge l_m)(x)=a$.
+\item[Caso 3.2] Si $m<a\leq x$, entonces $(u_a\wedge l_m)(x)=x$.
+\end{description}
+
+De este análisis se deduce que, $u_a\wedge l_m=\id$ si y solo si $m<a$. Por lo tanto, lo generadores no triviales de Pbase corresponden exactamente a los pares
+$(m, a)$ con $m<a$.\\
+
+En consecuencia, el marco $PA$ queda codificado por los intervalos abiertos de la forma $(m,a)$, donde $m\in \pt A$ y $a\in A$.
+
+Queremos identificar si en nuestro ejemplo, $PA$ satisface alguna propiedad de separación. Para hacerlo, ocuparemos recordar información respecto a los parches.\\
+
+Si $A\in\Frm$ es un marco arbitrario y $S$ su espacio de puntos, podemos construir el siguiente diagrama conmutativo que relaciona ambas construcciones de parches.
+\[\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["{P(\mathcal{U}_A)}", from=1-2, to=2-2]
+	\arrow["{N(\mathcal{U}_A)}", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow["\pi", from=2-2, to=3-2]
+	\arrow["\sigma", from=2-3, to=3-3]
+	\arrow[hook, from=3-2, to=3-3]
+\end{tikzcd}\]
+donde $\mathcal{O}^fS$ es la topología de Skula (o topología frontal) del espacio $S$. En \cite{sexton2006point} lo llaman el 
+\emph{diagrama del ensamble de parches} y más detalles sobre este también pueden ser encontrados
+en \cite{sexton2003point}.\\
+
+En nuestro caso, $\mathcal{U}_A$ es un isomorfismo. Además, bajo $\mathcal{U}_A$, la construcción de parches resulta ser funtorial y, por lo tanto,
+$PA\cong P\mathcal{O}S$. De manera similar, $NA\cong N\mathcal{O}S$.
+Para describir explícitamente $P\mathcal{O}S$ y $N\mathcal{O}S$ utilizamos el siguiente resultado, que puede consultarse en \cite{AvilaBezhaniMorandiZaldivar2020}.
+
+\begin{prop}\label{Ensamble espacial}
+Sea $S$ un conjunto parcialmente ordenado.
+\begin{enumerate}
+  \item Si $S$ no tiene anticadenas infinitas, entonces $N\mathcal{O}S$ es espacial.
+  \item Si $S$ es totalmente ordenado, entonces $N\mathcal{O}S$ es espacial.
+\end{enumerate}
+\end{prop}
+
+Así, por la Proposición \ref{Ensamble espacial} tenemos que $N\mathcal{O}S$ es espacial y por lo tanto $N\mathcal{O}S\cong \mathcal{O}^fS$. Juntando toda esta información 
+el diagrama del ensamble de parches en nuestro caso particular queda como sigue.
+
+\[\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["\cong"', from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["\cong", from=1-2, to=2-2]
+	\arrow["\cong", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+\end{tikzcd}\]
+Por lo tanto, si queremos estudiar al marco $PA$ podemos estudiar a la topología de parches $\mathcal{O}^pS$. Recordemos que 
+\[
+\text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}.
+\]
+En nuestro caso,
+\[
+\text{pbase}=\{[0, a)\cap [m, 1)\mid a\in [0,1], m\in [0,1)\}=\{(m,a)\}.
+\]
+
+Como la topología generada por los intervalos $(m,a)$ coincide con la topología usual en $[0,1)$, el espacio $^pS$ es Hausdorff. En consecuencia, $\mathcal{O}^pS\cong PA$ satisface $\mathbf{(H)}$, aun cuando $A$ no es $T_1$ ni eficiente.
+
+\begin{lem}\label{patchiso}
+Sea $A$ un marco, si el morfismo $\mathrm{p}U\colon\mathrm{p}A\rightarrow\mathrm{p}\mathcal{O}S$ 
+es un isomorfismo, entonces $A$ es fuertemente apilado.
+
+\end{lem}
+
+
+\begin{proof}
+Consider any open filter $F$ on $A$ and the compact saturated determined by it, say $Q$, 
+thus we have the nuclei $\mathrm{v}_{F}$ and $U_{*}[Q']U=Q[U]$, we neee to observe the action of 
+$\mathrm{p}U$ on these two nuclei, in order to do that remember that we have a conmutative diagram:
+
+
+
+\[\begin{tikzcd}
+	A & \mathrm{p}A & NA \\
+	{\mathcal{O}S} & {\mathrm{p}
+	\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["\iota",hook, from=1-2, to=1-3]
+	\arrow["{\mathrm{p}(\mathcal{U}_A)}", from=1-2, to=2-2]
+	\arrow["{N(\mathcal{U}_A)}", from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[hook, from=2-1, to=3-2]
+	\arrow["\imath "',hook, from=2-2, to=2-3]
+	\arrow["\pi", from=2-2, to=3-2]
+	\arrow["\sigma", from=2-3, to=3-3]
+	\arrow[hook, from=3-2, to=3-3]
+\end{tikzcd}\]
+
+since $N(\mathcal{U})\iota=\imath\mathrm{p}\mathcal{U}$, that is, $\mathrm{p}\mathcal{U}$ 
+is the restriction of $N(\mathcal{U})$ to $\mathrm{p}A$, then 
+
+\[\mathrm{p}\mathcal{U}(\mathrm{v}_{F})=N(\mathcal{U})(\mathrm{v}_{F})=\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
+
+since the morphism $\mathcal{U}$ transforms open filters we have 
+
+
+
+\[\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}=\bigvee\{u_{v_{\mathcal{U}F}}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
+
+
+But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathcal{U}F}$.
+
+
+
+
+
+
+\end{proof}
+
+\bibliographystyle{amsalpha}
+
+\bibliography{research2}
+
+
+\end{document}
