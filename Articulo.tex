@@ -58,7 +58,7 @@
 \begin{document}
 %\begin{frontmatter}
 
-\title{Cosas probadas y preguntas abiertas}
+\title{Aquí va el título del artículo}
 
 
 \author{}
@@ -74,7 +74,14 @@
 %\end{abstract}
 
 \maketitle
-\section{Cuestiones de marcos}
+
+\tableofcontents
+
+\section{Introducción}
+
+\section{Preliminares}
+
+\section{Cocientes compactos inducidos por filtros abiertos}
 Sea $f\colon A\to B$ un morfismo de marcos con adjunto derecho $f_*\colon B\to A$. Si $F\subseteq A$ y $G\subseteq B$ son filtros, definimos:
 \begin{equation}\label{Imagenfiltros}
 b\in f^*F \Longleftrightarrow f_*(b)\in F\qquad a\in f_*G \Longleftrightarrow f(a)\in G.
@@ -457,6 +464,8 @@ es decir, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ y por lo tanto $\lan
   La subcategoría de marcos eficientes es coreflexiva en $\Frm$.
 \end{cor}
 
+\section{El Q-cuadrado y cocientes compactos}
+
 \begin{lem}\label{inducciontransfinita}
 Para todo $\alpha\in \Ord$ y $X\in CS$, se cumple
 \begin{equation}\label{eq:induccion}
@@ -745,6 +754,8 @@ v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
 es decir, $\mathcal{O}S$ es apilado.\\
 \end{proof}
 
+\section{Propiedades de separación}
+
 Recordemos que si un espacio es $T_1$ y fuertemente apilado, entonces se satisface que $w_\nabla=v_\nabla$. Adicionalmente, en el caso espacial, también se cumple que
 si $S$ es apilado y $T_1$, entonces es sobrio.\\
 
@@ -854,45 +865,6 @@ Ya que $S$ es fuertemente apilado si y solo si $v_\nabla=[Q']$, el resultado se 
 \[
 \mathcal{O}S \text{ eficiente } \Rightarrow S \text{ apilado y empaquetado}
 \] 
-\end{proof}
-
-Si $F\in A^\wedge$, podemos construir el conjunto
-\[
-M=\{m\in A\setminus F\mid a\leq m, \forall a\in A\setminus F\}.
-\]
-De manera particular, si $p\in \pt A$, entonces para el par HM $(F_p, \uparrow p)$ el conjunto $M$ es de la forma
-\[
-M=\{m\in A\setminus F_p\mid a\leq m, \forall a\in A\setminus F_p\}.
-\]
-
-Notemos que $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. Luego,
-\[
-M=\{m\in \downarrow p\mid a\leq m, \forall a\in \downarrow p\}=\{p\}.
-\]
-
-De aquí que $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, es decir, 
-\begin{equation}\label{igualdadwF_p}
-w_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ 
-	p, & \text{si} & x\leq p 
-\end{array} \right.=w_p(x)
-\end{equation}
-para todo $x\in A$. Por lo tanto $w_{F_p}=w_p$.\\
-
-\begin{prop}\label{maximosenpt}
-Sea $A\in \Frm$ y $(F, Q)$ cualquier par HM. Si $v_F(0)=w_F(0)$, entonces todo punto de $A$ es máximo en $\pt A$.
-\end{prop}
-
-\begin{proof}
-Consideremos $p,q\in \pt A$ tales que $p\leq q$. Notemos que para $q\in \pt A$, tenemos el par HM $(F_q, \uparrow q)$, donde 
-\[
-F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in \pt A)[r\leq q\Rightarrow x\nleq q]\}.
-\]
-
-Por hipótesis, $v_{F_q}(0)=w_{F_q}(0)$ y por \eqref{igualdadwF_p}
-\[
-q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p,
-\]
-donde la última igualdad es consecuencia de que $p\notin F_q$. Por lo tanto, $p=q$ y todo punto es máximo en $\pt A$.
 \end{proof}
 
 Recordemos que para el morfismo reflexión espacial $\mathcal{U}_A$ tenemos el núcleo $\Sp_A$ dado por
@@ -1152,6 +1124,8 @@ Considerando lo antes mencionado con respecto al conjunto $\mathcal{V}(-)$, nues
 La idea para construir el ejemplo de un marco que cumpla las condiciones anteriores se sigue de lo presentado en \cite{PasekaSmarda1992}. En este artículo exhiben una familia de marcos 
 Hausdorff, en el sentido de Johnstone y Shu-Hao, que no son espaciales. Para estudiar con mayor detalle los marcos apilados y fuertemente apilados, primero veremos como se comportan bajo cocientes.\\
 
+\section{Cocientes de marcos apilados}
+
 Recordemos que para $(f\colon A\to B)\in \Frm$, $j\in NA$ y $k\in NB$, por las propiedades del funtor $N(-)$, se cumple que
 \[
 N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j\quad\text{ y }\quad N(f)_*(k)=f_*\circ k\circ f\in NA,
@@ -1284,6 +1258,8 @@ Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es a
 Por la proposición anterior, Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
 \end{proof}
 
+\section{Relación con la propiedad \textbf{(H)}}
+
 Si $A$ es un marco Hausdorff, entonces $A$ es $T_1$. De esta manera, para poder utilizar el ejemplo de Paseka y Smarda basta que $\mathbf{(H)}$ implique apilado.
 
 \begin{prop}
@@ -1291,8 +1267,66 @@ Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
 \end{prop}
 
 \begin{proof}
+Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es $T_1$, es decir, para todo par HM se cumple que
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F,
+\]
+es decir, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ y dado que $w_F\neq \tp$, entonces $w_F(0)\neq 1$.\\
 
+Por consturcción se cumple que $v_F(0)\leq w_F(0)$ y así, debemos ver que se da la otra desigualdad para obtener que $A$ es apilado. A manera de contradicción, supongamos que 
+\[
+w_F(0)\nleq v_F(0).
+\]
+
+Como $1\neq w_F(0)\nleq  v_F(0)$, por $\mathbf{(H)}$, existe $c\in A$ tal que
+\[
+c\nleq w_F(0)\quad \text{y}\quad \neg c\nleq v_F(0).
+\]
+
+Si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues en caso contrario, si $c\in F$, se cumple que
+\[
+\neg c\leq f_F(0)=\bigvee\{v_a(0)\mid a\in F\}\leq v_F(0),
+\]
+lo cual es una contradicción a $\mathbf{(H)}$.\\ 
+
+Si $c\notin F$, entonces $c\in A\setminus F$ y por construcción existe $p\in M$ tal que $c\leq p$, donde 
+\[
+M=\{p\in A\setminus F\mid p\text{ es máximo}\}.
+\]
+
+De aquí que $p\nleq w_F(0)$. Luego,
+\[
+w_F(0)=\bigwedge\{p\in M\mid 0\leq p\}=\bigwedge M\leq p,
+\]
+es decir, $p\nleq w_F(0)\leq p$, lo cual es una contradicción. La contradicción viene de suponer que $w_F(0)\nleq v_F(0)$.
+Por lo tanto $w_F(0)=v_F(0)$ y $A$ es apilado. 
 \end{proof}
+
+Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
+\[\begin{tikzcd}
+	& {\mathbf{(H)}} & \\
+	{\text{Apilado}} && {T_1}
+	\arrow[Rightarrow, from=1-2, to=2-1]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+\end{tikzcd}\]
+
+Usaremos este hecho para exhibir un ejemplo de lo siguiente.
+
+\begin{thm}
+Existen marcos $T_1$ y apilados que no son espaciales.
+\end{thm}
+
+\begin{proof}
+Si consideramos $A\in \Frm$ tal que $A$ satisface $\mathbf{(H)}$, podemos construir el siguiente marco
+\[
+\widetilde{A}=\{(a,b)\mid a\in A, b\in \mathcal{B}(A)\},
+\]
+donde $\mathcal{B}(A)=\{b\in A\mid b=\neg \neg b\}$ y se conoce como la \emph{booleanización} de $A$.\\
+
+Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $\widetilde{A}$ satisface $\mathbf{(H)}$. En consecuencia, $\widetilde{A}$ es un marco $T_1$ y apilado, pero no es espacial.
+\end{proof}
+
+Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
 
 \section{Marcos KC}
 
@@ -1359,12 +1393,88 @@ es decir, $a=1$. Por lo tanto $p$ es máximo.
 Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
 aquellos núcleos que producen cociente compacto y cerrado.\\
 
-\begin{prop}
-$A$ es eficiente y apilado si y solo si $A$ es KC.
+Para realizar parte de este estudio, definimos el siguiente subconjunto de $A$
+\[
+uA=\{a\in A\mid A_{u_a} \text{ es un cociente compacto}\}.
+\]
+
+Notemos que a todo $a\in uA$ le asignamas un subconjunto $\nabla(u_a)\in A^\wedge$, es decir, podemos definir la función
+\[
+\alpha\colon uA\to A^\wedge.
+\]
+
+Veamos que propiedades satisface dicha función.
+
+\begin{lem}
+    Para $uA\subseteq A$ como antes, las siguientes afirmaciones se cumplen:
+    \begin{enumerate}
+        \item Si $A$ es eficiente, entonces $\alpha$ es suprayectiva.
+        \item Si $u_a$ es ajustado para todo $a\in uA$, entonces $\alpha$ es inyectiva.
+        \item Si $A$ es eficiente y $a\in uA$, entonces $\alpha$ es biyectiva si y solo si $u_a$ es ajustado.
+    \end{enumerate}
+\end{lem}
+
+\begin{proof}
+$\mbox{ }$
+\begin{enumerate}
+    \item Consideremos $F=\nabla(j)\in A^\wedge$ y $v_F$ el núcleos ajustado asociado a $F$. Si $A$ es eficiente, entonces $v_F=u_d$,
+    donde $d=v_F(0)\in A$. Luego, 
+        \[
+        \alpha(d)=\nabla(u_d)=\nabla(v_F)=F.
+        \]
+    Por lo tanto $\alpha$ es suprayectiva.
+    \item  Consideremos $a, b\in uA$ tales que $\alpha(a)=\alpha(b)$, es decir, $\nabla(u_a)=\nabla(u_b)$. Por hipótesis, $u_a, u_b$ son núcleos ajustados, es decir, 
+    \[
+    u_c\leq u_d\quad\mbox{y}\quad u_c\geq u_d.
+    \]
+    Evaluando ambos núcleos en $0$ obtenemos $c=d$ y por lo tanto $\alpha$ es inyectiva.
+    \item Sean $A$ eficiente, $a\in uA$ y supongamos que $\alpha$ es un biyectiva. Consideremos $F=\nabla(u_a)$ y $v_F$ el núcleo ajustado asociado $F$. Por la eficiencia, $v_F=u_d$, es decir,
+    \[
+    \alpha(a)=\nabla(u_a)=\nabla(v_F)=\nabla(u_d)=\alpha(d)
+    \]
+    donde $d=v_F(0)$.\\
+
+    Por hipótesis, $\alpha$ es biyectiva, entonces, por la inyectividad, $a=d$. Por lo tanto $v_F=u_a$ y $u_a$ es ajustado.\\
+
+    Reciprocamente, como $A$ es eficiente, entonces por 1), $\alpha$ es suprayectiva. Por hipótesis, $u_a$ es ajustado y, por 2), $\alpha$ es inyectiva. Por lo tanto $\alpha$ es biyectiva. 
+\end{enumerate}
+\end{proof}
+
+Dado que todo marco $KC$ es eficiente, podemos dar una versión del lema anterior involucrando los marcos $KC$.
+
+\begin{cor}
+        Sean $A$ un marco $KC$ y $F\in A^\wedge$. $\alpha$ es biyectiva si y solo si para todo $j\in [v_F, w_F]$, $j$ es ajustado.
+\end{cor}
+
+\begin{proof}
+Supongamos que $A$ es $KC$ y sea $F\in A^\wedge$. Por definición, para todo $j\in [v_F, w_F]$, $j=u_a$ para algún $a\in A$. Dado que $A$ es $KC$, entonces $A$ es eficiente y por el lema anterior, $\alpha$ es biyectiva si y solo si para todo $j\in [v_F, w_F]$, $j$ es ajustado.
+\end{proof}
+
+\begin{prop}\label{prop:KC}
+Sea $A\in \Frm$. $A$ es $KC$ si y solo si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.
 \end{prop}
 
 \begin{proof}
+ $\mbox{}$
+ \begin{description}
+    \item[$\Rightarrow) $] Supongamos que $A$ es $KC$. Trivialmente, $KC$ implica eficiente y así, resta verificar que $KC$ implica que $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ o equivalentemente, por propiedades del adjunto derecho,
+    \[
+    v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}.
+    \]
+    
+    Si $A$ es $KC$, entonces para cualquier $F\in A^\wedge$ se cumple que para todo $j\in [v_F, w_F]$, $j=u_a$ para algún $a\in A$. En particular,
+    \[
+    v_F=u_d,\quad\text{y}\quad \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}=u_a
+    \]
+    donde $d, a\in A$.\\
 
+    Por construcción, siempre se cumple que $u_d\leq u_a$. Para ver la otra desigualdad verificamos que la función $\alpha$ es inyectiva. Notemos que $d\leq a$  
+
+
+    \item[$\Leftarrow) $] Supongamos que $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ para toda terna HM $(F, Q, \nabla)$. Primero, si $A$ es eficiente, 
+    entonces $A$ es $T_1$. Además, si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado. De aquí que $A$ es $T_1$ y fuertemente apilado.
+    Lo anterior implica que $v_F=w_F$ y, por la eficiencia, $v_F=u_d$, donde $d=v_F(0)$. Por lo tanto, para todo $j\in [v_F, w_F]$, $j=u_d$, es decir, $A$ es $KC$.
+ \end{description}
 \end{proof}
 
 \section{Ejemplos}
