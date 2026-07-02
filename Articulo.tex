@@ -69,17 +69,19 @@
 \address{}
 %$\cortext[cor1]{Corresponding author}
 
-%\begin{abstract}
-
-%\end{abstract}
+\begin{abstract}
+Aquí va el resumen
+\end{abstract}
 
 \maketitle
 
 \tableofcontents
 
 \section{Introducción}
-
+\cite{picado2021separation, sexton2006ordinal, hochster1969prime}
 \section{Preliminares}
+
+\cite{simmons2006assembly, sexton2003point, Johnstone82}
 
 \section{Cocientes compactos inducidos por filtros abiertos}
 Sea $f\colon A\to B$ un morfismo de marcos con adjunto derecho $f_*\colon B\to A$. Si $F\subseteq A$ y $G\subseteq B$ son filtros, definimos:
@@ -293,6 +295,80 @@ El diagrama
 es conmutativo.
 \end{prop}
 
+
+Un caso particular del diagrama (\ref{Cuadrado}) lo podemos obtener al considerar $j^*=\mathcal{U}_A$. Así,
+\[\begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Se puede probar que $\pt A_F=Q$, es decir, tenemos la reflexión espacial
+\[
+\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q
+\]
+y este es un cociente de $A$ a través de $v_F$.\\ 
+
+Adicionalmente, tenemos el morfismo de marcos
+\[\begin{tikzcd}
+	A & {\mathcal{O}S} & {\mathcal{O}S_\nabla} & {\mathcal{O}Q}
+	\arrow["{\mathcal{U}_A}", from=1-1, to=1-2]
+	\arrow["{v_\nabla}", from=1-2, to=1-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}", from=1-3, to=1-4]
+\end{tikzcd}\]
+y es un cociente de $A$ a través de $v_\nabla$, pues se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
+\[
+x\mapsto \mathcal{U}_A(x)\cap Q
+\]
+para $x\in A$. 
+
+La construcción culmina en el siguiente diagrama, que sintetiza la interacción entre cocientes compactos, separación y levantamientos de núcleos.
+\begin{equation}\label{Qcuadrado}
+\begin{tikzcd}
+	A && {A_F} & \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
+	\arrow["h"', from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
+\end{tikzcd}\end{equation}
+
+Dado que el diagrama anterior esta codificado a través de $F\in A^\wedge$ y el $Q\in \mathcal{Q}S$ asociado, 
+denominamos a (\ref{Qcuadrado}) como el \emph{$Q$-cuadrado}.
+
+\begin{thm}\label{haus1}
+Bajo las hipótesis del $Q$-cuadrado (\ref{Qcuadrado}). Si $A\in \Frm$ satisface la propiedad $\mathbf{(H)}$, entonces
+\[
+\mathcal{O}Q\cong \uparrow Q'.
+\]
+En otras palabras, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un cociente compacto
+y cerrado de un espacio Huasdorff.
+\end{thm}
+
+\begin{proof}
+Por hipótesis, $A$ satisface $\mathbf{(H)}$. Como la propiedad $\mathbf{(H)}$ es cerrada bajo cocientes, $A_F$ y $\mathcal{O}S$ satisfacen $\mathbf{(H)}$.
+Además, $\mathbf{(H)}$ es conservativa, es decir, $S=\pt A$ es un espacio $T_2$. Al ser $S$ $T_2$, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$. Además,
+\[
+S \text{ es }T_2\Rightarrow S \text{ es fuertemente apilado}\Rightarrow v_\nabla=[Q'].
+\]
+
+Ya que $Q'\in \mathcal{O}S$, se cumple que $[Q']=u_{Q'}$ y este es complementado en $N\mathcal{O}S$. Además,
+\[
+\mathcal{O}S_{u_{Q'}}=\uparrow Q'=\mathcal{O}S_{v_\nabla}.
+\]
+
+Por \cite[Propocisión VI.3.3]{PicadoPultr} se cumple que $\mathcal{O}S_{v_\nabla}$ es espacial. De aquí que $g$ es un isomorfismo.\\
+
+Por lo tanto, $\mathcal{O}\pt A_F\cong \mathcal{O}S_\nabla$, es decir, $\mathcal{O}Q\cong \uparrow Q'$.
+
+\end{proof}
+
 \section{Marcos eficientes}
 
 \begin{prop}\label{tidyquout}
@@ -464,7 +540,7 @@ es decir, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ y por lo tanto $\lan
   La subcategoría de marcos eficientes es coreflexiva en $\Frm$.
 \end{cor}
 
-\section{El Q-cuadrado y cocientes compactos}
+\section{Marcos apilados y fuertemente apilados}
 
 \begin{lem}\label{inducciontransfinita}
 Para todo $\alpha\in \Ord$ y $X\in CS$, se cumple
@@ -635,82 +711,6 @@ es decir, $w_F(x)\leq y$ lo cual es una contradicción.\\
 
 Por lo tanto, $\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x)$.
 \end{proof}
-
-
-Un caso particular del diagrama (\ref{Cuadrado}) lo podemos obtener al considerar $j^*=\mathcal{U}_A$. Así,
-\[\begin{tikzcd}
-	A & {A_F} \\
-	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
-	\arrow["{v_F}", from=1-1, to=1-2]
-	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
-	\arrow["h", from=1-2, to=2-2]
-	\arrow["{v_\nabla}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-
-Se puede probar que $\pt A_F=Q$, es decir, tenemos la reflexión espacial
-\[
-\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q
-\]
-y este es un cociente de $A$ a través de $v_F$.\\ 
-
-Adicionalmente, tenemos el morfismo de marcos
-\[\begin{tikzcd}
-	A & {\mathcal{O}S} & {\mathcal{O}S_\nabla} & {\mathcal{O}Q}
-	\arrow["{\mathcal{U}_A}", from=1-1, to=1-2]
-	\arrow["{v_\nabla}", from=1-2, to=1-3]
-	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}", from=1-3, to=1-4]
-\end{tikzcd}\]
-y es un cociente de $A$ a través de $v_\nabla$, pues se cumple que $\pt \mathcal{O}S_\nabla=Q$. Debido a que $Q\subseteq S$, ambos cocientes están dados por la asignación
-\[
-x\mapsto \mathcal{U}_A(x)\cap Q
-\]
-para $x\in A$. 
-
-La construcción culmina en el siguiente diagrama, que sintetiza la interacción entre cocientes compactos, separación y levantamientos de núcleos.
-\begin{equation}\label{Qcuadrado}
-\begin{tikzcd}
-	A && {A_F} & \\
-	&&& {\mathcal{O}Q} \\
-	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
-	\arrow["{v_F}", from=1-1, to=1-3]
-	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
-	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
-	\arrow["h"', from=1-3, to=3-3]
-	\arrow["{v_\nabla}"', from=3-1, to=3-3]
-	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
-\end{tikzcd}\end{equation}
-
-Dado que el diagrama anterior esta codificado a través de $F\in A^\wedge$ y el $Q\in \mathcal{Q}S$ asociado, 
-denominamos a (\ref{Qcuadrado}) como el \emph{$Q$-cuadrado}.
-
-\begin{thm}\label{haus1}
-Bajo las hipótesis del $Q$-cuadrado (\ref{Qcuadrado}). Si $A\in \Frm$ satisface la propiedad $\mathbf{(H)}$, entonces
-\[
-\mathcal{O}Q\cong \uparrow Q'.
-\]
-En otras palabras, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un cociente compacto
-y cerrado de un espacio Huasdorff.
-\end{thm}
-
-\begin{proof}
-Por hipótesis, $A$ satisface $\mathbf{(H)}$. Como la propiedad $\mathbf{(H)}$ es cerrada bajo cocientes, $A_F$ y $\mathcal{O}S$ satisfacen $\mathbf{(H)}$.
-Además, $\mathbf{(H)}$ es conservativa, es decir, $S=\pt A$ es un espacio $T_2$. Al ser $S$ $T_2$, si $Q\in \mathcal{Q}S$, entonces $Q\in \mathcal{C}S$. Además,
-\[
-S \text{ es }T_2\Rightarrow S \text{ es fuertemente apilado}\Rightarrow v_\nabla=[Q'].
-\]
-
-Ya que $Q'\in \mathcal{O}S$, se cumple que $[Q']=u_{Q'}$ y este es complementado en $N\mathcal{O}S$. Además,
-\[
-\mathcal{O}S_{u_{Q'}}=\uparrow Q'=\mathcal{O}S_{v_\nabla}.
-\]
-
-Por \cite[Propocisión VI.3.3]{PicadoPultr} se cumple que $\mathcal{O}S_{v_\nabla}$ es espacial. De aquí que $g$ es un isomorfismo.\\
-
-Por lo tanto, $\mathcal{O}\pt A_F\cong \mathcal{O}S_\nabla$, es decir, $\mathcal{O}Q\cong \uparrow Q'$.
-
-\end{proof}
-
-\section{Marcos apilados y fuertemente apilados}
 
 \begin{dfn}\label{def:apilado-marcos}
 Sea $A\in \Frm$.
