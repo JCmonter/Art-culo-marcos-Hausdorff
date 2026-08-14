@@ -1273,49 +1273,37 @@ Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is stac
 By the previous proposition, if $A$ is strongly stacked, then $A_j$ is strongly stacked and this implies that $A_j$ is stacked.
 \end{proof}
 
-\section{Relación con la propiedad \textbf{(H)}}
+\section{Relationship to the property \textbf{(H)}}
 
-Si $A$ es un marco Hausdorff, entonces $A$ es $T_1$. De esta manera, para poder utilizar el ejemplo de Paseka y Smarda basta que $\mathbf{(H)}$ implique apilado.
+If $A$ is a Hausdorff frame, then $A$ is $T_1$. In this way, to be able to use the example of Paseka and Smarda it is enough that $\mathbf{(H)}$ implies stacked.
 
 \begin{prop}
-Si $A\in \Frm$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
+If $A\in \Frm$ satisfies $\mathbf{(H)}$, then $A$ is stacked.
 \end{prop}
 
 \begin{proof}
-Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es $T_1$, es decir, para todo par HM se cumple que
+If $A$ satisfies $\mathbf{(H)}$, then $A$ is $T_1$, that is, for every pair of points $x,y\in A$ with $x\neq y$, there exist neighborhoods $U,V$ of $x,y$ respectively such that $U\cap V=\emptyset$. This implies that
 \[
 \mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F,
 \]
-es decir, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ y dado que $w_F\neq \tp$, entonces $w_F(0)\neq 1$.\\
+that is, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ and since $w_F\neq \tp$, we have $w_F(0)\neq 1$.\\
 
-Por consturcción se cumple que $v_F(0)\leq w_F(0)$ y así, debemos ver que se da la otra desigualdad para obtener que $A$ es apilado. A manera de contradicción, supongamos que 
+By construction, we have that $v_F(0)\leq w_F(0)$ and thus, we need to verify that the reverse inequality holds to conclude that $A$ is stacked. For a contradiction, suppose that 
+
 \[
 w_F(0)\nleq v_F(0).
 \]
 
-Como $1\neq w_F(0)\nleq  v_F(0)$, por $\mathbf{(H)}$, existe $c\in A$ tal que
+Since $1\neq w_F(0)\nleq  v_F(0)$, by $\mathbf{(H)}$, exists $c\in A$ such that
 \[
 c\nleq w_F(0)\quad \text{y}\quad \neg c\nleq v_F(0).
 \]
 
-Si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues en caso contrario, si $c\in F$, se cumple que
-\[
-\neg c\leq f_F(0)=\bigvee\{v_a(0)\mid a\in F\}\leq v_F(0),
-\]
-lo cual es una contradicción a $\mathbf{(H)}$.\\ 
-
-Si $c\notin F$, entonces $c\in A\setminus F$ y por construcción existe $p\in M$ tal que $c\leq p$, donde 
-\[
-M=\{p\in A\setminus F\mid p\text{ es máximo}\}.
-\]
-
-De aquí que $p\nleq w_F(0)$. Luego,
-\[
-w_F(0)=\bigwedge\{p\in M\mid 0\leq p\}=\bigwedge M\leq p,
-\]
-es decir, $p\nleq w_F(0)\leq p$, lo cual es una contradicción. La contradicción viene de suponer que $w_F(0)\nleq v_F(0)$.
-Por lo tanto $w_F(0)=v_F(0)$ y $A$ es apilado. 
+If $\neg c\nleq v_F(0)$, then $c\notin F$
 \end{proof}
+
+\begin{comment}
+
 
 Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
 \[\begin{tikzcd}
@@ -1342,37 +1330,37 @@ Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $
 \end{proof}
 
 Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
+\end{comment}
 
 \section{Marcos KC}
 
 \begin{dfn}\label{KC y KCH}
-Sea $A\in \Frm$ decimos que $A$ es:
+Let $A$ be a frame. We say that $A$ is:
 \begin{enumerate}
-    \item $KC$ si cada cociente compacto es cerrado.
+    \item $KC$ if each compact quotient is closed.
 
-    \item \emph{Hausdorff cerrado compacto} (o $KCH$ de manera abreviada) si cada cociente compacto de $A$ es cerrado y Hausdorff.
+    \item \emph{Hausdorff closed compact} (or $KCH$ for short) if each compact quotient of $A$ is closed and Hausdorff.
 \end{enumerate}
 \end{dfn}
 
 La Definición \ref{KC y KCH} nos dice que si $j\in NA$, entonces $\nabla(j)\in A^\wedge$ y $j=u_a$ para algún $a\in A$. De manera adicional, para $2)$ pedimos que $A_j$ cumpla la propiedad $\mathbf{(H)}$.\\
 
 \begin{prop}\label{KCquout}
-    Si $A\in \Frm$ comple $KC$, entonces $A_j$ cumple $KC$ para cada $j\in N(A).$
+    If $A\in \Frm$ satisfies $KC$, then $A_j$ satisfies $KC$ for each $j\in N(A).$
 \end{prop}
 
 \begin{proof} %HAY que redactyar mejor la prueba%
-Consideremos $k\in NA_j$ tal que $(A_j)_k$ es compacto. 
-Como cualquier filtro abierto es admisible, tenemos que $\nabla(k)\in A_j^\wedge$ 
-y por la Proposición \ref{fF} $j_*\nabla(K)\in A^\wedge$.\\
+Consider $k\in NA_j$ such that $(A_j)_k$ is compact. 
+If $(A_j)_k$ is compact, then $\nabla(k)\in A_j^\wedge$ and, by Proposition \ref{fF}, $j_*\nabla(K)\in A^\wedge$.\\
 
-Sea $l=j_*\circ  k\circ j^*\in NA$, entonces $A_l$ es un cociente compacto de $A$ y existe $a\in A$ tal que $l=u_a$. Así
+Let $l=j_*\circ  k\circ j^*\in NA$ be, then $A_l$ is a compact quotient of $A$ and there exists $a\in A$ such that $l=u_a$. Thus
 \[
 \begin{tikzcd}
 	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
 	\end{tikzcd}\]
-y $a\vee x=k(j(x))$. Por lo tanto, si $x=a$, $k(j(x))=a$.\\
+and $a\vee x=k(j(x))$. Therefore, if $x=a$, $k(j(x))=a$.\\
 
-Necesitamos que $k=u_b$ para algún $b\in A_j$. Para $x\in A_j$ y $b=j(a)$
+We need that $k=u_b$ for some $b\in A_j$. If $x\in A_j$ and $b=j(a)$
 \[
 \begin{split}
 u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
@@ -1382,15 +1370,15 @@ u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
 &=k(x).
 \end{split}
 \]
-Por lo tanto $u_b=k$.
+Hence $u_b=k$.
 \end{proof}
 
 \begin{prop}\label{KCT1}
-Si $A$ es un marco $KC$, entonces $A$ es un marco $T_1$.
+If $A$ is a $KC$ frame, then $A$ is a $T_1$ frame.
 \end{prop}
 
 \begin{proof}
-Sean $p\in \pt A$ y $a\in A$ tales que $p\leq a\leq 1$. Consideremos 
+Let $p\in \pt A$ and $a\in A$ such that $p\leq a\leq 1$. Consider 
 \[
 w_p(x)=\left\{\begin{array}{lcc}
 1 & \mbox{ si } & x\nleq p\\
@@ -1398,117 +1386,116 @@ w_p(x)=\left\{\begin{array}{lcc}
 p & \mbox{ si } & x\leq p
 \end{array}\right.
 \]
-para $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ es un filtro completamente primo (en particular, $P\in A^\wedge$). Como $A$ es $KC$, entonces $A_{w_p}$ es un cociente compacto cerrado. Así $u_p=w_p$ y
+to $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ is a completely prime filter (in particular, $P\in A^\wedge$). Becuase $A$ is $KC$, then $A_{w_p}$ is a compact closed quotient. Thus $u_p=w_p$ and
 \[
 u_p(a)=a\quad \mbox{y}\quad w_p(a)=1.
 \]
-es decir, $a=1$. Por lo tanto $p$ es máximo. 
+that is, $a=1$. Therefore $p$ is maximal. 
 \end{proof}
 
-Nuestro objetivo es estudiar los núcleos que producen cociente compacto. De manera particular, estamos interesados en 
-aquellos núcleos que producen cociente compacto y cerrado.\\
+One of our aims is study nuclei such that produce compact quotient, particularly, nuclei that produce compact closed quotient.\\
 
-Para realizar parte de este estudio, definimos el siguiente subconjunto de $A$
+Define the following subset of $A$
 \[
 uA=\{a\in A\mid A_{u_a} \text{ es un cociente compacto}\}.
 \]
 
-Notemos que a todo $a\in uA$ le asignamas un subconjunto $\nabla(u_a)\in A^\wedge$, es decir, podemos definir la función
+Note that, to $a\in uA$ we have $\nabla(u_a)\in A^\wedge$, that is, define the map
 \[
 \alpha\colon uA\to A^\wedge.
 \]
 
-Veamos que propiedades satisface dicha función.
+Let us see the properties of this map.
 
 \begin{lem}
-    Para $uA\subseteq A$ como antes, las siguientes afirmaciones se cumplen:
+    For $uA\subseteq A$ as before, the following statements hold:
     \begin{enumerate}
-        \item Si $A$ es eficiente, entonces $\alpha$ es suprayectiva.
-        \item Si $u_a$ es ajustado para todo $a\in uA$, entonces $\alpha$ es inyectiva.
-        \item Si $A$ es eficiente y $a\in uA$, entonces $\alpha$ es biyectiva si y solo si $u_a$ es ajustado.
+        \item If $A$ is tidy, then $\alpha$ is surjective.
+        \item If $u_a$ is fitted for all $a\in uA$, then $\alpha$ is injective.
+        \item If $A$ is tidy and $a\in uA$, then $\alpha$ is bijective if and only if $u_a$ is fitted.
     \end{enumerate}
 \end{lem}
 
 \begin{proof}
 $\mbox{ }$
 \begin{enumerate}
-    \item Consideremos $F=\nabla(j)\in A^\wedge$ y $v_F$ el núcleos ajustado asociado a $F$. Si $A$ es eficiente, entonces $v_F=u_d$,
-    donde $d=v_F(0)\in A$. Luego, 
+    \item Consider $F=\nabla(j)\in A^\wedge$ and $v_F$ the fitted nucleus associated with $F$. If $A$ is tidy, then $v_F=u_d$,
+    where $d=v_F(0)\in A$. Hence, 
         \[
         \alpha(d)=\nabla(u_d)=\nabla(v_F)=F.
         \]
-    Por lo tanto $\alpha$ es suprayectiva.
-    \item  Consideremos $a, b\in uA$ tales que $\alpha(a)=\alpha(b)$, es decir, $\nabla(u_a)=\nabla(u_b)$. Por hipótesis, $u_a, u_b$ son núcleos ajustados, es decir, 
+    and $\alpha$ is surjective.
+    \item  Consider $a, b\in uA$ such that $\alpha(a)=\alpha(b)$, that is, $\nabla(u_a)=\nabla(u_b)$. By hypothesis, $u_a, u_b$ are fitted nuclei, that is,
     \[
     u_c\leq u_d\quad\mbox{y}\quad u_c\geq u_d.
     \]
-    Evaluando ambos núcleos en $0$ obtenemos $c=d$ y por lo tanto $\alpha$ es inyectiva.
-    \item Sean $A$ eficiente, $a\in uA$ y supongamos que $\alpha$ es un biyectiva. Consideremos $F=\nabla(u_a)$ y $v_F$ el núcleo ajustado asociado $F$. Por la eficiencia, $v_F=u_d$, es decir,
+    Evaluating both nuclei at $0$ we get $c=d$ and therefore $\alpha$ is injective.
+    \item Let $A$ be tidy, $a\in uA$ and suppose that $\alpha$ is bijective. Consider $F=\nabla(u_a)$ and $v_F$ the fitted nucleus associated with $F$. By efficiency, $v_F=u_d$, that is,
     \[
     \alpha(a)=\nabla(u_a)=\nabla(v_F)=\nabla(u_d)=\alpha(d)
     \]
-    donde $d=v_F(0)$.\\
+    where $d=v_F(0)$.\\
 
-    Por hipótesis, $\alpha$ es biyectiva, entonces, por la inyectividad, $a=d$. Por lo tanto $v_F=u_a$ y $u_a$ es ajustado.\\
+    By hypothesis, $\alpha$ is bijective, then, by injectivity, $a=d$. Therefore $v_F=u_a$ and $u_a$ is fitted.\\
 
-    Reciprocamente, como $A$ es eficiente, entonces por 1), $\alpha$ es suprayectiva. Por hipótesis, $u_a$ es ajustado y, por 2), $\alpha$ es inyectiva. Por lo tanto $\alpha$ es biyectiva. 
+    Conversely, since $A$ is tidy, then by 1), $\alpha$ is surjective. By hypothesis, $u_a$ is fitted and, by 2), $\alpha$ is injective. Therefore $\alpha$ is bijective. 
 \end{enumerate}
 \end{proof}
 
-Dado que todo marco $KC$ es eficiente, podemos dar una versión del lema anterior involucrando los marcos $KC$.
+Using $KC$ frames, we have the following result.
 
 \begin{cor}
-        Sean $A$ un marco $KC$ y $F\in A^\wedge$. $\alpha$ es biyectiva si y solo si para todo $j\in [v_F, w_F]$, $j$ es ajustado.
+        Let $A$ be a $KC$ frame and $F\in A^\wedge$. Then $\alpha$ is bijective if and only if for all $j\in [v_F, w_F]$, $j$ is fitted.
 \end{cor}
 
 \begin{proof}
-Supongamos que $A$ es $KC$ y sea $F\in A^\wedge$. Por definición, para todo $j\in [v_F, w_F]$, $j=u_a$ para algún $a\in A$. Dado que $A$ es $KC$, entonces $A$ es eficiente y por el lema anterior, $\alpha$ es biyectiva si y solo si para todo $j\in [v_F, w_F]$, $j$ es ajustado.
+Suppose that $A$ is a $KC$ frame and let $F\in A^\wedge$. By definition, for all $j\in [v_F, w_F]$, we have $j=u_a$ for some $a\in A$. Since $A$ is a $KC$ frame, it is efficient and by the previous lemma, $\alpha$ is bijective if and only if for all $j\in [v_F, w_F]$, $j$ is fitted.
 \end{proof}
 
 \begin{prop}\label{prop:KC}
-Sea $A\in \Frm$. $A$ es $KC$ si y solo si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.
+Let $A$ be a frame. $A$ is $KC$ if and only if $A$ is tidy and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.
 \end{prop}
 
 \begin{proof}
  $\mbox{}$
  \begin{description}
-    \item[$\Rightarrow) $] Supongamos que $A$ es $KC$. Trivialmente, $KC$ implica eficiente y así, resta verificar que $KC$ implica que $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ o equivalentemente, por propiedades del adjunto derecho,
+    \item[$\Rightarrow) $] Suppose that $A$ is a $KC$ frame. Trivially, $KC$ implies efficient and thus, it remains to verify that $KC$ implies that $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ or equivalently, by properties of the right adjoint,
     \[
     v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}.
     \]
     
-    Si $A$ es $KC$, entonces para cualquier $F\in A^\wedge$ se cumple que para todo $j\in [v_F, w_F]$, $j=u_a$ para algún $a\in A$. En particular,
+    If $A$ is a $KC$ frame, then for any $F\in A^\wedge$, it holds that for all $j\in [v_F, w_F]$, $j=u_a$ for some $a\in A$. In particular,
     \[
     v_F=u_d,\quad\text{y}\quad \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}=u_a
     \]
-    donde $d, a\in A$.\\
+    where $d, a\in A$.\\
 
-    Por construcción, siempre se cumple que $u_d\leq u_a$. Para ver la otra desigualdad verificamos que la función $\alpha$ es inyectiva. Notemos que $d\leq a$  
+    By construction, always holds that $u_d\leq u_a$. To see the other inequality, we verify that the function $\alpha$ is injective. Note that $d\leq a$  
 
 
-    \item[$\Leftarrow) $] Supongamos que $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ para toda terna HM $(F, Q, \nabla)$. Primero, si $A$ es eficiente, 
-    entonces $A$ es $T_1$. Además, si $A$ es eficiente y $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, entonces $A$ es fuertemente apilado. De aquí que $A$ es $T_1$ y fuertemente apilado.
-    Lo anterior implica que $v_F=w_F$ y, por la eficiencia, $v_F=u_d$, donde $d=v_F(0)$. Por lo tanto, para todo $j\in [v_F, w_F]$, $j=u_d$, es decir, $A$ es $KC$.
+    \item[$\Leftarrow) $] Suppose that $A$ is efficient and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ for all HM triples $(F, Q, \nabla)$. First, if $A$ is efficient, 
+    then $A$ is $T_1$. Moreover, if $A$ is efficient and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, then $A$ is strongly stacked. Therefore, $A$ is $T_1$ and strongly stacked.
+    The above implies that $v_F=w_F$ and, by efficiency, $v_F=u_d$, where $d=v_F(0)$. Thus, for all $j\in [v_F, w_F]$, $j=u_d$, meaning that $A$ is $KC$.
  \end{description}
 \end{proof}
 
-\section{Ejemplos}
+\section{Examples}
 
-\subsection{El marco $[0,1]$}
-Siguiendo la idea presentada en \cite{simmons2006regularity} (o, de manera alternativa, en \cite{simmons2004vietoris}), consideremos el marco linealmente ordenado 
+\subsection{The frame $[0,1]$}
+Following the idea presented in \cite{simmons2006regularity} (or, alternatively, in \cite{simmons2004vietoris}), let us consider the linearly ordered frame 
 \[
 A=[0,1].
 \] 
-En este caso se cumplen las siguientes observaciones.
+In this case the following observations hold.
 \begin{enumerate}
-\item Para todo $a,b\in A$ la implicación $(a\succ b)$ está dada por
+\item For all $a,b\in A$ the implication $(a\succ b)$ is given by
 \[
 (a\succ b)=\begin{cases}
 1, & \text{si } a\leq b,\\
 b, & \text{si } a>b.
 \end{cases}
 \]
-\item Para $a, x\in A$, los núcleos distinguidos $u_a, v_a, w_a$ están dados por
+\item For $a, x\in A$, the distinguished nuclei $u_a, v_a, w_a$ are given by
 \[
 u_a(x)=\begin{cases}
   x & \text{si }a\leq x,\\
@@ -1522,64 +1509,64 @@ a & \text{si } x\leq a.
 \end{cases}
 \]
 
-\item Si $F\subseteq A$ es un filtro, entonces $F$ es siempre admisible y tiene la forma
+\item If $F\subseteq A$ is a filter, then $F$ is always admissible and has the form
 \[
 F=\nabla(w_a)=(a, 1]\quad \mbox{ o }\quad F=\nabla(v_a)=[a, 1]
 \]
-para algún $a\in A$. En particular, $F\in A^\wedge$ si y solo si $F=(a, 1]$.
+for some $a\in A$. In particular, $F\in A^\wedge$ if and only if $F=(a, 1]$.
 
-\item Si $F\in A^\wedge$, el núcleo ajustado asociado $v_F$ se calcula como
+\item If $F\in A^\wedge$, the adjusted nucleus associated $v_F$ is calculated as
 \begin{equation}\label{eq:lm}
 v_F(x)=l_m(x)=\begin{cases}
-1 & \text{si } x> m,\\
-x & \text{si } x\leq m.
+1 & \text{if } x> m,\\
+x & \text{if } x\leq m.
 \end{cases}
 \end{equation}
-donde $l_m=v_m\wedge w_m$ y $m=\bigwedge F$.
-\item Para $S=\pt A$ se cumple que $S=[0,1)$ y los abiertos en $\mathcal{O}S$ son de la forma
+where $l_m=v_m\wedge w_m$ and $m=\bigwedge F$.
+\item For $S=\pt A$ it holds that $S=[0,1)$ and the open sets in $\mathcal{O}S$ are of the form
 \[
 \mathcal{U}_A(x)=\{p\in S\mid p<x\}=[0,x).
 \]
-\item El marco $A$ no es $T_1$, pues ningún $p\in S$ es máximo. En consecuencia, $A$ no satisface ninguna propiedad de separación más fuerte en $\Frm$.
-\item Para $F\in A^\wedge$ el conjunto compacto saturado asociado $Q\in \mathcal{Q}S$ es de la forma $Q=[0,m]$.
-\item Se cumple que $[Q']=v_F$; por lo tanto, $S$ es fuertemente apilado.
-\item Ya que $[0, x)\in \mathcal{O}S$, entonces $[x, 1]\in \mathcal{C}S$ y $Q=[0, m]$. Por lo tanto, los subconjuntos compactos no son cerrados; es decir, $S$ no es empaquetado.
-\item El marco $A$ no es eficiente.
+\item The frame $A$ is not $T_1$, since no $p\in S$ is maximal. Consequently, $A$ does not satisfy any stronger separation property in $\Frm$.
+\item For $F\in A^\wedge$ the compact saturated set associated $Q\in \mathcal{Q}S$ is of the form $Q=[0,m]$.
+\item It holds that $[Q']=v_F$; therefore, $S$ is strongly stacked.
+\item Since $[0, x)\in \mathcal{O}S$, then $[x, 1]\in \mathcal{C}S$ and $Q=[0, m]$. Therefore, the compact subsets are not closed; that is, $S$ is not packed.
+\item The frame $A$ is not efficient.
 
 \end{enumerate}
 
-Todo lo anterior resume las principales características del marco $[0,1]$. En lo que sigue, realizaremos el análisis de las construcciones de parches tanto de 
-$A$ como de su espacio de puntos $S$.\\
+The above resume some characteristics about the frame $[0,1]$. Now, we will perform the analysis of the patch constructions of 
+$A$ and its point space $S$.\\
 
-Recordemos que para $A\in \Frm$ y $S\in \Top$ tenemos 
+Remember that for $A\in \Frm$ and $S\in \Top$ we have 
 \[
 \text{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}\quad \text{y}\quad \text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
 \]
-donde Pbase genera al marco de parches de $A$ y pbase genera la topología del espacio de parches de $S$. Por \eqref{eq:lm} tenemos que 
+where Pbase generates the patch frame of $A$ and pbase generates the topology of the patch space of $S$. By \eqref{eq:lm} we have that 
 \[
 \text{Pbase}=\{u_a\wedge l_m\mid a\in [0,1], m\in [0,1)\}.
 \]
 
-Para $x\in A$  se cumple
+For $x\in A$  it holds that
 \[
-(u_a\wedge l_m)(x)=u_a(x)\wedge l_m(x)..
+(u_a\wedge l_m)(x)=u_a(x)\wedge l_m(x).
 \]
 
-Analizamos por casos la relación entre $x$ y $m$.
+Let us see the relationship between $x$ and $m$.
 \begin{description}
-\item[Caso 1] Si $x<m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge x=x$.
-\item[Caso 2] Si $x=m$, entonces $(u_a\wedge l_m)(x)=u_a(m)\wedge m=x$.
-\item[Caso 3] Si $x>m$, entonces $(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x)$.
+\item[Case 1] If $x<m$, then $(u_a\wedge l_m)(x)=u_a(x)\wedge x=x$.
+\item[Case 2] If $x=m$, then $(u_a\wedge l_m)(x)=u_a(m)\wedge m=x$.
+\item[Case 3] If $x>m$, then $(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x)$.
 \end{description}
 
-En los primeros 2 casos el valor de $a$ no afecta la evaluación. La dependencia esencial aparece cuando Además $u_a\wedge l_m=\id$, es decir, los generadores básicos de la 
+On the firts tow cases, the value of $a$ no afecta la evaluación. La dependencia esencial aparece cuando Además $u_a\wedge l_m=\id$, es decir, los generadores básicos de la 
 $m<x$, donde interviene la relación entre $a$ y $m$.
 \begin{description}
-\item[Caso 3.1] Si $m<x<a$, entonces $(u_a\wedge l_m)(x)=a$.
-\item[Caso 3.2] Si $m<a\leq x$, entonces $(u_a\wedge l_m)(x)=x$.
+\item[Case 3.1] If $m<x<a$, then $(u_a\wedge l_m)(x)=a$.
+\item[Case 3.2] If $m<a\leq x$, then $(u_a\wedge l_m)(x)=x$.
 \end{description}
 
-De este análisis se deduce que, $u_a\wedge l_m=\id$ si y solo si $m<a$. Por lo tanto, lo generadores no triviales de Pbase corresponden exactamente a los pares
+De este análisis se deduce que, $u_a\wedge l_m=\id$ if and only if $m<a$. Therefore, the non-trivial generators of Pbase correspond exactly to the pairs
 $(m, a)$ con $m<a$.\\
 
 En consecuencia, el marco $PA$ queda codificado por los intervalos abiertos de la forma $(m,a)$, donde $m\in \pt A$ y $a\in A$.
