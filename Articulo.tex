@@ -18,6 +18,8 @@
 %\usepackage{mathpazo}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{microtype}
+\setlength{\emergencystretch}{2em}
 \usepackage{tikz-cd}
 \usepackage{comment}
 %%%%%%%%%%%%%%%%%%
@@ -87,7 +89,7 @@ Aquí va el resumen
 
 %\section{Cocientes compactos inducidos por filtros abiertos}
 
-\section{Compact quotients induced by open filters}
+\section{Compact quotients}
 
 Let $f\colon A\to B$ be a frame morphism with right adjoint $f_*\colon B\to A$. If $F\subseteq A$ and $G\subseteq B$ are filters, we define:
 \begin{equation}\label{Imagenfiltros}
@@ -1066,7 +1068,11 @@ Therefore $(F,a)=(G,b)$, that is, $\pi$ is injective. Since it is also surjectiv
 
 We must show that $\pi^{-1}\colon A^\wedge\to \pt(VA)$ is continuous. For this, recall that by \eqref{fibra}
 \[
-(F,a)\in [-](x)\iff x\in F\iff (F,a)\in \pi^{-1}(D(x))\iff \pi([-](x))=D(x).
+\begin{split}
+(F,a)\in [-](x)&\iff x\in F\\
+&\iff (F,a)\in \pi^{-1}(D(x))\\
+&\iff \pi([-](x))=D(x).
+\end{split}
 \]
 For the other basic open sets, by \eqref{fibra2} we have
 \[
@@ -1090,7 +1096,11 @@ Therefore, $\pi(\langle -\rangle(x))=D(x)$ y $\pi^{-1}$ is continuous. Hence, $\
 \]
 
 \item Suppose that $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ under $\mathcal{O}(\pi)=\pi^{-1}$. Since $\pi^{-1}$ is bijective, then $\pi$
-is also bijective. Thus, if $F\in A^\wedge$, then $(F, v_F(0)), (F, w_F(0))\in \pt(VA)$ and so
+is also bijective. Thus, if $F\in A^\wedge$, then 
+\[
+(F, v_F(0)), (F, w_F(0))\in \pt(VA)
+\]
+and 
 \[
 \pi(F, v_F(0))=F=\pi(F, w_F(0)).
 \]
@@ -1109,40 +1119,47 @@ Therefore, $p=a$ and $A$ is $T_1$.
 \end{enumerate}
 \end{proof}
 
-Note that, item 3) holds if $A$ is spatial, then  De esta manera, podría ocurrir que los resultados en los cuales pedimos que $A$ sea espacial,
-basta con que $\mathcal{V}(a)\neq \emptyset$ con $a\in A$.\\
-
-La siguiente es una posible consecuencia del caso espacial
+Note that item (3) holds whenever $A$ is spatial. In the spatial setting, this corresponds to the topological fact that
 \[
-\text{Si }A \text{ es }T_1 \text{ y apilado }\Rightarrow A \text{ es espacial}.
+S \text{ is }T_1\text{ and stacked}\Rightarrow S \text{ is sober}.
+\]
+However, the point-free setting allows for a potentially broader phenomenon, since the conditions of being $T_1$ and stacked
+do not a priori force a frame to be spatial. This leads naturally to the following question:
+\[
+\text{Do there exist } T_1 \text{ stacked frames that are not spatial?}
 \]
 
-Considerando lo antes mencionado con respecto al conjunto $\mathcal{V}(-)$, nuestra hipótesis es que en realidad, en el caso general se cumple lo siguiente
-\[
-\mathbf{\text{Afirmación:}} \text{ Existen marcos }T_1\text{ y apilados que no son espaciales.}
-\]
-
+\begin{comment}
 La idea para construir el ejemplo de un marco que cumpla las condiciones anteriores se sigue de lo presentado en \cite{PasekaSmarda1992}. En este artículo exhiben una familia de marcos 
 Hausdorff, en el sentido de Johnstone y Shu-Hao, que no son espaciales. Para estudiar con mayor detalle los marcos apilados y fuertemente apilados, primero veremos como se comportan bajo cocientes.\\
+\end{comment}
 
 \section{Quotients of stacked frames}
 
-Recordemos que para $(f\colon A\to B)\in \Frm$, $j\in NA$ y $k\in NB$, por las propiedades del funtor $N(-)$, se cumple que
+Remember that for $(f\colon A\to B)\in \Frm$, $j\in NA$ and $k\in NB$, we have the following definitions:
 \[
-N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j\quad\text{ y }\quad N(f)_*(k)=f_*\circ k\circ f\in NA,
+N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j
 \]
-donde $f_*$ es el adjundo derecho de $f$. Siguiendo esta notación, denominamos a $N(f)(j)$ como un \emph{empuje} y a $N(f)_*(k)$ como un \emph{levantamiento}. 
+and 
+\[
+N(f)_*(k)=f_*\circ k\circ f\in NA,
+\]
+where $f_*$ is the right adjoint of $f$. 
 
 \begin{prop}
-Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado.
+Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is strongly stacked.
 \end{prop}
 
 \begin{proof}
-Consideremos $S=\pt A$, $S_j=\pt A_j$ y sea $F\in A_j^{\wedge}$. Así, podemos obtener los siguientes:
+Consider $S=\pt A$, $S_j=\pt A_j$ and let $F\in A_j^{\wedge}$ be. We define:
 \[
 G=j_*(F),\quad Q=S_j\setminus F,\quad R=S\setminus G,
 \]
-donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to A_j$ y $x\in G$ si y solo si $j(x)\in F$. Considerando las reflexiones espaciales $\mathcal{U}\colon A\to \mathcal{O}S$ y $\mathcal{U}_j\colon A_j\to \mathcal{O}S_j$ tenemos el siguiente diagrama
+where $j_*$ is the right adjoint associated with the frame morphism $j^*\colon A\to A_j$ and $x\in G$ if and only if $j(x)\in F$. Considering the spatial reflections 
+\[
+\mathcal{U}\colon A\to \mathcal{O}S \quad\text{ and } \quad\mathcal{U}_j\colon A_j\to \mathcal{O}S_j
+\]
+we have the following diagram
 
 \[\begin{tikzcd}
 	&&&& A && {\mathcal{O}S} \\
@@ -1163,100 +1180,97 @@ donde $j_*$ es el adjunto derecho asociado al morfismo de marcos $j^*\colon A\to
 	\arrow["{\mathcal{U}_j}"', from=5-1, to=5-3]
 	\arrow["{[Q']}"', from=5-3, to=3-7]
 \end{tikzcd}\]
-y usando los adjuntos derechos de $\mathcal{U}$ y $\mathcal{U}_j$ obtenemos
+Using the right adjoints of $\mathcal{U}$ and $\mathcal{U}_j$ we obtain
 \[
 v_F, \quad l=N(\mathcal{U}_j)_*([Q']),\quad m=N(j^*)(N(\mathcal{U})_*)([R']),\quad n=N(j^*)(N(\mathcal{U}_j\circ j^*)_*)([Q']) 
 \]
-son núcleos en $NA_j$. Veamos cuál es la relación entre todos estos núcleos.\\
+are nuclei in $NA_j$. Let us see what is the relationship between these nuclei.\\
 
-Primero, por construcción, tenemos que $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ y debemos verificar la otra desigualdad para que $A_j$ sea fuertemente apilado.\\
+By construction, we have $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ and we must verify the other inequality for $A_j$ to be strongly stacked.\\
 
-Por hipótesis, se cumple que $v_G=N(\mathcal{U})_*([R'])$. Además, para $x\in A$, se cumple que $j(v_x)\leq v_{j(x)}$ y, por definición de los núcleos ajustados asociados a $F$ y $G$, 
+By hypothesis, we have $v_G=N(\mathcal{U})_*([R'])$. Moreover, for $x\in A$, we have $j(v_x)\leq v_{j(x)}$ and, by definition of the adjusted nuclei associated with $F$ and $G$, 
 \begin{equation}\label{eq1}
 j\circ v_G\leq v_F.
 \end{equation}
 
-Además, para $(j\colon A\to A_j)\in\Frm$ 
+Furthermore, for $(j\colon A\to A_j)\in\Frm$ 
 \[
 N(j^*)(v_G)=\bigvee\{u_{j(v_G(a))}\wedge v_{j(a)}\mid a\in A\}\quad \text{y}\quad v_F=\bigvee\{u_{v_F(a)}\wedge v_a\mid a\in A_j\}. 
 \]
-Notemos que, por \eqref{eq1}, tenemos $u_{j(v_G)}\leq u_{v_F}$ y por lo tanto 
+Note, by \eqref{eq1}, $u_{j(v_G)}\leq u_{v_F}$ and therefore
 \begin{equation}\label{eq2}
 m\leq v_F. 
 \end{equation}
 
-Para $l$ y $n$ notemos que
+To $l$ and $n$, we have
 \[
-n=\bigvee\{u_{j^*(n(x))}\wedge v_{j^*(x)}\mid x\in A\}\quad \text{y}\quad l=\bigvee\{u_{l(x)}\wedge v_x\mid x\in A_j\},
+n=\bigvee\{u_{j^*(n(x))}\wedge v_{j^*(x)}\mid x\in A\}\quad \text{and}\quad l=\bigvee\{u_{l(x)}\wedge v_x\mid x\in A_j\},
 \]
-donde 
+where 
 \[
 j^*(n(x))=j^*((j_*\circ \mathcal{U}_{j*}\circ [Q']\circ U_j\circ j^*)(x))\quad \text{y}\quad l(x)=N(\mathcal{U}_j)_*([Q'])(x).
 \]
 
-Luego
+Then,
 \[
 \begin{split}
 j^*(n(x))&=j^*(j_*(\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}))\\
-&= \bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}
+&= \bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
 \end{split}
 \]
-y ya que para $x\in A_j$ se cumple que $j(x)=x$, entonces
+Since $x\in A_j$,
 \[
-l(x)=\bigvee\{a\in A\mid \mathcal{U}_j\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
+l(x)=\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
 \]
-Por lo tanto $j(n(x))=l(x)$.\\
+Therefore $j(n(x))=l(x)$.\\
 
-Desarrollando $m(x)$ tenemos
+To $m(x)$ we have
 \[
 m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [R']\circ\mathcal{U})(x)}\wedge v_{j^*(x)}\mid x\in A\}.
 \]
 
-Dado que $A_j\subseteq A$, se cumple que $Q=R\cap A_j$ y así
+Since $A_j\subseteq A$, then $Q=R\cap A_j$ and
 \[
 m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)}\wedge v_x\mid x\in A_j\}.
 \]
 
-Notemos que 
+Note 
 \[
 \begin{split}
 j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)&= j^*(\bigvee\{a\in A\mid \mathcal{U}(a)\subseteq Q'\cup \mathcal{U}(x)\})\\
-&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}
+&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}.
 \end{split}
 \]
-y como $x\in A_j$
+To $x\in A_j$
 \[
 \begin{split}
 \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(j^*(x))&\iff \mathcal{U}(j^*(a))\cap S_j\subseteq (Q'\cup \mathcal{U}(j^*(x)))\cap S_j\\
 &\iff \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x)),
 \end{split}
 \]
-es decir, 
+that is, 
 \[
-\begin{split}
-\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x))\}\\
-&=j^*(N(\mathcal{U}_j\circ j)_*)([Q']).
-\end{split}
+\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}=j^*(N(\mathcal{U}_j\circ j)_*)([Q']).
 \]
-Por lo tanto 
+
+Thus, we have 
 \[
 \bigvee\{u_{j^*(N(\mathcal{U}_j\circ j)_*)[Q'](x)}\wedge x\mid x\in A\}=m(x).
 \]
-Ya que $(N(\mathcal{U}_j\circ j)_*)([Q'])\leq j(N(\mathcal{U}_j\circ j)_*)([Q'])$ y por \eqref{eq2} 
+Since $(N(\mathcal{U}_j\circ j)_*)([Q'])\leq j(N(\mathcal{U}_j\circ j)_*)([Q'])$ and by \eqref{eq2} 
 \[
-l\leq m\leq v_F\leq l
+l\leq m\leq v_F\leq l.
 \]
-y así $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, es decir, $A_j$ es fuertemente apilado.
+Therefore $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, that is, $A_j$ is strongly stacked.
 \end{proof}
 
-Como todo marco fuertemente apilado es apilado, podemos afirmar lo siguiente.
-
+Since every strongly stacked frame is stacked, we obtain the following result.
 \begin{cor}
-Sean $A\in \Frm$ y $j\in NA$. Si $A$ es fuertemente apilado, entonces $A_j$ es apilado. 
+Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is stacked. 
 \end{cor}
 
 \begin{proof}
-Por la proposición anterior, Si $A$ es fuertemente apilado, entonces $A_j$ es fuertemente apilado y esto implica que $A_j$ es apilado.
+By the previous proposition, if $A$ is strongly stacked, then $A_j$ is strongly stacked and this implies that $A_j$ is stacked.
 \end{proof}
 
 \section{Relación con la propiedad \textbf{(H)}}
