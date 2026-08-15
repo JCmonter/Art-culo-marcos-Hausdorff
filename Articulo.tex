@@ -1547,33 +1547,46 @@ where Pbase generates the patch frame of $A$ and pbase generates the topology of
 \text{Pbase}=\{u_a\wedge l_m\mid a\in [0,1], m\in [0,1)\}.
 \]
 
-For $x\in A$  it holds that
+For $x\in A$  we have
 \[
 (u_a\wedge l_m)(x)=u_a(x)\wedge l_m(x).
 \]
 
-Let us see the relationship between $x$ and $m$.
+Let us analyze the value of this map according to the relative position of $x$ and $m$.
 \begin{description}
-\item[Case 1] If $x<m$, then $(u_a\wedge l_m)(x)=u_a(x)\wedge x=x$.
-\item[Case 2] If $x=m$, then $(u_a\wedge l_m)(x)=u_a(m)\wedge m=x$.
-\item[Case 3] If $x>m$, then $(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x)$.
+\item[Case 1] If $x<m$, then 
+\[
+(u_a\wedge l_m)(x)=u_a(x)\wedge x=x.
+\]
+\item[Case 2] If $x=m$, then 
+\[
+(u_a\wedge l_m)(x)=u_a(m)\wedge m=x.
+\]
+\item[Case 3] If $x>m$, then 
+\[
+(u_a\wedge l_m)(x)=u_a(x)\wedge 1=u_a(x).
+\]
 \end{description}
 
-On the firts tow cases, the value of $a$ no afecta la evaluación. La dependencia esencial aparece cuando Además $u_a\wedge l_m=\id$, es decir, los generadores básicos de la 
-$m<x$, donde interviene la relación entre $a$ y $m$.
+In the first two cases, the value of $a$ does not affect the evaluation. Thus, the only non-trivial case occurs when $m<x$, where the value of $(u_a\wedge l_m)(x)$
+depends on the relative position of $a$ and $x$. We therefore distinguish the following two subcases.
 \begin{description}
-\item[Case 3.1] If $m<x<a$, then $(u_a\wedge l_m)(x)=a$.
-\item[Case 3.2] If $m<a\leq x$, then $(u_a\wedge l_m)(x)=x$.
+\item[Case 3.1] If $m<x<a$, then 
+\[
+(u_a\wedge l_m)(x)=a.
+\]
+\item[Case 3.2] If $m<a\leq x$, then 
+\[
+(u_a\wedge l_m)(x)=x.
+\]
 \end{description}
 
-De este análisis se deduce que, $u_a\wedge l_m=\id$ if and only if $m<a$. Therefore, the non-trivial generators of Pbase correspond exactly to the pairs
-$(m, a)$ con $m<a$.\\
+From the preceding analysis, we conclude that the non-trivial generators of Pbase correspond precisely to the pairs $(m,a)$ with $m<a$. Consequently, 
+the frame $PA$ is determined by the open intervals of the form $(m,a)$, where $m\in\pt A$ and $a\in A$.\\
 
-En consecuencia, el marco $PA$ queda codificado por los intervalos abiertos de la forma $(m,a)$, donde $m\in \pt A$ y $a\in A$.
+We now turn to the question of whether $PA$ satisfies any separation property. To this end, we recall the relationship between the point-free patch construction and its spatial counterpart.\\
 
-Queremos identificar si en nuestro ejemplo, $PA$ satisface alguna propiedad de separación. Para hacerlo, ocuparemos recordar información respecto a los parches.\\
-
-Si $A\in\Frm$ es un marco arbitrario y $S$ su espacio de puntos, podemos construir el siguiente diagrama conmutativo que relaciona ambas construcciones de parches.
+Let $A$ be an arbitrary frame and let $S=\pt A$ be its space of points. The two patch constructions are related by the following commutative diagram:
 \[\begin{tikzcd}
 	A & PA & NA \\
 	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
@@ -1590,24 +1603,23 @@ Si $A\in\Frm$ es un marco arbitrario y $S$ su espacio de puntos, podemos constru
 	\arrow["\sigma", from=2-3, to=3-3]
 	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}\]
-donde $\mathcal{O}^fS$ es la topología de Skula (o topología frontal) del espacio $S$. En \cite{sexton2006point} lo llaman el 
-\emph{diagrama del ensamble de parches} y más detalles sobre este también pueden ser encontrados
-en \cite{sexton2003point}.\\
+where $\mathcal{O}^fS$ is the Skula topology (or front topology) of $S$. In \cite{sexton2006point} is named
+\emph{the patch assembly diagram} and more details about it can also be found in \cite{sexton2003point}.\\
 
-En nuestro caso, $\mathcal{U}_A$ es un isomorfismo. Además, bajo $\mathcal{U}_A$, la construcción de parches resulta ser funtorial y, por lo tanto,
-$PA\cong P\mathcal{O}S$. De manera similar, $NA\cong N\mathcal{O}S$.
-Para describir explícitamente $P\mathcal{O}S$ y $N\mathcal{O}S$ utilizamos el siguiente resultado, que puede consultarse en \cite{AvilaBezhaniMorandiZaldivar2020}.
+In our case, $\mathcal{U}_A$ is an isomorphism. Moreover, under $\mathcal{U}_A$, the patch construction turns out to be functorial and, therefore,
+$PA\cong P\mathcal{O}S$. Similarly, $NA\cong N\mathcal{O}S$.
+To describe explicitly $P\mathcal{O}S$ and $N\mathcal{O}S$, we use the following result, which can be consulted in \cite{AvilaBezhaniMorandiZaldivar2020}.
 
 \begin{prop}\label{Ensamble espacial}
-Sea $S$ un conjunto parcialmente ordenado.
+Let $S$ be a partially ordered set.
 \begin{enumerate}
-  \item Si $S$ no tiene anticadenas infinitas, entonces $N\mathcal{O}S$ es espacial.
-  \item Si $S$ es totalmente ordenado, entonces $N\mathcal{O}S$ es espacial.
+  \item If $S$ has no infinite antichains, then $N\mathcal{O}S$ is spatial.
+  \item If $S$ is totally ordered, then $N\mathcal{O}S$ is spatial.
 \end{enumerate}
 \end{prop}
 
-Así, por la Proposición \ref{Ensamble espacial} tenemos que $N\mathcal{O}S$ es espacial y por lo tanto $N\mathcal{O}S\cong \mathcal{O}^fS$. Juntando toda esta información 
-el diagrama del ensamble de parches en nuestro caso particular queda como sigue.
+Thus, by Proposition \ref{Ensamble espacial} we have that $N\mathcal{O}S$ is spatial and therefore $N\mathcal{O}S\cong \mathcal{O}^fS$. With all this information,
+the patch assembly diagram, in our particular case is as follows.
 
 \[\begin{tikzcd}
 	A & PA & NA \\
@@ -1620,20 +1632,21 @@ el diagrama del ensamble de parches en nuestro caso particular queda como sigue.
 	\arrow[from=2-1, to=2-2]
 	\arrow[from=2-2, to=2-3]
 \end{tikzcd}\]
-Por lo tanto, si queremos estudiar al marco $PA$ podemos estudiar a la topología de parches $\mathcal{O}^pS$. Recordemos que 
+Therefore, if we want to study the frame $PA$, we can study the patch topology $\mathcal{O}^pS$. Remember that 
 \[
 \text{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}.
 \]
-En nuestro caso,
+In our case,
 \[
 \text{pbase}=\{[0, a)\cap [m, 1)\mid a\in [0,1], m\in [0,1)\}=\{(m,a)\}.
 \]
 
-Como la topología generada por los intervalos $(m,a)$ coincide con la topología usual en $[0,1)$, el espacio $^pS$ es Hausdorff. En consecuencia, $\mathcal{O}^pS\cong PA$ satisface $\mathbf{(H)}$, aun cuando $A$ no es $T_1$ ni eficiente.
+Since the topology generated by the intervals $(m,a)$ coincides with the usual topology on $[0,1)$, the space $^pS$ is Hausdorff. Consequently, $\mathcal{O}^pS\cong PA$ satisfies $\mathbf{(H)}$, 
+even when $A$ is not $T_1$ nor tidy.
 
 \begin{lem}\label{patchiso}
-Sea $A$ un marco, si el morfismo $\mathrm{p}U\colon\mathrm{p}A\rightarrow\mathrm{p}\mathcal{O}S$ 
-es un isomorfismo, entonces $A$ es fuertemente apilado.
+Let $A$ be a frame, if the morphism $\mathrm{p}U\colon\mathrm{p}A\rightarrow\mathrm{p}\mathcal{O}S$ 
+is an isomorphism, then $A$ is strongly stacked.
 
 \end{lem}
 
