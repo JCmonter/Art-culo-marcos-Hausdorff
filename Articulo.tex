@@ -227,7 +227,7 @@ The map $h\colon A_{j_*F}\to A_F$ preserves arbitrary joins.
 \end{lem}
 
 \begin{proof}
-	Let $X\subseteq A_{j_*F}$ be. Since joins in $A_{j_*F}$ are given by
+	Let $X\subseteq A_{j_*F}$. Since joins in $A_{j_*F}$ are given by
 	\[
 	\bigvee_{v_{j_*F}}X=v_{j_*F}(\bigvee X)
 	\] 
@@ -378,175 +378,284 @@ we obtain
 \end{prop}
 
 \begin{proof}
-Let us first observe that $F\subseteq j_*F$. Since $A$ is tidy and $F\in A^\wedge$, it holds that 
+Let $A$ be $\alpha$-tidy and let $F\in A_j^\wedge$. By Proposition \ref{fF}, $j_*F\in A^\wedge$. Let
 \[
-x\in F\Rightarrow \hat{d}\vee x=1,
+\hat{f}=\dot{\bigvee_{y\in j_*F}}v_y\quad\text{and}\quad f=\dot{\bigvee_{x\in F}}v_x.
 \]
-where $\hat{d}=d(\alpha)=f^\alpha(0)$.\\
+be the prenuclei associated with $j_*F$ and $F$, respectively.\\
 
-If $\hat{d}\leq d$, then $d\vee x=1$, for $d=d(\alpha)=f^\alpha(j(0))$.\\
-
-Thus, by the Corollary \ref{finftyf}
+Since $A$ is tidy, there exists an ordinal $\alpha$ such that, for every $y\in j_*F$,
 \[
-\hat{d}=\hat{d}(\alpha)\leq j(\hat{d}(\alpha))=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d(\alpha)=d.
+y\vee \hat{d}=1,\quad \text{with }\hat{d}=\hat{f}^\alpha(0).
 \]
 
-Therefore, if $x\in F$, then $d\vee x=1$ and $A_j$ is tidy.
+Let
+\[
+d=f^\alpha(j(0)),
+\]
+by Corollary \ref{finftyf},
+\[
+j(\hat{d})=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d.
+\]
+
+Since $j$ is inflationary, $\hat{d}\leq j(\hat{d})$, and hence
+\[
+\hat{d}\leq d.
+\]
+
+Now, let $x\in F$. Thus, $x\in A_j$, we have $j(x)=x$, and therefore $x\in j_*F$. Then,
+\[
+x\vee \hat{d}=1.
+\]
+
+As $\hat{d}\leq d$, it follows that
+\[
+1=x\vee \hat{d}\leq x\vee d\leq 1.
+\]
+
+Hence $x\vee d=1$. Therefore, $A_j$ is $\alpha$-tidy.
 \end{proof}
 
 The following theorem establishes that tidiness is preserved under binary coproducts.
 \begin{prop}\label{tidyplus}
-If $A_1, A_2\in \Frm$ are tidy frames, then $A_1\oplus A_2$ is a tidy frame.
+Let $A_1$ and $A_2$ be $\alpha$-tidy frames. Then $A_1\oplus A_2$ is $\alpha$-tidy.
 \end{prop}
 
 \begin{proof}
-Let $A_1, A_2$ be $\alpha$-tidy frames. By construction of the coproduct $A_1\oplus A_2$, we have the following diagram
+By construction of the coproduct $A_1\oplus A_2$, consider the canonical frame morphism 
 \[
+\iota_i\colon A_i\to A_1\oplus A_2, \quad i=1,2
+\]
+together with their right adjoints $(\iota_i)_*\colon A_1\oplus A_2\to A_i$.\\
+
+Then, we have the following diagram
+\[ 
 \begin{tikzcd}
 A_i \arrow[r, "\alpha_i"] \arrow[rrr, "\iota_i", bend left] & A_1\times A_2  \arrow[r, "\downarrow(\_)"] & \mathcal{L}(A_1\times A_2) \arrow[r, "\sim"] & A_1\oplus A_2 \arrow[lll, "(\iota_i)_*", bend left]
 \end{tikzcd}
 \]
-where $\alpha_1(a)=(a, 1)$ and $\alpha_2(b)=(1, b)$ to $a\in A_1$ and $b\in A_2$. Furthermore, as $\iota_i\in \Frm$, $(\iota_i)_*$ is its right adjoint.\\
 
-Take $F\in (A_1\oplus A_2)^\wedge$ and, by Proposition \ref{fF}, $(\iota_i)_*[F]\in A_i^\wedge$. As $A_i$ is tidy, for $x_i\in (\iota_i)_*F$ it holds that $d_i\vee x_i=1$, where 
+By Proposition \ref{fF}, 
 \[
-d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ con } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}
+(\iota_i)_*F\in A^\wedge_i.
 \]
-By (\ref{Imagenfiltros}) we have that if $x_i\in (\iota_i)_*F$, then $\iota_i(x_i)\in F$, that is,
+
+Since $A_i$ is $\alpha$-tidy, for every $x_i\in (\iota_i)_*F$ there exists $d_i\in A_i$ such that
 \[
-x_1\oplus 1, 1\oplus x_2\in F
+x_i\vee d_i=1,
 \]
-and because $F$ is a filter, we have that $x_1\oplus 1\wedge 1\oplus x_2=x_1\oplus x_2\in F$.\\
+where
+\[
+d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
+\]
 
-Additionally, for each $i=1, 2$ we have the following diagram
+By the definition of $(\iota_i)_*F$,
+\[
+x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
+\]
 
-\[\begin{tikzcd}
-	{A_i} && {A_i} \\
-	{A_1\oplus A_2} && {A_1\oplus A_2}
-	\arrow["{f_i}", from=1-1, to=1-3]
-	\arrow["{\iota_i}"', from=1-1, to=2-1]
-	\arrow["{\iota_i}", from=1-3, to=2-3]
-	\arrow["f_F"', from=2-1, to=2-3]
-\end{tikzcd}\]
-where $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$.\\
-    
-Let $a\in A_i$ be, then $v_y(a)\leq f_i(a)$ and $\iota_i(v_y(a))\leq \iota_i(f_i(a))$. Additionally,
+Thus,
+\[
+x_1\oplus 1, 1\oplus x_2\in F.
+\]
+
+Since $F$ is a filter,
+\[
+(x_1\oplus 1)\wedge (1\oplus x_2)=x_1\oplus x_2\in F.
+\]
+
+Now let
+\[
+f_F=\dot{\bigvee_{z\in F}}v_z
+\]
+be the prenucleus associated with $F$. We first show that, for $i=1,2$, 
+\[
+\iota_i\circ f_i\leq f_F\circ \iota_i.
+\]
+
+Indeed, let $a\in A_i$ and $y\in (\iota_i)_*F$. Since $\iota_i(y)\in F$,
 \[
 \begin{split}
-\iota_i((y\succ a)\wedge y)=\iota_i(y\wedge a)\leq \iota_i(a)& \Leftrightarrow \iota_i(y\succ a)\wedge \iota_i(y)\leq \iota_i(a)\\
-& \Leftrightarrow \iota_i(y\succ a)\leq (\iota_i(y)\succ \iota_i(a)).
+	\iota_i(v_y(a))&=\iota_i(y\succ a)\\
+	&\leq (\iota_i(y)\succ \iota_i(a))\\
+	&=v_{\iota_i(y)}(\iota_i(a))\\
+	&\leq f_F(\iota_i(a)).
 \end{split}
 \]
-Next 
-\[
-\iota_i(f_i(a))\leq (\iota_1(y)\succ \iota_i(a))=v_{\iota_i(y)}(\iota_i(a))\leq f_F(\iota_i(a)).
-\]
-Therefore, $\iota_i\circ f_i\leq f_F\circ \iota_i$.\\
 
-We prove by transfinite induction that $\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i$ with $\alpha\in \Ord$.  
-\begin{itemize}
-\item If $\alpha=0$, it is trivial.
-\item For the induction step, assume that for $\alpha$ the inequality holds. Then
+Therefore, since the join defining $f_i$ is pointwise and $\iota_i$ preserves arbitrary joins,
 \[
-\iota_i\circ f_i^{\alpha+1}=\iota_i\circ f_i\circ f_i^{\alpha}\leq  f_F\circ \iota_i\circ f_i^\alpha\leq f_F\circ f^\alpha_F\circ \iota_i=f^{\alpha+1}_F\circ \iota_i.
+\iota_i(f_i(a))=\iota_i\Big(\bigvee_{y\in (\iota_i)_*F}v_y(a)\Big)=\bigvee_{y\in (\iota_i)_*F}\iota_i(v_y(a))\leq f_F(\iota_i(a)).
 \]
-\item If $\lambda$ is a limit ordinal, then
+
+Hence, 
 \[
-f_i^\lambda=\bigvee\{f_i^\alpha\mid \alpha<\lambda\}, \quad f^\lambda_F=\bigvee\{f^\alpha_F\mid \alpha<\lambda\}
+\iota_i\circ f_i\leq f_F\circ \iota_i.
 \]
-and
-\[  
-\iota_i\circ f_i^\lambda=\iota_i\circ \bigvee_{\alpha<\lambda}f_i^\alpha\leq\bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha.
-\]
-By the induction hypothesis we have that
+
+We now prove by transfinite induction that 
 \[
-\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i\Rightarrow \bigvee_{\alpha<\lambda}\iota_i\circ f_i^\alpha\leq \bigvee_{\alpha<\lambda} f_F^\alpha\circ \iota_i.
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
 \]
-\end{itemize}
-Evaluating at $0\in A_i$, we obtain that
+for every ordinal $\beta$.\\
+
+If $\beta=0$, the result is immediate. Suppose that it holds for $\beta$. Then
 \[
-(\iota_i\circ f_i^\alpha)(0)\leq (f^\alpha_F\circ \iota_i)(0)\Rightarrow \iota_1(d_1)\leq f^\alpha_F(0\oplus 1)\;\mbox{ y }\;\iota_2(d_2)\leq f^\alpha_F(1\oplus 0).
+\begin{split}
+\iota_i\circ f_i^{\beta +1}&=\iota_i\circ f_i\circ f_i^\beta\\
+&\leq f_F\circ \iota_i\circ f_i^\beta\\
+&\leq f_F\circ f_F^\beta\circ \iota_i\\
+&= f_F^{\beta +1}\circ \iota_i.
+\end{split}
 \]
-Thus
+
+Now let $\lambda$ be a limit ordinal. For every $a\in A_i$,
 \[
-d_1\oplus d_2=d_1\oplus 1\wedge 1\oplus d_2\leq f^\alpha_F(0\oplus 1)\wedge f^\alpha_F(1\oplus 0)=f^\alpha_F(0\oplus 0). 
+\begin{split}
+\iota_i(f_i^\lambda(a))&=\iota_i\Big(\bigvee_{\beta<\lambda}f_i^\beta(a)\Big)\\
+&=\bigvee_{\beta<\lambda}\iota_i(f_i^\beta(a))\\
+&\leq \bigvee_{\beta<\lambda}f_F^\beta(\iota_i(a))\\
+=&f_F^\lambda(\iota_i(a)).
+\end{split}
 \]
-For $d=d(\alpha)=f^\alpha_F(0\oplus 0)$,
+
+Thus,
 \[
-(x_1\oplus x_2)\vee d_1\oplus d_2\leq (x_1\oplus x_2)\vee d,
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
 \]
-but $x_1\oplus x_2\vee d_1\oplus d_2=(x_1\vee d_1)\oplus (x_2\vee d_2)=1\oplus 1$.\\
+for every ordinal $\beta$.\\
+
+Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
+\[
+\iota_1(d_1)\leq f_F^\alpha(0\oplus 1)\quad \text{and}\quad \iota_2(d_2)\leq f_F^\alpha(1\oplus 0).
+\]
 
 Therefore,
 \[
-x_1\oplus x_2\vee d=1\oplus 1,
+\begin{split}
+d_1\oplus d_2&=(d_1\oplus 1)\wedge (1\oplus d_2)\\
+&\leq f_F^\alpha(0\oplus 1)\wedge f_F^\alpha(1\oplus 0)\\
+&=f_F^\alpha(0\oplus 1\wedge 1\oplus 0).
+\end{split}
 \]
-that is, $A_1\oplus A_2$ is tidy.
+
+Set $d=f_F^\alpha(0\oplus 0)$, then $d_1\oplus d_2\leq d$. Finally,
+\[
+\begin{split}
+	1\oplus 1&=(x_1\vee d_1)\oplus (x_2\vee d_2)\\
+	&=(x_1\oplus x_2)\vee (d_1\oplus d_2)\\
+	\leq (x_1\oplus x_2)\vee d\\
+	&\leq 1\oplus 1.
+\end{split}
+\]
+
+Therefore,
+\[
+(x_q\oplus x_2)\vee d=1\oplus 1
+\]
+and $A_1\oplus A_2$ is $\alpha$-tidy.
 \end{proof}
 
 \begin{cor}\label{Paso 3}
-If $A_1, A_2\in \Frm$ are $\alpha$-tidy and $\beta$-tidy, respectly, then $A_1\oplus A_2$ is tidy.
+Let $A_1$ and $A_2$ be $\alpha$-tidy and $\beta$-tidy, respectively. Then $A_1\oplus A_2$ is $\gamma$-tidy, where
+\[
+\gamma=\max\{\alpha, \beta\}.
+\]
 \end{cor}
 
 \begin{proof}
-Let $\gamma=\max\{\alpha, \beta\}$ be, then $A_1$ and $A_2$ are $\gamma$-tidy and by Proposition \ref{tidyplus}, $A_1\oplus A_2$ is tidy.
+Let $\gamma=\max\{\alpha, \beta\}$. Then $A_1$ and $A_2$ are both $\gamma$-tidy. Hence, by Proposition \ref{tidyplus}, $A_1\oplus A_2$ is $\gamma$-tidy.
 \end{proof}
 
-We extend the previous result to arbitrary coproducts
+We extend the previous result to arbitrary coproducts.
+
 \begin{prop}\label{coprodE}
-Tidiness is preserved under coproducts.
+Tidiness is preserved under arbitrary coproducts.
 \end{prop}
 
 \begin{proof}
-Let $\{A_i\}_{i\in I}$ be a family of tidy frames and $\{\alpha_i\}_{i\in I}\subseteq \Ord$ the efficiency degrees of each $A_i$. We know that 
+Let $\{A_i\}_{i\in I}$ be a family of tidy frames, and for each $i\in I$, let $\alpha_i$ be a tidiness degree of $A_i$. Consider 
 \[
-\bigoplus_{i\in I} A_i\in \Frm \quad \mbox{ and }\quad (\iota_i\colon A_i\to \bigoplus_{i\in I} A_i)\in \Frm,
+A=\bigoplus_{i\in I}A_i
 \]
-then $(\iota_i)_*$ is the right adjoint of $\iota_i$. Additionally, for $F\in (\bigoplus_{i\in I} A_i)^\wedge$, by Proposition \ref{fF}, $(\iota_i)_*F\in A_i^\wedge$ and by (\ref{Imagenfiltros}), 
+and let
 \[
-x_i\in (\iota_i)_*F\Leftrightarrow \iota_i(x_i)\in F.
+\iota_i\colon A_i\to A
 \]
-Take $\alpha=\sup\{\alpha_i\mid i\in I\}$, then each $A_i$ is $\alpha$-tidy. By hypothesis, for $x_i\in (\iota_i)_*F$ it holds that $x_i\vee d_i=1$, where
+denote the canonical coproduct morphisms. Since $\iota_i$ is a frame morphism, it has a right adjoint $(\iota_i)_*$.\\
+
+Let $F\in A^\wedge$. By Proposition \ref{fF}, 
 \[
-d_i=d_i(\alpha)=f_i^\alpha(0), \mbox{ with } f_i=\dot{\bigvee}\{v_y\mid y\in (\iota_i)_*F\}.
+(\iota_i)_*F\in A_i^\wedge
+\]
+for every $i\in I$. Moreover,
+\[
+x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
 \]
 
-\noindent
-\textbf{Claim:} For all $x_i\in (\iota_i)_*F$, $\langle x_i\rangle=\bigoplus \iota_i(x_i)\in F$.\\
-
-We know that $\bigoplus \iota_i(x_i)=\bigvee \iota_i(x_i)$. Then, $\iota_i(x_i)\leq \bigvee \iota_j(x_j)$ for all $i\in I$ and $j\in I$. 
-Therefore, because $F$ is a filter, we have that $\bigvee \iota_i(x_i)\in F$.\\
-
-For each $A_i$ there exists the following diagram
-\[\begin{tikzcd}
-    {A_i} && {A_i} \\
-    {\bigoplus_{i\in I} A_i} && {\bigoplus_{i\in I} A_i}
-    \arrow["{f_i}", from=1-1, to=1-3]
-    \arrow["{\iota_i}"', from=1-1, to=2-1]
-    \arrow["{\iota_i}", from=1-3, to=2-3]
-    \arrow["f_F"', from=2-1, to=2-3]
-\end{tikzcd}\]
-where $f_F=\dot{\bigvee}\{v_{\iota_i(y)}\mid \iota_i(y)\in F\}$.\\
-
-Proceeding as in the proof of Proposition \ref{tidyplus}, we obtain
+Set $\alpha=\sup\{\alpha_i\mid i\in I\}$. Then every $A_i$ is $\alpha$-tidy. Hence, for every $x_i\in (\iota_i)_*F$,
 \[
-\iota_i\circ f_i\leq f_F\circ \iota_i
+x_i\vee d_i=1,
 \]
-and, by transfinite induction,
+where 
 \[
-\iota_i\circ f_i^\alpha\leq f_F^\alpha\circ \iota_i.
+d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
 \]
-Evaluating at $0\in A_i$, we obtain
-\[
-(\iota_i\circ f_i^\alpha)(0)\leq (f_F^\alpha\circ \iota_i)(0)\iff \iota_i(d_i)\leq f_F^\alpha(\langle 0\rangle=d(\alpha)=d.
-\]
-and $\langle d_i\rangle =\bigoplus \iota_i(d_i)\leq d$.\\
 
-Thus, $\langle x_i\rangle \vee \langle d_i\rangle\leq \langle x_i\rangle \vee d$, but 
+Let
 \[
-\langle x_i\rangle \vee \langle d_i\rangle=\langle x_i\vee d_i\rangle = \langle 1\rangle,
+f_F=\dot{\bigvee_x\in F}v_x
 \]
-that is, $\langle 1\rangle \leq \langle x_i\rangle \vee d$ and therefore $\langle x_i\rangle \vee d= \langle 1\rangle$. By above claim, $ \bigoplus_{i\in I} A_i$ is tidy.
+be the prenucleus associated with $F$. As in the proof of Proposition \ref{tidyplus}, for every $i\in I$ we have
+\[
+\iota_i\circ f_i\leq f_F\circ \iota_i,
+\]
+and, by transfinite induction, 
+\[
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
+\]
+for every ordinal $\beta$.\\
+
+Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
+\[
+\iota_i(d_i)=\iota_i(f^\alpha_i(0))\leq f_F^\alpha(\iota_i(0))=f_F^\alpha(\langle 0\rangle).
+\]
+
+Set
+\[
+d=f_F^\alpha(\langle 0\rangle).
+\]
+
+Therefore,
+\[
+\iota_i(d_i)\leq d
+\]
+for every $i\in I$. Taking arbitrary joins yields 
+\[
+\langle d_i\rangle\bigvee_{i\in I}\iota_i(d_i)\leq d.
+\]
+
+Now let
+\[
+\langle x_i\rangle\in F.
+\]
+
+Since $x_i\vee d_i=1$ for every $i\in I$, we have
+\[
+\langle x_i\rangle\vee \langle d_i\rangle=\langle x_i\vee d_i\rangle=\langle 1\rangle.
+\]
+
+As $\langle d_i\rangle\leq d$,
+\[
+\langle 1\rangle=\langle x_i\rangle\vee \langle d_i\rangle\leq \langle x_i\rangle\vee d\leq \langle 1\rangle.
+\]
+
+Thus, 
+\[
+\langle x_i\rangle\vee d=\langle 1\rangle.
+\]
+
+Therefore, $A=\bigoplus_{i\in I}A_i$ is $\alpha$-tidy, and hence tidy.
 \end{proof} 
 
 \begin{cor}
