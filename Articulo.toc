@@ -10,4 +10,4 @@
 \contentsline {section}{\tocsection {}{9}{Marcos KC}}{21}{section.9}%
 \contentsline {section}{\tocsection {}{10}{Examples}}{24}{section.10}%
 \contentsline {subsection}{\tocsubsection {}{10.1}{The frame $[0,1]$}}{24}{subsection.10.1}%
-\contentsline {section}{\tocsection {}{}{References}}{27}{section*.2}%
+\contentsline {section}{\tocsection {}{}{References}}{27}{section*.4}%
