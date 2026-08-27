@@ -1819,5 +1819,71 @@ But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathca
 
 \bibliography{research2}
 
+\newpage
+
+\begin{prop}
+Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
+\end{prop}
+
+\begin{proof}
+Consideremos $A$ un marco y $(F, Q)$ un par HM. Notemos que si $A$ satisface $\mathbf{(H)}$, entonces $S=\pt A$ es $T_2$ y por lo tanto 
+\[
+\mathcal{U}_*\circ[Q']\circ \mathcal{U}=w_F
+\]
+donde $w_F(x)=\bigwedge\{p\in Q\mid x\leq q\}$.
+
+Debemos verificar que, para $s=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=\bigwedge Q$,
+\[
+s\leq v_F(0).
+\]
+
+A manera de contradicción, supongamos que $s\nleq v_F(0)$. Dado que $w_F\neq \tp$, $1\neq s$ y, por hipótesis, existe $c\in A$ tal que
+\[
+1)\;c\nleq s\quad\text{y}\quad 2)\;\neg c\nleq v_F(0)
+\]
+
+De 1), notemos que existe $r\in Q$ tal que $c\nleq r$, pues en caso contrario, si 
+\[
+\forall r\in Q\text{ tal que }c\leq r\Rightarrow c\leq \bigwedge Q=s
+\]
+lo cual es una contradicción.\\
+
+Por 2), si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues si $c\in F$, 
+\[
+\neg c=v_c(0)\leq f_F(0)\leq v_F(0)
+\]
+lo cual sería una contradicción. Así, existe $q\in Q$ tal que $c\leq q$.\\
+
+Por lo tanto, de 1) y 2) obtenemos que existe $c\in A$ y $q, r\in Q$ tales que
+\[
+c\leq q \quad\text{y}\quad c\nleq r.
+\]
+
+Además, por $T_1$, $q\neq r$. Notemos que 
+\[
+r\vee q=r\vee c=1,
+\]
+entonces
+\[
+\neg r\leq c\leq q\quad \text{y}\quad \neg q\leq \neg c\leq r. 
+\]
+
+Por HM, sabemos que para todo $a\in F$ se satisface que 
+\[
+Q\subseteq \mathcal{U}(a)\iff [\forall p\in Q](a\nleq p),
+\]
+en particular $a\nleq q, r$, es decir, $a\vee q=a\vee r=1$. Por lo tanto,
+\[
+\neg q, \neg r\leq a 
+\]
+para todo $a\in F$. Luego, $(\neg q\vee \neg r)\leq a$ para todo $a\in F$.\\
+
+Consideremos $d=\neg q\vee \neg r$. De aquí que
+\[
+d\leq a\Rightarrow v_a\leq v_d\Rightarrow v_F\leq v_d.
+\]
+
+Evaluando en $0$ obtenemos que $v_F(0)\leq \neg d$.
+\end{proof}
 
 \end{document}
