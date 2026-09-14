@@ -679,393 +679,724 @@ The subcategory of tidy frames is a coreflective subcategory of $\Frm$.
 \section{Stacked and strongly stacked frames}
 
 \begin{lem}\label{inducciontransfinita}
-If $\alpha\in \Ord$ and $X\in CS$, then
+Let $\alpha\in \Ord$ and $X\in CS$. Then
 \begin{equation}\label{eq:induccion}
 \partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
 \end{equation}
 \end{lem}
 
 \begin{proof}
-By transfinite induction on $\alpha\in \Ord$:
-\begin{itemize}
-\item If $\alpha=0$, then $\partial_F^0=\id$, that is, $\partial_F^0(X)=X$ and $f_F^0=\id$. Thus
-\[
-\partial_F^0(X)=X=(X'')=\big(f_F^0(X')\big)'.
-\]
+We proceed by transfinite induction on \(\alpha\).
 
-\item Assume that $\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'$ holds.
-By definition,
-\[
-\partial_F^{\alpha+1}(X)=\partial_F\big(\partial_F^\alpha(X)\big).
-\]
-Furthermore,
-\[
+For \(\alpha=0\), both \(\partial_F^0\) and \(f_F^0\) are the identity. Hence,
+
+$$
+\partial_F^0(X)
+=X
+=(X')'
+=\left(f_F^0(X')\right)'.
+$$
+
+Suppose that the result holds for some ordinal \(\alpha\). Then
+
+$$
+\begin{aligned}
 \partial_F^{\alpha+1}(X)
-=(f_F((\partial_F^\alpha(X))'))'.
-\]
-By induction hypothesis, $\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'$ and substituting we obtain
-\[
-\partial_F^{\alpha+1}(X)=(f_F(f_F^\alpha(X')))'=\big(f_F^{\alpha+1}(X')\big)'
-\]
-which is what we wanted.
+&=\partial_F\left(\partial_F^\alpha(X)\right)\\
+&=\left(f_F\left(\left(\partial_F^\alpha(X)\right)'\right)\right)'\\
+&=\left(f_F\left(f_F^\alpha(X')\right)\right)'\\
+&=\left(f_F^{\alpha+1}(X')\right)'.
+\end{aligned}
+$$
 
-\item Let $\lambda$ be a limit ordinal and assume that the statement holds for all $\alpha<\lambda$.
-By definition,
-\[
-\partial_F^\lambda(X)=\bigcap_{\alpha<\lambda}\partial_F^\alpha(X).
-\]
-By De Morgan laws, we have that
-\[
-\big(\partial_F^\lambda(X)\big)'
-=\Big(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\Big)'
-=\bigcup_{\alpha<\lambda}\big(\partial_F^\alpha(X)\big)'.
-\]
-Using the induction hypothesis, for all $\alpha<\lambda$,
-\[
-\big(\partial_F^\alpha(X)\big)'=f_F^\alpha(X'),
-\]
-Then,
-\[
-\big(\partial_F^\lambda(X)\big)'=\bigcup_{\alpha<\lambda} f_F^\alpha(X')=f_F^\lambda(X').
-\]
-Therefore,
-\[
-\big(\partial_F^\lambda(X)\big)'=f_F^\lambda(X'),
-\]
-that is,
-\[
-\partial_F^\lambda(X)=\big(f_F^\lambda(X')\big)'.
-\]
-\end{itemize}
+Finally, let \(\lambda\) be a limit ordinal and suppose that the result holds for every \(\alpha<\lambda\). By definition and De Morgan's law,
+
+$$
+\begin{aligned}
+\left(\partial_F^\lambda(X)\right)'
+&=
+\left(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\right)'\\
+&=
+\bigcup_{\alpha<\lambda}
+\left(\partial_F^\alpha(X)\right)'\\
+&=
+\bigcup_{\alpha<\lambda}
+f_F^\alpha(X')\\
+&=
+f_F^\lambda(X'),
+\end{aligned}
+$$
+
+where the third equality follows from the induction hypothesis. Therefore,
+
+$$
+\partial_F^\lambda(X)
+=
+\left(f_F^\lambda(X')\right)'.
+$$
+
+This completes the proof.
 \end{proof}
 
-As a particular case, we have the following.
+The following is an immediate consequence of Lemma \ref{inducciontransfinita}.
+
 
 \begin{cor}\label{cor:infinito}
-If $X\in \mathcal{C}S$, $U\in \mathcal{O}S$ and $\alpha=\infty$, then
+Let $U\in\mathcal{O}S$. Then
 \begin{equation}\label{eq:infinito}
     \begin{split}
-\partial_F^\infty(X)=(v_F(X'))' & \iff \partial_F^\infty(U')'=(v_F(U))\\
-& \iff \partial_F^\infty(X)'=(v_F(X')).
-    \end{split}
+\left(\partial_F^\infty(U')\right)'=v_F(U).
+	\end{split}
 \end{equation}
 \end{cor}
 
 \begin{lem}\label{lem:auxiliar}
-If $A=\mathcal{O}S$ and $E\subseteq S$, then
+Let $A=\mathcal{O}S$ be spatial and let $E\subseteq S$. Then
 \[
-\mathcal{U}_*[E]\mathcal{U}=[E].
+\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
 \]
 \end{lem}
 
 \begin{proof}
-Since $A$ is spacial, then $\mathcal{U}$ is an isomorphism. Thus, if $U\in \mathcal{O}\pt A$ exists $V\in \pt A$ such that $U=\mathcal{U}(V)$ and as $U\in \pt A$, then $U=V$. Next,
+Let $V\in\mathcal{O}S$. Since
 \[
-\begin{split}
-(\mathcal{U}_*[E]\mathcal{U})(U)&=\mathcal{U}_*[E](\mathcal{U}(U))=\mathcal{U}_*([E](U))\\
-&=\mathcal{U}_*(E\cup U)^{\circ}=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (E\cup U)^{\circ}\}\\
-&=(E\cup U)^{\circ}=[E](U).
-\end{split}
+\mathcal{U}\colon \mathcal{O}S\longrightarrow
+\mathcal{O}\pt(\mathcal{O}S)
 \]
-Therefore $\mathcal{U}_*[E]\mathcal{U}=[E]$.
+is an isomorphism, there exist $x,y\in\mathcal{O}S$ such that
+\[
+V=\mathcal{U}(y)
+\]
+and
+\[
+(E\cup V)^\circ=\mathcal{U}(x).
+\]
+
+Then
+\[
+\begin{aligned}
+(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
+&=\mathcal{U}_*\bigl([E](\mathcal{U}(y))\bigr)\\
+&=\mathcal{U}_*\bigl((E\cup V)^\circ\bigr)\\
+&=\mathcal{U}_*(\mathcal{U}(x))\\
+&=x.
+\end{aligned}
+\]
+
+On the other hand,
+\[
+\mathcal{U}([E](y))
+=(E\cup \mathcal{U}(y))^\circ
+=(E\cup V)^\circ
+=\mathcal{U}(x).
+\]
+Since $\mathcal{U}$ is injective, it follows that
+\[
+[E](y)=x.
+\]
+
+Therefore,
+\[
+(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
+=[E](y)
+\]
+for every $y\in\mathcal{O}S$. Hence,
+\[
+\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
+\]
 \end{proof}
 
-\begin{prop}\label{morfismo} .
-    For $F\in A^\wedge$, $Q\in\mathcal{Q}S$ and $\nabla=\nabla(Q)$, if $k\in [v_\nabla, w_\nabla]$, then $\mathcal{U}_*\circ k\circ\mathcal{U}\in [v_F, w_F]$.
+\begin{prop}\label{morfismo} 
+Let $(F,Q,G)$ be an HM triple, with 
+\[
+F\in A^\wedge \quad\text{and}\quad G=\nabla(Q)\in (\mathcal{O}S)^\wedge.
+\]
+If
+\[
+k\in[v_G,w_G],
+\]
+then
+\[
+\mathcal{U}_*\circ k\circ \mathcal{U}\in[v_F,w_F].
+\]
 \end{prop}
 
 \begin{proof}
-If $k\in [v_\nabla, w_\nabla]$, then $\mathcal{U}_*\circ k\circ \mathcal{U}\in NA$. Additionally, for $F\in A^\wedge$ if $j\in [v_F, w_F]$, then $F=\nabla(j)$. In this way we must prove that $F=\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})$.\\
-
-By Hofmann-Mislove Theorem, we have that
+Since $k$ is a nucleus on $\mathcal{O}S$, the composite
 \[
-x\in F\iff Q\subseteq \mathcal{U}(x)\iff \mathcal{U}(x)\in \nabla=\nabla(Q).
+\mathcal{U}_*\circ k\circ \mathcal{U}
+\]
+is a nucleus on $A$. Thus, it is enough to show that
+\[
+\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})=F.
 \]
 
-Furthermore, for all $x\in A$
+Let $x\in A$. Since $(F,Q,G)$ is an HM triple,
 \[
-(\mathcal{U}_*\circ k\circ\mathcal{U})(x)=\mathcal{U}_*(k(\mathcal{U}(x)))=\bigwedge(S\setminus k(\mathcal{U}(x))).
+x\in F
+\Longleftrightarrow
+Q\subseteq \mathcal{U}(x)
+\Longleftrightarrow
+\mathcal{U}(x)\in G.
 \]
 
-Since $k\in [v_\nabla, w_\nabla]$, then $\nabla=\nabla(k)$, that is, for $V\in \nabla$ it holds that $k(V)=S$. Therefore,
+On the other hand, since $k\in[v_G,w_G]$, we have
 \[
-\begin{split}
-x\in F\iff \mathcal{U}(x)\in \nabla &\iff S\setminus k(\mathcal{U}(x))=\emptyset\\
-&\iff \bigwedge(S\setminus k(\mathcal{U}(x)))=1\\
-&\iff x\in \nabla(\mathcal{U}_*\circ k\circ \mathcal{U})
-\end{split}
+\nabla(k)=G.
+\]
+Therefore,
+\[
+\mathcal{U}(x)\in G
+\Longleftrightarrow
+k(\mathcal{U}(x))=S.
+\]
+
+Using the adjunction $\mathcal{U}\dashv \mathcal{U}_*$ and the fact that $\mathcal{U}(1)=S$, we obtain
+\[
+k(\mathcal{U}(x))=S
+\Longleftrightarrow
+\mathcal{U}_*(k(\mathcal{U}(x)))=1.
+\]
+Hence,
+\[
+x\in F
+\Longleftrightarrow
+(\mathcal{U}_*\circ k\circ \mathcal{U})(x)=1
+\Longleftrightarrow
+x\in\nabla(\mathcal{U}_*\circ k\circ \mathcal{U}).
+\]
+
+Thus,
+\[
+\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})=F,
+\]
+and consequently
+\[
+\mathcal{U}_*\circ k\circ \mathcal{U}\in[v_F,w_F].
 \]
 \end{proof}
 
-We have a morphism $\mho\colon [v_\nabla, w_\nabla]\to [v_F, w_F]$. Note that this occurs at both ends of the interval on $NA$.\\
-
-Take $k\in [v_\nabla, w_\nabla]$. Since $v_F$ is a fitted nuclei, then it holds 
-\begin{equation}\label{comparacionvF}
-v_F\leq \mathcal{U}_*\circ k\circ \mathcal{U}. 
-\end{equation}
-
-Similarly, as $w_F$ is the largest element in its block, 
-\begin{equation}\label{comparacionwF}
-\mathcal{U}_*\circ k\circ \mathcal{U}\leq w_F.
+Proposition \ref{morfismo} defines a map
+\[
+\Phi\colon [v_G,w_G]\longrightarrow [v_F,w_F],
+\qquad
+\Phi(k)=\mathcal{U}_*\circ k\circ \mathcal{U}.
+\]
+In particular, for every $k\in[v_G,w_G]$, we have
+\begin{equation}\label{comparacionvFwF}
+v_F\leq \mathcal{U}_*\circ k\circ \mathcal{U}\leq w_F.
 \end{equation}
 
 \begin{prop}\label{igualdadwF}
-If $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$, then 
+Let $(F,Q,G)$ be an HM triple. Then
 \[
-w_F=\mathcal{U}_*\circ w_\nabla\circ \mathcal{U}.
+w_F=\mathcal{U}_*\circ w_G\circ \mathcal{U}.
 \]
 \end{prop}
 
 \begin{proof}
-By (\ref{comparacionwF}), we must verify that $w_F\leq \mathcal{U}_*\circ w_\nabla\circ \mathcal{U}$. Equivalently, we must prove that
+By Proposition \ref{morfismo}, since $w_G\in[v_G,w_G]$, we have
 \[
-\mathcal{U}\circ w_F\leq w_\nabla\circ \mathcal{U},
+\mathcal{U}_*\circ w_G\circ \mathcal{U}\leq w_F.
 \]
-that is, for all $x\in A$ 
+Thus, it remains to prove the reverse inequality.
+
+By adjunction, it is enough to show that
 \[
-\mathcal{U}(w_F(x))\subseteq [M'](\mathcal{U}(x))=(M'\cup \mathcal{U}(x))^\circ.
+\mathcal{U}\circ w_F\leq w_G\circ \mathcal{U}.
 \]
-Since $\mathcal{U}(w_F(x))\in \mathcal{O}S$, it is enough that $\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x)$.
-As a contradiction, let $y\in \mathcal{U}(w_F(x))$ be such that $y\notin M'$ and $y\notin \mathcal{U}(x)$. Then
+Let $x\in A$. Since $w_G=[M']$, we have
 \[
-y\in M\quad\text{ and }\quad x\leq y.
+w_G(\mathcal{U}(x))
+=[M'](\mathcal{U}(x))
+=(M'\cup \mathcal{U}(x))^\circ.
+\]
+Hence, we need to prove that
+\[
+\mathcal{U}(w_F(x))\subseteq (M'\cup \mathcal{U}(x))^\circ.
 \]
 
-By hypothesis, $y\in \mathcal{U}(w_F(x))$, then
+Since $\mathcal{U}(w_F(x))$ is open, it is enough to show that
 \[
-w_F(x)\nleq y\quad \text{ and }\quad w_F(x)=\bigwedge\{m\in M\mid x\leq m\},
+\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x).
 \]
-that is, $w_F(x)\leq y$ and it is a contradiction.\\ 
+Suppose, by contradiction, that there exists
+\[
+y\in \mathcal{U}(w_F(x))
+\]
+such that
+\[
+y\notin M'
+\qquad\text{and}\qquad
+y\notin \mathcal{U}(x).
+\]
+Then $y\in M$ and $x\leq y$. On the other hand,
+\[
+y\in \mathcal{U}(w_F(x))
+\]
+implies
+\[
+w_F(x)\nleq y.
+\]
+However,
+\[
+w_F(x)=\bigwedge\{m\in M\mid x\leq m\},
+\]
+and since $y\in M$ with $x\leq y$, it follows that
+\[
+w_F(x)\leq y,
+\]
+a contradiction.
 
-Therefore, $\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x)$.
+Therefore,
+\[
+\mathcal{U}(w_F(x))\subseteq (M'\cup \mathcal{U}(x))^\circ,
+\]
+and hence
+\[
+\mathcal{U}\circ w_F\leq w_G\circ \mathcal{U}.
+\]
+By adjunction,
+\[
+w_F\leq \mathcal{U}_*\circ w_G\circ \mathcal{U}.
+\]
+Combining both inequalities, we conclude that
+\[
+w_F=\mathcal{U}_*\circ w_G\circ \mathcal{U}.
+\]
 \end{proof}
 
 \begin{dfn}\label{def:apilado-marcos}
-Let $A$ be a frame. 
+Let $A$ be a frame. We say that $A$ is:
 \begin{enumerate}
-  \item $A$ is \emph{strongly stacked} if $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
-  \item $A$ is \emph{stacked} if $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+    \item \emph{strongly stacked} if, for every HM pair $(F,Q)$,
+    \[
+    U_*\circ[Q']\circ U=v_F;
+    \]
+    
+    \item \emph{stacked} if, for every HM pair $(F,Q)$,
+    \[
+    (U_*\circ[Q']\circ U)(0)=v_F(0).
+    \]
 \end{enumerate}
-for any $(F, Q)$ HM pair.
 \end{dfn}
 
-Note that strongly stacked implies stacked. Our aim is to prove that the above properties are conservative, that is, $S$ is a
-stacked (strongly stacked) space if and only if its frame of open sets $\mathcal{O}S$ is stacked (strongly stacked). 
+Clearly, every strongly stacked frame is stacked. We now show that both
+notions are conservative; namely, for every topological space $S$,
+\[
+S \text{ is stacked}
+\Longleftrightarrow
+\mathcal{O}S \text{ is stacked},
+\]
+and
+\[
+S \text{ is strongly stacked}
+\Longleftrightarrow
+\mathcal{O}S \text{ is strongly stacked}.
+\]
 
 \begin{prop}\label{apiladoconservativa}
 The notions of strongly stacked and stacked are conservative.
 \end{prop}
 
 \begin{proof}
-Consider $S\in \Top$, $A=\mathcal{O}S$, $F\in A^\wedge$ and $Q\in \mathcal{Q}S$.\\
+Let $S\in\mathbf{Top}$ and set $A=\mathcal{O}S$.
 
-First, suposse that $S$ is strongly stacked, then $v_F=[Q']$ and, by Lemma \ref{lem:auxiliar}, $\mathcal{U}_*[Q']\mathcal{U}=[Q']=v_F$. Therefore $\mathcal{O}S$ is strongly stacked.\\
+First, suppose that $S$ is strongly stacked. Then, for every HM pair
+$(F,Q)$,
+\[
+v_F=[Q'].
+\]
+By Lemma~5.3,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
+\]
+Therefore,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=v_F,
+\]
+and hence $\mathcal{O}S$ is strongly stacked.
 
-Now, suppose that $S$ is stacked, then 
+Now, suppose that $S$ is stacked. Then, for every HM pair $(F,Q)$,
 \[
-\overline{Q}=\partial_F^\infty(S)\iff \overline{Q}'=(\partial_F^{\infty}(S))'.
+Q=\partial_F^\infty(S).
 \]
+Hence,
+\[
+Q'=\left(\partial_F^\infty(S)\right)'.
+\]
+By Corollary~5.2,
+\[
+v_F(\varnothing)
+=\left(\partial_F^\infty(S)\right)'
+=Q'.
+\]
+In particular, $Q'$ is open. By Lemma~5.3,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
+\]
+Therefore,
+\[
+\begin{aligned}
+(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(\varnothing)
+&=[Q'](\varnothing)\\
+&=(Q')^\circ\\
+&=Q'\\
+&=v_F(\varnothing).
+\end{aligned}
+\]
+Thus, $\mathcal{O}S$ is stacked.
 
-Furthermore, 
-\[
-\begin{split}
-(\mathcal{U}_*[Q']\mathcal{U})(\emptyset)&=\mathcal{U}_*([Q'](\{V\in \pt\mathcal{O}S\mid \emptyset \not\subseteq V\}))\\
-&=\mathcal{U}_*([Q'](\emptyset))=\mathcal{U}_*(Q')^{\circ}\\
-&=\bigcup\{W\in \mathcal{O}S\mid W\subseteq (Q')^\circ\}\\
-&=(Q')^{\circ}=\overline{Q}'.
-\end{split}
-\]
-By Corollary \ref{cor:infinito}, $v_F(\emptyset)=(\partial_F^\infty(\emptyset'))'$. Therefore, 
-\[
-v_F(\emptyset)=(\mathcal{U}_*[Q']\mathcal{U})(\emptyset),
-\]
-and $\mathcal{O}S$ is stacked.\\
+Since all the implications used above are equivalences, the converse statements follow by reversing the argument.
 \end{proof}
 
 \section{Separation properties in frames}
 
-If $S\in \Top$ is an $T_1$ and strongly stacked, then it holds that $w_\nabla=v_\nabla$. Additionally,
-if $S$ is stacked and $T_1$, then it is sober.\\
-
-Thus, we could ask ourselves if the same occurs in frames. In this section we will study the above question. 
-
-Take $p\in \pt A$ and $(F_p, \uparrow p)$ a HM pair, then for 
+Recall that if a topological space $S$ is $T_1$ and strongly stacked, then
 \[
-M=\{m\in A\setminus F_p\mid(\forall a\in A\setminus F_p) [a\leq m]\},
+w_G=v_G.
 \]
-the nuclei $w_{F_p}(x)=\bigwedge\{m\in M\mid x\leq m\}$ is $w_p(x)$.\\
-
-To prove this, note that $A\setminus F_p=\{x\in A\mid x\leq p\}=\downarrow p$. As,
-\[
-M=\{m\in \downarrow p\mid [\forall a\in \downarrow p](a\leq m)\}=\{p\}.
-\]
-
-Hence, $w_{F_p}(x)=\bigwedge\{p\mid x\leq p\}$, that is, 
-\begin{equation}\label{igualdadwF_p}
-w_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{if}  &  x\nleq p\\ \\ 
-	p, & \text{if} & x\leq p 
-\end{array} \right.=w_p(x)
-\end{equation}
-for all $x\in A$. Therefore $w_{F_p}=w_p$.\\
+where $G\in \mathcal{O}S^\wedge$. Moreover, every $T_1$ stacked space is sober. This naturally raises the
+question of whether analogous results hold in the point-free setting. In this
+section, we investigate this question.
 
 \begin{prop}\label{maximosenpt}
-Let $A\in \Frm$ and $(F, Q)$ be any HM pair. If $v_F(0)=w_F(0)$, then for all $p\in \pt A$, $p$ is maximal in $\pt A$.
+Let $A$ be a frame. If
+\[
+v_F(0)=w_F(0)
+\]
+for every $F\in A^\wedge$, then every point of $A$ is maximal in $\pt A$.
 \end{prop}
 
 \begin{proof}
-Consider $p,q\in \pt A$ such that $p\leq q$. Note that for $q\in \pt A$, we have $(F_q, \uparrow q)$ a HM pair, with
+Let $p,q\in\pt A$ be such that $p\leq q$, and consider the open filter
 \[
-F_q=\{x\in A\mid \uparrow q\subseteq \mathcal{U}(x)\}=\{x\in A\mid (\forall r\in \pt A)[r\leq q\Rightarrow x\nleq q]\}.
+F_q=\{x\in A\mid x\nleq q\}.
+\]
+Since $A\setminus F_q=\downarrow q$, it follows directly from the
+definition of $w_{F_q}$ that
+\begin{equation}\label{igualdadwF_p}
+w_{F_q}=w_q.
+\end{equation}
+In particular,
+\[
+w_{F_q}(0)=q.
 \]
 
-By hypothesis, $v_{F_q}(0)=w_{F_q}(0)$ and by \eqref{igualdadwF_p}
+By hypothesis,
 \[
-q=w_q(0)=w_{F_q}(0)=v_{F_q}(0)\leq v_{F_q}(p)=p.
+q=w_{F_q}(0)=v_{F_q}(0)
+=\bigvee_{x\in F_q}\neg x.
 \]
-Therefore, $p=q$ and every point is maximal in $\pt A$.
+For every $x\in F_q$, we have $x\nleq q$. Since $p\leq q$, it follows
+that $x\nleq p$. Moreover,
+\[
+x\wedge\neg x=0\leq p.
+\]
+Since $p$ is a point, it is meet-irreducible, and therefore
+\[
+\neg x\leq p.
+\]
+Thus,
+\[
+q=v_{F_q}(0)
+=\bigvee_{x\in F_q}\neg x
+\leq p.
+\]
+Since $p\leq q$, we conclude that $p=q$. Hence, every point of $A$ is
+maximal in 
+$\pt A$.
 \end{proof}
 
-As we show later on \eqref{Qlaxo}, for all $(F, Q, \nabla)$ HM tupla we have
+For every HM triple $(F,Q,G)$, we have
 \[
-\mathcal{U}\circ v_F\leq v_\nabla \circ \mathcal{U}. 
+\mathcal{U}\circ v_F\leq v_G\circ\mathcal{U}.
 \]
-
-Additionally, if $A$ is strongly stacked, then $v_F=\mathcal{U}_*[Q']\mathcal{U}$ and 
+Suppose now that $A$ is strongly stacked. Then
 \[
-\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}\leq \mathcal{U}_*\circ [Q']\mathcal{U}
+v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
 \]
-
-Thus, $v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}$, equivalently $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.\\
-	
-Therefore, if $A$ is strongly stacked, then the diagram \eqref{Qlaxo} is commutative. The following result tells us 
-under which conditions we have the converse implication.
+Since
+\[
+v_G\leq[Q'],
+\]
+we obtain
+\[
+\mathcal{U}_*\circ v_G\circ\mathcal{U}
+\leq
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}
+=v_F.
+\]
+Together with the previous inequality, this yields
+\[
+v_F=\mathcal{U}_*\circ v_G\circ\mathcal{U},
+\]
+or equivalently,
+\[
+\mathcal{U}\circ v_F
+=
+v_G\circ\mathcal{U}.
+\]
+Thus, if $A$ is strongly stacked, the corresponding diagram is commutative.
 
 \begin{prop}\label{EficienteFapilado}
-  If $A\in \Frm$ is tidy and the diagram 
-
-\[\begin{tikzcd}
-	A & A \\
-	{\mathcal{O}S} & {\mathcal{O}S}
-	\arrow["{v_F}", from=1-1, to=1-2]
-	\arrow["{\mathcal{U}}"', from=1-1, to=2-1]
-	\arrow["{\mathcal{U}}", from=1-2, to=2-2]
-	\arrow["{v_\nabla}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-commutes, then $A$ is strongly stacked.
+Let $A$ be a tidy frame. If
+\[
+\mathcal{U}\circ v_F
+=
+v_\nabla\circ\mathcal{U}
+\]
+for every HM triple $(F,Q,\nabla)$, then $A$ is strongly stacked.
 \end{prop}
 
 \begin{proof}
-Let $A\in\Frm$, $S=\pt A$ and $(F, Q)$ be any HM pair. By hypothesis, $A$ is tidy and by previous results we have the implications
+Let $S=\pt A$ and let $(F,Q,\nabla)$ be an HM triple.
+
+Since $A$ is tidy, $\mathcal{O}S$ is tidy. Hence $S$ is stacked and packed.
+In particular, every compact saturated subset $Q\subseteq S$ is closed, so
 \[
-A\text{ tidy }\Rightarrow \mathcal{O}S\text{ tidy }\Rightarrow S \text{ stacked and packed.}
+Q'\in\mathcal{O}S.
 \]
-Since $S$ is packed, if $Q\in \mathcal{Q}S$, then $Q\in \mathcal{C}S$ and $Q'\in \mathcal{O}S$. Then, as $S$ is stacked, we have that
-$\overline{Q}=\partial_\nabla^\infty(S)$, that is, $Q'=v_\nabla(\emptyset)$ and as $\mathcal{O}S$ is tidy, $v_\nabla=u_{Q'}=[Q']$.\\
-  
-Additionally, if $v_\nabla\circ \mathcal{U}=\mathcal{U}\circ v_F$, then
+
+Since $S$ is stacked,
 \[
-v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ and }\quad \mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U},
+Q=\partial_\nabla^\infty(S),
 \]
-that is,
+and therefore, by Corollary \ref{cor:infinito},
 \[
-[Q']\circ \mathcal{U}\leq \mathcal{U}\circ v_F\quad \text{ and } \quad\mathcal{U}\circ v_F\leq [Q']\circ \mathcal{U}.
+v_\nabla(\varnothing)=Q'.
 \]
-By properties of the right adjoint
+Because $\mathcal{O}S$ is tidy, it follows that
 \[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad \text{ and }\quad v_F\leq\mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+v_\nabla=u_{Q'}=[Q'].
 \]
-Therefore $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ and $A$ is strongly stacked.
+
+By hypothesis,
+\[
+\mathcal{U}\circ v_F
+=
+v_\nabla\circ\mathcal{U}
+=
+[Q']\circ\mathcal{U}.
+\]
+Applying the right adjoint $\mathcal{U}_*$, we obtain
+\[
+v_F
+=
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Therefore, $A$ is strongly stacked.
 \end{proof}
 
 Consequently, we have the following result.
 
 \begin{cor}
-If $A$ is tidy, then $S=\pt A$ is strongly stacked.
+If $A$ is a tidy frame, then $\pt A$ is strongly stacked.
 \end{cor}
 
 \begin{proof}
-Since $S$ is strongly stacked if and only if $v_\nabla=[Q']$, the result follows from the fact that 
-\[
-\mathcal{O}S \text{ tidy } \Rightarrow S \text{ strongly stacked }
-\] 
+Let $S=\pt A$. Since $A$ is tidy, $\mathcal{O}S$ is tidy, and therefore
+$S$ is strongly stacked.
 \end{proof}
 
-With the morphism $\mathcal{U}_A$, we have the nuclei $\Sp_A$ defined by
-\[
-\Sp_A(x)=\bigwedge\{p\in \pt A\mid x\leq p\}
-\]
-for $x\in A$. Combining this fact with the Proposition \ref{maximosenpt} we know information about the collapse on admisibility interval.
-
 \begin{prop}\label{focales}
-For $A\in \Frm$ and $(F, Q)$ any HM pair, the following statements hold:
+Let $A$ be a frame. The following statements hold:
 \begin{enumerate}
-\item If $A$ is $T_1$ and stacked, then $v_F(0)=w_F(0)$.
-\item If $v_F(0)=w_F(0)$, then $A$ is stacked.
-\item If $v_F(0)=w_F(0)$ and the set $Y=\{q\in \pt A\mid a\leq q\}$ is non-empty for all $a\in A$, then $A$ is $T_1$.
+    \item If $A$ is $T_1$ and stacked, then
+    \[
+    v_F(0)=w_F(0)
+    \]
+    for every $F\in A^\wedge$.
+
+    \item If
+    \[
+    v_F(0)=w_F(0)
+    \]
+    for every $F\in A^\wedge$, then $A$ is stacked.
+
+    \item Suppose that
+    \[
+    v_F(0)=w_F(0)
+    \]
+    for every $F\in A^\wedge$ and that
+    \[
+    \{q\in\pt A\mid a\leq q\}\neq\varnothing
+    \]
+    for every $a\in A$. Then $A$ is $T_1$.
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
 	\mbox{}
+\begin{enumerate}
+	\item Let $(F,Q)$ be an HM pair. Since $A$ is $T_1$, the space
+$S=\pt A$ is $T_1$. Hence $Q=M$. Since $A$ is stacked,
+\[
+\begin{aligned}
+v_F(0)
+&=(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(0)\\
+&=(\mathcal{U}_*\circ[M']\circ\mathcal{U})(0)\\
+&=w_F(0).
+\end{aligned}
+\]
 
-	\begin{enumerate}
-		
-		\item If $A$ is $T_1$, then 
-		\[
-		\mathcal{O}S \text{ is } T_1 \Rightarrow S \text{ is } T_1\Rightarrow Q=M.
-		\]
-		Since $A$ is stacked,
-		\[
-		v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=(\mathcal{U}_*\circ[M']\circ \mathcal{U})(0)=w_F(0).
-		\]
-		\item Recall that for every HM pair, the following inequality holds:
-		\begin{equation}\label{interad}
-		v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq w_F
-		\end{equation}
-		and by hypothesis $v_F(0)=w_F(0)$, that is, $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=w_F(0)$. Therefore, $A$ is stacked.
-		\item Consider $p\in \pt A$ and $a\in A$ such that $p\leq a$. By hypothesis $\{q\in \pt A\mid a\leq q\}\neq \emptyset$. Then
-		\[
-		p\leq a\leq \Sp (a)=\bigwedge{q\in \pt A\mid a\leq q}\leq q
-		\]
-		for some $q\in Y$. Thus, $p\leq a\leq q$ and by Proposición \ref{maximosenpt}, $p=q$. Therefore, $p=a$ and every point is maximal in $A$, 
-		that is, $A$ is $T_1$.
-	\end{enumerate}
+\item Let $(F,Q)$ be an HM pair. Recall that
+\begin{equation}\label{interad}
+v_F
+\leq
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}
+\leq
+w_F.
+\end{equation}
+Evaluating at $0$, we obtain
+\[
+v_F(0)
+\leq
+(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(0)
+\leq
+w_F(0).
+\]
+By hypothesis, $v_F(0)=w_F(0)$, and hence
+\[
+v_F(0)
+=
+(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(0).
+\]
+Therefore, $A$ is stacked.
+
+\item Let $p\in\pt A$ and $a\in A$ be such that
+\[
+p\leq a.
+\]
+By hypothesis, there exists $q\in\pt A$ such that
+\[
+a\leq q.
+\]
+Hence,
+\[
+p\leq a\leq q.
+\]
+By Proposition~6.1, every point of $A$ is maximal. Therefore, $p=q$, and
+consequently
+\[
+p\leq a\leq p.
+\]
+Thus, $a=p$, and hence $A$ is $T_1$.
+\end{enumerate}
 \end{proof}
 
+Thus, in the $T_1$ case, the stacked condition forces the lower and upper
+bounds of every admissibility interval to agree at $0$. The strongly stacked
+case yields the corresponding equality of the nuclei themselves.
+
 \begin{cor}\label{vF=wF}
-For $A\in \Frm$ and $(F, Q)$ any HM pair, the following statements hold:
+Let $A$ be a frame. The following statements hold:
 \begin{enumerate}
-\item If $A$ is $T_1$ and strongly stacked, then $v_F=w_F$.
-\item If $v_F=w_F$, then $A$ is strongly stacked.
-\item If $v_F=w_F$ and the set $Y=\{q\in \pt A\mid a\leq q\}$ is non-empty for all $a\in A$, then $A$ is $T_1$.
+    \item If $A$ is $T_1$ and strongly stacked, then
+    \[
+    v_F=w_F
+    \]
+    for every $F\in A^\wedge$.
+
+    \item If
+    \[
+    v_F=w_F
+    \]
+    for every $F\in A^\wedge$, then $A$ is strongly stacked.
+
+    \item Suppose that
+    \[
+    v_F=w_F
+    \]
+    for every $F\in A^\wedge$ and that
+    \[
+    \{q\in\pt A\mid a\leq q\}\neq\varnothing
+    \]
+    for every $a\in A$. Then $A$ is $T_1$.
 \end{enumerate}
 \end{cor}
 
 \begin{proof}
-	\mbox{}
+\mbox{}
+\begin{enumerate}
+	\item Let $(F,Q)$ be an HM pair. Since $A$ is strongly stacked,
+\[
+v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Moreover, since $A$ is $T_1$, we have $Q=M$. Hence, by Proposition~5.5,
+\[
+v_F
+=\mathcal{U}_*\circ[M']\circ\mathcal{U}
+=w_F.
+\]
 
-	\begin{enumerate}
-	\item If $A$ is strongly stacked, then $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$ and by $T_1$ we have that $Q=M$. Therefore $v_F=w_F$.
-	\item This follows from \eqref{interad}.
-	\item This follows from Proposition \ref{focales}.
-	\end{enumerate}
+\item By \eqref{interad},
+\[
+v_F
+\leq
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}
+\leq
+w_F.
+\]
+Thus, if $v_F=w_F$, then
+\[
+v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U},
+\]
+and therefore $A$ is strongly stacked.
+
+\item Since $v_F=w_F$ implies
+\[
+v_F(0)=w_F(0),
+\]
+the result follows from Proposition \ref{focales} (3).
+\end{enumerate}
 \end{proof}
-Note that, by \ref{maximosenpt} and \ref{focales}, if $v_F(0)=w_F(0)$, then $A$ is stacked and every point is maximal in $\pt A$.
-Particularly, for each $p\in \pt A$ and $(F_p, \uparrow p)$ it holds $v_{F_p}(0)=p$. Furthermore, 
+
+While the strongly stacked condition yields the collapse of every
+admissibility interval, the stacked condition already guarantees this
+phenomenon for those associated with completely prime filters. This gives the
+following consequence.
+
+\begin{cor}\label{Igualdadnucleos}
+Let $A$ be a $T_1$ stacked frame. Then every admissibility interval
+associated with a completely prime filter collapses to a singleton. More
+precisely, for every $p\in\pt A$,
 \[
-v_{F_p}(p)=v_{F_p}(0)=0_{A_{F_p}}.
+[v_{F_p},w_{F_p}]=\{u_p\}.
+\]
+\end{cor}
+
+\begin{proof}
+Let $p\in\pt A$. Since $A$ is $T_1$ and stacked, Proposition \ref{focales} gives
+\[
+v_{F_p}(0)=w_{F_p}(0)=p.
+\]
+Moreover, as $p$ is maximal,
+\[
+w_{F_p}=w_p=u_p.
 \]
 
-If $A$ is $T_1$, $p$ is maximal in $A$, then $p$ is maximal in $A_{F_p}$ and $A_{F_p}=\{q, 1\}$.\\
-
-Now, $F_{F_p}=\nabla(v_{F_p})$ and $x\in F_p$ if and only if $v_{F_p}(x)=1$. In this way, under the previous hypotheses, it holds that 
+Recall that, for every nucleus $j$, one has
 \[
-v_{F_p}(x)= \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\nleq p\\ \\ p, & \text{si} & x\leq p 
-\end{array} \right.=  \left\{ \begin{array}{lcc} 1, & \text{si}  &  x\in F_p\\ \\ p, & \text{si} & x\not\in F_p \end{array} \right.=w_{F_p}(x).
+u_{j(0)}\leq j.
 \]
-
-Therefore, if $A$ is $T_1$ and stacked, then $v_{F_p}=w_{F_p}$ for each $p\in \pt A$. With this in mind, we could ask ourselves if there exists some way to 
-recover the notion of strongly stacked by means of $T_1$ and stacked.\\
+Indeed, for every $x\in A$,
+\[
+j(0)\vee x\leq j(x).
+\]
+Applying this to $j=v_{F_p}$ yields
+\[
+u_p=u_{v_{F_p}(0)}\leq v_{F_p}.
+\]
+On the other hand, by definition of the admissibility interval,
+\[
+v_{F_p}\leq w_{F_p}=u_p.
+\]
+Therefore,
+\[
+[v_{F_p},w_{F_p}]=\{u_p\}.
+\]
+\end{proof}
 
 \begin{comment}
 \textbf{Lo siguiente debe cosiderarse por separado}\\
@@ -1127,129 +1458,400 @@ De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\
 \textbf{Hasta aquí llega lo que se debe considerar}\\
 \end{comment}
 
-Now, we need the following information:
+Recall that $A^\wedge$ is endowed with the topology generated by the basic
+open sets
+\[
+D(x)=\{F\in A^\wedge\mid x\in F\},
+\qquad x\in A.
+\]
+Moreover, let $VA$ denote the Vietoris modification of $A$ introduced in
+\cite{simmons2004vietoris}. The points of $VA$ are of the form
+\[
+(F,a),
+\qquad
+F\in A^\wedge,\quad
+a\in[v_F(0),w_F(0)].
+\]
+Consider the continuous surjection
+\[
+\pi\colon\pt(VA)\longrightarrow A^\wedge,
+\qquad
+(F,a)\longmapsto F.
+\]
+It induces the frame morphism
+\[
+\mathcal{O}(\pi)=\pi^{-1}\colon
+\mathcal{O}(A^\wedge)\longrightarrow
+\mathcal{O}(\pt(VA)).
+\]
 
-\begin{enumerate}
-\item Let $A^\wedge$ be a topological space where the basic open sets of $\mathcal{O}(A^\wedge)$ are given by 
-\[
-  D(x)=\{F\in A^\wedge\mid x\in F\}
-\]
-where $x\in A$.
-\item For $A\in \Frm$, we can construct a frame $VA$ as in \cite{simmons2004vietoris}. Each element in $\pt(VA)$ is of the form
-\[
-(F, a), \quad \text{where } F\in A^\wedge \text{ y }a\in [v_F(0), w_F(0)]. 
-\]
-\item Take a continuos surjective map $\pi\colon \pt(VA)\to A^\wedge$, defined by
-\[
-(F,a)\mapsto F.
-\]
-
-\item By the functor $\mathcal{O}(-)$ we have
-\[
-\mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge)\to \mathcal{O}(\pt(VA)).
-\]
-\item Open sets in $\pt(VA)$ are given by the following:
+Recall also that the subbasic open sets of $\pt(VA)$ are determined by
 \begin{equation}\label{fibra}
-(F,a)\in [-](x)\iff x\in F\quad \text{and}\quad (F,a)\in \langle -\rangle(x)\iff x\nleq a.
+(F,a)\in\Box x
+\Longleftrightarrow
+x\in F,
+\qquad
+(F,a)\in\Diamond x
+\Longleftrightarrow
+x\nleq a.
 \end{equation}
+
 Particularly,
 \begin{equation}\label{fibra2}
 a\in [F](x)\iff x\in F\quad \text{and}\quad a\in \langle F\rangle(x)\iff x\nleq a.
 \end{equation}
-\end{enumerate}
 
-\begin{prop}
-Let $A, VA\in \Frm$ and $A^\wedge$ be as above. The following statements hold:
-\begin{enumerate}
-\item If $A$ is $T_1$ and stacked, then $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ under the continuous function $\pi$.
-\item If the morphism $\mathcal{O}(\pi)=\pi^{-1}$ induces that $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$, then $A$ is stacked.
-\item If the morphism $\mathcal{O}(\pi)=\pi^{-1}$ induces that $\mathcal{O}(A^\wedge)\cong \mathcal{O}(\pt(VA))$ and 
+\begin{prop}\label{IsoVA}
+Let $A$ be a frame, and consider the continuous surjection
 \[
-\mathcal{V}(a)=\{q\in \pt A\mid a\leq q\}\neq \emptyset,
+\pi\colon\pt(VA)\longrightarrow A^\wedge,
+\qquad
+(F,a)\longmapsto F.
 \]
-then $A$ is $T_1$.
+Then the following statements hold:
+\begin{enumerate}
+    \item If $A$ is $T_1$ and stacked, then
+    \[
+    \mathcal{O}(\pi)=\pi^{-1}\colon
+    \mathcal{O}(A^\wedge)\longrightarrow\mathcal{O}(\pt(VA))
+    \]
+    is an isomorphism.
+
+    \item If $\mathcal{O}(\pi)$ is an isomorphism, then $A$ is stacked.
+
+    \item If $\mathcal{O}(\pi)$ is an isomorphism and
+    \[
+    \mathcal{V}(a)=\{p\in\pt A\mid a\leq p\}\neq\varnothing
+    \]
+    for every $a<1$, then $A$ is $T_1$.
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
-  $\mbox{}$
-\begin{enumerate}
-\item If $A$ is $T_1$ and stacked, then for each $F\in A^\wedge$ it holds that 
+	\mbox{}
+	\begin{enumerate}
+		\item Suppose that $A$ is $T_1$ and stacked. By Proposition \ref{focales},
+\[
+v_F(0)=w_F(0)
+\]
+for every $F\in A^\wedge$. Hence, each fiber of
+\[
+\pi\colon\pt(VA)\longrightarrow A^\wedge
+\]
+contains a unique element. Therefore, $\pi$ is bijective.
+
+It remains to prove that
+\[
+\pi^{-1}\colon A^\wedge\longrightarrow\pt(VA)
+\]
+is continuous. Recall that the subbasic open sets of $\pt(VA)$ are given by
+\[
+(F,a)\in[-](x)\Longleftrightarrow x\in F
+\]
+and
+\[
+(F,a)\in\langle-\rangle(x)\Longleftrightarrow x\nleq a.
+\]
+
+For the first family,
+\[
+(F,a)\in[-](x)
+\Longleftrightarrow
+x\in F
+\Longleftrightarrow
+F\in D(x),
+\]
+and therefore
+\[
+\pi([-](x))=D(x).
+\]
+
+Now consider $\langle-\rangle(x)$. Since the fibers of $\pi$ collapse, for every
+$(F,a)\in\pt(VA)$ we have
+\[
+a=v_F(0).
+\]
+Thus,
+\[
+\begin{aligned}
+(F,a)\notin\langle-\rangle(x)
+&\Longleftrightarrow x\leq a\\
+&\Longleftrightarrow x\leq v_F(0)\\
+&\Longleftrightarrow v_F(x)=v_F(0)\\
+&\Longleftrightarrow x\notin F.
+\end{aligned}
+\]
+Hence,
+\[
+(F,a)\in\langle-\rangle(x)
+\Longleftrightarrow
+x\in F
+\Longleftrightarrow
+F\in D(x),
+\]
+and therefore
+\[
+\pi(\langle-\rangle(x))=D(x).
+\]
+
+Thus, the image under $\pi$ of every subbasic open set of $\pt(VA)$ is open in
+$A^\wedge$. Hence $\pi^{-1}$ is continuous, and consequently $\pi$ is a
+homeomorphism. Therefore,
+\[
+\mathcal{O}(\pi)=\pi^{-1}\colon
+\mathcal{O}(A^\wedge)\longrightarrow\mathcal{O}(\pt(VA))
+\]
+is an isomorphism.
+
+\item Suppose that
+\[
+\mathcal{O}(\pi)=\pi^{-1}\colon
+\mathcal{O}(A^\wedge)\longrightarrow\mathcal{O}(\pt(VA))
+\]
+is an isomorphism. Since $\pi^{-1}$ is bijective, $\pi$ is injective. For every
+$F\in A^\wedge$,
+\[
+(F,v_F(0)),(F,w_F(0))\in\pt(VA)
+\]
+and
+\[
+\pi(F,v_F(0))=F=\pi(F,w_F(0)).
+\]
+Hence,
 \[
 v_F(0)=w_F(0).
 \]
-Take $(F,a), (G,b)\in \pt(VA)$ such that $\pi(F,a)=F=\pi(G,a)=G$. By $T_1$ and stacked we have
-\[
-a=v_F(0)=v_G(0)=b.
-\]
-Therefore $(F,a)=(G,b)$, that is, $\pi$ is injective. Since it is also surjective, $\pi$ is bijective.\\
+By Proposition \ref{focales}, $A$ is stacked.
 
-We must show that $\pi^{-1}\colon A^\wedge\to \pt(VA)$ is continuous. For this, recall that by \eqref{fibra}
+\item Suppose that $\mathcal{O}(\pi)$ is an isomorphism and that
 \[
-\begin{split}
-(F,a)\in [-](x)&\iff x\in F\\
-&\iff (F,a)\in \pi^{-1}(D(x))\\
-&\iff \pi([-](x))=D(x).
-\end{split}
+\mathcal{V}(a)=\{q\in\pt A\mid a\leq q\}\neq\varnothing
 \]
-For the other basic open sets, by \eqref{fibra2} we have
+for every $a<1$. By part~(2),
 \[
-a\notin \langle F\rangle(x)\iff x\leq a\iff v_F(x)\leq a.
+v_F(0)=w_F(0)
 \]
-By $T_1$ and stacked we have that $a=v_F(0)$ and thus
-\[
-v_F(0)\notin \langle F\rangle(x)\iff x\leq v_F(0)\iff v_F(x)=v_F(0).
-\]
-As $v_F(0)\neq 1$, 
-\[
-v_F(0)\notin \langle F\rangle(x)\iff x\notin F
-\]
-or equivalently
-\[
-a\in \langle F\rangle(x)\iff (F, a)\in \langle -\rangle(x)\iff x\in F. 
-\]
-Therefore, $\pi(\langle -\rangle(x))=D(x)$ y $\pi^{-1}$ is continuous. Hence, $\pi$ is a homeomorphism and
-\[
-\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA)).
-\]
+for every $F\in A^\wedge$. Therefore, by Proposition \ref{maximosenpt}, every point of $A$ is
+maximal.
 
-\item Suppose that $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ under $\mathcal{O}(\pi)=\pi^{-1}$. Since $\pi^{-1}$ is bijective, then $\pi$
-is also bijective. Thus, if $F\in A^\wedge$, then 
+Let $p\in\pt A$ and $a\in A$ be such that
 \[
-(F, v_F(0)), (F, w_F(0))\in \pt(VA)
+p\leq a.
 \]
-and 
+By hypothesis, there exists $q\in\pt A$ such that
 \[
-\pi(F, v_F(0))=F=\pi(F, w_F(0)).
+a\leq q.
 \]
-By the injectivity of $\pi$ we have that $v_F(0)=w_F(0)$ and therefore $A$ is stacked.
-
-\item Suppose that $\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))$ and $A$ is stacked. Consider $a\in A$ and $p\in \pt A$ such that $p\leq a$. 
-Moreover, by the previous item we have that 
+Thus,
 \[
-\mathcal{O}(A^\wedge)\cong\mathcal{O}(\pt(VA))\Rightarrow v_F(0)=w_F(0)
+p\leq a\leq q.
 \]
-and every point is maximal in $\pt A$. Since $\mathcal{V}(a)\neq \emptyset$, there exists $q\in \pt A$ such that $a\leq q$. By the maximality of $p$ and $q$, we have
+Since $p$ and $q$ are maximal, we have $p=q$, and therefore
 \[
-p\leq a\leq q=p.
+p\leq a\leq p.
 \]
-Therefore, $p=a$ and $A$ is $T_1$.
+Hence $a=p$, and $A$ is $T_1$.
 \end{enumerate}
 \end{proof}
 
-Note that item (3) holds whenever $A$ is spatial. In the spatial setting, this corresponds to the topological fact that
+Notice that the additional hypothesis in Proposition \ref{IsoVA} (3) is automatically
+satisfied whenever $A$ is spatial. Indeed, if $a<1$ and $A$ is spatial, then
+there exists $p\in\pt A$ such that
 \[
-S \text{ is }T_1\text{ and stacked}\Rightarrow S \text{ is sober}.
+a\leq p.
 \]
-However, the point-free setting allows for a potentially broader phenomenon, since the conditions of being $T_1$ and stacked
-do not a priori force a frame to be spatial. This leads naturally to the following question:
+Hence,
 \[
-\text{Do there exist } T_1 \text{ stacked frames that are not spatial?}
+\mathcal{V}(a)=\{p\in\pt A\mid a\leq p\}\neq\varnothing.
+\]
+Thus, in the spatial setting, Proposition \ref{IsoVA} reflects the topological fact
+that every $T_1$ stacked space is sober.
+
+The point-free situation is, however, genuinely broader, since the $T_1$ and
+stacked conditions do not force spatiality. In fact, the following example
+shows that this remains true even if stacked is replaced by strongly stacked.
+
+\begin{ej}
+Let $B$ be an atomless complete Boolean algebra and consider
+\[
+A=B\times 2,
+\]
+where $2=\{0<1\}$. Then $A$ is a complete Boolean algebra. We show that $A$
+is $T_1$ and strongly stacked, but not spatial.
+
+First, let
+\[
+p=(1,0).
+\]
+We claim that
+\[
+\pt A=\{p\}.
+\]
+Indeed, suppose that $(a,b),(c,d)\in A$ satisfy
+\[
+(a,b)\wedge(c,d)\leq p.
+\]
+Then
+\[
+(a\wedge c,b\wedge d)\leq(1,0),
+\]
+so $b\wedge d=0$. Since $b,d\in 2$, either $b=0$ or $d=0$, and hence
+\[
+(a,b)\leq p
+\qquad\text{or}\qquad
+(c,d)\leq p.
+\]
+Thus, $p\in\pt A$.
+
+Now, let $q=(x,y)\in\pt A$. If $y=0$, then
+\[
+(1,0)\wedge(x,1)\leq(x,0)=q.
+\]
+Since $(x,1)\nleq q$, the complete meet-irreducibility of $q$ implies
+\[
+(1,0)\leq q,
+\]
+and therefore $x=1$. Hence $q=p$.
+
+If $y=1$, then $x<1$. For $a,b\in B$ such that $a\wedge b\leq x$, we have
+\[
+(a,1)\wedge(b,1)\leq(x,1)=q.
+\]
+Since $q$ is a point, either $a\leq x$ or $b\leq x$, showing that
+$x\in\pt B$. This is impossible, since an atomless complete Boolean algebra
+has no points. Therefore,
+\[
+\pt A=\{p\}.
 \]
 
+Moreover, if
+\[
+p\leq(a,b),
+\]
+then $a=1$, and hence $(a,b)$ is either $p$ or $1$. Thus $p$ is maximal and
+$A$ is $T_1$.
+
+On the other hand, $A$ is not spatial. Indeed, if $a,b\in B$ with $a\neq b$,
+then
+\[
+(a,0)\neq(b,0),
+\]
+while
+\[
+\mathcal{U}(a,0)=\varnothing=\mathcal{U}(b,0).
+\]
+Hence the spatial reflection
+\[
+\mathcal{U}\colon A\longrightarrow\mathcal{O}(\pt A)
+\]
+is not injective.
+
+It remains to prove that $A$ is strongly stacked. Since $B$ is an atomless
+complete Boolean algebra, $0$ is its only compact element. Therefore,
+\[
+K(A)=K(B)\times K(2)=\{(0,0),(0,1)\}.
+\]
+Since every open filter of a complete Boolean algebra is principal and
+$\uparrow a$ is open if and only if $a$ is compact, it follows that
+\[
+A^\wedge=\{\uparrow(0,0),\uparrow(0,1)\}.
+\]
+Clearly,
+\[
+\uparrow(0,0)=A,
+\]
+whereas
+\[
+\uparrow(0,1)=B\times\{1\}=F_p.
+\]
+Hence,
+\[
+A^\wedge=\{A,F_p\}.
+\]
+
+For $F_p$, since $A$ is $T_1$, then
+\[
+v_{F_p}=w_{F_p}.
+\]
+
+For $F=A$, we have
+\[
+v_F=\operatorname{tp}=w_F.
+\]
+Consequently,
+\[
+v_F=w_F
+\]
+for every $F\in A^\wedge$. By Corollary \ref{vF=wF}, $A$ is strongly stacked.
+\end{ej}
+
+\begin{cor}\label{T1apiladonoespacial}
+There exist non-spatial $T_1$ strongly stacked frames. In particular, there
+exist non-spatial $T_1$ stacked frames.
+\end{cor}
+
+The previous example shows that the $T_1$ and stacked conditions do not imply
+spatiality. We now consider a stronger separation property that provides
+another source of stacked frames.
+
+Recall that a frame $A$ satisfies property $\mathbf{(H)}$ if
+\[
+1\neq a\nleq b
+\]
+implies that there exists $c\in A$ such that
+\[
+c\nleq a
+\qquad\text{and}\qquad
+\neg c\nleq b.
+\]
+As shown in \cite{PasekaSmarda1992}, property $\mathbf{(H)}$ implies $T_1$.
+
+\begin{prop}
+Every frame satisfying property $(H)$ is stacked.
+\end{prop}
+
+\begin{proof}
+
+\end{proof}
+
+Consequently, every frame satisfying $\mathbf{(H)}$ is both $T_1$ and stacked.
+In particular, the non-spatial frames satisfying $\mathbf{(H)}$ constructed by
+Paseka and Šmarda provide another family of non-spatial $T_1$ stacked
+frames.
+
+Thus, the point-free setting exhibits a behavior that has no direct spatial
+counterpart: the $T_1$ and stacked conditions do not force spatiality. This
+occurs both in the strongly stacked example above and, more generally, among
+non-spatial frames satisfying property $\mathbf{(H)}$.
+
 \begin{comment}
-La idea para construir el ejemplo de un marco que cumpla las condiciones anteriores se sigue de lo presentado en \cite{PasekaSmarda1992}. En este artículo exhiben una familia de marcos 
-Hausdorff, en el sentido de Johnstone y Shu-Hao, que no son espaciales. Para estudiar con mayor detalle los marcos apilados y fuertemente apilados, primero veremos como se comportan bajo cocientes.\\
+
+
+Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
+\[\begin{tikzcd}
+	& {\mathbf{(H)}} & \\
+	{\text{Apilado}} && {T_1}
+	\arrow[Rightarrow, from=1-2, to=2-1]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+\end{tikzcd}\]
+
+Usaremos este hecho para exhibir un ejemplo de lo siguiente.
+
+\begin{thm}
+Existen marcos $T_1$ y apilados que no son espaciales.
+\end{thm}
+
+\begin{proof}
+Si consideramos $A\in \Frm$ tal que $A$ satisface $\mathbf{(H)}$, podemos construir el siguiente marco
+\[
+\widetilde{A}=\{(a,b)\mid a\in A, b\in \mathcal{B}(A)\},
+\]
+donde $\mathcal{B}(A)=\{b\in A\mid b=\neg \neg b\}$ y se conoce como la \emph{booleanización} de $A$.\\
+
+Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $\widetilde{A}$ satisface $\mathbf{(H)}$. En consecuencia, $\widetilde{A}$ es un marco $T_1$ y apilado, pero no es espacial.
+\end{proof}
+
+Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
 \end{comment}
 
 \section{Quotients of stacked frames}
@@ -1391,66 +1993,7 @@ Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is stac
 By the previous proposition, if $A$ is strongly stacked, then $A_j$ is strongly stacked and this implies that $A_j$ is stacked.
 \end{proof}
 
-\section{Relationship to the property \textbf{(H)}}
-
-If $A$ is a Hausdorff frame, then $A$ is $T_1$. In this way, to be able to use the example of Paseka and Smarda it is enough that $\mathbf{(H)}$ implies stacked.
-
-\begin{prop}
-If $A\in \Frm$ satisfies $\mathbf{(H)}$, then $A$ is stacked.
-\end{prop}
-
-\begin{proof}
-If $A$ satisfies $\mathbf{(H)}$, then $A$ is $T_1$, that is, for every pair of points $x,y\in A$ with $x\neq y$, there exist neighborhoods $U,V$ of $x,y$ respectively such that $U\cap V=\emptyset$. This implies that
-\[
-\mathcal{U}_*\circ [Q']\circ \mathcal{U}=w_F,
-\]
-that is, $\mathcal{U}_*\circ [Q']\circ \mathcal{U}(0)=w_F(0)$ and since $w_F\neq \tp$, we have $w_F(0)\neq 1$.\\
-
-By construction, we have that $v_F(0)\leq w_F(0)$ and thus, we need to verify that the reverse inequality holds to conclude that $A$ is stacked. For a contradiction, suppose that 
-
-\[
-w_F(0)\nleq v_F(0).
-\]
-
-Since $1\neq w_F(0)\nleq  v_F(0)$, by $\mathbf{(H)}$, exists $c\in A$ such that
-\[
-c\nleq w_F(0)\quad \text{y}\quad \neg c\nleq v_F(0).
-\]
-
-If $\neg c\nleq v_F(0)$, then $c\notin F$
-\end{proof}
-
-\begin{comment}
-
-
-Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
-\[\begin{tikzcd}
-	& {\mathbf{(H)}} & \\
-	{\text{Apilado}} && {T_1}
-	\arrow[Rightarrow, from=1-2, to=2-1]
-	\arrow[Rightarrow, from=1-2, to=2-3]
-\end{tikzcd}\]
-
-Usaremos este hecho para exhibir un ejemplo de lo siguiente.
-
-\begin{thm}
-Existen marcos $T_1$ y apilados que no son espaciales.
-\end{thm}
-
-\begin{proof}
-Si consideramos $A\in \Frm$ tal que $A$ satisface $\mathbf{(H)}$, podemos construir el siguiente marco
-\[
-\widetilde{A}=\{(a,b)\mid a\in A, b\in \mathcal{B}(A)\},
-\]
-donde $\mathcal{B}(A)=\{b\in A\mid b=\neg \neg b\}$ y se conoce como la \emph{booleanización} de $A$.\\
-
-Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $\widetilde{A}$ satisface $\mathbf{(H)}$. En consecuencia, $\widetilde{A}$ es un marco $T_1$ y apilado, pero no es espacial.
-\end{proof}
-
-Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
-\end{comment}
-
-\section{Marcos KC}
+\section{KC Frames}
 
 \begin{dfn}\label{KC y KCH}
 Let $A$ be a frame. We say that $A$ is:
