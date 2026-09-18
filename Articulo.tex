@@ -87,23 +87,74 @@ Aquí va el resumen
 
 \section{Introduction}
 \cite{picado2021separation, sexton2006ordinal, hochster1969prime}
-\section{Preliminaries}
 
 \cite{simmons2006assembly, sexton2003point, Johnstone82}
 
-%\section{Cocientes compactos inducidos por filtros abiertos}
+\[
+\begin{tikzcd}
+    && {\text{Packed}} & \\
+    {T_3} & {T_2} & {T_1} & {T_0} \\
+    && {\text{S.S.}} & {\text{S.}}
+    \arrow[Rightarrow, from=2-1, to=2-2]
+    \arrow[Rightarrow, from=2-2, to=1-3]
+    \arrow[Rightarrow, from=2-2, to=2-3]
+    \arrow[Rightarrow, from=2-2, to=3-3]
+    \arrow[Rightarrow, from=2-3, to=2-4]
+    \arrow[Rightarrow, from=3-3, to=3-4]
+\end{tikzcd}
+\]
 
-\section{Compact quotients}
+\[
+\begin{tikzcd}
+    & {\mathbf{(H)+(sfit)}} & \\
+    {\mathbf{(reg)}} & {\mathbf{(sH)}} & {T_1} \\
+    & {\mathbf{(fit)}} & {\mathbf{(sfit)}}
+    \arrow[Rightarrow, from=2-1, to=1-2]
+    \arrow[Rightarrow, from=2-1, to=2-2]
+    \arrow[Rightarrow, from=2-1, to=3-2]
+    \arrow[Rightarrow, from=2-2, to=2-3]
+    \arrow[Rightarrow, from=3-2, to=3-3]
+\end{tikzcd}
+\]
 
+\[
+\begin{tikzcd}
+    {T_2} & {\text{Neat}} & {T_1}
+    \arrow[Rightarrow, from=1-1, to=1-2]
+    \arrow[Rightarrow, from=1-2, to=1-3]
+\end{tikzcd}
+\]
 
+\[\begin{tikzcd}
+	& {T_1} & \\
+	{\mathbf{(H)}} & KC & {\text{Neat}} \\
+	& {\text{S. S.}} & {\text{S.}}
+	\arrow[Rightarrow, from=2-1, to=1-2]
+	\arrow[Rightarrow, dotted, from=2-1, to=2-2]
+	\arrow[Rightarrow, dotted, from=2-1, to=3-2]
+	\arrow[Rightarrow, dotted, from=2-2, to=1-2]
+	\arrow[Rightarrow, dotted, from=2-2, to=2-3]
+	\arrow[Rightarrow, dotted, from=2-2, to=3-2]
+	\arrow[Rightarrow, from=2-3, to=1-2]
+	\arrow[Rightarrow, dotted, from=2-3, to=3-2]
+	\arrow[Rightarrow, dotted, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=3-2, to=3-3]
+\end{tikzcd}\]
 
+\section{Preliminaries}
 \todo{Aquí hay que poner la referencia.}
 \todo[inline, color=red!30]{Necesitamos quitar toda esta sección.}
 
 %Genera una lista automática de todos los TODOs al inicio del documento:
 
-
-
+\begin{itemize}
+	\item Frames, nucleis, $A_j$
+	\item $u_a, v_a, w_a$
+	\item Points, $\mathcal{U}_*,\mathcal{U}$ spaciality
+	\item Open filters, 
+	\item Fitted nucleis
+	\item HM and HMJ
+\end{itemize}
 
 Let $f\colon A\to B$ be a frame morphism with right adjoint $f_*\colon B\to A$. If $F\subseteq A$ and $G\subseteq B$ are filters, we define:
 \begin{equation}\label{Imagenfiltros}
@@ -123,688 +174,19 @@ Y=\{f(x)\mid x\in X\}
 is directed and $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Since $G$ is an open filter and $f(\bigvee X)=\bigvee f[X]\in G$, there exists $x\in X$ such that $f(x)\in G$. Therefore, $x\in f_*G$.
 \end{proof}
 
-Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
-\begin{equation}\label{Qlaxo}
-\begin{tikzcd}
-	A & A \\
-	{\mathcal{O}S} & {\mathcal{O}S}
-	\arrow["{f^\infty}", from=1-1, to=1-2]
-	\arrow["{U_A}"', from=1-1, to=2-1]
-	\arrow["{U_A}", from=1-2, to=2-2]
-	\arrow["{F^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}
-\end{equation}
-commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $f^\infty$ and $F^\infty$ represent the
-fitted nuclei associated with the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$, respectively, that is, 
-\[
-f^\infty=v_F\quad\text{and}\quad F^\infty =v_\nabla.
-\]
-
-Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\wedge$ and $j_*F\in A^\wedge$ to produce the diagram
-\[\begin{tikzcd}
-	A & A \\
-	{A_j} & {A_j}
-	\arrow["{f^\infty}", from=1-1, to=1-2]
-	\arrow["j^*"', from=1-1, to=2-1]
-	\arrow["j^*", from=1-2, to=2-2]
-	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.\\
-
-The following lemma is part of the analysis developed in this work and constitutes a key tool in the construction of the commutative diagrams
-that follow.
-
-\begin{lem}\label{f1f}
-    For $j=j^*$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
-\end{lem}
-\begin{proof}
-    Recall that, by (\ref{Imagenfiltros})
-    \[
-    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\} \quad\text{y}\quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
-    \]
-
-Let $a\in A$ be. For every $y\in j_*F$, we have
-\[
-j(v_y(a))=j(y\succ a)\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)),
-\]
-where the last inequality follows from $j(y)\in F$. Therefore, since $j$ preserves arbitrary joins,
-\[
-j(\hat{f}(a))=j\Big(\bigvee\{v_y(a)\mid y\in j_*F\}\Big)=\bigvee\{j(v_y(a))\mid y\in j_*F\}\leq f(j(a)).
-\]
-
-Hence, $j\circ \hat{f}\leq f\circ j$.
-\end{proof}
-
-We now prove the above for an arbitrary ordinal.
-\begin{cor}\label{finftyf}
-    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$ where $\alpha\in \Ord$.
-\end{cor}
-
-\begin{proof}
-    We proceed by transfinite induction on $\alpha$
-    If $\alpha=0$, the result is immediate.\\
-
-    For the induction step, suppose that the inequality holds for $\alpha$. Then
-    \[
-    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
-    \]
-    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.\\
-
-    Finally, let $\lambda$ be a limit ordinal. For every $a\in A$,
-	\[
-	j(\hat{f}(a))=j\Big(\bigvee_{\alpha<\lambda}\hat{f}^\alpha\Big)=\bigvee_{\alpha<\lambda}j(\hat{f}^\alpha(a))\leq \bigvee_{\alpha<\lambda}f^\alpha(j(a))=f^\lambda(j(a)).
-	\]
-	where the inequality follows from the induction hypothesis. Hence
-	\[
-	j\circ \hat{f}^\lambda\leq f^\lambda \circ j.
-	\]
-	This completes the proof.
-\end{proof}
-
-Recalling that $v_F=f^\infty$ and $v_{j_*F}=\hat{f}^\infty$, Corollary \ref{finftyf} yields
-\[j
-\circ v_{j_*F}\leq v_F\circ j
-\]
-
-We now compare the compact quotients induced by $F$ and $j_*F$, and construct a frame morphism between them making the corresponding diagram commute.\\
-
-If we consider $j, v_F$ and $v_{j_*F}$ we have the following diagram
-\begin{equation}\label{diagrama H}
-    \begin{tikzcd}
-	A && {A_{j_*F}} \\
-	\\
-	{A_j} && {A_F}
-	\arrow["{(v_{j_*F})^*}", shift left, from=1-1, to=1-3]
-	\arrow["j"', from=1-1, to=3-1]
-	\arrow["H"', from=1-1, to=3-3]
-	\arrow["{(v_{j_*F})_*}", shift left, from=1-3, to=1-1]
-	\arrow["{(v_F)^*}"', shift right, from=3-1, to=3-3]
-	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
-\end{tikzcd}
-\end{equation}
-where $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_*F}$, respectively.\\
-
-Define
-\[
-H\colon A\to A_F, \qquad H=v_F\circ j.
-\]
-
-Since $v_F$ is idempotent, $H(A)\subseteq A_F$. Hence, by restricting $H$ to $A_{j_*F}$, we obtain a map
-\[
-h\colon A_{j_*F}\to A_F, \qquad h=H|_{A_{j_*F}}.
-\]
-
-As finite meets in quotient frames are inherited from the ambient frame, $h$ preserves finite meets. It remains to verify that $h$ preserves arbitrary joins.
-
-\begin{lem}\label{bigvee g}
-The map $h\colon A_{j_*F}\to A_F$ preserves arbitrary joins.
-\end{lem}
-
-\begin{proof}
-	Let $X\subseteq A_{j_*F}$. Since joins in $A_{j_*F}$ are given by
-	\[
-	\bigvee_{v_{j_*F}}X=v_{j_*F}(\bigvee X)
-	\] 
-	we have
-	\[
-	\begin{split}
-	h\Big(\bigvee_{v_{j_*F}}X\Big)&=v_F\Big(j\Big(v_{j_*F}\Big(\bigvee X\Big)\Big)\Big)\\
-	&\leq v_F\Big(v_F\Big(j\Big(\bigvee X\Big)\Big)\Big)\\
-	&=v_F\Big(j\Big(\bigvee X\Big)\Big),
-	\end{split}
-	\]
-	where the inequality follows from Corollary \ref{finftyf} and the equality from the idempotency of $v_F$.\\
-
-	Since $H$ is a frame morphism, 
-	\[
-	v_F\Big(j\Big(\bigvee X\Big)\Big)=\bigvee_{v_F}\{H(x)\mid x\in X\}=\bigvee_{v_F}\{h(x)\mid x\in X\}.
-	\]
-	Therefore,
-	\[
-	h\Big(\bigvee_{v_{j_*F}}X\Big)\leq \bigvee_{v_F}h[X].
-	\]
-
-	Conversely, for every $x\in X$,
-	\[
-	x\leq \bigvee_{v_{j_*F}}X,
-	\]
-	and hence, by monotonicity of $h$,
-	\[
-	h(x)\leq h\Big(\bigvee_{v_{j_*F}}X\Big).
-	\]
-	Since this holds for every $x\in X$, we have
-	\[
-	\bigvee_{v_F}h[X]\leq h\Big(\bigvee_{v_{j_*F}}X\Big).
-	\]
-	Thus,
-	\[
-	h\Big(\bigvee_{v_{j_*F}}X\Big)= \bigvee_{v_F}h[X].
-	\]
-	Therefore $h$ preserves arbitrary joins.
-\end{proof}
-
-The previous construction yields the following commutative diagram induced by the compact quotients associated with the fitted nuclei.
-\begin{prop}\label{VFsquare}
-The diagram
-\begin{equation}\label{Cuadrado}
-    \begin{tikzcd}
-	A & {A_{j_*F}} \\
-	{A_j} & {A_F}
-	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
-	\arrow["j"', from=1-1, to=2-1]
-	\arrow["h", from=1-2, to=2-2]
-	\arrow["{v_F}"', from=2-1, to=2-2]
-\end{tikzcd}\end{equation}
-is commutative.
-\end{prop}
-
-\begin{proof}
-	By Lemma \ref{bigvee g}, $h$ is a frame morphism. The commutativity of the diagram follows from the definition of $h$.
-\end{proof}
-
-A particular instance of diagram (\ref{Cuadrado}) is obtained by taking $j^*=\mathcal{U}_A$, where $S=\pt A$. Thus, we obtain 
-the following commutative diagram:
-\[\begin{tikzcd}
-	A & {A_F} \\
-	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
-	\arrow["{v_F}", from=1-1, to=1-2]
-	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
-	\arrow["h", from=1-2, to=2-2]
-	\arrow["{v_\nabla}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-
-Recall that $\pt A_F=Q$. Hence, the spatial reflection of $A_F$ is given by
-\[
-\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q.
-\]
- 
-Similarly, since $\pt((\mathcal{O}S)_\nabla)=Q$, we have the spatial reflection
-\[
-\mathcal{U}_{\mathcal{O}S_\nabla}\colon \mathcal{O}S_\nabla\to \mathcal{O}\pt(\mathcal{O}S)_\nabla=\mathcal{O}Q.
-\]
-
-Consequently, the two induced morphisms from $A$ to $\mathcal{O}Q$ are both given by
-\[
-x\mapsto \mathcal{U}_A(x)\cap Q.
-\]
-
-Therefore, the preceding constructions fit into the following commutative diagram:
-\begin{equation}\label{Qcuadrado}
-\begin{tikzcd}
-	A && {A_F} & \\
-	&&& {\mathcal{O}Q} \\
-	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
-	\arrow["{v_F}", from=1-1, to=1-3]
-	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
-	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
-	\arrow["h"', from=1-3, to=3-3]
-	\arrow["{v_\nabla}"', from=3-1, to=3-3]
-	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
-\end{tikzcd}\end{equation}
-
-Since the above diagram is determined by $F\in A^\wedge$ and the associated compact saturated subset $Q\in \mathcal{Q}S$, 
-we refer to diagram (\ref{Qcuadrado}) as the \emph{$Q$-square}.
-
-\begin{thm}\label{haus1}
-Under the hypotheses of the $Q$-square, if $A$ satisfies property $\mathbf{(H)}$, then
-\[
-\mathcal{O}Q\cong \uparrow Q'.
-\]
-Equivalently, the frame of open sets of the point space of $A_F$ is isomorphic to a compact closed quotient of 
-a Hausdorff space.
-\end{thm}
-
-\begin{proof}
-Suppose that $A$ satisfies $\mathbf{(H)}$. Since $\mathbf{(H)}$ is conservative, $S=\pt A$ is a $T_2$ space. Hence, for every $Q\in \mathcal{Q}S$, the set $Q$ is closed, and therefore $Q'\in \mathcal{O}S$\\
-
-Moreover, since every $T_2$ space is strongly stacked, we have
-\[
-v_\nabla=[Q'].
-\]
-As $Q'\in \mathcal{O}S$, it follows that 
-\[
-[Q']=u_{Q'}
-\]
-
-Consequently,
-\[
-(\mathcal{O}S)_{v_\nabla}=(\mathcal{O}S)_{u_{Q'}}\cong \uparrow Q'.
-\]
-
-Now, $u_{Q'}$ is a complemented nucleus in $\mathcal{O}S$, by \cite[Proposition VI.3.3]{PicadoPultr}, implies that $\mathcal{O}S_{v_\nabla}$ is spatial. Therefore, 
-\[
-(\mathcal{O}S)_{v_\nabla}\cong\mathcal{O}\pt((\mathcal{O}S)_{v_\nabla}).
-\]
-Since
-\[
-\pt((\mathcal{O}S)_{v_\nabla})=Q,
-\]
-we obtain
-\[
-\mathcal{O}Q\cong (\mathcal{O}S)_{v_\nabla}\cong \uparrow Q'.
-\]
-\end{proof}
-
-\section{Tidy frames}
-
-\begin{prop}\label{tidyquout}
-    If $A$ is a tidy frame, then $A_j$ is a tidy frame.
-\end{prop}
-
-\begin{proof}
-Let $A$ be $\alpha$-tidy and let $F\in A_j^\wedge$. By Proposition \ref{fF}, $j_*F\in A^\wedge$. Let
-\[
-\hat{f}=\dot{\bigvee_{y\in j_*F}}v_y\quad\text{and}\quad f=\dot{\bigvee_{x\in F}}v_x.
-\]
-be the prenuclei associated with $j_*F$ and $F$, respectively.\\
-
-Since $A$ is tidy, there exists an ordinal $\alpha$ such that, for every $y\in j_*F$,
-\[
-y\vee \hat{d}=1,\quad \text{with }\hat{d}=\hat{f}^\alpha(0).
-\]
-
-Let
-\[
-d=f^\alpha(j(0)),
-\]
-by Corollary \ref{finftyf},
-\[
-j(\hat{d})=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d.
-\]
-
-Since $j$ is inflationary, $\hat{d}\leq j(\hat{d})$, and hence
-\[
-\hat{d}\leq d.
-\]
-
-Now, let $x\in F$. Thus, $x\in A_j$, we have $j(x)=x$, and therefore $x\in j_*F$. Then,
-\[
-x\vee \hat{d}=1.
-\]
-
-As $\hat{d}\leq d$, it follows that
-\[
-1=x\vee \hat{d}\leq x\vee d\leq 1.
-\]
-
-Hence $x\vee d=1$. Therefore, $A_j$ is $\alpha$-tidy.
-\end{proof}
-
-The following theorem establishes that tidiness is preserved under binary coproducts.
-\begin{prop}\label{tidyplus}
-Let $A_1$ and $A_2$ be $\alpha$-tidy frames. Then $A_1\oplus A_2$ is $\alpha$-tidy.
-\end{prop}
-
-\begin{proof}
-By construction of the coproduct $A_1\oplus A_2$, consider the canonical frame morphism 
-\[
-\iota_i\colon A_i\to A_1\oplus A_2, \quad i=1,2
-\]
-together with their right adjoints $(\iota_i)_*\colon A_1\oplus A_2\to A_i$.\\
-
-Then, we have the following diagram
-\[ 
-\begin{tikzcd}
-A_i \arrow[r, "\alpha_i"] \arrow[rrr, "\iota_i", bend left] & A_1\times A_2  \arrow[r, "\downarrow(\_)"] & \mathcal{L}(A_1\times A_2) \arrow[r, "\sim"] & A_1\oplus A_2 \arrow[lll, "(\iota_i)_*", bend left]
-\end{tikzcd}
-\]
-
-By Proposition \ref{fF}, 
-\[
-(\iota_i)_*F\in A^\wedge_i.
-\]
-
-Since $A_i$ is $\alpha$-tidy, for every $x_i\in (\iota_i)_*F$ there exists $d_i\in A_i$ such that
-\[
-x_i\vee d_i=1,
-\]
-where
-\[
-d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
-\]
-
-By the definition of $(\iota_i)_*F$,
-\[
-x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
-\]
-
-Thus,
-\[
-x_1\oplus 1, 1\oplus x_2\in F.
-\]
-
-Since $F$ is a filter,
-\[
-(x_1\oplus 1)\wedge (1\oplus x_2)=x_1\oplus x_2\in F.
-\]
-
-Now let
-\[
-f_F=\dot{\bigvee_{z\in F}}v_z
-\]
-be the prenucleus associated with $F$. We first show that, for $i=1,2$, 
-\[
-\iota_i\circ f_i\leq f_F\circ \iota_i.
-\]
-
-Indeed, let $a\in A_i$ and $y\in (\iota_i)_*F$. Since $\iota_i(y)\in F$,
-\[
-\begin{split}
-	\iota_i(v_y(a))&=\iota_i(y\succ a)\\
-	&\leq (\iota_i(y)\succ \iota_i(a))\\
-	&=v_{\iota_i(y)}(\iota_i(a))\\
-	&\leq f_F(\iota_i(a)).
-\end{split}
-\]
-
-Therefore, since the join defining $f_i$ is pointwise and $\iota_i$ preserves arbitrary joins,
-\[
-\iota_i(f_i(a))=\iota_i\Big(\bigvee_{y\in (\iota_i)_*F}v_y(a)\Big)=\bigvee_{y\in (\iota_i)_*F}\iota_i(v_y(a))\leq f_F(\iota_i(a)).
-\]
-
-Hence, 
-\[
-\iota_i\circ f_i\leq f_F\circ \iota_i.
-\]
-
-We now prove by transfinite induction that 
-\[
-\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
-\]
-for every ordinal $\beta$.\\
-
-If $\beta=0$, the result is immediate. Suppose that it holds for $\beta$. Then
-\[
-\begin{split}
-\iota_i\circ f_i^{\beta +1}&=\iota_i\circ f_i\circ f_i^\beta\\
-&\leq f_F\circ \iota_i\circ f_i^\beta\\
-&\leq f_F\circ f_F^\beta\circ \iota_i\\
-&= f_F^{\beta +1}\circ \iota_i.
-\end{split}
-\]
-
-Now let $\lambda$ be a limit ordinal. For every $a\in A_i$,
-\[
-\begin{split}
-\iota_i(f_i^\lambda(a))&=\iota_i\Big(\bigvee_{\beta<\lambda}f_i^\beta(a)\Big)\\
-&=\bigvee_{\beta<\lambda}\iota_i(f_i^\beta(a))\\
-&\leq \bigvee_{\beta<\lambda}f_F^\beta(\iota_i(a))\\
-=&f_F^\lambda(\iota_i(a)).
-\end{split}
-\]
-
-Thus,
-\[
-\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
-\]
-for every ordinal $\beta$.\\
-
-Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
-\[
-\iota_1(d_1)\leq f_F^\alpha(0\oplus 1)\quad \text{and}\quad \iota_2(d_2)\leq f_F^\alpha(1\oplus 0).
-\]
-
-Therefore,
-\[
-\begin{split}
-d_1\oplus d_2&=(d_1\oplus 1)\wedge (1\oplus d_2)\\
-&\leq f_F^\alpha(0\oplus 1)\wedge f_F^\alpha(1\oplus 0)\\
-&=f_F^\alpha(0\oplus 1\wedge 1\oplus 0).
-\end{split}
-\]
-
-Set $d=f_F^\alpha(0\oplus 0)$, then $d_1\oplus d_2\leq d$. Finally,
-\[
-\begin{split}
-	1\oplus 1&=(x_1\vee d_1)\oplus (x_2\vee d_2)\\
-	&=(x_1\oplus x_2)\vee (d_1\oplus d_2)\\
-	\leq (x_1\oplus x_2)\vee d\\
-	&\leq 1\oplus 1.
-\end{split}
-\]
-
-Therefore,
-\[
-(x_q\oplus x_2)\vee d=1\oplus 1
-\]
-and $A_1\oplus A_2$ is $\alpha$-tidy.
-\end{proof}
-
-\begin{cor}\label{Paso 3}
-Let $A_1$ and $A_2$ be $\alpha$-tidy and $\beta$-tidy, respectively. Then $A_1\oplus A_2$ is $\gamma$-tidy, where
-\[
-\gamma=\max\{\alpha, \beta\}.
-\]
-\end{cor}
-
-\begin{proof}
-Let $\gamma=\max\{\alpha, \beta\}$. Then $A_1$ and $A_2$ are both $\gamma$-tidy. Hence, by Proposition \ref{tidyplus}, $A_1\oplus A_2$ is $\gamma$-tidy.
-\end{proof}
-
-We extend the previous result to arbitrary coproducts.
-
-\begin{prop}\label{coprodE}
-Tidiness is preserved under arbitrary coproducts.
-\end{prop}
-
-\begin{proof}
-Let $\{A_i\}_{i\in I}$ be a family of tidy frames, and for each $i\in I$, let $\alpha_i$ be a tidiness degree of $A_i$. Consider 
-\[
-A=\bigoplus_{i\in I}A_i
-\]
-and let
-\[
-\iota_i\colon A_i\to A
-\]
-denote the canonical coproduct morphisms. Since $\iota_i$ is a frame morphism, it has a right adjoint $(\iota_i)_*$.\\
-
-Let $F\in A^\wedge$. By Proposition \ref{fF}, 
-\[
-(\iota_i)_*F\in A_i^\wedge
-\]
-for every $i\in I$. Moreover,
-\[
-x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
-\]
-
-Set $\alpha=\sup\{\alpha_i\mid i\in I\}$. Then every $A_i$ is $\alpha$-tidy. Hence, for every $x_i\in (\iota_i)_*F$,
-\[
-x_i\vee d_i=1,
-\]
-where 
-\[
-d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
-\]
-
-Let
-\[
-f_F=\dot{\bigvee_x\in F}v_x
-\]
-be the prenucleus associated with $F$. As in the proof of Proposition \ref{tidyplus}, for every $i\in I$ we have
-\[
-\iota_i\circ f_i\leq f_F\circ \iota_i,
-\]
-and, by transfinite induction, 
-\[
-\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
-\]
-for every ordinal $\beta$.\\
-
-Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
-\[
-\iota_i(d_i)=\iota_i(f^\alpha_i(0))\leq f_F^\alpha(\iota_i(0))=f_F^\alpha(\langle 0\rangle).
-\]
-
-Set
-\[
-d=f_F^\alpha(\langle 0\rangle).
-\]
-
-Therefore,
-\[
-\iota_i(d_i)\leq d
-\]
-for every $i\in I$. Taking arbitrary joins yields 
-\[
-\langle d_i\rangle\bigvee_{i\in I}\iota_i(d_i)\leq d.
-\]
-
-Now let
-\[
-\langle x_i\rangle\in F.
-\]
-
-Since $x_i\vee d_i=1$ for every $i\in I$, we have
-\[
-\langle x_i\rangle\vee \langle d_i\rangle=\langle x_i\vee d_i\rangle=\langle 1\rangle.
-\]
-
-As $\langle d_i\rangle\leq d$,
-\[
-\langle 1\rangle=\langle x_i\rangle\vee \langle d_i\rangle\leq \langle x_i\rangle\vee d\leq \langle 1\rangle.
-\]
-
-Thus, 
-\[
-\langle x_i\rangle\vee d=\langle 1\rangle.
-\]
-
-Therefore, $A=\bigoplus_{i\in I}A_i$ is $\alpha$-tidy, and hence tidy.
-\end{proof} 
-
-\begin{cor}
-The subcategory of tidy frames is a coreflective subcategory of $\Frm$.
-\end{cor}
-
-\section{Stacked and strongly stacked frames}
-
-\begin{lem}\label{inducciontransfinita}
-Let $\alpha\in \Ord$ and $X\in CS$. Then
-\begin{equation}\label{eq:induccion}
-\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
-\end{equation}
-\end{lem}
-
-\begin{proof}
-We proceed by transfinite induction on \(\alpha\).
-
-For \(\alpha=0\), both \(\partial_F^0\) and \(f_F^0\) are the identity. Hence,
-
-$$
-\partial_F^0(X)
-=X
-=(X')'
-=\left(f_F^0(X')\right)'.
-$$
-
-Suppose that the result holds for some ordinal \(\alpha\). Then
-
-$$
-\begin{aligned}
-\partial_F^{\alpha+1}(X)
-&=\partial_F\left(\partial_F^\alpha(X)\right)\\
-&=\left(f_F\left(\left(\partial_F^\alpha(X)\right)'\right)\right)'\\
-&=\left(f_F\left(f_F^\alpha(X')\right)\right)'\\
-&=\left(f_F^{\alpha+1}(X')\right)'.
-\end{aligned}
-$$
-
-Finally, let \(\lambda\) be a limit ordinal and suppose that the result holds for every \(\alpha<\lambda\). By definition and De Morgan's law,
-
-$$
-\begin{aligned}
-\left(\partial_F^\lambda(X)\right)'
-&=
-\left(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\right)'\\
-&=
-\bigcup_{\alpha<\lambda}
-\left(\partial_F^\alpha(X)\right)'\\
-&=
-\bigcup_{\alpha<\lambda}
-f_F^\alpha(X')\\
-&=
-f_F^\lambda(X'),
-\end{aligned}
-$$
-
-where the third equality follows from the induction hypothesis. Therefore,
-
-$$
-\partial_F^\lambda(X)
-=
-\left(f_F^\lambda(X')\right)'.
-$$
-
-This completes the proof.
-\end{proof}
-
-The following is an immediate consequence of Lemma \ref{inducciontransfinita}.
-
-
-\begin{cor}\label{cor:infinito}
-Let $U\in\mathcal{O}S$. Then
-\begin{equation}\label{eq:infinito}
-    \begin{split}
-\left(\partial_F^\infty(U')\right)'=v_F(U).
-	\end{split}
-\end{equation}
-\end{cor}
-
-\begin{lem}\label{lem:auxiliar}
-Let $A=\mathcal{O}S$ be spatial and let $E\subseteq S$. Then
-\[
-\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
-\]
-\end{lem}
-
-\begin{proof}
-Let $V\in\mathcal{O}S$. Since
-\[
-\mathcal{U}\colon \mathcal{O}S\longrightarrow
-\mathcal{O}\pt(\mathcal{O}S)
-\]
-is an isomorphism, there exist $x,y\in\mathcal{O}S$ such that
-\[
-V=\mathcal{U}(y)
-\]
-and
-\[
-(E\cup V)^\circ=\mathcal{U}(x).
-\]
-
-Then
-\[
-\begin{aligned}
-(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
-&=\mathcal{U}_*\bigl([E](\mathcal{U}(y))\bigr)\\
-&=\mathcal{U}_*\bigl((E\cup V)^\circ\bigr)\\
-&=\mathcal{U}_*(\mathcal{U}(x))\\
-&=x.
-\end{aligned}
-\]
-
-On the other hand,
-\[
-\mathcal{U}([E](y))
-=(E\cup \mathcal{U}(y))^\circ
-=(E\cup V)^\circ
-=\mathcal{U}(x).
-\]
-Since $\mathcal{U}$ is injective, it follows that
-\[
-[E](y)=x.
-\]
-
-Therefore,
-\[
-(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
-=[E](y)
-\]
-for every $y\in\mathcal{O}S$. Hence,
-\[
-\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
-\]
-\end{proof}
+\section{Compact Quotients and Admissibility Intervals}
+\begin{itemize}
+	\item $A^\wedge \longleftrightarrow A_j$
+	\item $v_F, w_F$ admissibility intervals
+	\item 
+\end{itemize}
+
+\section{Separation Properties Induced by Compact Quotients}
+\subsection{Neat frames}
+
+\begin{dfn}
+Neat definition
+\end{dfn}
 
 \begin{prop}\label{morfismo} 
 Let $(F,Q,G)$ be an HM triple, with 
@@ -966,92 +348,73 @@ w_F=\mathcal{U}_*\circ w_G\circ \mathcal{U}.
 \]
 \end{proof}
 
+\subsection{Stacked and strongly stacked frames}
+
 \begin{dfn}\label{def:apilado-marcos}
-Let $A$ be a frame. We say that $A$ is:
-\begin{enumerate}
-    \item \emph{strongly stacked} if, for every HM pair $(F,Q)$,
-    \[
-    U_*\circ[Q']\circ U=v_F;
-    \]
-    
-    \item \emph{stacked} if, for every HM pair $(F,Q)$,
+Let $A$ be a frame. We say that $A$ is \emph{stacked} if, for every HM pair $(F,Q)$,
     \[
     (U_*\circ[Q']\circ U)(0)=v_F(0).
     \]
+\end{dfn}
+
+\begin{dfn}\label{def:apilado-marcos}
+Let $A$ be a frame. We say that $A$ is \emph{strongly stacked} if, for every HM pair $(F,Q)$,
+    \[
+    U_*\circ[Q']\circ U=v_F;
+    \]
+\end{dfn}
+
+Clearly, every strongly stacked frame is stacked.
+\subsection{KC frames}
+
+
+\begin{dfn}
+Let $A$ be a frame. We say that $A$ is:
+\begin{enumerate}
+    \item \emph{KC} if every compact quotient of $A$ is closed;
+    \item \emph{Hausdorff closed compact}, or \emph{KCH} for short, if every
+    compact quotient of $A$ is both closed and Hausdorff.
 \end{enumerate}
 \end{dfn}
 
-Clearly, every strongly stacked frame is stacked. We now show that both
-notions are conservative; namely, for every topological space $S$,
+Equivalently, $A$ is KC if, for every $j\in NA$ such that
 \[
-S \text{ is stacked}
-\Longleftrightarrow
-\mathcal{O}S \text{ is stacked},
+\nabla(j)\in A^\wedge,
 \]
-and
+there exists $a\in A$ such that
 \[
-S \text{ is strongly stacked}
-\Longleftrightarrow
-\mathcal{O}S \text{ is strongly stacked}.
+j=u_a.
 \]
+Similarly, $A$ is KCH if, in addition, every such compact quotient $A_j$
+satisfies property $(H)$.
 
-\begin{prop}\label{apiladoconservativa}
-The notions of strongly stacked and stacked are conservative.
+\begin{prop}\label{prop:KC}
+Every tidy strongly stacked frame is KC.
 \end{prop}
 
 \begin{proof}
-Let $S\in\mathbf{Top}$ and set $A=\mathcal{O}S$.
-
-First, suppose that $S$ is strongly stacked. Then, for every HM pair
-$(F,Q)$,
+Let $F\in A^\wedge$. Since $A$ is tidy, it is $T_1$. Hence, as $A$ is
+strongly stacked, we have
 \[
-v_F=[Q'].
+v_F=w_F.
 \]
-By Lemma~5.3,
+Moreover, of tidiness,
 \[
-\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
-\]
-Therefore,
-\[
-\mathcal{U}_*\circ[Q']\circ\mathcal{U}=v_F,
-\]
-and hence $\mathcal{O}S$ is strongly stacked.
-
-Now, suppose that $S$ is stacked. Then, for every HM pair $(F,Q)$,
-\[
-Q=\partial_F^\infty(S).
-\]
-Hence,
-\[
-Q'=\left(\partial_F^\infty(S)\right)'.
-\]
-By Corollary~5.2,
-\[
-v_F(\varnothing)
-=\left(\partial_F^\infty(S)\right)'
-=Q'.
-\]
-In particular, $Q'$ is open. By Lemma~5.3,
-\[
-\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
+v_F=u_d,
+\qquad d=v_F(0).
 \]
 Therefore,
 \[
-\begin{aligned}
-(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(\varnothing)
-&=[Q'](\varnothing)\\
-&=(Q')^\circ\\
-&=Q'\\
-&=v_F(\varnothing).
-\end{aligned}
+[v_F,w_F]=\{u_d\}.
 \]
-Thus, $\mathcal{O}S$ is stacked.
 
-Since all the implications used above are equivalences, the converse statements follow by reversing the argument.
+Since every nucleus inducing a compact quotient of $A$ belongs to an
+admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
+nucleus is closed. Hence every compact quotient of $A$ is closed, and
+therefore $A$ is KC.
 \end{proof}
 
-\section{Separation properties in frames}
-
+\section{Comparison with Classical Separation Axioms}
 Recall that if a topological space $S$ is $T_1$ and strongly stacked, then
 \[
 w_G=v_G.
@@ -1458,6 +821,1400 @@ De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\
 \textbf{Hasta aquí llega lo que se debe considerar}\\
 \end{comment}
 
+Notice that the additional hypothesis in Proposition \ref{IsoVA} (3) is automatically
+satisfied whenever $A$ is spatial. Indeed, if $a<1$ and $A$ is spatial, then
+there exists $p\in\pt A$ such that
+\[
+a\leq p.
+\]
+Hence,
+\[
+\mathcal{V}(a)=\{p\in\pt A\mid a\leq p\}\neq\varnothing.
+\]
+Thus, in the spatial setting, Proposition \ref{IsoVA} reflects the topological fact
+that every $T_1$ stacked space is sober.
+
+The point-free situation is, however, genuinely broader, since the $T_1$ and
+stacked conditions do not force spatiality. In fact, the following example
+shows that this remains true even if stacked is replaced by strongly stacked.
+
+\begin{ej}
+Let $B$ be an atomless complete Boolean algebra and consider
+\[
+A=B\times 2,
+\]
+where $2=\{0<1\}$. Then $A$ is a complete Boolean algebra. We show that $A$
+is $T_1$ and strongly stacked, but not spatial.
+
+First, let
+\[
+p=(1,0).
+\]
+We claim that
+\[
+\pt A=\{p\}.
+\]
+Indeed, suppose that $(a,b),(c,d)\in A$ satisfy
+\[
+(a,b)\wedge(c,d)\leq p.
+\]
+Then
+\[
+(a\wedge c,b\wedge d)\leq(1,0),
+\]
+so $b\wedge d=0$. Since $b,d\in 2$, either $b=0$ or $d=0$, and hence
+\[
+(a,b)\leq p
+\qquad\text{or}\qquad
+(c,d)\leq p.
+\]
+Thus, $p\in\pt A$.
+
+Now, let $q=(x,y)\in\pt A$. If $y=0$, then
+\[
+(1,0)\wedge(x,1)\leq(x,0)=q.
+\]
+Since $(x,1)\nleq q$, the complete meet-irreducibility of $q$ implies
+\[
+(1,0)\leq q,
+\]
+and therefore $x=1$. Hence $q=p$.
+
+If $y=1$, then $x<1$. For $a,b\in B$ such that $a\wedge b\leq x$, we have
+\[
+(a,1)\wedge(b,1)\leq(x,1)=q.
+\]
+Since $q$ is a point, either $a\leq x$ or $b\leq x$, showing that
+$x\in\pt B$. This is impossible, since an atomless complete Boolean algebra
+has no points. Therefore,
+\[
+\pt A=\{p\}.
+\]
+
+Moreover, if
+\[
+p\leq(a,b),
+\]
+then $a=1$, and hence $(a,b)$ is either $p$ or $1$. Thus $p$ is maximal and
+$A$ is $T_1$.
+
+On the other hand, $A$ is not spatial. Indeed, if $a,b\in B$ with $a\neq b$,
+then
+\[
+(a,0)\neq(b,0),
+\]
+while
+\[
+\mathcal{U}(a,0)=\varnothing=\mathcal{U}(b,0).
+\]
+Hence the spatial reflection
+\[
+\mathcal{U}\colon A\longrightarrow\mathcal{O}(\pt A)
+\]
+is not injective.
+
+It remains to prove that $A$ is strongly stacked. Since $B$ is an atomless
+complete Boolean algebra, $0$ is its only compact element. Therefore,
+\[
+K(A)=K(B)\times K(2)=\{(0,0),(0,1)\}.
+\]
+Since every open filter of a complete Boolean algebra is principal and
+$\uparrow a$ is open if and only if $a$ is compact, it follows that
+\[
+A^\wedge=\{\uparrow(0,0),\uparrow(0,1)\}.
+\]
+Clearly,
+\[
+\uparrow(0,0)=A,
+\]
+whereas
+\[
+\uparrow(0,1)=B\times\{1\}=F_p.
+\]
+Hence,
+\[
+A^\wedge=\{A,F_p\}.
+\]
+
+For $F_p$, since $A$ is $T_1$, then
+\[
+v_{F_p}=w_{F_p}.
+\]
+
+For $F=A$, we have
+\[
+v_F=\operatorname{tp}=w_F.
+\]
+Consequently,
+\[
+v_F=w_F
+\]
+for every $F\in A^\wedge$. By Corollary \ref{vF=wF}, $A$ is strongly stacked.
+\end{ej}
+
+\begin{cor}\label{T1apiladonoespacial}
+There exist non-spatial $T_1$ strongly stacked frames. In particular, there
+exist non-spatial $T_1$ stacked frames.
+\end{cor}
+
+The previous example shows that the $T_1$ and stacked conditions do not imply
+spatiality. We now compare stackedness with the stronger separation property
+$(H)$. Recall that a frame $A$ satisfies property $(H)$ if
+\[
+    1\neq a\nleq b
+\]
+implies that there exists $c\in A$ such that
+\[
+    c\nleq a
+    \qquad\text{and}\qquad
+    \neg c\nleq b.
+\]
+As shown in \cite{PasekaSmarda1992}, property $(H)$ implies $T_1$. Nevertheless, property
+$(H)$ does not imply stackedness, as the following example shows.
+
+\begin{ej}
+There exists a frame satisfying property $(H)$ which is not stacked.
+
+Let $I=[0,1]$, endowed with its usual topology, and consider the frame
+\[
+    A=\mathcal{O}(I).
+\]
+Since $I$ is a compact Hausdorff space, $A$ is a compact Hausdorff frame.
+Moreover, since $I$ is $T_1$, every point of $A$ is maximal and
+\[
+    D(A)=\pt A
+    =
+    \{I\setminus\{x\}:x\in I\},
+\]
+where $D(A)$ denotes the set of maximal elements of $A$.
+
+Following the construction of Paseka and \v{S}marda
+\cite[Proposition 2.3]{PasekaSmarda1992}, let
+\[
+    \widetilde{A}
+    =
+    \{(u,v)\in A\times \mathfrak{B}(A):u\leq v\},
+\]
+where
+\[
+    \mathfrak{B}(A)=\{a^{**}:a\in A\}
+\]
+is the Boolean algebra of regular elements of $A$. By
+\cite[Propositions 2.3 and 2.4]{PasekaSmarda1992}, $\widetilde{A}$ is a compact frame. 
+In particular, $\widetilde{A}$ satisfies property $(H)$.
+
+The maximal elements of $\widetilde{A}$ are precisely the elements of the
+form
+\[
+    D(\widetilde{A})=\{(d,1)\mid d\in D(A)\}.
+\]
+
+Since $\widetilde{A}$ satisfies $(H)$, it is $T_1$, and hence its points
+are precisely its maximal elements. Therefore,
+\[
+    \pt\widetilde{A}
+    =
+    \{(I\setminus\{x\},I):x\in I\}.
+\]
+
+Since $\widetilde{A}$ is compact,
+\[
+    F=\uparrow 1=\{1\}
+\]
+is an open filter. Let $(F,Q)$ be the corresponding HM pair. By the
+Hofmann--Mislove correspondence,
+\[
+    Q=\pt\widetilde{A}-F.
+\]
+Since $1\notin\pt\widetilde{A}$, it follows that
+\[
+    Q=\pt\widetilde{A}.
+\]
+
+Now, since $F=\{1\}$,
+\[
+    f_F=v_1=\id_{\widetilde{A}},
+\]
+and therefore
+\[
+    v_F(0)=0_{\widetilde{A}}.
+\]
+On the other hand,
+\[
+\begin{aligned}
+    (U_*\circ[Q']\circ U)(0)
+    &=
+    \bigwedge Q\\
+    &=
+    \bigwedge\pt\widetilde{A}\\
+    &=
+    (\varnothing,I)
+    \neq
+    (\varnothing,\varnothing)
+    =
+    v_F(0).
+\end{aligned}
+\]
+Thus,
+\[
+    v_F(0)\neq(U_*\circ[Q']\circ U)(0),
+\]
+and consequently $\widetilde{A}$ is not stacked.
+\end{ej}
+
+Consequently, although property (H) implies $T_1$, it does not imply
+stackedness. Indeed, the preceding example provides a compact Hausdorff
+frame which is not stacked.
+
+Together with the strongly stacked non-spatial example above, this
+further illustrates the distinction between separation properties and
+stackedness in the point-free setting. On the one hand, there exist
+non-spatial $T_1$ strongly stacked frames; on the other hand, even the
+stronger Hausdorff condition (H) does not guarantee stackedness.
+
+\section{Quotients and Permanence Properties}
+
+\begin{prop}\label{tidyquout}
+    If $A$ is a neat frame, then $A_j$ is a neat frame.
+\end{prop}
+
+\begin{proof}
+Let $A$ be $\alpha$-neat and let $F\in A_j^\wedge$. By Proposition \ref{fF}, $j_*F\in A^\wedge$. Let
+\[
+\hat{f}=\dot{\bigvee_{y\in j_*F}}v_y\quad\text{and}\quad f=\dot{\bigvee_{x\in F}}v_x.
+\]
+be the prenuclei associated with $j_*F$ and $F$, respectively.\\
+
+Since $A$ is neat, there exists an ordinal $\alpha$ such that, for every $y\in j_*F$,
+\[
+y\vee \hat{d}=1,\quad \text{with }\hat{d}=\hat{f}^\alpha(0).
+\]
+
+Let
+\[
+d=f^\alpha(j(0)),
+\]
+by Corollary \ref{finftyf},
+\[
+j(\hat{d})=j(\hat{f}^\alpha(0))\leq f^\alpha(j(0))=d.
+\]
+
+Since $j$ is inflationary, $\hat{d}\leq j(\hat{d})$, and hence
+\[
+\hat{d}\leq d.
+\]
+
+Now, let $x\in F$. Thus, $x\in A_j$, we have $j(x)=x$, and therefore $x\in j_*F$. Then,
+\[
+x\vee \hat{d}=1.
+\]
+
+As $\hat{d}\leq d$, it follows that
+\[
+1=x\vee \hat{d}\leq x\vee d\leq 1.
+\]
+
+Hence $x\vee d=1$. Therefore, $A_j$ is $\alpha$-neat.
+\end{proof}
+
+The following theorem establishes that tidiness is preserved under binary coproducts.
+\begin{prop}\label{tidyplus}
+Let $A_1$ and $A_2$ be $\alpha$-neat frames. Then $A_1\oplus A_2$ is $\alpha$-neat.
+\end{prop}
+
+\begin{proof}
+By construction of the coproduct $A_1\oplus A_2$, consider the canonical frame morphism 
+\[
+\iota_i\colon A_i\to A_1\oplus A_2, \quad i=1,2
+\]
+together with their right adjoints $(\iota_i)_*\colon A_1\oplus A_2\to A_i$.\\
+
+Then, we have the following diagram
+\[ 
+\begin{tikzcd}
+A_i \arrow[r, "\alpha_i"] \arrow[rrr, "\iota_i", bend left] & A_1\times A_2  \arrow[r, "\downarrow(\_)"] & \mathcal{L}(A_1\times A_2) \arrow[r, "\sim"] & A_1\oplus A_2 \arrow[lll, "(\iota_i)_*", bend left]
+\end{tikzcd}
+\]
+
+By Proposition \ref{fF}, 
+\[
+(\iota_i)_*F\in A^\wedge_i.
+\]
+
+Since $A_i$ is $\alpha$-neat, for every $x_i\in (\iota_i)_*F$ there exists $d_i\in A_i$ such that
+\[
+x_i\vee d_i=1,
+\]
+where
+\[
+d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
+\]
+
+By the definition of $(\iota_i)_*F$,
+\[
+x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
+\]
+
+Thus,
+\[
+x_1\oplus 1, 1\oplus x_2\in F.
+\]
+
+Since $F$ is a filter,
+\[
+(x_1\oplus 1)\wedge (1\oplus x_2)=x_1\oplus x_2\in F.
+\]
+
+Now let
+\[
+f_F=\dot{\bigvee_{z\in F}}v_z
+\]
+be the prenucleus associated with $F$. We first show that, for $i=1,2$, 
+\[
+\iota_i\circ f_i\leq f_F\circ \iota_i.
+\]
+
+Indeed, let $a\in A_i$ and $y\in (\iota_i)_*F$. Since $\iota_i(y)\in F$,
+\[
+\begin{split}
+	\iota_i(v_y(a))&=\iota_i(y\succ a)\\
+	&\leq (\iota_i(y)\succ \iota_i(a))\\
+	&=v_{\iota_i(y)}(\iota_i(a))\\
+	&\leq f_F(\iota_i(a)).
+\end{split}
+\]
+
+Therefore, since the join defining $f_i$ is pointwise and $\iota_i$ preserves arbitrary joins,
+\[
+\iota_i(f_i(a))=\iota_i\Big(\bigvee_{y\in (\iota_i)_*F}v_y(a)\Big)=\bigvee_{y\in (\iota_i)_*F}\iota_i(v_y(a))\leq f_F(\iota_i(a)).
+\]
+
+Hence, 
+\[
+\iota_i\circ f_i\leq f_F\circ \iota_i.
+\]
+
+We now prove by transfinite induction that 
+\[
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
+\]
+for every ordinal $\beta$.\\
+
+If $\beta=0$, the result is immediate. Suppose that it holds for $\beta$. Then
+\[
+\begin{split}
+\iota_i\circ f_i^{\beta +1}&=\iota_i\circ f_i\circ f_i^\beta\\
+&\leq f_F\circ \iota_i\circ f_i^\beta\\
+&\leq f_F\circ f_F^\beta\circ \iota_i\\
+&= f_F^{\beta +1}\circ \iota_i.
+\end{split}
+\]
+
+Now let $\lambda$ be a limit ordinal. For every $a\in A_i$,
+\[
+\begin{split}
+\iota_i(f_i^\lambda(a))&=\iota_i\Big(\bigvee_{\beta<\lambda}f_i^\beta(a)\Big)\\
+&=\bigvee_{\beta<\lambda}\iota_i(f_i^\beta(a))\\
+&\leq \bigvee_{\beta<\lambda}f_F^\beta(\iota_i(a))\\
+=&f_F^\lambda(\iota_i(a)).
+\end{split}
+\]
+
+Thus,
+\[
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
+\]
+for every ordinal $\beta$.\\
+
+Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
+\[
+\iota_1(d_1)\leq f_F^\alpha(0\oplus 1)\quad \text{and}\quad \iota_2(d_2)\leq f_F^\alpha(1\oplus 0).
+\]
+
+Therefore,
+\[
+\begin{split}
+d_1\oplus d_2&=(d_1\oplus 1)\wedge (1\oplus d_2)\\
+&\leq f_F^\alpha(0\oplus 1)\wedge f_F^\alpha(1\oplus 0)\\
+&=f_F^\alpha(0\oplus 1\wedge 1\oplus 0).
+\end{split}
+\]
+
+Set $d=f_F^\alpha(0\oplus 0)$, then $d_1\oplus d_2\leq d$. Finally,
+\[
+\begin{split}
+	1\oplus 1&=(x_1\vee d_1)\oplus (x_2\vee d_2)\\
+	&=(x_1\oplus x_2)\vee (d_1\oplus d_2)\\
+	\leq (x_1\oplus x_2)\vee d\\
+	&\leq 1\oplus 1.
+\end{split}
+\]
+
+Therefore,
+\[
+(x_q\oplus x_2)\vee d=1\oplus 1
+\]
+and $A_1\oplus A_2$ is $\alpha$-tidy.
+\end{proof}
+
+\begin{cor}\label{Paso 3}
+Let $A_1$ and $A_2$ be $\alpha$-neat and $\beta$-neat, respectively. Then $A_1\oplus A_2$ is $\gamma$-neat, where
+\[
+\gamma=\max\{\alpha, \beta\}.
+\]
+\end{cor}
+
+\begin{proof}
+Let $\gamma=\max\{\alpha, \beta\}$. Then $A_1$ and $A_2$ are both $\gamma$-neat. Hence, by Proposition \ref{tidyplus}, $A_1\oplus A_2$ is $\gamma$-neat.
+\end{proof}
+
+We extend the previous result to arbitrary coproducts.
+
+\begin{prop}\label{coprodE}
+Tidiness is preserved under arbitrary coproducts.
+\end{prop}
+
+\begin{proof}
+Let $\{A_i\}_{i\in I}$ be a family of neat frames, and for each $i\in I$, let $\alpha_i$ be a tidiness degree of $A_i$. Consider 
+\[
+A=\bigoplus_{i\in I}A_i
+\]
+and let
+\[
+\iota_i\colon A_i\to A
+\]
+denote the canonical coproduct morphisms. Since $\iota_i$ is a frame morphism, it has a right adjoint $(\iota_i)_*$.\\
+
+Let $F\in A^\wedge$. By Proposition \ref{fF}, 
+\[
+(\iota_i)_*F\in A_i^\wedge
+\]
+for every $i\in I$. Moreover,
+\[
+x_i\in (\iota_i)_*F\iff \iota_i(x_i)\in F.
+\]
+
+Set $\alpha=\sup\{\alpha_i\mid i\in I\}$. Then every $A_i$ is $\alpha$-neat. Hence, for every $x_i\in (\iota_i)_*F$,
+\[
+x_i\vee d_i=1,
+\]
+where 
+\[
+d_i=f_i^\alpha(0)\quad \text{and}\quad f_i=\dot{\bigvee_{y\in (\iota_i)_*F}}v_y.
+\]
+
+Let
+\[
+f_F=\dot{\bigvee_x\in F}v_x
+\]
+be the prenucleus associated with $F$. As in the proof of Proposition \ref{tidyplus}, for every $i\in I$ we have
+\[
+\iota_i\circ f_i\leq f_F\circ \iota_i,
+\]
+and, by transfinite induction, 
+\[
+\iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
+\]
+for every ordinal $\beta$.\\
+
+Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
+\[
+\iota_i(d_i)=\iota_i(f^\alpha_i(0))\leq f_F^\alpha(\iota_i(0))=f_F^\alpha(\langle 0\rangle).
+\]
+
+Set
+\[
+d=f_F^\alpha(\langle 0\rangle).
+\]
+
+Therefore,
+\[
+\iota_i(d_i)\leq d
+\]
+for every $i\in I$. Taking arbitrary joins yields 
+\[
+\langle d_i\rangle\bigvee_{i\in I}\iota_i(d_i)\leq d.
+\]
+
+Now let
+\[
+\langle x_i\rangle\in F.
+\]
+
+Since $x_i\vee d_i=1$ for every $i\in I$, we have
+\[
+\langle x_i\rangle\vee \langle d_i\rangle=\langle x_i\vee d_i\rangle=\langle 1\rangle.
+\]
+
+As $\langle d_i\rangle\leq d$,
+\[
+\langle 1\rangle=\langle x_i\rangle\vee \langle d_i\rangle\leq \langle x_i\rangle\vee d\leq \langle 1\rangle.
+\]
+
+Thus, 
+\[
+\langle x_i\rangle\vee d=\langle 1\rangle.
+\]
+
+Therefore, $A=\bigoplus_{i\in I}A_i$ is $\alpha$-neat, and hence neat.
+\end{proof} 
+
+\begin{cor}
+The subcategory of neat frames is a coreflective subcategory of $\Frm$.
+\end{cor}
+
+Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
+\begin{equation}\label{Qlaxo}
+\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $f^\infty$ and $F^\infty$ represent the
+fitted nuclei associated with the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$, respectively, that is, 
+\[
+f^\infty=v_F\quad\text{and}\quad F^\infty =v_\nabla.
+\]
+
+Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\wedge$ and $j_*F\in A^\wedge$ to produce the diagram
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["j^*"', from=1-1, to=2-1]
+	\arrow["j^*", from=1-2, to=2-2]
+	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.\\
+
+The following lemma is part of the analysis developed in this work and constitutes a key tool in the construction of the commutative diagrams
+that follow.
+
+\begin{lem}\label{f1f}
+    For $j=j^*$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
+\end{lem}
+\begin{proof}
+    Recall that, by (\ref{Imagenfiltros})
+    \[
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\} \quad\text{y}\quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \]
+
+Let $a\in A$ be. For every $y\in j_*F$, we have
+\[
+j(v_y(a))=j(y\succ a)\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)),
+\]
+where the last inequality follows from $j(y)\in F$. Therefore, since $j$ preserves arbitrary joins,
+\[
+j(\hat{f}(a))=j\Big(\bigvee\{v_y(a)\mid y\in j_*F\}\Big)=\bigvee\{j(v_y(a))\mid y\in j_*F\}\leq f(j(a)).
+\]
+
+Hence, $j\circ \hat{f}\leq f\circ j$.
+\end{proof}
+
+We now prove the above for an arbitrary ordinal.
+\begin{cor}\label{finftyf}
+    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$ where $\alpha\in \Ord$.
+\end{cor}
+
+\begin{proof}
+    We proceed by transfinite induction on $\alpha$
+    If $\alpha=0$, the result is immediate.\\
+
+    For the induction step, suppose that the inequality holds for $\alpha$. Then
+    \[
+    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
+    \]
+    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.\\
+
+    Finally, let $\lambda$ be a limit ordinal. For every $a\in A$,
+	\[
+	j(\hat{f}(a))=j\Big(\bigvee_{\alpha<\lambda}\hat{f}^\alpha\Big)=\bigvee_{\alpha<\lambda}j(\hat{f}^\alpha(a))\leq \bigvee_{\alpha<\lambda}f^\alpha(j(a))=f^\lambda(j(a)).
+	\]
+	where the inequality follows from the induction hypothesis. Hence
+	\[
+	j\circ \hat{f}^\lambda\leq f^\lambda \circ j.
+	\]
+	This completes the proof.
+\end{proof}
+
+Recalling that $v_F=f^\infty$ and $v_{j_*F}=\hat{f}^\infty$, Corollary \ref{finftyf} yields
+\[j
+\circ v_{j_*F}\leq v_F\circ j
+\]
+
+We now compare the compact quotients induced by $F$ and $j_*F$, and construct a frame morphism between them making the corresponding diagram commute.\\
+
+If we consider $j, v_F$ and $v_{j_*F}$ we have the following diagram
+\begin{equation}\label{diagrama H}
+\begin{tikzcd}
+	A && {A_{j_*F}} \\
+	\\
+	{A_j} && {A_F}
+	\arrow["{(v_{j_*F})^*}", shift left, from=1-1, to=1-3]
+	\arrow["j"', from=1-1, to=3-1]
+	\arrow["H"', from=1-1, to=3-3]
+	\arrow["{(v_{j_*F})_*}", shift left, from=1-3, to=1-1]
+	\arrow["h", dotted, from=1-3, to=3-3]
+	\arrow["{(v_F)^*}"', shift right, from=3-1, to=3-3]
+	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
+\end{tikzcd}
+\end{equation}
+where $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_*F}$, respectively.\\
+
+Define
+\[
+H\colon A\to A_F, \qquad H=v_F\circ j.
+\]
+
+Since $v_F$ is idempotent, $H(A)\subseteq A_F$. Hence, by restricting $H$ to $A_{j_*F}$, we obtain a map
+\[
+h\colon A_{j_*F}\to A_F, \qquad h=H|_{A_{j_*F}}.
+\]
+
+As finite meets in quotient frames are inherited from the ambient frame, $h$ preserves finite meets. It remains to verify that $h$ preserves arbitrary joins.
+
+\begin{lem}\label{bigvee g}
+The map $h\colon A_{j_*F}\to A_F$ preserves arbitrary joins.
+\end{lem}
+
+\begin{proof}
+	Let $X\subseteq A_{j_*F}$. Since joins in $A_{j_*F}$ are given by
+	\[
+	\bigvee_{v_{j_*F}}X=v_{j_*F}(\bigvee X)
+	\] 
+	we have
+	\[
+	\begin{split}
+	h\Big(\bigvee_{v_{j_*F}}X\Big)&=v_F\Big(j\Big(v_{j_*F}\Big(\bigvee X\Big)\Big)\Big)\\
+	&\leq v_F\Big(v_F\Big(j\Big(\bigvee X\Big)\Big)\Big)\\
+	&=v_F\Big(j\Big(\bigvee X\Big)\Big),
+	\end{split}
+	\]
+	where the inequality follows from Corollary \ref{finftyf} and the equality from the idempotency of $v_F$.\\
+
+	Since $H$ is a frame morphism, 
+	\[
+	v_F\Big(j\Big(\bigvee X\Big)\Big)=\bigvee_{v_F}\{H(x)\mid x\in X\}=\bigvee_{v_F}\{h(x)\mid x\in X\}.
+	\]
+	Therefore,
+	\[
+	h\Big(\bigvee_{v_{j_*F}}X\Big)\leq \bigvee_{v_F}h[X].
+	\]
+
+	Conversely, for every $x\in X$,
+	\[
+	x\leq \bigvee_{v_{j_*F}}X,
+	\]
+	and hence, by monotonicity of $h$,
+	\[
+	h(x)\leq h\Big(\bigvee_{v_{j_*F}}X\Big).
+	\]
+	Since this holds for every $x\in X$, we have
+	\[
+	\bigvee_{v_F}h[X]\leq h\Big(\bigvee_{v_{j_*F}}X\Big).
+	\]
+	Thus,
+	\[
+	h\Big(\bigvee_{v_{j_*F}}X\Big)= \bigvee_{v_F}h[X].
+	\]
+	Therefore $h$ preserves arbitrary joins.
+\end{proof}
+
+The previous construction yields the following commutative diagram induced by the compact quotients associated with the fitted nuclei.
+\begin{prop}\label{VFsquare}
+The diagram
+\begin{equation}\label{Cuadrado}
+    \begin{tikzcd}
+	A & {A_{j_*F}} \\
+	{A_j} & {A_F}
+	\arrow["{v_{j_*F}}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_F}"', from=2-1, to=2-2]
+\end{tikzcd}\end{equation}
+is commutative.
+\end{prop}
+
+\begin{proof}
+	By Lemma \ref{bigvee g}, $h$ is a frame morphism. The commutativity of the diagram follows from the definition of $h$.
+\end{proof}
+
+We now study the behavior of strongly stacked frames under quotients.
+
+Recall that, for a frame morphism $f\colon A\to B$, $j\in NA$, and
+$k\in NB$, we have
+\[
+N(f)(j)
+=
+\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}
+\in NB
+\]
+and
+\[
+N(f)_*(k)=f_*\circ k\circ f\in NA,
+\]
+where $f_*$ denotes the right adjoint of $f$.
+
+\begin{prop}\label{Cocientefapilado}
+Let $A$ be a strongly stacked frame and $j\in NA$. Then $A_j$ is strongly
+stacked.
+\end{prop}
+
+\begin{proof}
+Let $F\in A_j^\wedge$, and set
+\[
+S=\pt A,
+\qquad
+S_j=\pt A_j.
+\]
+Consider the open filter
+\[
+G=j_*(F)=\{x\in A\mid j(x)\in F\},
+\]
+and let
+\[
+Q=S_j\setminus F,
+\qquad
+R=S\setminus G.
+\]
+Denote by
+\[
+\mathcal{U}\colon A\longrightarrow\mathcal{O}S
+\qquad\text{and}\qquad
+\mathcal{U}_j\colon A_j\longrightarrow\mathcal{O}S_j
+\]
+the corresponding spatial reflections.
+
+Set
+\[
+l=N(\mathcal{U}_j)_*([Q'])
+=(\mathcal{U}_j)_*\circ[Q']\circ\mathcal{U}_j
+\]
+and
+\[
+m=N(j^*)(v_G).
+\]
+By Proposition \ref{morfismo},
+\[
+v_F\leq l.
+\]
+Thus, it is enough to prove
+\[
+l\leq m\leq v_F.
+\]
+
+We first prove that $m\leq v_F$. Since $G=j_*(F)$, the fitted nuclei
+associated with $G$ and $F$ satisfy
+\begin{equation}\label{eq1}
+j^*\circ v_G\leq v_F\circ j^*.
+\end{equation}
+Moreover,
+\[
+m=N(j^*)(v_G)
+=
+\bigvee_{x\in A}
+\left(
+u_{j^*(v_G(x))}\wedge v_{j^*(x)}
+\right).
+\]
+By \eqref{eq1}, for every $x\in A$,
+\[
+j^*(v_G(x))\leq v_F(j^*(x)),
+\]
+and hence
+\[
+u_{j^*(v_G(x))}
+\leq
+u_{v_F(j^*(x))}.
+\]
+Therefore,
+\[
+u_{j^*(v_G(x))}\wedge v_{j^*(x)}
+\leq
+u_{v_F(j^*(x))}\wedge v_{j^*(x)}
+\leq v_F.
+\]
+Taking joins over $x\in A$, we obtain
+\begin{equation}\label{eq2}
+m\leq v_F.
+\end{equation}
+
+We now prove that $l\leq m$. Since $A$ is strongly stacked,
+\[
+v_G=N(\mathcal{U})_*([R'])
+=\mathcal{U}_*\circ[R']\circ\mathcal{U}.
+\]
+Hence,
+\[
+m
+=
+N(j^*)\bigl(N(\mathcal{U})_*([R'])\bigr).
+\]
+
+To compare the $u$-components in the decompositions of $l$ and $m$, consider
+the auxiliary nucleus
+\[
+n=N(\mathcal{U}_j\circ j^*)_*([Q']).
+\]
+We first observe that, for every $x\in A_j$,
+\[
+j^*(n(x))=l(x).
+\]
+Indeed,
+\[
+\begin{aligned}
+j^*(n(x))
+&=
+j^*\left(
+j_*\circ(\mathcal{U}_j)_*
+\circ[Q']\circ\mathcal{U}_j\circ j^*
+\right)(x)\\
+&=
+j^*j_*\left(
+\bigvee
+\left\{
+a\in A_j
+\;\middle|\;
+\mathcal{U}_j(a)
+\subseteq
+Q'\cup\mathcal{U}_j(j^*(x))
+\right\}
+\right)\\
+&=
+\bigvee
+\left\{
+a\in A_j
+\;\middle|\;
+\mathcal{U}_j(a)
+\subseteq
+Q'\cup\mathcal{U}_j(x)
+\right\}\\
+&=l(x).
+\end{aligned}
+\]
+
+Now, under the usual identification of $S_j$ with the corresponding subspace
+of $S$, we have
+\[
+Q=R\cap S_j.
+\]
+Using the decomposition of a nucleus in terms of its $u$- and $v$-components,
+we have
+\[
+l
+=
+\bigvee_{x\in A_j}
+\left(
+u_{l(x)}\wedge v_x
+\right)
+=
+\bigvee_{x\in A_j}
+\left(
+u_{j^*(n(x))}\wedge v_x
+\right).
+\]
+
+On the other hand, since
+\[
+m
+=
+N(j^*)\bigl(N(\mathcal{U})_*([R'])\bigr),
+\]
+we have
+\[
+m
+=
+\bigvee_{a\in A}
+\left(
+u_{j^*(N(\mathcal{U})_*([R'])(a))}
+\wedge
+v_{j^*(a)}
+\right).
+\]
+
+For $x\in A_j$, the explicit description of the right adjoint gives
+\[
+\begin{aligned}
+j^*\bigl(N(\mathcal{U})_*([R'])(x)\bigr)
+&=
+j^*\left(
+\bigvee
+\left\{
+a\in A
+\;\middle|\;
+\mathcal{U}(a)
+\subseteq
+R'\cup\mathcal{U}(x)
+\right\}
+\right)\\
+&=
+\bigvee
+\left\{
+j^*(a)\in A_j
+\;\middle|\;
+\mathcal{U}(j^*(a))
+\subseteq
+Q'\cup\mathcal{U}(x)
+\right\}.
+\end{aligned}
+\]
+Moreover, since $x\in A_j$,
+\[
+\mathcal{U}(j^*(a))
+\subseteq
+Q'\cup\mathcal{U}(x)
+\]
+is equivalent, after restriction to $S_j$, to
+\[
+\mathcal{U}_j(j^*(a))
+\subseteq
+Q'\cup\mathcal{U}_j(x).
+\]
+Consequently,
+\[
+j^*(n(x))
+\leq
+j^*\bigl(N(\mathcal{U})_*([R'])(x)\bigr).
+\]
+Therefore,
+\[
+u_{j^*(n(x))}
+\leq
+u_{j^*(N(\mathcal{U})_*([R'])(x))}
+\]
+for every $x\in A_j$, and hence
+\[
+u_{l(x)}\wedge v_x
+=
+u_{j^*(n(x))}\wedge v_x
+\leq
+u_{j^*(N(\mathcal{U})_*([R'])(x))}\wedge v_x
+\leq m.
+\]
+Taking joins over $x\in A_j$, we obtain
+\[
+l\leq m.
+\]
+
+Combining this inequality with \eqref{eq2} and $v_F\leq l$, we obtain
+\[
+v_F\leq l\leq m\leq v_F.
+\]
+Hence,
+\[
+v_F=l
+=
+(\mathcal{U}_j)_*\circ[Q']\circ\mathcal{U}_j.
+\]
+Therefore, $A_j$ is strongly stacked.
+\end{proof}
+
+Since every strongly stacked frame is stacked, we obtain the following result.
+
+\begin{cor}
+Let $A$ be a strongly stacked frame and $j\in NA$. Then $A_j$ is stacked.
+\end{cor}
+
+\begin{proof}
+By Proposition \ref{Cocientefapilado}, $A_j$ is strongly stacked, and hence stacked.
+\end{proof}
+
+We first observe that the KC property is inherited by quotients.
+
+\begin{prop}\label{KCquout}
+Let $A$ be a KC frame and $j\in NA$. Then $A_j$ is KC.
+\end{prop}
+
+\begin{proof}
+Let $k\in N(A_j)$ be such that $(A_j)_k$ is compact. Then
+\[
+\nabla(k)\in A_j^\wedge.
+\]
+By Proposition \ref{fF},
+\[
+j_*(\nabla(k))\in A^\wedge.
+\]
+Consider the nucleus
+\[
+l=j_*\circ k\circ j^*\in NA.
+\]
+Since
+\[
+\nabla(l)=j_*(\nabla(k)),
+\]
+the quotient $A_l$ is compact. Since $A$ is KC, there exists $a\in A$ such that
+\[
+l=u_a.
+\]
+
+We claim that
+\[
+k=u_{j^*(a)}.
+\]
+Indeed, from $l=u_a$ we have
+\[
+a\vee x
+=
+l(x)
+=
+j_*\bigl(k(j^*(x))\bigr)
+\]
+for every $x\in A$. Applying $j^*$ to both sides yields
+\[
+j^*(a)\vee j^*(x)
+=
+k(j^*(x)),
+\]
+since $j^*\circ j_*=\id_{A_j}$.
+
+Now let $x\in A_j$. Since $j^*\colon A\to A_j$ is surjective, we have
+$j^*(x)=x$, and therefore
+\[
+\begin{aligned}
+u_{j^*(a)}(x)
+&=j^*(a)\vee x\\
+&=j^*(a)\vee j^*(x)\\
+&=k(j^*(x))\\
+&=k(x).
+\end{aligned}
+\]
+Hence
+\[
+k=u_{j^*(a)}.
+\]
+Thus $(A_j)_k$ is closed. Therefore, $A_j$ is KC.
+\end{proof}
+
+\begin{prop}\label{KCT1}
+Every KC frame is $T_1$.
+\end{prop}
+
+\begin{proof}
+Let $p\in\pt A$. The filter
+\[
+F_p=\nabla(w_p)=\{x\in A\mid x\nleq p\}
+\]
+is completely prime and, in particular, $F_p\in A^\wedge$. Hence $A_{w_p}$
+is a compact quotient of $A$. Since $A$ is KC, this quotient is closed.
+Therefore,
+\[
+w_p=u_a
+\]
+for some $a\in A$. Evaluating at $0$, we obtain
+\[
+a=u_a(0)=w_p(0)=p,
+\]
+and hence
+\[
+w_p=u_p.
+\]
+
+Now let $a\in A$ be such that
+\[
+p<a\leq1.
+\]
+Since $a\nleq p$, we have
+\[
+w_p(a)=1.
+\]
+On the other hand,
+\[
+u_p(a)=p\vee a=a.
+\]
+Since $w_p=u_p$, it follows that
+\[
+a=1.
+\]
+Thus $p$ is maximal. Since every point of $A$ is maximal, $A$ is $T_1$.
+\end{proof}
+
+
+\section{The Spatial Case}
+
+\begin{lem}\label{inducciontransfinita}
+Let $\alpha\in \Ord$ and $X\in CS$. Then
+\begin{equation}\label{eq:induccion}
+\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
+\end{equation}
+\end{lem}
+
+\begin{proof}
+We proceed by transfinite induction on \(\alpha\).
+
+For \(\alpha=0\), both \(\partial_F^0\) and \(f_F^0\) are the identity. Hence,
+
+$$
+\partial_F^0(X)
+=X
+=(X')'
+=\left(f_F^0(X')\right)'.
+$$
+
+Suppose that the result holds for some ordinal \(\alpha\). Then
+
+$$
+\begin{aligned}
+\partial_F^{\alpha+1}(X)
+&=\partial_F\left(\partial_F^\alpha(X)\right)\\
+&=\left(f_F\left(\left(\partial_F^\alpha(X)\right)'\right)\right)'\\
+&=\left(f_F\left(f_F^\alpha(X')\right)\right)'\\
+&=\left(f_F^{\alpha+1}(X')\right)'.
+\end{aligned}
+$$
+
+Finally, let \(\lambda\) be a limit ordinal and suppose that the result holds for every \(\alpha<\lambda\). By definition and De Morgan's law,
+
+$$
+\begin{aligned}
+\left(\partial_F^\lambda(X)\right)'
+&=
+\left(\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\right)'\\
+&=
+\bigcup_{\alpha<\lambda}
+\left(\partial_F^\alpha(X)\right)'\\
+&=
+\bigcup_{\alpha<\lambda}
+f_F^\alpha(X')\\
+&=
+f_F^\lambda(X'),
+\end{aligned}
+$$
+
+where the third equality follows from the induction hypothesis. Therefore,
+
+$$
+\partial_F^\lambda(X)
+=
+\left(f_F^\lambda(X')\right)'.
+$$
+
+This completes the proof.
+\end{proof}
+
+The following is an immediate consequence of Lemma \ref{inducciontransfinita}.
+
+
+\begin{cor}\label{cor:infinito}
+Let $U\in\mathcal{O}S$. Then
+\begin{equation}\label{eq:infinito}
+    \begin{split}
+\left(\partial_F^\infty(U')\right)'=v_F(U).
+	\end{split}
+\end{equation}
+\end{cor}
+
+
+A particular instance of diagram (\ref{Cuadrado}) is obtained by taking $j^*=\mathcal{U}_A$, where $S=\pt A$. Thus, we obtain 
+the following commutative diagram:
+\[\begin{tikzcd}
+	A & {A_F} \\
+	{\mathcal{O}S} & {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-2]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{v_\nabla}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Recall that $\pt A_F=Q$. Hence, the spatial reflection of $A_F$ is given by
+\[
+\mathcal{U}_{A_F}\colon A_F\to \mathcal{O}\pt A_F=\mathcal{O}Q.
+\]
+ 
+Similarly, since $\pt((\mathcal{O}S)_\nabla)=Q$, we have the spatial reflection
+\[
+\mathcal{U}_{\mathcal{O}S_\nabla}\colon \mathcal{O}S_\nabla\to \mathcal{O}\pt(\mathcal{O}S)_\nabla=\mathcal{O}Q.
+\]
+
+Consequently, the two induced morphisms from $A$ to $\mathcal{O}Q$ are both given by
+\[
+x\mapsto \mathcal{U}_A(x)\cap Q.
+\]
+
+Therefore, the preceding constructions fit into the following commutative diagram:
+\begin{equation}\label{Qcuadrado}
+\begin{tikzcd}
+	A && {A_F} & \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
+	\arrow["h"', from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_\nabla}}"', from=3-3, to=2-4]
+\end{tikzcd}\end{equation}
+
+Since the above diagram is determined by $F\in A^\wedge$ and the associated compact saturated subset $Q\in \mathcal{Q}S$, 
+we refer to diagram (\ref{Qcuadrado}) as the \emph{$Q$-square}.
+
+\begin{thm}\label{haus1}
+Under the hypotheses of the $Q$-square, if $A$ satisfies property $\mathbf{(H)}$, then
+\[
+\mathcal{O}Q\cong \uparrow Q'.
+\]
+Equivalently, the frame of open sets of the point space of $A_F$ is isomorphic to a compact closed quotient of 
+a Hausdorff space.
+\end{thm}
+
+\begin{proof}
+Suppose that $A$ satisfies $\mathbf{(H)}$. Since $\mathbf{(H)}$ is conservative, $S=\pt A$ is a $T_2$ space. Hence, for every $Q\in \mathcal{Q}S$, the set $Q$ is closed, and therefore $Q'\in \mathcal{O}S$\\
+
+Moreover, since every $T_2$ space is strongly stacked, we have
+\[
+v_\nabla=[Q'].
+\]
+As $Q'\in \mathcal{O}S$, it follows that 
+\[
+[Q']=u_{Q'}
+\]
+
+Consequently,
+\[
+(\mathcal{O}S)_{v_\nabla}=(\mathcal{O}S)_{u_{Q'}}\cong \uparrow Q'.
+\]
+
+Now, $u_{Q'}$ is a complemented nucleus in $\mathcal{O}S$, by \cite[Proposition VI.3.3]{PicadoPultr}, implies that $\mathcal{O}S_{v_\nabla}$ is spatial. Therefore, 
+\[
+(\mathcal{O}S)_{v_\nabla}\cong\mathcal{O}\pt((\mathcal{O}S)_{v_\nabla}).
+\]
+Since
+\[
+\pt((\mathcal{O}S)_{v_\nabla})=Q,
+\]
+we obtain
+\[
+\mathcal{O}Q\cong (\mathcal{O}S)_{v_\nabla}\cong \uparrow Q'.
+\]
+\end{proof}
+
+\begin{lem}\label{lem:auxiliar}
+Let $A=\mathcal{O}S$ be spatial and let $E\subseteq S$. Then
+\[
+\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
+\]
+\end{lem}
+
+\begin{proof}
+Let $V\in\mathcal{O}S$. Since
+\[
+\mathcal{U}\colon \mathcal{O}S\longrightarrow
+\mathcal{O}\pt(\mathcal{O}S)
+\]
+is an isomorphism, there exist $x,y\in\mathcal{O}S$ such that
+\[
+V=\mathcal{U}(y)
+\]
+and
+\[
+(E\cup V)^\circ=\mathcal{U}(x).
+\]
+
+Then
+\[
+\begin{aligned}
+(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
+&=\mathcal{U}_*\bigl([E](\mathcal{U}(y))\bigr)\\
+&=\mathcal{U}_*\bigl((E\cup V)^\circ\bigr)\\
+&=\mathcal{U}_*(\mathcal{U}(x))\\
+&=x.
+\end{aligned}
+\]
+
+On the other hand,
+\[
+\mathcal{U}([E](y))
+=(E\cup \mathcal{U}(y))^\circ
+=(E\cup V)^\circ
+=\mathcal{U}(x).
+\]
+Since $\mathcal{U}$ is injective, it follows that
+\[
+[E](y)=x.
+\]
+
+Therefore,
+\[
+(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
+=[E](y)
+\]
+for every $y\in\mathcal{O}S$. Hence,
+\[
+\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
+\]
+\end{proof}
+
+We now show that both notions are conservative; namely, for every topological space $S$,
+\[
+S \text{ is stacked}
+\Longleftrightarrow
+\mathcal{O}S \text{ is stacked},
+\]
+and
+\[
+S \text{ is strongly stacked}
+\Longleftrightarrow
+\mathcal{O}S \text{ is strongly stacked}.
+\]
+
+\begin{prop}\label{apiladoconservativa}
+The notions of strongly stacked and stacked are conservative.
+\end{prop}
+
+\begin{proof}
+Let $S\in\mathbf{Top}$ and set $A=\mathcal{O}S$.
+
+First, suppose that $S$ is strongly stacked. Then, for every HM pair
+$(F,Q)$,
+\[
+v_F=[Q'].
+\]
+By Lemma~5.3,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
+\]
+Therefore,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=v_F,
+\]
+and hence $\mathcal{O}S$ is strongly stacked.
+
+Now, suppose that $S$ is stacked. Then, for every HM pair $(F,Q)$,
+\[
+Q=\partial_F^\infty(S).
+\]
+Hence,
+\[
+Q'=\left(\partial_F^\infty(S)\right)'.
+\]
+By Corollary~5.2,
+\[
+v_F(\varnothing)
+=\left(\partial_F^\infty(S)\right)'
+=Q'.
+\]
+In particular, $Q'$ is open. By Lemma~5.3,
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=[Q'].
+\]
+Therefore,
+\[
+\begin{aligned}
+(\mathcal{U}_*\circ[Q']\circ\mathcal{U})(\varnothing)
+&=[Q'](\varnothing)\\
+&=(Q')^\circ\\
+&=Q'\\
+&=v_F(\varnothing).
+\end{aligned}
+\]
+Thus, $\mathcal{O}S$ is stacked.
+
+Since all the implications used above are equivalences, the converse statements follow by reversing the argument.
+\end{proof}
+
 Recall that $A^\wedge$ is endowed with the topology generated by the basic
 open sets
 \[
@@ -1654,495 +2411,19 @@ Hence $a=p$, and $A$ is $T_1$.
 \end{enumerate}
 \end{proof}
 
-Notice that the additional hypothesis in Proposition \ref{IsoVA} (3) is automatically
-satisfied whenever $A$ is spatial. Indeed, if $a<1$ and $A$ is spatial, then
-there exists $p\in\pt A$ such that
-\[
-a\leq p.
-\]
-Hence,
-\[
-\mathcal{V}(a)=\{p\in\pt A\mid a\leq p\}\neq\varnothing.
-\]
-Thus, in the spatial setting, Proposition \ref{IsoVA} reflects the topological fact
-that every $T_1$ stacked space is sober.
 
-The point-free situation is, however, genuinely broader, since the $T_1$ and
-stacked conditions do not force spatiality. In fact, the following example
-shows that this remains true even if stacked is replaced by strongly stacked.
+\section{Relations among Compact-Quotient Separation Properties}
 
-\begin{ej}
-Let $B$ be an atomless complete Boolean algebra and consider
-\[
-A=B\times 2,
-\]
-where $2=\{0<1\}$. Then $A$ is a complete Boolean algebra. We show that $A$
-is $T_1$ and strongly stacked, but not spatial.
 
-First, let
-\[
-p=(1,0).
-\]
-We claim that
-\[
-\pt A=\{p\}.
-\]
-Indeed, suppose that $(a,b),(c,d)\in A$ satisfy
-\[
-(a,b)\wedge(c,d)\leq p.
-\]
-Then
-\[
-(a\wedge c,b\wedge d)\leq(1,0),
-\]
-so $b\wedge d=0$. Since $b,d\in 2$, either $b=0$ or $d=0$, and hence
-\[
-(a,b)\leq p
-\qquad\text{or}\qquad
-(c,d)\leq p.
-\]
-Thus, $p\in\pt A$.
+\bibliographystyle{amsalpha}
 
-Now, let $q=(x,y)\in\pt A$. If $y=0$, then
-\[
-(1,0)\wedge(x,1)\leq(x,0)=q.
-\]
-Since $(x,1)\nleq q$, the complete meet-irreducibility of $q$ implies
-\[
-(1,0)\leq q,
-\]
-and therefore $x=1$. Hence $q=p$.
+\bibliography{research2}
 
-If $y=1$, then $x<1$. For $a,b\in B$ such that $a\wedge b\leq x$, we have
-\[
-(a,1)\wedge(b,1)\leq(x,1)=q.
-\]
-Since $q$ is a point, either $a\leq x$ or $b\leq x$, showing that
-$x\in\pt B$. This is impossible, since an atomless complete Boolean algebra
-has no points. Therefore,
-\[
-\pt A=\{p\}.
-\]
+\newpage
 
-Moreover, if
-\[
-p\leq(a,b),
-\]
-then $a=1$, and hence $(a,b)$ is either $p$ or $1$. Thus $p$ is maximal and
-$A$ is $T_1$.
+%\section*{Examples}
 
-On the other hand, $A$ is not spatial. Indeed, if $a,b\in B$ with $a\neq b$,
-then
-\[
-(a,0)\neq(b,0),
-\]
-while
-\[
-\mathcal{U}(a,0)=\varnothing=\mathcal{U}(b,0).
-\]
-Hence the spatial reflection
-\[
-\mathcal{U}\colon A\longrightarrow\mathcal{O}(\pt A)
-\]
-is not injective.
-
-It remains to prove that $A$ is strongly stacked. Since $B$ is an atomless
-complete Boolean algebra, $0$ is its only compact element. Therefore,
-\[
-K(A)=K(B)\times K(2)=\{(0,0),(0,1)\}.
-\]
-Since every open filter of a complete Boolean algebra is principal and
-$\uparrow a$ is open if and only if $a$ is compact, it follows that
-\[
-A^\wedge=\{\uparrow(0,0),\uparrow(0,1)\}.
-\]
-Clearly,
-\[
-\uparrow(0,0)=A,
-\]
-whereas
-\[
-\uparrow(0,1)=B\times\{1\}=F_p.
-\]
-Hence,
-\[
-A^\wedge=\{A,F_p\}.
-\]
-
-For $F_p$, since $A$ is $T_1$, then
-\[
-v_{F_p}=w_{F_p}.
-\]
-
-For $F=A$, we have
-\[
-v_F=\operatorname{tp}=w_F.
-\]
-Consequently,
-\[
-v_F=w_F
-\]
-for every $F\in A^\wedge$. By Corollary \ref{vF=wF}, $A$ is strongly stacked.
-\end{ej}
-
-\begin{cor}\label{T1apiladonoespacial}
-There exist non-spatial $T_1$ strongly stacked frames. In particular, there
-exist non-spatial $T_1$ stacked frames.
-\end{cor}
-
-The previous example shows that the $T_1$ and stacked conditions do not imply
-spatiality. We now consider a stronger separation property that provides
-another source of stacked frames.
-
-Recall that a frame $A$ satisfies property $\mathbf{(H)}$ if
-\[
-1\neq a\nleq b
-\]
-implies that there exists $c\in A$ such that
-\[
-c\nleq a
-\qquad\text{and}\qquad
-\neg c\nleq b.
-\]
-As shown in \cite{PasekaSmarda1992}, property $\mathbf{(H)}$ implies $T_1$.
-
-\begin{prop}
-Every frame satisfying property $(H)$ is stacked.
-\end{prop}
-
-\begin{proof}
-
-\end{proof}
-
-Consequently, every frame satisfying $\mathbf{(H)}$ is both $T_1$ and stacked.
-In particular, the non-spatial frames satisfying $\mathbf{(H)}$ constructed by
-Paseka and Šmarda provide another family of non-spatial $T_1$ stacked
-frames.
-
-Thus, the point-free setting exhibits a behavior that has no direct spatial
-counterpart: the $T_1$ and stacked conditions do not force spatiality. This
-occurs both in the strongly stacked example above and, more generally, among
-non-spatial frames satisfying property $\mathbf{(H)}$.
-
-\begin{comment}
-
-
-Por el resultado anterior, y ya que $T_1$ y apilado son propiedades incomparables, tenemos la siguiente relación con la propiedad $\mathbf{(H)}$
-\[\begin{tikzcd}
-	& {\mathbf{(H)}} & \\
-	{\text{Apilado}} && {T_1}
-	\arrow[Rightarrow, from=1-2, to=2-1]
-	\arrow[Rightarrow, from=1-2, to=2-3]
-\end{tikzcd}\]
-
-Usaremos este hecho para exhibir un ejemplo de lo siguiente.
-
-\begin{thm}
-Existen marcos $T_1$ y apilados que no son espaciales.
-\end{thm}
-
-\begin{proof}
-Si consideramos $A\in \Frm$ tal que $A$ satisface $\mathbf{(H)}$, podemos construir el siguiente marco
-\[
-\widetilde{A}=\{(a,b)\mid a\in A, b\in \mathcal{B}(A)\},
-\]
-donde $\mathcal{B}(A)=\{b\in A\mid b=\neg \neg b\}$ y se conoce como la \emph{booleanización} de $A$.\\
-
-Además, si para $x\in A$, con $x$ máximo, se cumple que $\neg x=0$, entonces $\widetilde{A}$ satisface $\mathbf{(H)}$. En consecuencia, $\widetilde{A}$ es un marco $T_1$ y apilado, pero no es espacial.
-\end{proof}
-
-Para ver los detalles de la no espacialidad de $\widetilde{A}$, se puede consultar \cite{PasekaSmarda1992}.
-\end{comment}
-
-\section{Quotients of stacked frames}
-
-Remember that for $(f\colon A\to B)\in \Frm$, $j\in NA$ and $k\in NB$, we have the following definitions:
-\[
-N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}\in NA_j
-\]
-and 
-\[
-N(f)_*(k)=f_*\circ k\circ f\in NA,
-\]
-where $f_*$ is the right adjoint of $f$. 
-
-\begin{prop}
-Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is strongly stacked.
-\end{prop}
-
-\begin{proof}
-Consider $S=\pt A$, $S_j=\pt A_j$ and let $F\in A_j^{\wedge}$ be. We define:
-\[
-G=j_*(F),\quad Q=S_j\setminus F,\quad R=S\setminus G,
-\]
-where $j_*$ is the right adjoint associated with the frame morphism $j^*\colon A\to A_j$ and $x\in G$ if and only if $j(x)\in F$. Considering the spatial reflections 
-\[
-\mathcal{U}\colon A\to \mathcal{O}S \quad\text{ and } \quad\mathcal{U}_j\colon A_j\to \mathcal{O}S_j
-\]
-we have the following diagram
-
-\[\begin{tikzcd}
-	&&&& A && {\mathcal{O}S} \\
-	\\
-	A && {\mathcal{O}S} && {A_j} && {\mathcal{O}S_j} \\
-	\\
-	{A_j} && {\mathcal{O}S_j}
-	\arrow["{\mathcal{U}}", from=1-5, to=1-7]
-	\arrow["{j^*}"'{pos=0.7}, from=1-5, to=3-5]
-	\arrow["sj", from=1-7, to=3-7]
-	\arrow["{v_{G}}", from=3-1, to=1-5]
-	\arrow["{\mathcal{U}}", from=3-1, to=3-3]
-	\arrow["{j^*}"', from=3-1, to=5-1]
-	\arrow["{[R']}"{pos=0.4}, from=3-3, to=1-7]
-	\arrow["sj"{pos=0.6}, from=3-3, to=5-3]
-	\arrow["{\mathcal{U}_j}"', from=3-5, to=3-7]
-	\arrow["{v_F}"{pos=0.7}, from=5-1, to=3-5]
-	\arrow["{\mathcal{U}_j}"', from=5-1, to=5-3]
-	\arrow["{[Q']}"', from=5-3, to=3-7]
-\end{tikzcd}\]
-Using the right adjoints of $\mathcal{U}$ and $\mathcal{U}_j$ we obtain
-\[
-v_F, \quad l=N(\mathcal{U}_j)_*([Q']),\quad m=N(j^*)(N(\mathcal{U})_*)([R']),\quad n=N(j^*)(N(\mathcal{U}_j\circ j^*)_*)([Q']) 
-\]
-are nuclei in $NA_j$. Let us see what is the relationship between these nuclei.\\
-
-By construction, we have $v_F\leq  N(\mathcal{U}_j)_*([Q'])$ and we must verify the other inequality for $A_j$ to be strongly stacked.\\
-
-By hypothesis, we have $v_G=N(\mathcal{U})_*([R'])$. Moreover, for $x\in A$, we have $j(v_x)\leq v_{j(x)}$ and, by definition of the adjusted nuclei associated with $F$ and $G$, 
-\begin{equation}\label{eq1}
-j\circ v_G\leq v_F.
-\end{equation}
-
-Furthermore, for $(j\colon A\to A_j)\in\Frm$ 
-\[
-N(j^*)(v_G)=\bigvee\{u_{j(v_G(a))}\wedge v_{j(a)}\mid a\in A\}\quad \text{y}\quad v_F=\bigvee\{u_{v_F(a)}\wedge v_a\mid a\in A_j\}. 
-\]
-Note, by \eqref{eq1}, $u_{j(v_G)}\leq u_{v_F}$ and therefore
-\begin{equation}\label{eq2}
-m\leq v_F. 
-\end{equation}
-
-To $l$ and $n$, we have
-\[
-n=\bigvee\{u_{j^*(n(x))}\wedge v_{j^*(x)}\mid x\in A\}\quad \text{and}\quad l=\bigvee\{u_{l(x)}\wedge v_x\mid x\in A_j\},
-\]
-where 
-\[
-j^*(n(x))=j^*((j_*\circ \mathcal{U}_{j*}\circ [Q']\circ U_j\circ j^*)(x))\quad \text{y}\quad l(x)=N(\mathcal{U}_j)_*([Q'])(x).
-\]
-
-Then,
-\[
-\begin{split}
-j^*(n(x))&=j^*(j_*(\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}))\\
-&= \bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
-\end{split}
-\]
-Since $x\in A_j$,
-\[
-l(x)=\bigvee\{a\in A\mid \mathcal{U}_j(a)\subseteq Q'\cup \mathcal{U}_j(j(x))\}.
-\]
-Therefore $j(n(x))=l(x)$.\\
-
-To $m(x)$ we have
-\[
-m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [R']\circ\mathcal{U})(x)}\wedge v_{j^*(x)}\mid x\in A\}.
-\]
-
-Since $A_j\subseteq A$, then $Q=R\cap A_j$ and
-\[
-m(x)=\bigvee\{u_{j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)}\wedge v_x\mid x\in A_j\}.
-\]
-
-Note 
-\[
-\begin{split}
-j^*(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(x)&= j^*(\bigvee\{a\in A\mid \mathcal{U}(a)\subseteq Q'\cup \mathcal{U}(x)\})\\
-&=\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}.
-\end{split}
-\]
-To $x\in A_j$
-\[
-\begin{split}
-\mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(j^*(x))&\iff \mathcal{U}(j^*(a))\cap S_j\subseteq (Q'\cup \mathcal{U}(j^*(x)))\cap S_j\\
-&\iff \mathcal{U}_j(j^*(a))\subseteq Q'\cup \mathcal{U}_j(j^*(x)),
-\end{split}
-\]
-that is, 
-\[
-\bigvee\{j^*(a)\in A_j\mid \mathcal{U}(j^*(a))\subseteq Q'\cup \mathcal{U}(x)\}=j^*(N(\mathcal{U}_j\circ j)_*)([Q']).
-\]
-
-Thus, we have 
-\[
-\bigvee\{u_{j^*(N(\mathcal{U}_j\circ j)_*)[Q'](x)}\wedge x\mid x\in A\}=m(x).
-\]
-Since $(N(\mathcal{U}_j\circ j)_*)([Q'])\leq j(N(\mathcal{U}_j\circ j)_*)([Q'])$ and by \eqref{eq2} 
-\[
-l\leq m\leq v_F\leq l.
-\]
-Therefore $v_F=\mathcal{U}_{j*}\circ [Q']\circ \mathcal{U}_j$, that is, $A_j$ is strongly stacked.
-\end{proof}
-
-Since every strongly stacked frame is stacked, we obtain the following result.
-\begin{cor}
-Let $A$ be a frame and $j\in NA$. If $A$ is strongly stacked, then $A_j$ is stacked. 
-\end{cor}
-
-\begin{proof}
-By the previous proposition, if $A$ is strongly stacked, then $A_j$ is strongly stacked and this implies that $A_j$ is stacked.
-\end{proof}
-
-\section{KC Frames}
-
-\begin{dfn}\label{KC y KCH}
-Let $A$ be a frame. We say that $A$ is:
-\begin{enumerate}
-    \item $KC$ if each compact quotient is closed.
-
-    \item \emph{Hausdorff closed compact} (or $KCH$ for short) if each compact quotient of $A$ is closed and Hausdorff.
-\end{enumerate}
-\end{dfn}
-
-La Definición \ref{KC y KCH} nos dice que si $j\in NA$, entonces $\nabla(j)\in A^\wedge$ y $j=u_a$ para algún $a\in A$. De manera adicional, para $2)$ pedimos que $A_j$ cumpla la propiedad $\mathbf{(H)}$.\\
-
-\begin{prop}\label{KCquout}
-    If $A\in \Frm$ satisfies $KC$, then $A_j$ satisfies $KC$ for each $j\in N(A).$
-\end{prop}
-
-\begin{proof} %HAY que redactyar mejor la prueba%
-Consider $k\in NA_j$ such that $(A_j)_k$ is compact. 
-If $(A_j)_k$ is compact, then $\nabla(k)\in A_j^\wedge$ and, by Proposition \ref{fF}, $j_*\nabla(K)\in A^\wedge$.\\
-
-Let $l=j_*\circ  k\circ j^*\in NA$ be, then $A_l$ is a compact quotient of $A$ and there exists $a\in A$ such that $l=u_a$. Thus
-\[
-\begin{tikzcd}
-	A \arrow[r, "j^*"'] \arrow[rrr, "l", bend left] & A_j \arrow[r, "k"'] & (A_j)_k \arrow[r, "j_*"'] & A_j\subseteq A
-	\end{tikzcd}\]
-and $a\vee x=k(j(x))$. Therefore, if $x=a$, $k(j(x))=a$.\\
-
-We need that $k=u_b$ for some $b\in A_j$. If $x\in A_j$ and $b=j(a)$
-\[
-\begin{split}
-u_b(x)= b\vee x= b\vee j(x)& =j(j(a)\vee j(x))\\
-& =j(k(j(a))\vee x)\\
-& =j(u_a(x))\\
-& =j(k(x))\\	
-&=k(x).
-\end{split}
-\]
-Hence $u_b=k$.
-\end{proof}
-
-\begin{prop}\label{KCT1}
-If $A$ is a $KC$ frame, then $A$ is a $T_1$ frame.
-\end{prop}
-
-\begin{proof}
-Let $p\in \pt A$ and $a\in A$ such that $p\leq a\leq 1$. Consider 
-\[
-w_p(x)=\left\{\begin{array}{lcc}
-1 & \mbox{ si } & x\nleq p\\
-\\
-p & \mbox{ si } & x\leq p
-\end{array}\right.
-\]
-to $x\in A$. $P=\nabla(w_p)=\{x\in A\mid x\nleq p\}$ is a completely prime filter (in particular, $P\in A^\wedge$). Becuase $A$ is $KC$, then $A_{w_p}$ is a compact closed quotient. Thus $u_p=w_p$ and
-\[
-u_p(a)=a\quad \mbox{y}\quad w_p(a)=1.
-\]
-that is, $a=1$. Therefore $p$ is maximal. 
-\end{proof}
-
-One of our aims is study nuclei such that produce compact quotient, particularly, nuclei that produce compact closed quotient.\\
-
-Define the following subset of $A$
-\[
-uA=\{a\in A\mid A_{u_a} \text{ es un cociente compacto}\}.
-\]
-
-Note that, to $a\in uA$ we have $\nabla(u_a)\in A^\wedge$, that is, define the map
-\[
-\alpha\colon uA\to A^\wedge.
-\]
-
-Let us see the properties of this map.
-
-\begin{lem}
-    For $uA\subseteq A$ as before, the following statements hold:
-    \begin{enumerate}
-        \item If $A$ is tidy, then $\alpha$ is surjective.
-        \item If $u_a$ is fitted for all $a\in uA$, then $\alpha$ is injective.
-        \item If $A$ is tidy and $a\in uA$, then $\alpha$ is bijective if and only if $u_a$ is fitted.
-    \end{enumerate}
-\end{lem}
-
-\begin{proof}
-$\mbox{ }$
-\begin{enumerate}
-    \item Consider $F=\nabla(j)\in A^\wedge$ and $v_F$ the fitted nucleus associated with $F$. If $A$ is tidy, then $v_F=u_d$,
-    where $d=v_F(0)\in A$. Hence, 
-        \[
-        \alpha(d)=\nabla(u_d)=\nabla(v_F)=F.
-        \]
-    and $\alpha$ is surjective.
-    \item  Consider $a, b\in uA$ such that $\alpha(a)=\alpha(b)$, that is, $\nabla(u_a)=\nabla(u_b)$. By hypothesis, $u_a, u_b$ are fitted nuclei, that is,
-    \[
-    u_c\leq u_d\quad\mbox{y}\quad u_c\geq u_d.
-    \]
-    Evaluating both nuclei at $0$ we get $c=d$ and therefore $\alpha$ is injective.
-    \item Let $A$ be tidy, $a\in uA$ and suppose that $\alpha$ is bijective. Consider $F=\nabla(u_a)$ and $v_F$ the fitted nucleus associated with $F$. By efficiency, $v_F=u_d$, that is,
-    \[
-    \alpha(a)=\nabla(u_a)=\nabla(v_F)=\nabla(u_d)=\alpha(d)
-    \]
-    where $d=v_F(0)$.\\
-
-    By hypothesis, $\alpha$ is bijective, then, by injectivity, $a=d$. Therefore $v_F=u_a$ and $u_a$ is fitted.\\
-
-    Conversely, since $A$ is tidy, then by 1), $\alpha$ is surjective. By hypothesis, $u_a$ is fitted and, by 2), $\alpha$ is injective. Therefore $\alpha$ is bijective. 
-\end{enumerate}
-\end{proof}
-
-Using $KC$ frames, we have the following result.
-
-\begin{cor}
-        Let $A$ be a $KC$ frame and $F\in A^\wedge$. Then $\alpha$ is bijective if and only if for all $j\in [v_F, w_F]$, $j$ is fitted.
-\end{cor}
-
-\begin{proof}
-Suppose that $A$ is a $KC$ frame and let $F\in A^\wedge$. By definition, for all $j\in [v_F, w_F]$, we have $j=u_a$ for some $a\in A$. Since $A$ is a $KC$ frame, it is efficient and by the previous lemma, $\alpha$ is bijective if and only if for all $j\in [v_F, w_F]$, $j$ is fitted.
-\end{proof}
-
-\begin{prop}\label{prop:KC}
-Let $A$ be a frame. $A$ is $KC$ if and only if $A$ is tidy and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$.
-\end{prop}
-
-\begin{proof}
- $\mbox{}$
- \begin{description}
-    \item[$\Rightarrow) $] Suppose that $A$ is a $KC$ frame. Trivially, $KC$ implies efficient and thus, it remains to verify that $KC$ implies that $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ or equivalently, by properties of the right adjoint,
-    \[
-    v_F=\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}.
-    \]
-    
-    If $A$ is a $KC$ frame, then for any $F\in A^\wedge$, it holds that for all $j\in [v_F, w_F]$, $j=u_a$ for some $a\in A$. In particular,
-    \[
-    v_F=u_d,\quad\text{y}\quad \mathcal{U}_*\circ v_\nabla\circ \mathcal{U}=u_a
-    \]
-    where $d, a\in A$.\\
-
-    By construction, always holds that $u_d\leq u_a$. To see the other inequality, we verify that the function $\alpha$ is injective. Note that $d\leq a$  
-
-
-    \item[$\Leftarrow) $] Suppose that $A$ is efficient and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$ for all HM triples $(F, Q, \nabla)$. First, if $A$ is efficient, 
-    then $A$ is $T_1$. Moreover, if $A$ is efficient and $\mathcal{U}\circ v_F=v_\nabla\circ \mathcal{U}$, then $A$ is strongly stacked. Therefore, $A$ is $T_1$ and strongly stacked.
-    The above implies that $v_F=w_F$ and, by efficiency, $v_F=u_d$, where $d=v_F(0)$. Thus, for all $j\in [v_F, w_F]$, $j=u_d$, meaning that $A$ is $KC$.
- \end{description}
-\end{proof}
-
-\section{Examples}
-
-\subsection{The frame $[0,1]$}
+%\subsection*{The frame $[0,1]$}
 Following the idea presented in \cite{simmons2006regularity} (or, alternatively, in \cite{simmons2004vietoris}), let us consider the linearly ordered frame 
 \[
 A=[0,1].
@@ -2352,81 +2633,6 @@ since the morphism $\mathcal{U}$ transforms open filters we have
 But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathcal{U}F}$.
 
 
-
-
-
-
-\end{proof}
-
-\bibliographystyle{amsalpha}
-
-\bibliography{research2}
-
-\newpage
-
-\begin{prop}
-Si $A$ satisface $\mathbf{(H)}$, entonces $A$ es apilado.
-\end{prop}
-
-\begin{proof}
-Consideremos $A$ un marco y $(F, Q)$ un par HM. Notemos que si $A$ satisface $\mathbf{(H)}$, entonces $S=\pt A$ es $T_2$ y por lo tanto 
-\[
-\mathcal{U}_*\circ[Q']\circ \mathcal{U}=w_F
-\]
-donde $w_F(x)=\bigwedge\{p\in Q\mid x\leq q\}$.
-
-Debemos verificar que, para $s=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)=\bigwedge Q$,
-\[
-s\leq v_F(0).
-\]
-
-A manera de contradicción, supongamos que $s\nleq v_F(0)$. Dado que $w_F\neq \tp$, $1\neq s$ y, por hipótesis, existe $c\in A$ tal que
-\[
-1)\;c\nleq s\quad\text{y}\quad 2)\;\neg c\nleq v_F(0)
-\]
-
-De 1), notemos que existe $r\in Q$ tal que $c\nleq r$, pues en caso contrario, si 
-\[
-\forall r\in Q\text{ tal que }c\leq r\Rightarrow c\leq \bigwedge Q=s
-\]
-lo cual es una contradicción.\\
-
-Por 2), si $\neg c\nleq v_F(0)$, entonces $c\notin F$, pues si $c\in F$, 
-\[
-\neg c=v_c(0)\leq f_F(0)\leq v_F(0)
-\]
-lo cual sería una contradicción. Así, existe $q\in Q$ tal que $c\leq q$.\\
-
-Por lo tanto, de 1) y 2) obtenemos que existe $c\in A$ y $q, r\in Q$ tales que
-\[
-c\leq q \quad\text{y}\quad c\nleq r.
-\]
-
-Además, por $T_1$, $q\neq r$. Notemos que 
-\[
-r\vee q=r\vee c=1,
-\]
-entonces
-\[
-\neg r\leq c\leq q\quad \text{y}\quad \neg q\leq \neg c\leq r. 
-\]
-
-Por HM, sabemos que para todo $a\in F$ se satisface que 
-\[
-Q\subseteq \mathcal{U}(a)\iff [\forall p\in Q](a\nleq p),
-\]
-en particular $a\nleq q, r$, es decir, $a\vee q=a\vee r=1$. Por lo tanto,
-\[
-\neg q, \neg r\leq a 
-\]
-para todo $a\in F$. Luego, $(\neg q\vee \neg r)\leq a$ para todo $a\in F$.\\
-
-Consideremos $d=\neg q\vee \neg r$. De aquí que
-\[
-d\leq a\Rightarrow v_a\leq v_d\Rightarrow v_F\leq v_d.
-\]
-
-Evaluando en $0$ obtenemos que $v_F(0)\leq \neg d$.
 \end{proof}
 
 \end{document}
