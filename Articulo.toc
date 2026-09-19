@@ -2,13 +2,13 @@
 \contentsline {section}{Todo list}{1}{section*.2}%
 \contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Preliminaries}}{2}{section.2}%
-\contentsline {section}{\tocsection {}{3}{Compact Quotients and Admissibility Intervals}}{3}{section.3}%
-\contentsline {section}{\tocsection {}{4}{Separation Properties Induced by Compact Quotients}}{3}{section.4}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Neat frames}}{3}{subsection.4.1}%
-\contentsline {subsection}{\tocsubsection {}{4.2}{Stacked and strongly stacked frames}}{5}{subsection.4.2}%
-\contentsline {subsection}{\tocsubsection {}{4.3}{KC frames}}{5}{subsection.4.3}%
-\contentsline {section}{\tocsection {}{5}{Comparison with Classical Separation Axioms}}{6}{section.5}%
-\contentsline {section}{\tocsection {}{6}{Quotients and Permanence Properties}}{13}{section.6}%
-\contentsline {section}{\tocsection {}{7}{The Spatial Case}}{24}{section.7}%
-\contentsline {section}{\tocsection {}{8}{Relations among Compact-Quotient Separation Properties}}{30}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Compact Quotients and Admissibility Intervals}}{3}{subsection.2.1}%
+\contentsline {section}{\tocsection {}{3}{Separation Properties Induced by Compact Quotients}}{3}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Neat frames}}{3}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Stacked and strongly stacked frames}}{5}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{KC frames}}{5}{subsection.3.3}%
+\contentsline {section}{\tocsection {}{4}{Comparison with Classical Separation Axioms}}{5}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{12}{section.5}%
+\contentsline {section}{\tocsection {}{6}{The Spatial Case}}{23}{section.6}%
+\contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{30}{section.7}%
 \contentsline {section}{\tocsection {}{}{References}}{30}{section*.12}%

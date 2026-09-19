@@ -29,6 +29,10 @@
   \@starttoc{tdo}{#1}%
 }
 \makeatother
+
+\newcommand{\done}[1]{%
+    \todo[color=green!30]{DONE: #1}%
+}
 %%%%%%%%%%%%%%%%%%
 
 \DeclareMathOperator{\op}{op}
@@ -153,7 +157,7 @@ Aquí va el resumen
 \end{tikzcd}\]
 
 \section{Preliminaries}
-\todo{Combianar secciones 2 y 3}
+\done{Combianar secciones 2 y 3}
 \begin{itemize}
 	\item Frames, nucleis, $A_j$
 	\item $u_a, v_a, w_a$
@@ -181,7 +185,7 @@ Y=\{f(x)\mid x\in X\}
 is directed and $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Since $G$ is an open filter and $f(\bigvee X)=\bigvee f[X]\in G$, there exists $x\in X$ such that $f(x)\in G$. Therefore, $x\in f_*G$.
 \end{proof}
 
-\section{Compact Quotients and Admissibility Intervals}
+\subsection{Compact Quotients and Admissibility Intervals}
 \begin{itemize}
 	\item $A^\wedge \longleftrightarrow A_j$
 	\item $v_F, w_F$ admissibility intervals
@@ -395,32 +399,6 @@ j=u_a.
 Similarly, $A$ is KCH if, in addition, every such compact quotient $A_j$
 satisfies property $(H)$.
 
-\begin{prop}\label{prop:KC}
-Every tidy strongly stacked frame is KC.
-\end{prop}
-
-\begin{proof}
-Let $F\in A^\wedge$. Since $A$ is tidy, it is $T_1$. Hence, as $A$ is
-strongly stacked, we have
-\[
-v_F=w_F.
-\]
-Moreover, of tidiness,
-\[
-v_F=u_d,
-\qquad d=v_F(0).
-\]
-Therefore,
-\[
-[v_F,w_F]=\{u_d\}.
-\]
-
-Since every nucleus inducing a compact quotient of $A$ belongs to an
-admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
-nucleus is closed. Hence every compact quotient of $A$ is closed, and
-therefore $A$ is KC.
-\end{proof}
-
 \section{Comparison with Classical Separation Axioms}
 Recall that if a topological space $S$ is $T_1$ and strongly stacked, then
 \[
@@ -476,97 +454,6 @@ q=v_{F_q}(0)
 Since $p\leq q$, we conclude that $p=q$. Hence, every point of $A$ is
 maximal in 
 $\pt A$.
-\end{proof}
-
-For every HM triple $(F,Q,G)$, we have
-\[
-\mathcal{U}\circ v_F\leq v_G\circ\mathcal{U}.
-\]
-Suppose now that $A$ is strongly stacked. Then
-\[
-v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
-\]
-Since
-\[
-v_G\leq[Q'],
-\]
-we obtain
-\[
-\mathcal{U}_*\circ v_G\circ\mathcal{U}
-\leq
-\mathcal{U}_*\circ[Q']\circ\mathcal{U}
-=v_F.
-\]
-Together with the previous inequality, this yields
-\[
-v_F=\mathcal{U}_*\circ v_G\circ\mathcal{U},
-\]
-or equivalently,
-\[
-\mathcal{U}\circ v_F
-=
-v_G\circ\mathcal{U}.
-\]
-Thus, if $A$ is strongly stacked, the corresponding diagram is commutative.
-
-\begin{prop}\label{EficienteFapilado}
-Let $A$ be a tidy frame. If
-\[
-\mathcal{U}\circ v_F
-=
-v_\nabla\circ\mathcal{U}
-\]
-for every HM triple $(F,Q,\nabla)$, then $A$ is strongly stacked.
-\end{prop}
-
-\begin{proof}
-Let $S=\pt A$ and let $(F,Q,\nabla)$ be an HM triple.
-
-Since $A$ is tidy, $\mathcal{O}S$ is tidy. Hence $S$ is stacked and packed.
-In particular, every compact saturated subset $Q\subseteq S$ is closed, so
-\[
-Q'\in\mathcal{O}S.
-\]
-
-Since $S$ is stacked,
-\[
-Q=\partial_\nabla^\infty(S),
-\]
-and therefore, by Corollary \ref{cor:infinito},
-\[
-v_\nabla(\varnothing)=Q'.
-\]
-Because $\mathcal{O}S$ is tidy, it follows that
-\[
-v_\nabla=u_{Q'}=[Q'].
-\]
-
-By hypothesis,
-\[
-\mathcal{U}\circ v_F
-=
-v_\nabla\circ\mathcal{U}
-=
-[Q']\circ\mathcal{U}.
-\]
-Applying the right adjoint $\mathcal{U}_*$, we obtain
-\[
-v_F
-=
-\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
-\]
-Therefore, $A$ is strongly stacked.
-\end{proof}
-
-Consequently, we have the following result.
-
-\begin{cor}
-If $A$ is a tidy frame, then $\pt A$ is strongly stacked.
-\end{cor}
-
-\begin{proof}
-Let $S=\pt A$. Since $A$ is tidy, $\mathcal{O}S$ is tidy, and therefore
-$S$ is strongly stacked.
 \end{proof}
 
 \begin{prop}\label{focales}
@@ -646,7 +533,7 @@ Hence,
 \[
 p\leq a\leq q.
 \]
-By Proposition~6.1, every point of $A$ is maximal. Therefore, $p=q$, and
+By Proposition \ref{maximosenpt}, every point of $A$ is maximal. Therefore, $p=q$, and
 consequently
 \[
 p\leq a\leq p.
@@ -693,7 +580,7 @@ Let $A$ be a frame. The following statements hold:
 \[
 v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
 \]
-Moreover, since $A$ is $T_1$, we have $Q=M$. Hence, by Proposition~5.5,
+Moreover, since $A$ is $T_1$, we have $Q=M$. Hence, by Proposition \ref{igualdadwF},
 \[
 v_F
 =\mathcal{U}_*\circ[M']\circ\mathcal{U}
@@ -828,7 +715,7 @@ De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\
 \textbf{Hasta aquí llega lo que se debe considerar}\\
 \end{comment}
 
-Notice that the additional hypothesis in Proposition \ref{IsoVA} (3) is automatically
+Notice that the additional hypothesis in Proposition \ref{focales} (3) is automatically
 satisfied whenever $A$ is spatial. Indeed, if $a<1$ and $A$ is spatial, then
 there exists $p\in\pt A$ such that
 \[
@@ -1080,6 +967,84 @@ non-spatial $T_1$ strongly stacked frames; on the other hand, even the
 stronger Hausdorff condition (H) does not guarantee stackedness.
 
 \section{Quotients and Permanence Properties}
+
+Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
+\begin{equation}\label{Qlaxo}
+\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $f^\infty$ and $F^\infty$ represent the
+fitted nuclei associated with the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$, respectively, that is, 
+\[
+f^\infty=v_F\quad\text{and}\quad F^\infty =v_\nabla.
+\]
+
+Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\wedge$ and $j_*F\in A^\wedge$ to produce the diagram
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["j^*"', from=1-1, to=2-1]
+	\arrow["j^*", from=1-2, to=2-2]
+	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.\\
+
+The following lemma is part of the analysis developed in this work and constitutes a key tool in the construction of the commutative diagrams
+that follow.
+
+\begin{lem}\label{f1f}
+    For $j=j^*$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
+\end{lem}
+\begin{proof}
+    Recall that, by (\ref{Imagenfiltros})
+    \[
+    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\} \quad\text{y}\quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
+    \]
+
+Let $a\in A$ be. For every $y\in j_*F$, we have
+\[
+j(v_y(a))=j(y\succ a)\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)),
+\]
+where the last inequality follows from $j(y)\in F$. Therefore, since $j$ preserves arbitrary joins,
+\[
+j(\hat{f}(a))=j\Big(\bigvee\{v_y(a)\mid y\in j_*F\}\Big)=\bigvee\{j(v_y(a))\mid y\in j_*F\}\leq f(j(a)).
+\]
+
+Hence, $j\circ \hat{f}\leq f\circ j$.
+\end{proof}
+
+We now prove the above for an arbitrary ordinal.
+\begin{cor}\label{finftyf}
+    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$ where $\alpha\in \Ord$.
+\end{cor}
+
+\begin{proof}
+    We proceed by transfinite induction on $\alpha$
+    If $\alpha=0$, the result is immediate.\\
+
+    For the induction step, suppose that the inequality holds for $\alpha$. Then
+    \[
+    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
+    \]
+    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.\\
+
+    Finally, let $\lambda$ be a limit ordinal. For every $a\in A$,
+	\[
+	j(\hat{f}(a))=j\Big(\bigvee_{\alpha<\lambda}\hat{f}^\alpha\Big)=\bigvee_{\alpha<\lambda}j(\hat{f}^\alpha(a))\leq \bigvee_{\alpha<\lambda}f^\alpha(j(a))=f^\lambda(j(a)).
+	\]
+	where the inequality follows from the induction hypothesis. Hence
+	\[
+	j\circ \hat{f}^\lambda\leq f^\lambda \circ j.
+	\]
+	This completes the proof.
+\end{proof}
 
 \begin{prop}\label{tidyquout}
     If $A$ is a neat frame, then $A_j$ is a neat frame.
@@ -1369,84 +1334,6 @@ Therefore, $A=\bigoplus_{i\in I}A_i$ is $\alpha$-neat, and hence neat.
 \begin{cor}
 The subcategory of neat frames is a coreflective subcategory of $\Frm$.
 \end{cor}
-
-Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
-\begin{equation}\label{Qlaxo}
-\begin{tikzcd}
-	A & A \\
-	{\mathcal{O}S} & {\mathcal{O}S}
-	\arrow["{f^\infty}", from=1-1, to=1-2]
-	\arrow["{U_A}"', from=1-1, to=2-1]
-	\arrow["{U_A}", from=1-2, to=2-2]
-	\arrow["{F^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}
-\end{equation}
-commutes laxly, that is, $U_A\circ f^\infty\leq F^\infty \circ U_A$. In this diagram $f^\infty$ and $F^\infty$ represent the
-fitted nuclei associated with the filters $F\in A^\wedge$ and $\nabla\in \mathcal{O}S^\wedge$, respectively, that is, 
-\[
-f^\infty=v_F\quad\text{and}\quad F^\infty =v_\nabla.
-\]
-
-Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\wedge$ and $j_*F\in A^\wedge$ to produce the diagram
-\[\begin{tikzcd}
-	A & A \\
-	{A_j} & {A_j}
-	\arrow["{f^\infty}", from=1-1, to=1-2]
-	\arrow["j^*"', from=1-1, to=2-1]
-	\arrow["j^*", from=1-2, to=2-2]
-	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
-\end{tikzcd}\]
-where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.\\
-
-The following lemma is part of the analysis developed in this work and constitutes a key tool in the construction of the commutative diagrams
-that follow.
-
-\begin{lem}\label{f1f}
-    For $j=j^*$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}\leq f\circ j$.
-\end{lem}
-\begin{proof}
-    Recall that, by (\ref{Imagenfiltros})
-    \[
-    \hat{f}=\dot{\bigvee}\{v_y\mid y\in j_*F\} \quad\text{y}\quad f=\dot{\bigvee}\{v_{j(y)}\mid j(y)\in F\}. 
-    \]
-
-Let $a\in A$ be. For every $y\in j_*F$, we have
-\[
-j(v_y(a))=j(y\succ a)\leq (j(y)\succ j(a))=v_{j(y)}(j(a))\leq f(j(a)),
-\]
-where the last inequality follows from $j(y)\in F$. Therefore, since $j$ preserves arbitrary joins,
-\[
-j(\hat{f}(a))=j\Big(\bigvee\{v_y(a)\mid y\in j_*F\}\Big)=\bigvee\{j(v_y(a))\mid y\in j_*F\}\leq f(j(a)).
-\]
-
-Hence, $j\circ \hat{f}\leq f\circ j$.
-\end{proof}
-
-We now prove the above for an arbitrary ordinal.
-\begin{cor}\label{finftyf}
-    For $j$, $f$ and $\hat{f}$ as before, it holds that $j\circ \hat{f}^\alpha\leq f^\alpha\circ j$ where $\alpha\in \Ord$.
-\end{cor}
-
-\begin{proof}
-    We proceed by transfinite induction on $\alpha$
-    If $\alpha=0$, the result is immediate.\\
-
-    For the induction step, suppose that the inequality holds for $\alpha$. Then
-    \[
-    j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
-    \]
-    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.\\
-
-    Finally, let $\lambda$ be a limit ordinal. For every $a\in A$,
-	\[
-	j(\hat{f}(a))=j\Big(\bigvee_{\alpha<\lambda}\hat{f}^\alpha\Big)=\bigvee_{\alpha<\lambda}j(\hat{f}^\alpha(a))\leq \bigvee_{\alpha<\lambda}f^\alpha(j(a))=f^\lambda(j(a)).
-	\]
-	where the inequality follows from the induction hypothesis. Hence
-	\[
-	j\circ \hat{f}^\lambda\leq f^\lambda \circ j.
-	\]
-	This completes the proof.
-\end{proof}
 
 Recalling that $v_F=f^\infty$ and $v_{j_*F}=\hat{f}^\infty$, Corollary \ref{finftyf} yields
 \[j
@@ -2418,8 +2305,125 @@ Hence $a=p$, and $A$ is $T_1$.
 \end{enumerate}
 \end{proof}
 
+For every HM triple $(F,Q,G)$, we have
+\[
+\mathcal{U}\circ v_F\leq v_G\circ\mathcal{U}.
+\]
+Suppose now that $A$ is strongly stacked. Then
+\[
+v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Since
+\[
+v_G\leq[Q'],
+\]
+we obtain
+\[
+\mathcal{U}_*\circ v_G\circ\mathcal{U}
+\leq
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}
+=v_F.
+\]
+Together with the previous inequality, this yields
+\[
+v_F=\mathcal{U}_*\circ v_G\circ\mathcal{U},
+\]
+or equivalently,
+\[
+\mathcal{U}\circ v_F
+=
+v_G\circ\mathcal{U}.
+\]
+Thus, if $A$ is strongly stacked, the corresponding diagram is commutative.
+
+\begin{prop}\label{EficienteFapilado}
+Let $A$ be a tidy frame. If
+\[
+\mathcal{U}\circ v_F
+=
+v_\nabla\circ\mathcal{U}
+\]
+for every HM triple $(F,Q,\nabla)$, then $A$ is strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let $S=\pt A$ and let $(F,Q,\nabla)$ be an HM triple.
+
+Since $A$ is tidy, $\mathcal{O}S$ is tidy. Hence $S$ is stacked and packed.
+In particular, every compact saturated subset $Q\subseteq S$ is closed, so
+\[
+Q'\in\mathcal{O}S.
+\]
+
+Since $S$ is stacked,
+\[
+Q=\partial_\nabla^\infty(S),
+\]
+and therefore, by Corollary \ref{cor:infinito},
+\[
+v_\nabla(\varnothing)=Q'.
+\]
+Because $\mathcal{O}S$ is tidy, it follows that
+\[
+v_\nabla=u_{Q'}=[Q'].
+\]
+
+By hypothesis,
+\[
+\mathcal{U}\circ v_F
+=
+v_\nabla\circ\mathcal{U}
+=
+[Q']\circ\mathcal{U}.
+\]
+Applying the right adjoint $\mathcal{U}_*$, we obtain
+\[
+v_F
+=
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Therefore, $A$ is strongly stacked.
+\end{proof}
+
+Consequently, we have the following result.
+
+\begin{cor}
+If $A$ is a tidy frame, then $\pt A$ is strongly stacked.
+\end{cor}
+
+\begin{proof}
+Let $S=\pt A$. Since $A$ is tidy, $\mathcal{O}S$ is tidy, and therefore
+$S$ is strongly stacked.
+\end{proof}
+
 
 \section{Relations among Compact-Quotient Separation Properties}
+\begin{prop}\label{prop:KC}
+Every tidy strongly stacked frame is KC.
+\end{prop}
+
+\begin{proof}
+Let $F\in A^\wedge$. Since $A$ is tidy, it is $T_1$. Hence, as $A$ is
+strongly stacked, we have
+\[
+v_F=w_F.
+\]
+Moreover, of tidiness,
+\[
+v_F=u_d,
+\qquad d=v_F(0).
+\]
+Therefore,
+\[
+[v_F,w_F]=\{u_d\}.
+\]
+
+Since every nucleus inducing a compact quotient of $A$ belongs to an
+admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
+nucleus is closed. Hence every compact quotient of $A$ is closed, and
+therefore $A$ is KC.
+\end{proof}
+
 \todo{Ejemplo de neat no KC}
 \todo{Comprobar si neat implica stacked}
 \todo{KC implica S.S.?}
