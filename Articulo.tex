@@ -1,7 +1,7 @@
 \documentclass[11pt]{amsart}
 \usepackage[mathscr]{eucal}
 %\usepackage[spanish, es-noshorthands]{babel}
-\usepackage{babel}
+\usepackage[english]{babel}
 \usepackage{times}
 \usepackage{amsmath,amssymb,latexsym,amscd}
 \usepackage{booktabs}   
@@ -23,6 +23,12 @@
 \usepackage{tikz-cd}
 \usepackage{comment}
 \usepackage{todonotes}
+% Compatibility fix for todonotes with amsart
+\makeatletter
+\renewcommand{\listoftodos}[1][\@todonotes@todolistname]{%
+  \@starttoc{tdo}{#1}%
+}
+\makeatother
 %%%%%%%%%%%%%%%%%%
 
 \DeclareMathOperator{\op}{op}
@@ -84,8 +90,13 @@ Aquí va el resumen
 
 \tableofcontents
 
+%Genera una lista automática de todos los TODOs al inicio del documento:
+
+\listoftodos
 
 \section{Introduction}
+\todo{Completar la introducción.}
+
 \cite{picado2021separation, sexton2006ordinal, hochster1969prime}
 
 \cite{simmons2006assembly, sexton2003point, Johnstone82}
@@ -142,11 +153,7 @@ Aquí va el resumen
 \end{tikzcd}\]
 
 \section{Preliminaries}
-\todo{Aquí hay que poner la referencia.}
-\todo[inline, color=red!30]{Necesitamos quitar toda esta sección.}
-
-%Genera una lista automática de todos los TODOs al inicio del documento:
-
+\todo{Combianar secciones 2 y 3}
 \begin{itemize}
 	\item Frames, nucleis, $A_j$
 	\item $u_a, v_a, w_a$
@@ -2413,7 +2420,13 @@ Hence $a=p$, and $A$ is $T_1$.
 
 
 \section{Relations among Compact-Quotient Separation Properties}
-
+\todo{Ejemplo de neat no KC}
+\todo{Comprobar si neat implica stacked}
+\todo{KC implica S.S.?}
+\todo{Existe alguna propiedad P tal que (H)+P implica staked}
+\todo{T1+S.+P implica (H)?}
+\todo{Relacionar S. y S.S. con fit y sfit}
+\todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
 
 \bibliographystyle{amsalpha}
 
@@ -2631,7 +2644,9 @@ since the morphism $\mathcal{U}$ transforms open filters we have
 
 
 But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathcal{U}F}$.
+\todo{Completar esta prueba}
 
+\todo{Considerar incluir información sobre los parches}
 
 \end{proof}
 
