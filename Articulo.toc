@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{Todo list}{1}{section*.2}%
-\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Preliminaries}}{2}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Compact Quotients and Admissibility Intervals}}{3}{subsection.2.1}%
 \contentsline {section}{\tocsection {}{3}{Separation Properties Induced by Compact Quotients}}{3}{section.3}%
@@ -11,4 +11,4 @@
 \contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{12}{section.5}%
 \contentsline {section}{\tocsection {}{6}{The Spatial Case}}{23}{section.6}%
 \contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{30}{section.7}%
-\contentsline {section}{\tocsection {}{}{References}}{30}{section*.12}%
+\contentsline {section}{\tocsection {}{}{References}}{30}{section*.13}%
