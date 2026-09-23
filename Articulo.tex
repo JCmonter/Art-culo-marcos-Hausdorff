@@ -100,46 +100,32 @@ Aquí va el resumen
 
 \section{Introduction}
 \todo{Completar la introducción.}
- \todo{hay que modificar el formato bastante, hay muchas separaciones en las demostraciones eso se ve raro 
+ \done{hay que modificar el formato bastante, hay muchas separaciones en las demostraciones eso se ve raro 
  tambien te suegiero que agrres un paper que te guste y veas su estructura de como escrbiben las cosas}
 \cite{picado2021separation, sexton2006ordinal, hochster1969prime}
 
 \cite{simmons2006assembly, sexton2003point, Johnstone82}
-
-\[
-\begin{tikzcd}
-    && {\text{Packed}} & \\
-    {T_3} & {T_2} & {T_1} & {T_0} \\
-    && {\text{S.S.}} & {\text{S.}}
-    \arrow[Rightarrow, from=2-1, to=2-2]
-    \arrow[Rightarrow, from=2-2, to=1-3]
-    \arrow[Rightarrow, from=2-2, to=2-3]
-    \arrow[Rightarrow, from=2-2, to=3-3]
-    \arrow[Rightarrow, from=2-3, to=2-4]
-    \arrow[Rightarrow, from=3-3, to=3-4]
-\end{tikzcd}
-\]
-
-\[
-\begin{tikzcd}
-    & {\mathbf{(H)+(sfit)}} & \\
-    {\mathbf{(reg)}} & {\mathbf{(sH)}} & {T_1} \\
-    & {\mathbf{(fit)}} & {\mathbf{(sfit)}}
-    \arrow[Rightarrow, from=2-1, to=1-2]
-    \arrow[Rightarrow, from=2-1, to=2-2]
-    \arrow[Rightarrow, from=2-1, to=3-2]
-    \arrow[Rightarrow, from=2-2, to=2-3]
-    \arrow[Rightarrow, from=3-2, to=3-3]
-\end{tikzcd}
-\]
-
-\[
-\begin{tikzcd}
-    {T_2} & {\text{Neat}} & {T_1}
-    \arrow[Rightarrow, from=1-1, to=1-2]
-    \arrow[Rightarrow, from=1-2, to=1-3]
-\end{tikzcd}
-\]
+\[\begin{tikzcd}
+	& {T_2} &&& {\mathbf{(reg)}} & \\
+	{\text{S.S.}} & {T_1} & {\text{Neat}} & {\mathbf{(fit)}} & {\mathbf{(sH)}} & {\mathbf{(H)}+\mathbf{(sfit)}} \\
+	{\text{S.}} & {T_0} & {\text{Packed}} & {\mathbf{(sfit)}} & {\mathbf{(H)}} & {T_1+\mathbf{(sfit)}} \\
+	&& {T_1} && {T_1} & {\text{Spatiality}}
+	\arrow[Rightarrow, from=1-2, to=2-1]
+	\arrow[Rightarrow, from=1-2, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+	\arrow[Rightarrow, from=1-5, to=2-4]
+	\arrow[Rightarrow, from=1-5, to=2-5]
+	\arrow[Rightarrow, from=1-5, to=2-6]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=2-2, to=3-2]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-4, to=3-4]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[Rightarrow, from=2-6, to=3-6]
+	\arrow[Rightarrow, from=3-3, to=4-3]
+	\arrow[Rightarrow, from=3-5, to=4-5]
+	\arrow[Rightarrow, from=3-6, to=4-6]
+\end{tikzcd}\]
 
 \[\begin{tikzcd}
 	& {T_1} & \\
@@ -854,7 +840,7 @@ exist non-spatial $T_1$ stacked frames.
 
 The previous example shows that the $T_1$ and stacked conditions do not imply
 spatiality. We now compare stackedness with the stronger separation property
-$(H)$. Recall that a frame $A$ satisfies property $(H)$ if
+$\mathbf{(H)}$. Recall that a frame $A$ satisfies property $\mathbf{(H)}$ if
 \[
     1\neq a\nleq b
 \]
@@ -864,11 +850,11 @@ implies that there exists $c\in A$ such that
     \qquad\text{and}\qquad
     \neg c\nleq b.
 \]
-As shown in \cite{PasekaSmarda1992}, property $(H)$ implies $T_1$. Nevertheless, property
-$(H)$ does not imply stackedness, as the following example shows.
+As shown in \cite{PasekaSmarda1992}, property $\mathbf{(H)}$ implies $T_1$. Nevertheless, property
+$\mathbf{(H)}$ does not imply stackedness, as the following example shows.
 
 \begin{ej}
-There exists a frame satisfying property $(H)$ which is not stacked.
+There exists a frame satisfying property $\mathbf{(H)}$ which is not stacked.
 
 Let $I=[0,1]$, endowed with its usual topology, and consider the frame
 \[
@@ -879,7 +865,7 @@ Moreover, since $I$ is $T_1$, every point of $A$ is maximal and
 \[
     D(A)=\pt A
     =
-    \{I\setminus\{x\}:x\in I\},
+    \{I\setminus\{x\}\mid x\in I\},
 \]
 where $D(A)$ denotes the set of maximal elements of $A$.
 
@@ -888,15 +874,15 @@ Following the construction of Paseka and \v{S}marda
 \[
     \widetilde{A}
     =
-    \{(u,v)\in A\times \mathfrak{B}(A):u\leq v\},
+    \{(u,v)\in A\times A_{\neg\neg}\mid u\leq v\},
 \]
 where
 \[
-    \mathfrak{B}(A)=\{a^{**}:a\in A\}
+    A_{\neg\neg}=\{a\in A\mid w_0(a)=a\}
 \]
 is the Boolean algebra of regular elements of $A$. By
 \cite[Propositions 2.3 and 2.4]{PasekaSmarda1992}, $\widetilde{A}$ is a compact frame. 
-In particular, $\widetilde{A}$ satisfies property $(H)$.
+In particular, $\widetilde{A}$ satisfies property $\mathbf{(H)}$.
 
 The maximal elements of $\widetilde{A}$ are precisely the elements of the
 form
@@ -904,7 +890,7 @@ form
     D(\widetilde{A})=\{(d,1)\mid d\in D(A)\}.
 \]
 
-Since $\widetilde{A}$ satisfies $(H)$, it is $T_1$, and hence its points
+Since $\widetilde{A}$ satisfies $\mathbf{(H)}$, it is $T_1$, and hence its points
 are precisely its maximal elements. Therefore,
 \[
     \pt\widetilde{A}
@@ -957,7 +943,7 @@ Thus,
 and consequently $\widetilde{A}$ is not stacked.
 \end{ej}
 
-Consequently, although property (H) implies $T_1$, it does not imply
+Consequently, although property $\mathbf{(H)}$ implies $T_1$, it does not imply
 stackedness. Indeed, the preceding example provides a compact Hausdorff
 frame which is not stacked.
 
@@ -965,7 +951,7 @@ Together with the strongly stacked non-spatial example above, this
 further illustrates the distinction between separation properties and
 stackedness in the point-free setting. On the one hand, there exist
 non-spatial $T_1$ strongly stacked frames; on the other hand, even the
-stronger Hausdorff condition (H) does not guarantee stackedness.
+stronger Hausdorff condition $\mathbf{(H)}$ does not guarantee stackedness.
 
 \section{Quotients and Permanence Properties}
 
@@ -995,7 +981,7 @@ Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\we
 	\arrow["j^*", from=1-2, to=2-2]
 	\arrow["{\hat{f}^\infty}"', from=2-1, to=2-2]
 \end{tikzcd}\]
-where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.\\
+where $\hat{f}^\infty$ and $f^\infty$ are the fitted nuclei associated with the filters $j_*F$ and $F$, respectively.
 
 The following lemma is part of the analysis developed in this work and constitutes a key tool in the construction of the commutative diagrams
 that follow.
@@ -1028,13 +1014,13 @@ We now prove the above for an arbitrary ordinal.
 
 \begin{proof}
     We proceed by transfinite induction on $\alpha$
-    If $\alpha=0$, the result is immediate.\\
+    If $\alpha=0$, the result is immediate.
 
     For the induction step, suppose that the inequality holds for $\alpha$. Then
     \[
     j\circ \hat{f}^{\alpha+1}=j\circ \hat{f}\circ \hat{f}^{\alpha}\leq  f\circ j\circ \hat{f}^\alpha\leq f\circ f^\alpha\circ j=f^{\alpha+1}\circ j,
     \]
-    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.\\
+    where the first inequality follows from Lemma \ref{f1f} and the second from the induction hypothesis.
 
     Finally, let $\lambda$ be a limit ordinal. For every $a\in A$,
 	\[
@@ -1056,7 +1042,7 @@ Let $A$ be $\alpha$-neat and let $F\in A_j^\wedge$. By Proposition \ref{fF}, $j_
 \[
 \hat{f}=\dot{\bigvee_{y\in j_*F}}v_y\quad\text{and}\quad f=\dot{\bigvee_{x\in F}}v_x.
 \]
-be the prenuclei associated with $j_*F$ and $F$, respectively.\\
+be the prenuclei associated with $j_*F$ and $F$, respectively.
 
 Since $A$ is neat, there exists an ordinal $\alpha$ such that, for every $y\in j_*F$,
 \[
@@ -1100,7 +1086,7 @@ By construction of the coproduct $A_1\oplus A_2$, consider the canonical frame m
 \[
 \iota_i\colon A_i\to A_1\oplus A_2, \quad i=1,2
 \]
-together with their right adjoints $(\iota_i)_*\colon A_1\oplus A_2\to A_i$.\\
+together with their right adjoints $(\iota_i)_*\colon A_1\oplus A_2\to A_i$.
 
 Then, we have the following diagram
 \[ 
@@ -1171,7 +1157,7 @@ We now prove by transfinite induction that
 \[
 \iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
 \]
-for every ordinal $\beta$.\\
+for every ordinal $\beta$.
 
 If $\beta=0$, the result is immediate. Suppose that it holds for $\beta$. Then
 \[
@@ -1197,7 +1183,7 @@ Thus,
 \[
 \iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
 \]
-for every ordinal $\beta$.\\
+for every ordinal $\beta$.
 
 Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
 \[
@@ -1256,7 +1242,7 @@ and let
 \[
 \iota_i\colon A_i\to A
 \]
-denote the canonical coproduct morphisms. Since $\iota_i$ is a frame morphism, it has a right adjoint $(\iota_i)_*$.\\
+denote the canonical coproduct morphisms. Since $\iota_i$ is a frame morphism, it has a right adjoint $(\iota_i)_*$.
 
 Let $F\in A^\wedge$. By Proposition \ref{fF}, 
 \[
@@ -1288,7 +1274,7 @@ and, by transfinite induction,
 \[
 \iota_i\circ f_i^\beta\leq f_F^\beta\circ \iota_i
 \]
-for every ordinal $\beta$.\\
+for every ordinal $\beta$.
 
 Evaluating at $0\in A_i$ for $\beta=\alpha$, we obtain
 \[
@@ -1341,7 +1327,7 @@ Recalling that $v_F=f^\infty$ and $v_{j_*F}=\hat{f}^\infty$, Corollary \ref{finf
 \circ v_{j_*F}\leq v_F\circ j
 \]
 
-We now compare the compact quotients induced by $F$ and $j_*F$, and construct a frame morphism between them making the corresponding diagram commute.\\
+We now compare the compact quotients induced by $F$ and $j_*F$, and construct a frame morphism between them making the corresponding diagram commute.
 
 If we consider $j, v_F$ and $v_{j_*F}$ we have the following diagram
 \begin{equation}\label{diagrama H}
@@ -1358,7 +1344,7 @@ If we consider $j, v_F$ and $v_{j_*F}$ we have the following diagram
 	\arrow["{(v_F)_*}"', shift right, from=3-3, to=3-1]
 \end{tikzcd}
 \end{equation}
-where $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_*F}$, respectively.\\
+where $A_F$ and $A_{j_*F}$ are the compact quotients produced by $v_F$ and $v_{j_*F}$, respectively.
 
 Define
 \[
@@ -1389,7 +1375,7 @@ The map $h\colon A_{j_*F}\to A_F$ preserves arbitrary joins.
 	&=v_F\Big(j\Big(\bigvee X\Big)\Big),
 	\end{split}
 	\]
-	where the inequality follows from Corollary \ref{finftyf} and the equality from the idempotency of $v_F$.\\
+	where the inequality follows from Corollary \ref{finftyf} and the equality from the idempotency of $v_F$.
 
 	Since $H$ is a frame morphism, 
 	\[
@@ -1956,7 +1942,7 @@ a Hausdorff space.
 \end{thm}
 
 \begin{proof}
-Suppose that $A$ satisfies $\mathbf{(H)}$. Since $\mathbf{(H)}$ is conservative, $S=\pt A$ is a $T_2$ space. Hence, for every $Q\in \mathcal{Q}S$, the set $Q$ is closed, and therefore $Q'\in \mathcal{O}S$\\
+Suppose that $A$ satisfies $\mathbf{(H)}$. Since $\mathbf{(H)}$ is conservative, $S=\pt A$ is a $T_2$ space. Hence, for every $Q\in \mathcal{Q}S$, the set $Q$ is closed, and therefore $Q'\in \mathcal{O}S$.
 
 Moreover, since every $T_2$ space is strongly stacked, we have
 \[
@@ -2496,7 +2482,7 @@ where $l_m=v_m\wedge w_m$ and $m=\bigwedge F$.
 \end{enumerate}
 
 The above resume some characteristics about the frame $[0,1]$. Now, we will perform the analysis of the patch constructions of 
-$A$ and its point space $S$.\\
+$A$ and its point space $S$.
 
 Remember that for $A\in \Frm$ and $S\in \Top$ we have 
 \[
@@ -2542,9 +2528,9 @@ depends on the relative position of $a$ and $x$. We therefore distinguish the fo
 \end{description}
 
 From the preceding analysis, we conclude that the non-trivial generators of Pbase correspond precisely to the pairs $(m,a)$ with $m<a$. Consequently, 
-the frame $PA$ is determined by the open intervals of the form $(m,a)$, where $m\in\pt A$ and $a\in A$.\\
+the frame $PA$ is determined by the open intervals of the form $(m,a)$, where $m\in\pt A$ and $a\in A$.
 
-We now turn to the question of whether $PA$ satisfies any separation property. To this end, we recall the relationship between the point-free patch construction and its spatial counterpart.\\
+We now turn to the question of whether $PA$ satisfies any separation property. To this end, we recall the relationship between the point-free patch construction and its spatial counterpart.
 
 Let $A$ be an arbitrary frame and let $S=\pt A$ be its space of points. The two patch constructions are related by the following commutative diagram:
 \[\begin{tikzcd}
@@ -2564,7 +2550,7 @@ Let $A$ be an arbitrary frame and let $S=\pt A$ be its space of points. The two 
 	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}\]
 where $\mathcal{O}^fS$ is the Skula topology (or front topology) of $S$. In \cite{sexton2006point} is named
-\emph{the patch assembly diagram} and more details about it can also be found in \cite{sexton2003point}.\\
+\emph{the patch assembly diagram} and more details about it can also be found in \cite{sexton2003point}.
 
 In our case, $\mathcal{U}_A$ is an isomorphism. Moreover, under $\mathcal{U}_A$, the patch construction turns out to be functorial and, therefore,
 $PA\cong P\mathcal{O}S$. Similarly, $NA\cong N\mathcal{O}S$.

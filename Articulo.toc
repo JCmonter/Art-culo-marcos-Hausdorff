@@ -10,5 +10,5 @@
 \contentsline {section}{\tocsection {}{4}{Comparison with Classical Separation Axioms}}{5}{section.4}%
 \contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{12}{section.5}%
 \contentsline {section}{\tocsection {}{6}{The Spatial Case}}{23}{section.6}%
-\contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{30}{section.7}%
+\contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{29}{section.7}%
 \contentsline {section}{\tocsection {}{}{References}}{30}{section*.13}%
