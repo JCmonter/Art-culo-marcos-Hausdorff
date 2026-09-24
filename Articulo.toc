@@ -11,4 +11,4 @@
 \contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{12}{section.5}%
 \contentsline {section}{\tocsection {}{6}{The Spatial Case}}{23}{section.6}%
 \contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{29}{section.7}%
-\contentsline {section}{\tocsection {}{}{References}}{30}{section*.13}%
+\contentsline {section}{\tocsection {}{}{References}}{32}{section*.13}%

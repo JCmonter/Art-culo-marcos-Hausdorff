@@ -2379,12 +2379,190 @@ If $A$ is a tidy frame, then $\pt A$ is strongly stacked.
 \end{cor}
 
 \begin{proof}
-Let $S=\pt A$. Since $A$ is tidy, $\mathcal{O}S$ is tidy, and therefore
+Let $S=\pt A$. Since $A$ is neat, $\mathcal{O}S$ is tidy, and therefore
 $S$ is strongly stacked.
 \end{proof}
 
 
 \section{Relations among Compact-Quotient Separation Properties}
+\todo{Ejemplo de neat no KC}
+\todo{Comprobar si neat implica stacked}
+\todo{KC implica S.S.?}
+\todo{Existe alguna propiedad P tal que (H)+P implica staked}
+\todo{T1+S.+P implica (H)?}
+\todo{Relacionar S. y S.S. con fit y sfit}
+\todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
+
+\begin{prop}
+Let $A$ be a KC-frame. Then $A$ is neat.
+\end{prop}
+
+\begin{proof}
+Let $F\in A^\wedge$ and put
+\[
+d=v_F(0).
+\]
+Since $A$ is KC and
+\[
+v_F\in[v_F,w_F],
+\]
+there exists $a\in A$ such that
+\[
+v_F=u_a.
+\]
+Evaluating at $0$, we obtain
+\[
+d=v_F(0)=u_a(0)=a.
+\]
+Hence
+\[
+v_F=u_d.
+\]
+Since this holds for every $F\in A^\wedge$, the frame $A$ is
+neat.
+\end{proof}
+
+\begin{prop}
+Let $A$ be a KC-frame. Then $A$ is stacked if and only if it is
+strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let $(F,Q)$ be an HM-pair and put
+\[
+d=v_F(0)
+\qquad\text{and}\qquad
+a=w_F(0).
+\]
+Since every KC-frame is $T_1$, we have
+\[
+\mathcal{U}_*\circ[Q']\circ\mathcal{U}=w_F.
+\]
+Moreover, by the previous proposition,
+\[
+v_F=u_d.
+\]
+Since $A$ is KC, $w_F$ is closed as well, and therefore
+\[
+w_F=u_a.
+\]
+
+Consequently,
+\[
+\begin{aligned}
+A\text{ is strongly stacked}
+&\iff v_F=w_F\\
+&\iff u_d=u_a\\
+&\iff d=a\\
+&\iff v_F(0)=w_F(0)\\
+&\iff A\text{ is stacked}.
+\end{aligned}
+\]
+Since this holds for every HM-pair $(F,Q)$, the result follows.
+\end{proof}
+
+\begin{cor}
+Let $A$ be a spatial frame. Then $A$ is KC if and only if it is
+neat.
+\end{cor}
+
+\begin{proof}
+Suppose first that $A$ is KC. By the previous results, every KC-frame
+is efficient.
+
+Conversely, let $A$ be efficient. Since $A$ is spatial, we may write
+\[
+A\cong\mathcal{O}(S)
+\]
+for some topological space $S$. By the spatial characterization of
+efficiency, $S$ is packed and stacked. Moreover, efficiency implies
+that $S$ is strongly stacked. Hence $S$ is packed and strongly
+stacked, and therefore $\mathcal{O}(S)$ is KC. Thus $A$ is KC.
+\end{proof}
+
+\begin{lem}
+For every topological space $S$,
+\[
+\mathcal{O}(S)\text{ is KC}
+\quad\Longleftrightarrow\quad
+S\text{ is packed and strongly stacked}.
+\]
+\end{lem}
+
+\begin{proof}
+Suppose first that $\mathcal{O}(S)$ is KC. Then $\mathcal{O}(S)$ is
+efficient, and hence $S$ is packed and stacked. Since stacked and
+strongly stacked are equivalent for KC-frames, $S$ is strongly
+stacked.
+
+Conversely, suppose that $S$ is packed and strongly stacked. Let
+$(F,Q)$ be an HM-pair. Since $S$ is packed, $Q$ is closed and hence
+$Q'\in\mathcal{O}(S)$. Therefore
+\[
+[Q']=u_{Q'}.
+\]
+Moreover, packed spaces are $T_1$, so that
+\[
+[Q']=w_F.
+\]
+Since $S$ is strongly stacked,
+\[
+v_F=[Q']=u_{Q'}=w_F.
+\]
+Thus
+\[
+[v_F,w_F]=\{u_{Q'}\},
+\]
+and consequently every admissible nucleus is closed. Hence
+$\mathcal{O}(S)$ is KC.
+\end{proof}
+
+\begin{prop}
+Let $A$ be a KC-frame. If $A$ is subfit, then $A$ is strongly
+stacked.
+\end{prop}
+
+\begin{proof}
+Let $(F,Q)$ be an HM-pair and put
+\[
+d=v_F(0)
+\qquad\text{and}\qquad
+a=w_F(0).
+\]
+Since $A$ is KC, both $v_F$ and $w_F$ are closed nuclei. Hence
+\[
+v_F=u_d
+\qquad\text{and}\qquad
+w_F=u_a.
+\]
+By subfitness and \cite[Theorem~3.5]{simmons2006regularity}, we have
+\[
+d=a.
+\]
+Therefore,
+\[
+v_F=u_d=u_a=w_F.
+\]
+Since $A$ is $T_1$, we also have
+\[
+w_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Consequently,
+\[
+v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+Since this holds for every HM-pair $(F,Q)$, $A$ is strongly stacked.
+\end{proof}
+
+\begin{cor}
+Every subfit KC-frame is spatial.
+\end{cor}
+
+\begin{proof}
+Let $A$ be a subfit KC-frame. Since every KC-frame is $T_1$, the
+result follows from \cite[Proposition~2.5.3]{picado2021separation}.
+\end{proof}
+
 \begin{prop}\label{prop:KC}
 Every tidy strongly stacked frame is KC.
 \end{prop}
@@ -2410,14 +2588,6 @@ admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
 nucleus is closed. Hence every compact quotient of $A$ is closed, and
 therefore $A$ is KC.
 \end{proof}
-
-\todo{Ejemplo de neat no KC}
-\todo{Comprobar si neat implica stacked}
-\todo{KC implica S.S.?}
-\todo{Existe alguna propiedad P tal que (H)+P implica staked}
-\todo{T1+S.+P implica (H)?}
-\todo{Relacionar S. y S.S. con fit y sfit}
-\todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
 
 \bibliographystyle{amsalpha}
 
