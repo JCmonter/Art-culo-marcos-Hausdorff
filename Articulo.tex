@@ -2292,6 +2292,16 @@ Hence $a=p$, and $A$ is $T_1$.
 \end{enumerate}
 \end{proof}
 
+
+\section{Relations among Compact-Quotient Separation Properties}
+\todo{Ejemplo de neat no KC}
+\todo{Comprobar si neat implica stacked}
+\todo{KC implica S.S.?}
+\todo{Existe alguna propiedad P tal que (H)+P implica staked}
+\todo{T1+S.+P implica (H)?}
+\todo{Relacionar S. y S.S. con fit y sfit}
+\todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
+
 For every HM triple $(F,Q,G)$, we have
 \[
 \mathcal{U}\circ v_F\leq v_G\circ\mathcal{U}.
@@ -2324,7 +2334,7 @@ v_G\circ\mathcal{U}.
 Thus, if $A$ is strongly stacked, the corresponding diagram is commutative.
 
 \begin{prop}\label{EficienteFapilado}
-Let $A$ be a tidy frame. If
+Let $A$ be a neat frame. If
 \[
 \mathcal{U}\circ v_F
 =
@@ -2336,7 +2346,7 @@ for every HM triple $(F,Q,\nabla)$, then $A$ is strongly stacked.
 \begin{proof}
 Let $S=\pt A$ and let $(F,Q,\nabla)$ be an HM triple.
 
-Since $A$ is tidy, $\mathcal{O}S$ is tidy. Hence $S$ is stacked and packed.
+Since $A$ is neat, $\mathcal{O}S$ is neat. Hence $S$ is stacked and packed.
 In particular, every compact saturated subset $Q\subseteq S$ is closed, so
 \[
 Q'\in\mathcal{O}S.
@@ -2350,7 +2360,7 @@ and therefore, by Corollary \ref{cor:infinito},
 \[
 v_\nabla(\varnothing)=Q'.
 \]
-Because $\mathcal{O}S$ is tidy, it follows that
+Because $\mathcal{O}S$ is neat, it follows that
 \[
 v_\nabla=u_{Q'}=[Q'].
 \]
@@ -2375,23 +2385,13 @@ Therefore, $A$ is strongly stacked.
 Consequently, we have the following result.
 
 \begin{cor}
-If $A$ is a tidy frame, then $\pt A$ is strongly stacked.
+If $A$ is a neat frame, then $\pt A$ is strongly stacked.
 \end{cor}
 
 \begin{proof}
 Let $S=\pt A$. Since $A$ is neat, $\mathcal{O}S$ is tidy, and therefore
 $S$ is strongly stacked.
 \end{proof}
-
-
-\section{Relations among Compact-Quotient Separation Properties}
-\todo{Ejemplo de neat no KC}
-\todo{Comprobar si neat implica stacked}
-\todo{KC implica S.S.?}
-\todo{Existe alguna propiedad P tal que (H)+P implica staked}
-\todo{T1+S.+P implica (H)?}
-\todo{Relacionar S. y S.S. con fit y sfit}
-\todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
 
 \begin{prop}
 Let $A$ be a KC-frame. Then $A$ is neat.
@@ -2461,6 +2461,8 @@ A\text{ is strongly stacked}
 Since this holds for every HM-pair $(F,Q)$, the result follows.
 \end{proof}
 
+\todo{Agregar como corolario el caso espacial del resultado anterior.}
+
 \begin{cor}
 Let $A$ be a spatial frame. Then $A$ is KC if and only if it is
 neat.
@@ -2468,53 +2470,16 @@ neat.
 
 \begin{proof}
 Suppose first that $A$ is KC. By the previous results, every KC-frame
-is efficient.
+is neat.
 
-Conversely, let $A$ be efficient. Since $A$ is spatial, we may write
+Conversely, let $A$ be neat. Since $A$ is spatial, we may write
 \[
 A\cong\mathcal{O}(S)
 \]
 for some topological space $S$. By the spatial characterization of
-efficiency, $S$ is packed and stacked. Moreover, efficiency implies
+neatnees, $S$ is packed and stacked. Moreover, neatness implies
 that $S$ is strongly stacked. Hence $S$ is packed and strongly
 stacked, and therefore $\mathcal{O}(S)$ is KC. Thus $A$ is KC.
-\end{proof}
-
-\begin{lem}
-For every topological space $S$,
-\[
-\mathcal{O}(S)\text{ is KC}
-\quad\Longleftrightarrow\quad
-S\text{ is packed and strongly stacked}.
-\]
-\end{lem}
-
-\begin{proof}
-Suppose first that $\mathcal{O}(S)$ is KC. Then $\mathcal{O}(S)$ is
-efficient, and hence $S$ is packed and stacked. Since stacked and
-strongly stacked are equivalent for KC-frames, $S$ is strongly
-stacked.
-
-Conversely, suppose that $S$ is packed and strongly stacked. Let
-$(F,Q)$ be an HM-pair. Since $S$ is packed, $Q$ is closed and hence
-$Q'\in\mathcal{O}(S)$. Therefore
-\[
-[Q']=u_{Q'}.
-\]
-Moreover, packed spaces are $T_1$, so that
-\[
-[Q']=w_F.
-\]
-Since $S$ is strongly stacked,
-\[
-v_F=[Q']=u_{Q'}=w_F.
-\]
-Thus
-\[
-[v_F,w_F]=\{u_{Q'}\},
-\]
-and consequently every admissible nucleus is closed. Hence
-$\mathcal{O}(S)$ is KC.
 \end{proof}
 
 \begin{prop}
@@ -2563,8 +2528,63 @@ Let $A$ be a subfit KC-frame. Since every KC-frame is $T_1$, the
 result follows from \cite[Proposition~2.5.3]{picado2021separation}.
 \end{proof}
 
+\begin{prop}
+There exists a KC-frame which is strongly stacked and not subfit.
+Consequently,
+\[
+    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
+\]
+\end{prop}
+
+\begin{proof}
+Consider the frame
+\[
+    A=B\times 2,
+\]
+introduced above, where $B$ is the complete Boolean algebra considered
+in the previous example. Recall that $A$ is $T_1$, strongly stacked,
+and non-spatial.
+
+The only open filters of $A$ are
+\[
+    A
+    \qquad\text{and}\qquad
+    F_p=\uparrow(0,1)=B\times\{1\},
+\]
+where $p=(1,0)$ is the unique point of $A$.
+
+For $F=A$, we have
+\[
+    v_A=w_A=\operatorname{tp}=u_1.
+\]
+Hence
+\[
+    [v_A,w_A]=\{u_1\}.
+\]
+
+On the other hand, for $F=F_p$, the computations in the previous
+example give
+\[
+    v_{F_p}=w_{F_p}=u_p.
+\]
+Therefore,
+\[
+    [v_{F_p},w_{F_p}]=\{u_p\}.
+\]
+
+Thus, for every $F\in A^\wedge$, every nucleus in the admissibility
+interval $[v_F,w_F]$ is closed. Hence $A$ is a KC-frame.
+
+Finally, $A$ cannot be subfit. Indeed, every $T_1$ subfit frame is
+spatial, whereas $A$ is $T_1$ and non-spatial. Consequently, $A$ is
+a KC-frame which is strongly stacked and not subfit. In particular,
+\[
+    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
+\]
+\end{proof}
+
 \begin{prop}\label{prop:KC}
-Every tidy strongly stacked frame is KC.
+Every neat strongly stacked frame is KC.
 \end{prop}
 
 \begin{proof}
