@@ -146,7 +146,7 @@ Aquí va el resumen
 \section{Preliminaries}
 \done{Combianar secciones 2 y 3}
 \subsection{Frames, nuclei, and open filters}
-We begin by recalling some basic facts and terminology concerning frames, nuclei, and open filters. We refer to \cite{PicadoPultr,simmonscollection,Johnstone82} for general background on frames and point-free topology.
+We begin by recalling some basic facts and terminology concerning frames, nuclei, and open filters. We refer to \cite{Johnstone82,PicadoPultr,simmonscollection} for general background on frames and point-free topology.
 A frame is a complete lattice \(A\) satisfying the infinite distributive law
 \[a\wedge\bigvee X=\bigvee\{a\wedge s\mid x\in X\}\]
 for every \(a\in A\) and \(X\subseteq A\). A frame homomorphism \(f\colon A\to B\) is a map preserving finite meets and arbitrary joins. Frames and frame homomorphisms form the category \(\Frm\).
@@ -234,6 +234,33 @@ D\cap F\neq\varnothing.
 \]
 Thus, open filters are precisely those filters which are open with respect to the Scott topology on \(A\). We denote by \(A^\wedge\) the collection of all open filters on \(A\).
 
+Open filters can be transferred along frame morphisms. Let
+\[
+f=f^*\colon A\longrightarrow B
+\]
+be a frame morphism with right adjoint \(f_*\colon B\to A\). If \(F\) and \(G\) are filters on \(A\) and \(B\), respectively, we define filters \(f^*F\) on \(B\) and \(f_*G\) on \(A\) by
+\begin{equation}\label{Imagenfiltros}
+b\in f^*F\quad\Longleftrightarrow\quad f_*(b)\in F,
+\qquad
+a\in f_*G\quad\Longleftrightarrow\quad f(a)\in G.
+\end{equation}
+\begin{prop}\label{fF}
+Let $f=f^*\colon A\to B$ be a frame morphism. If $G\in B^\wedge$, then $f_*G\in A^\wedge$.
+\end{prop}
+
+\begin{proof}
+Clearly, \(f_*G\) is a filter on \(A\). Let \(X\subseteq A\) be directed and suppose that
+\[
+\bigvee X\in f_*G.
+\]
+Then \(f[X]\) is directed and, since \(f\) preserves arbitrary joins,
+\[
+\bigvee f[X]
+=f\left(\bigvee X\right)\in G.
+\]
+Since \(G\) is open, there exists \(x\in X\) such that \(f(x)\in G\). Hence \(x\in f_*G\), and therefore \(f_*G\in A^\wedge\).
+\end{proof}
+
 Every nucleus \(j\) on \(A\) determines a filter
 \[
 \nabla(j)=\{a\in A\mid j(a)=1\},
@@ -303,48 +330,113 @@ a\in F_Q
 Q\subseteq\mathcal U(a).
 \]
 
-Let $f\colon A\to B$ be a frame morphism with right adjoint $f_*\colon B\to A$. If $F\subseteq A$ and $G\subseteq B$ are filters, we define:
-\begin{equation}\label{Imagenfiltros}
-b\in f^*F \Longleftrightarrow f_*(b)\in F\qquad a\in f_*G \Longleftrightarrow f(a)\in G,
-\end{equation}
-where $f^*F$ and $f_*G$ are filters in $B$ and $A$, respectively.
-
-\begin{prop}\label{fF}
-For $f=f^*\colon A\to B$ a frame morphism and $G\in B^\wedge$, then $f_*G\in A^\wedge$.
-\end{prop}
-
-\begin{proof}
-By (\ref{Imagenfiltros}), $f_*G$ is a filter in $A$. We need that $f_*G$ satisfy the open filter condition. Let $X\subseteq A$ be such that $\bigvee X\in f_*G$, with $X$ directed. Then
+When \(A=\mathcal O(S)\) for a sober space \(S\), this correspondence reduces to the classical Hofmann--Mislove theorem: the compact saturated subsets \(Q\subseteq S\) correspond bijectively to the open filters of \(\mathcal O(S)\) through
 \[
-Y=\{f(x)\mid x\in X\}
-\] 
-is directed and $f(\bigvee X)=\bigvee f[X]=\bigvee Y\in G$. Since $G$ is an open filter and $f(\bigvee X)=\bigvee f[X]\in G$, there exists $x\in X$ such that $f(x)\in G$. Therefore, $x\in f_*G$.
-\end{proof}
+Q\longmapsto\nabla(Q)
+=\{U\in\mathcal O(S):Q\subseteq U\}.
+\]
+Whenever \(F\in A^\wedge\), we shall denote by \(Q\) its corresponding compact saturated subset of \(\pt(A)\), unless it is necessary to emphasize the dependence on \(F\). 
+We shall refer to a pair \((F,Q)\), where \(F\in A^\wedge\) and \(Q\in\mathcal Q(\pt(A))\) correspond under the above bijection, as an HM pair.
+
+The Hofmann--Mislove correspondence can be extended to include fitted nuclei. More precisely, the Hofmann--Mislove--Johnstone theorem establishes a correspondence 
+between open filters, compact saturated subsets, and the associated fitted nuclei.
+
+The preceding correspondence allows us to regard open filters as point-free representatives of compact saturated subsets. 
+In the next subsection we shall see that they also determine compact quotients of \(A\), and we shall study the nuclei associated with such quotients.
 
 \subsection{Compact Quotients and Admissibility Intervals}
-\begin{itemize}
-	\item $A^\wedge \longleftrightarrow A_j$
-	\item $v_F, w_F$ admissibility intervals
-	\item 
-\end{itemize}
+We now turn our attention to compact quotients. Recall that every nucleus \(j\) on a frame \(A\) determines a quotient \(A_j\), and that its admissible filter is given by
+\[
+\nabla(j)=\{a\in A:j(a)=1\}.
+\]
+The following characterization of compact quotients is due to Sexton
+\cite[Lemma 5.17]{Sexton2000}.
+\begin{prop}
+	Let \(j\) be a nucleus on a frame \(A\). Then the quotient \(A_j\) is compact if and only if \(\nabla(j)\) is an open filter.
+\end{prop}
 
-\section{Separation Properties Induced by Compact Quotients}
-\subsection{Neat frames}
+In particular, for every \(F\in A^\wedge\), the fitted nucleus \(v_F\) determines a compact quotient \(A_{v_F}\). Conversely, every compact quotient \(A_j\) determines the open filter \(\nabla(j)\in A^\wedge\).
+Notice, however, that a compact quotient is not, in general, uniquely determined by its admissible filter. Thus, for a fixed \(F\in A^\wedge\), it is natural to consider all nuclei \(j\) satisfying
+\[
+\nabla(j)=F.
+\]
+As recalled above, \(v_F\) is the least such nucleus. We shall now describe the nuclei having \(F\) as their admissible filter and the corresponding interval of admissibility.
 
-\begin{dfn}
-Neat definition
-\end{dfn}
+Let \(F\in A^\wedge\). Following the construction used in the general form of the Hofmann--Mislove theorem, consider
+\[
+M_F=\{m\in A\setminus F:m\text{ is maximal}\}.
+\]
+Associated with \(F\), define
+\[
+w_F(x)=\bigwedge\{m\in M_F:x\leq m\},
+\qquad x\in A,
+\]
+where the meet of the empty family is understood to be \(1\).
+
+If \(\pt(A)\) is \(T_1\), then every point is maximal and, for the HM pair \((F,Q)\), one has
+\[
+M_F=Q.
+\]
+
+The nucleus \(w_F\) is the largest nucleus having \(F\) as its admissible filter. Hence
+\[
+\nabla(w_F)=F.
+\]
+
+It follows that the nuclei having \(F\) as their admissible filter form the interval
+\[
+[v_F,w_F]
+=
+\{j\in N(A):v_F\leq j\leq w_F\}.
+\]
+We shall refer to \([v_F,w_F]\) as the admissibility interval associated with \(F\).
+
+Evaluating the endpoints at \(0\), we obtain the interval
+\[
+[v_F(0),w_F(0)]\subseteq A,
+\]
+which will also play a central role in what follows.
+
+We shall also need a particular class of nuclei arising from subspaces. Let \(S\) be a topological space, and denote by \(E^\circ\) the interior of a subset \(E\subseteq S\). For each \(E\subseteq S\), consider the map
+\[
+[E]:\mathcal O S\longrightarrow\mathcal O S,\qquad
+[E](U)=(E\cup U)^\circ.
+\]
+Here, for each \(E\subseteq S\), we denote by \(E^\circ\) the interior of \(E\) in \(S\). It is straightforward to verify that \([E]\) is a nucleus on \(\mathcal O S\). 
+A nucleus \(j\) on \(\mathcal O S\) is said to be spatially induced if \(j=[E]\) for some \(E\subseteq S\).
+
+Spatially induced nuclei provide a natural representative within the admissibility interval associated with the neighbourhood filter of a compact saturated subset.
+\begin{ej}
+	Let \(Q\) be a compact saturated subset of a topological space \(S\), and consider its neighbourhood filter
+\[
+G=\nabla(Q)=\{U\in\mathcal O S\mid Q\subseteq U\}.
+\]
+By the Hofmann--Mislove theorem, \(G\in(\mathcal O S)^\wedge\). Consider the spatially induced nucleus \([Q']\), where \(Q'=S\setminus Q\). For every \(U\in\mathcal O S\),
+\[
+[Q'](U)=S
+\quad\Longleftrightarrow\quad
+(Q'\cup U)^\circ=S
+\quad\Longleftrightarrow\quad
+Q'\cup U=S
+\quad\Longleftrightarrow\quad
+Q\subseteq U.
+\]
+Hence
+\[
+\nabla([Q'])=G.
+\]
+Since \(v_G\) and \(w_G\) are, respectively, the least and greatest nuclei having \(G\) as their admissible filter, it follows that
+\[
+v_G\leq[Q']\leq w_G.
+\]
+and evaluating in $\emptyset$, $v_G(\emptyset)\subseteq (Q')^\circ\subseteq w_G(\emptyset)$.
+\end{ej}
+
+More generally, let \(F\in A^\wedge\), let \(Q\subseteq\pt(A)\) be its corresponding compact saturated subset, and set \(G=\nabla(Q)\). 
+We shall call \((F,Q,G)\) an HM triple.
 
 \begin{prop}\label{morfismo} 
-Let $(F,Q,G)$ be an HM triple, with 
-\[
-F\in A^\wedge \quad\text{and}\quad G=\nabla(Q)\in (\mathcal{O}S)^\wedge.
-\]
-If
-\[
-k\in[v_G,w_G],
-\]
-then
+Let $(F,Q,G)$ be an HM triple. If \(k\in[v_G,w_G]\), then
 \[
 \mathcal{U}_*\circ k\circ \mathcal{U}\in[v_F,w_F].
 \]
@@ -353,55 +445,32 @@ then
 \begin{proof}
 Since $k$ is a nucleus on $\mathcal{O}S$, the composite
 \[
-\mathcal{U}_*\circ k\circ \mathcal{U}
+    \mathcal{U}_*\circ k\circ\mathcal{U}
 \]
-is a nucleus on $A$. Thus, it is enough to show that
+is a nucleus on $A$. Thus, it suffices to show that
 \[
-\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})=F.
+    \nabla(\mathcal{U}_*\circ k\circ\mathcal{U})=F.
 \]
-
-Let $x\in A$. Since $(F,Q,G)$ is an HM triple,
+Indeed, for every $x\in A$,
 \[
+\begin{aligned}
 x\in F
-\Longleftrightarrow
-Q\subseteq \mathcal{U}(x)
-\Longleftrightarrow
-\mathcal{U}(x)\in G.
+&\iff Q\subseteq\mathcal{U}(x)\\
+&\iff \mathcal{U}(x)\in G\\
+&\iff k(\mathcal{U}(x))=S\\
+&\iff \mathcal{U}_*(k(\mathcal{U}(x)))=1\\
+&\iff x\in\nabla(\mathcal{U}_*\circ k\circ\mathcal{U}).
+\end{aligned}
 \]
-
-On the other hand, since $k\in[v_G,w_G]$, we have
+Here, the third equivalence follows from $\nabla(k)=G$, while the
+fourth follows from the adjunction $\mathcal{U}\dashv\mathcal{U}_*$
+and $\mathcal{U}(1)=S$. Hence
 \[
-\nabla(k)=G.
+    \nabla(\mathcal{U}_*\circ k\circ\mathcal{U})=F,
 \]
-Therefore,
+and therefore
 \[
-\mathcal{U}(x)\in G
-\Longleftrightarrow
-k(\mathcal{U}(x))=S.
-\]
-
-Using the adjunction $\mathcal{U}\dashv \mathcal{U}_*$ and the fact that $\mathcal{U}(1)=S$, we obtain
-\[
-k(\mathcal{U}(x))=S
-\Longleftrightarrow
-\mathcal{U}_*(k(\mathcal{U}(x)))=1.
-\]
-Hence,
-\[
-x\in F
-\Longleftrightarrow
-(\mathcal{U}_*\circ k\circ \mathcal{U})(x)=1
-\Longleftrightarrow
-x\in\nabla(\mathcal{U}_*\circ k\circ \mathcal{U}).
-\]
-
-Thus,
-\[
-\nabla(\mathcal{U}_*\circ k\circ \mathcal{U})=F,
-\]
-and consequently
-\[
-\mathcal{U}_*\circ k\circ \mathcal{U}\in[v_F,w_F].
+    \mathcal{U}_*\circ k\circ\mathcal{U}\in[v_F,w_F].
 \]
 \end{proof}
 
@@ -413,8 +482,58 @@ Proposition \ref{morfismo} defines a map
 \]
 In particular, for every $k\in[v_G,w_G]$, we have
 \begin{equation}\label{comparacionvFwF}
-v_F\leq \mathcal{U}_*\circ k\circ \mathcal{U}\leq w_F.
+v_F\leq \Phi(k) \mathcal{U}\leq w_F.
 \end{equation}
+
+We conclude this section by recording the behavior of spatially induced nuclei under this lifting in the spatial case.
+
+\begin{lem}\label{lem:auxiliar}
+Let \(A=\mathcal O S\) be spatial and let \(E\subseteq S\). Identifying \(S\) with \(\pt(\mathcal O S)\), we have
+\[
+\mathcal U_*\circ [E]\circ\mathcal U=[E].
+\]
+\end{lem}
+
+\begin{proof}
+Since \(A=\mathcal O S\) is spatial,
+\[
+\mathcal U:\mathcal O S\longrightarrow\mathcal O(\pt(\mathcal O S))
+\]
+is an isomorphism. Let \(y\in\mathcal O S\). Since \(\mathcal U\) is surjective, there exists \(x\in\mathcal O S\) such that
+\[
+(E\cup\mathcal U(y))^\circ=\mathcal U(x).
+\]
+Hence
+\[
+\begin{aligned}
+(\mathcal U_*\circ[E]\circ\mathcal U)(y)
+&=\mathcal U_*\bigl((E\cup\mathcal U(y))^\circ\bigr)\\
+&=\mathcal U_*(\mathcal U(x))\\
+&=x.
+\end{aligned}
+\]
+On the other hand,
+\[
+\mathcal U([E](y))
+=(E\cup\mathcal U(y))^\circ
+=\mathcal U(x).
+\]
+Since \(\mathcal U\) is injective, \([E](y)=x\). Therefore
+\[
+(\mathcal U_*\circ[E]\circ\mathcal U)(y)=[E](y)
+\]
+for every \(y\in\mathcal O S\), and consequently
+\[
+\mathcal U_*\circ[E]\circ\mathcal U=[E].
+\]
+\end{proof}
+
+\section{Separation Properties Induced by Compact Quotients}
+\subsection{Neat frames}
+
+\begin{dfn}
+Neat definition
+\end{dfn}
 
 \begin{prop}\label{igualdadwF}
 Let $(F,Q,G)$ be an HM triple. Then
@@ -2111,62 +2230,6 @@ Since
 we obtain
 \[
 \mathcal{O}Q\cong (\mathcal{O}S)_{v_\nabla}\cong \uparrow Q'.
-\]
-\end{proof}
-
-\begin{lem}\label{lem:auxiliar}
-Let $A=\mathcal{O}S$ be spatial and let $E\subseteq S$. Then
-\[
-\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
-\]
-\end{lem}
-
-\begin{proof}
-Let $V\in\mathcal{O}S$. Since
-\[
-\mathcal{U}\colon \mathcal{O}S\longrightarrow
-\mathcal{O}\pt(\mathcal{O}S)
-\]
-is an isomorphism, there exist $x,y\in\mathcal{O}S$ such that
-\[
-V=\mathcal{U}(y)
-\]
-and
-\[
-(E\cup V)^\circ=\mathcal{U}(x).
-\]
-
-Then
-\[
-\begin{aligned}
-(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
-&=\mathcal{U}_*\bigl([E](\mathcal{U}(y))\bigr)\\
-&=\mathcal{U}_*\bigl((E\cup V)^\circ\bigr)\\
-&=\mathcal{U}_*(\mathcal{U}(x))\\
-&=x.
-\end{aligned}
-\]
-
-On the other hand,
-\[
-\mathcal{U}([E](y))
-=(E\cup \mathcal{U}(y))^\circ
-=(E\cup V)^\circ
-=\mathcal{U}(x).
-\]
-Since $\mathcal{U}$ is injective, it follows that
-\[
-[E](y)=x.
-\]
-
-Therefore,
-\[
-(\mathcal{U}_*\circ [E]\circ \mathcal{U})(y)
-=[E](y)
-\]
-for every $y\in\mathcal{O}S$. Hence,
-\[
-\mathcal{U}_*\circ [E]\circ \mathcal{U}=[E].
 \]
 \end{proof}
 

@@ -3,13 +3,13 @@
 \contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Preliminaries}}{2}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Frames, nuclei, and open filters}}{2}{subsection.2.1}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Compact Quotients and Admissibility Intervals}}{5}{subsection.2.2}%
-\contentsline {section}{\tocsection {}{3}{Separation Properties Induced by Compact Quotients}}{5}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{Neat frames}}{5}{subsection.3.1}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Stacked and strongly stacked frames}}{7}{subsection.3.2}%
-\contentsline {subsection}{\tocsubsection {}{3.3}{KC frames}}{8}{subsection.3.3}%
-\contentsline {section}{\tocsection {}{4}{Comparison with Classical Separation Axioms}}{8}{section.4}%
-\contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{14}{section.5}%
-\contentsline {section}{\tocsection {}{6}{The Spatial Case}}{25}{section.6}%
-\contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{31}{section.7}%
-\contentsline {section}{\tocsection {}{}{References}}{35}{section*.14}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Compact Quotients and Admissibility Intervals}}{6}{subsection.2.2}%
+\contentsline {section}{\tocsection {}{3}{Separation Properties Induced by Compact Quotients}}{8}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Neat frames}}{8}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Stacked and strongly stacked frames}}{9}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{KC frames}}{10}{subsection.3.3}%
+\contentsline {section}{\tocsection {}{4}{Comparison with Classical Separation Axioms}}{10}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Quotients and Permanence Properties}}{16}{section.5}%
+\contentsline {section}{\tocsection {}{6}{The Spatial Case}}{27}{section.6}%
+\contentsline {section}{\tocsection {}{7}{Relations among Compact-Quotient Separation Properties}}{32}{section.7}%
+\contentsline {section}{\tocsection {}{}{References}}{36}{section*.14}%
