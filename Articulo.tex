@@ -102,9 +102,8 @@ Aquí va el resumen
 \todo{Completar la introducción.}
  \done{hay que modificar el formato bastante, hay muchas separaciones en las demostraciones eso se ve raro 
  tambien te suegiero que agrres un paper que te guste y veas su estructura de como escrbiben las cosas}
-\cite{picado2021separation, sexton2006ordinal, hochster1969prime}
+\cite{picado2021separation, hochster1969prime}
 
-\cite{simmons2006assembly, sexton2003point, Johnstone82}
 \[\begin{tikzcd}
 	& {T_2} &&& {\mathbf{(reg)}} & \\
 	{\text{S.S.}} & {T_1} & {\text{Neat}} & {\mathbf{(fit)}} & {\mathbf{(sH)}} & {\mathbf{(H)}+\mathbf{(sfit)}} \\
@@ -146,7 +145,7 @@ Aquí va el resumen
 \section{Preliminaries}
 \done{Combianar secciones 2 y 3}
 \subsection{Frames, nuclei, and open filters}
-We begin by recalling some basic facts and terminology concerning frames, nuclei, and open filters. We refer to \cite{Johnstone82,PicadoPultr,simmonscollection} for general background on frames and point-free topology.
+We begin by recalling some basic facts and terminology concerning frames, nuclei, and open filters. We refer to \cite{Johnstone82,PicadoPultr,simmonscollection,simmons2006assembly} for general background on frames and point-free topology.
 A frame is a complete lattice \(A\) satisfying the infinite distributive law
 \[a\wedge\bigvee X=\bigvee\{a\wedge s\mid x\in X\}\]
 for every \(a\in A\) and \(X\subseteq A\). A frame homomorphism \(f\colon A\to B\) is a map preserving finite meets and arbitrary joins. Frames and frame homomorphisms form the category \(\Frm\).
@@ -362,7 +361,7 @@ Notice, however, that a compact quotient is not, in general, uniquely determined
 \]
 As recalled above, \(v_F\) is the least such nucleus. We shall now describe the nuclei having \(F\) as their admissible filter and the corresponding interval of admissibility.
 
-Let \(F\in A^\wedge\). Following the construction used in the general form of the Hofmann--Mislove theorem, consider
+Let \(F\in A^\wedge\). Following the construction used in the general form of the H--M theorem, consider
 \[
 M_F=\{m\in A\setminus F:m\text{ is maximal}\}.
 \]
@@ -529,16 +528,89 @@ for every \(y\in\mathcal O S\), and consequently
 \end{proof}
 
 \section{Separation Properties Induced by Compact Quotients}
-\subsection{Neat frames}
+The notions studied in this section are largely motivated by the work of Sexton and Simmons on point-sensitive and point-free patch constructions. 
+In particular, Sexton introduced the notion of a neat frame in the study of the patch assembly. Although neatness was originally considered in that context, 
+one of its consequences suggests a different point of view that will be central here: for every open filter \(F\), the fitted nucleus \(v_F\) determines a 
+compact quotient which is also closed.
 
-\begin{dfn}
-Neat definition
+Our purpose is to study this phenomenon independently of its original role in patch constructions. More precisely, we are interested in identifying those 
+nuclei associated with open filters that determine compact closed quotients, and in understanding what happens when this requirement is imposed not only on 
+the fitted nuclei \(v_F\), but on other nuclei lying in their corresponding admissibility intervals. This perspective leads naturally to the notions introduced below.
+
+\subsection{Neat frames}
+We first recall Sexton's original definition of neatness (it is mentioned in \cite{sexton2003,sexton2006ordinal,sexton2006point}). Besides providing the starting point 
+for the properties studied in this section, this formulation will make explicit the phenomenon concerning compact closed quotients that motivates our approach.
+\begin{dfn}\label{Neat}
+Let $A$ be a frame, let $F\in A^\wedge$ and $\alpha\in \Ord$. We say that:
+\begin{itemize}
+	\item $F$ is $\alpha$-neat, if 
+	\[
+	x\vee d=1, \quad \text{for every }x\in F,
+	\]
+	where $d=f^\alpha_F(0)$.
+	\item $A$ is $\alpha$-neat if every $F\in A^\wedge$ is $\alpha$-neat.
+	\item $A$ is neat if it is $\alpha$-neat for some $\alpha$. 
+\end{itemize}
 \end{dfn}
 
-\begin{prop}\label{igualdadwF}
-Let $(F,Q,G)$ be an HM triple. Then
+Let us point out a consequence of the preceding definition that will be relevant throughout this work. Suppose that \(A\) is \(\alpha\)-neat and let \(F\in A^\wedge\). 
+If
 \[
-w_F=\mathcal{U}_*\circ w_G\circ \mathcal{U}.
+d=f_F^\alpha(0),
+\]
+then \(x\vee d=1\) for every \(x\in F\). Hence, \(u_d\) admits every element of \(F\), and therefore
+\[
+f_F\leq u_d.
+\]
+Since \(u_d\) is a nucleus, it follows that
+\[
+v_F=f_F^\infty\leq u_d.
+\]
+On the other hand, \(d=f_F^\alpha(0)\leq f_F^\infty(0)=v_F(0)\), and hence
+\[
+u_d\leq u_{v_F(0)}\leq v_F.
+\]
+Consequently,
+\[
+v_F=f_F^\infty=u_d.
+\]
+Thus, neatness ensures that the fitted nucleus associated with every open filter is a closed nucleus. Since \(v_F\) determines a compact quotient, every such quotient is 
+simultaneously compact and closed.
+
+Beyond this compact-closed quotient phenomenon, Sexton's study of neatness establishes connections with classical separation properties of topological spaces. 
+This naturally raises the question of whether neatness and the related notions arising from her work admit analogous connections with point-free separation properties. 
+Of particular relevance to our purposes is the spatial characterization of neatness in terms of packed and stacked spaces.
+
+More precisely, Sexton proved that a topological space is neat if and only if it is both packed and stacked (\cite[Theorem 6.2]{sexton2006ordinal}). 
+
+\subsection{Stacked and strongly stacked frames}
+Motivated by the preceding spatial characterization, we now introduce point-free counterparts of the stacked and strongly stacked conditions.
+
+We first recall the spatial notions introduced by Sexton. Let \(S\) be a topological space, let \(Q\subseteq S\) be compact saturated, and let
+\[
+G=\nabla(Q)\in(\mathcal O S)^\wedge
+\]
+be its corresponding open filter. Sexton calls \(S\) stacked if
+\[
+v_G(\emptyset)=(Q')^\circ,
+\]
+for every such pair \((G,Q)\), and strongly stacked if
+\[
+v_G=[Q']
+\]
+for every such pair.
+
+We now return to the general setting. Let \(A\) be a frame, \(S=\pt(A)\), and let \((F,Q,G)\) be an H--M triple. Recall that the map of Proposition \eqref{morfismo}
+\[
+\Phi:[v_G,w_G]\longrightarrow[v_F,w_F],
+\qquad
+\Phi(k)=\mathcal U_*\circ k\circ\mathcal U,
+\]
+provides a natural way of comparing the admissibility interval associated with \(G\) with that associated with \(F\).
+\begin{prop}\label{igualdadwF}
+Let \((F,Q,G)\) be an H--M triple. Then \(\Phi(w_G)=w_F\), that is,
+\[
+w_F=\mathcal U_*\circ w_G\circ\mathcal U.
 \]
 \end{prop}
 
@@ -568,53 +640,28 @@ Since $\mathcal{U}(w_F(x))$ is open, it is enough to show that
 \[
 \mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x).
 \]
-Suppose, by contradiction, that there exists
-\[
-y\in \mathcal{U}(w_F(x))
-\]
-such that
-\[
-y\notin M'
-\qquad\text{and}\qquad
-y\notin \mathcal{U}(x).
-\]
-Then $y\in M$ and $x\leq y$. On the other hand,
-\[
-y\in \mathcal{U}(w_F(x))
-\]
-implies
-\[
-w_F(x)\nleq y.
-\]
-However,
+Suppose, by contradiction, that there exists \(y\in \mathcal{U}(w_F(x))\) such that \(y\notin M'\)
+and \(y\notin \mathcal{U}(x)\). Then $y\in M$ and $x\leq y$. On the other hand, \(y\in \mathcal{U}(w_F(x))\)
+implies \(w_F(x)\nleq y\). However,
 \[
 w_F(x)=\bigwedge\{m\in M\mid x\leq m\},
 \]
-and since $y\in M$ with $x\leq y$, it follows that
-\[
-w_F(x)\leq y,
-\]
-a contradiction.
+and since $y\in M$ with $x\leq y$, it follows that \(w_F(x)\leq y\) a contradiction.
 
-Therefore,
-\[
-\mathcal{U}(w_F(x))\subseteq (M'\cup \mathcal{U}(x))^\circ,
-\]
-and hence
-\[
-\mathcal{U}\circ w_F\leq w_G\circ \mathcal{U}.
-\]
-By adjunction,
-\[
-w_F\leq \mathcal{U}_*\circ w_G\circ \mathcal{U}.
-\]
-Combining both inequalities, we conclude that
-\[
-w_F=\mathcal{U}_*\circ w_G\circ \mathcal{U}.
-\]
+Therefore, \(\mathcal{U}(w_F(x))\subseteq (M'\cup \mathcal{U}(x))^\circ\).
 \end{proof}
 
-\subsection{Stacked and strongly stacked frames}
+The preceding proposition shows that \(\Phi\) preserves the upper endpoints of the corresponding admissibility intervals:
+\[
+\Phi(w_G)=w_F.
+\]
+It is therefore natural to ask to what extent the lower endpoints are also preserved. Motivated by Sexton's spatial notions, 
+we consider two possible forms of this requirement: agreement at the bottom element, and agreement of the nuclei themselves.
+Since \([Q']\) is the spatially induced nucleus appearing in Sexton's definitions, its image
+\[
+\Phi([Q'])=\mathcal U_*\circ[Q']\circ\mathcal U
+\]
+provides the natural candidate for reproducing this behavior on \(A\). This leads to the following definitions.
 
 \begin{dfn}\label{def:apilado-marcos}
 Let $A$ be a frame. We say that $A$ is \emph{stacked} if, for every HM pair $(F,Q)$,
@@ -623,7 +670,7 @@ Let $A$ be a frame. We say that $A$ is \emph{stacked} if, for every HM pair $(F,
     \]
 \end{dfn}
 
-\begin{dfn}\label{def:apilado-marcos}
+\begin{dfn}\label{def:fapilado-marcos}
 Let $A$ be a frame. We say that $A$ is \emph{strongly stacked} if, for every HM pair $(F,Q)$,
     \[
     U_*\circ[Q']\circ U=v_F;
