@@ -105,7 +105,8 @@ Aquí va el resumen
  tambien te suegiero que agrres un paper que te guste y veas su estructura de como escrbiben las cosas}
 \cite{picado2021separation, hochster1969prime}
 
-\[\begin{tikzcd}
+\[
+\begin{tikzcd}
 	& {T_2} &&& {\mathbf{(reg)}} & \\
 	{\text{S.S.}} & {T_1} & {\text{Neat}} & {\mathbf{(fit)}} & {\mathbf{(sH)}} & {\mathbf{(H)}+\mathbf{(sfit)}} \\
 	{\text{S.}} & {T_0} & {\text{Packed}} & {\mathbf{(sfit)}} & {\mathbf{(H)}} & {T_1+\mathbf{(sfit)}} \\
@@ -125,22 +126,34 @@ Aquí va el resumen
 	\arrow[Rightarrow, from=3-3, to=4-3]
 	\arrow[Rightarrow, from=3-5, to=4-5]
 	\arrow[Rightarrow, from=3-6, to=4-6]
-\end{tikzcd}\]
+	\arrow[squiggly, no head, from=2-1, to=2-2]
+	\arrow[squiggly, no head, from=3-4, to=4-5]
+\end{tikzcd}
+\]
 
 \[\begin{tikzcd}
-	& {T_1} & \\
-	{\mathbf{(H)}} & KC & {\text{Neat}} \\
-	& {\text{S. S.}} & {\text{S.}}
-	\arrow[Rightarrow, from=2-1, to=1-2]
-	\arrow[Rightarrow, dotted, from=2-1, to=2-2]
-	\arrow[Rightarrow, dotted, from=2-1, to=3-2]
-	\arrow[Rightarrow, dotted, from=2-2, to=1-2]
-	\arrow[Rightarrow, dotted, from=2-2, to=2-3]
-	\arrow[Rightarrow, dotted, from=2-2, to=3-2]
-	\arrow[Rightarrow, from=2-3, to=1-2]
-	\arrow[Rightarrow, dotted, from=2-3, to=3-2]
-	\arrow[Rightarrow, dotted, from=2-3, to=3-3]
-	\arrow[Rightarrow, from=3-2, to=3-3]
+	&& {\mathbf{(reg)}} && \\
+	{\mathbf{(fit)}} && {\text{KC}} && {\mathbf{(sH)}} \\
+	{\mathbf{(sfit)}} && {\text{Neat}} & {\text{S.S.}} & {\mathbf{(H)}} \\
+	&& {T_1} & {\text{S.}}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, dashed, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=2-1, to=4-3]
+	\arrow[Rightarrow, dashed, from=2-3, to=2-1]
+	\arrow[Rightarrow, dashed, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, dashed, from=2-3, to=3-5]
+	\arrow[Rightarrow, dashed, from=2-5, to=2-3]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[squiggly, no head, from=3-1, to=4-3]
+	\arrow[Rightarrow, dashed, from=3-3, to=3-4]
+	\arrow[Rightarrow, from=3-3, to=4-3]
+	\arrow[squiggly, no head, from=3-4, to=4-3]
+	\arrow[Rightarrow, from=3-4, to=4-4]
+	\arrow[Rightarrow, dashed, from=3-5, to=3-4]
+	\arrow[Rightarrow, from=3-5, to=4-3]
 \end{tikzcd}\]
 
 \section{Preliminaries}
@@ -718,6 +731,48 @@ j=u_a.
 \]
 
 \section{Comparison with Classical Separation Axioms}
+
+Using the conservativity of the stacked and strongly stacked
+properties [Proposition \eqref{apiladoconservativa}], one can already observe that neither of these
+properties is comparable with the $T_1$ separation axiom. Indeed,
+there exist strongly stacked (and hence stacked) frames which are not
+$T_1$, as well as $T_1$ frames which are not stacked (and hence not
+strongly stacked).
+
+\begin{ej}
+\mbox{}
+\begin{enumerate}	
+\item The strongly stacked property does not imply $T_1$. Indeed, consider
+the frame $A=[0,1]$ with its usual order. Its open filters are of the
+form
+\[
+    F_r=(r,1], \qquad 0\leq r<1,
+\]
+and the corresponding compact saturated subsets of
+$\pt A=[0,1)$ are
+\[
+    Q_r=[0,r].
+\]
+A direct computation shows that
+\[
+    v_{F_r}(x)=
+    \begin{cases}
+        x, & x\leq r,\\
+        1, & x>r,
+    \end{cases}
+    =[Q_r'](x).
+\]
+Hence, $A$ is strongly stacked. However, $A$ is not $T_1$, since
+its points are not maximal.
+
+\item The converse non-implications also hold. Indeed, the Hausdorff frame
+of Paseka and Šmarda \cite{PasekaSmarda1992} considered in Example \eqref{HnoS} is
+$T_1$, but it is not stacked. Consequently, it is not strongly
+stacked either.
+\end{enumerate}
+\end{ej}
+
+
 Recall that if a topological space $S$ is $T_1$ and strongly stacked, then
 \[
 w_G=v_G.
@@ -1050,7 +1105,7 @@ The point-free situation is, however, genuinely broader, since the $T_1$ and
 stacked conditions do not force spatiality. In fact, the following example
 shows that this remains true even if stacked is replaced by strongly stacked.
 
-\begin{ej}
+\begin{ej}\label{T1+S no espacial}
 Let $B$ be an atomless complete Boolean algebra and consider
 \[
 A=B\times 2,
@@ -1184,7 +1239,7 @@ implies that there exists $c\in A$ such that
 As shown in \cite{PasekaSmarda1992}, property $\mathbf{(H)}$ implies $T_1$. Nevertheless, property
 $\mathbf{(H)}$ does not imply stackedness, as the following example shows.
 
-\begin{ej}
+\begin{ej}\label{HnoS}
 There exists a frame satisfying property $\mathbf{(H)}$ which is not stacked.
 
 Let $I=[0,1]$, endowed with its usual topology, and consider the frame
@@ -1283,6 +1338,49 @@ further illustrates the distinction between separation properties and
 stackedness in the point-free setting. On the one hand, there exist
 non-spatial $T_1$ strongly stacked frames; on the other hand, even the
 stronger Hausdorff condition $\mathbf{(H)}$ does not guarantee stackedness.
+
+\begin{prop}\label{KCT1}
+Every KC frame is $T_1$.
+\end{prop}
+
+\begin{proof}
+Let $p\in\pt A$. The filter
+\[
+F_p=\nabla(w_p)=\{x\in A\mid x\nleq p\}
+\]
+is completely prime and, in particular, $F_p\in A^\wedge$. Hence $A_{w_p}$
+is a compact quotient of $A$. Since $A$ is KC, this quotient is closed.
+Therefore,
+\[
+w_p=u_a
+\]
+for some $a\in A$. Evaluating at $0$, we obtain
+\[
+a=u_a(0)=w_p(0)=p,
+\]
+and hence
+\[
+w_p=u_p.
+\]
+
+Now let $a\in A$ be such that
+\[
+p<a\leq1.
+\]
+Since $a\nleq p$, we have
+\[
+w_p(a)=1.
+\]
+On the other hand,
+\[
+u_p(a)=p\vee a=a.
+\]
+Since $w_p=u_p$, it follows that
+\[
+a=1.
+\]
+Thus $p$ is maximal. Since every point of $A$ is maximal, $A$ is $T_1$.
+\end{proof}
 
 \section{Quotients and Permanence Properties}
 
@@ -2101,49 +2199,6 @@ k=u_{j^*(a)}.
 Thus $(A_j)_k$ is closed. Therefore, $A_j$ is KC.
 \end{proof}
 
-\begin{prop}\label{KCT1}
-Every KC frame is $T_1$.
-\end{prop}
-
-\begin{proof}
-Let $p\in\pt A$. The filter
-\[
-F_p=\nabla(w_p)=\{x\in A\mid x\nleq p\}
-\]
-is completely prime and, in particular, $F_p\in A^\wedge$. Hence $A_{w_p}$
-is a compact quotient of $A$. Since $A$ is KC, this quotient is closed.
-Therefore,
-\[
-w_p=u_a
-\]
-for some $a\in A$. Evaluating at $0$, we obtain
-\[
-a=u_a(0)=w_p(0)=p,
-\]
-and hence
-\[
-w_p=u_p.
-\]
-
-Now let $a\in A$ be such that
-\[
-p<a\leq1.
-\]
-Since $a\nleq p$, we have
-\[
-w_p(a)=1.
-\]
-On the other hand,
-\[
-u_p(a)=p\vee a=a.
-\]
-Since $w_p=u_p$, it follows that
-\[
-a=1.
-\]
-Thus $p$ is maximal. Since every point of $A$ is maximal, $A$ is $T_1$.
-\end{proof}
-
 
 \section{The Spatial Case}
 
@@ -2889,26 +2944,40 @@ therefore $A$ is KC.
 \end{proof}
 
 \[\begin{tikzcd}
-	&& {\mathbf{(reg)}} && \\
-	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\text{KC}+\mathbf{(sfit)}} \\
-	{\mathbf{(sfit)}} && {\text{KC}} && {\text{S.S.}} \\
-	&& {\text{Neat}} && {\text{S.}} \\
-	&& {T_1}
-	\arrow[Rightarrow, from=1-3, to=2-1]
-	\arrow[Rightarrow, from=1-3, to=2-3]
-	\arrow[Rightarrow, from=1-3, to=2-5]
-	\arrow[squiggly, no head, from=2-1, to=2-3]
-	\arrow[Rightarrow, from=2-1, to=3-1]
-	\arrow[squiggly, no head, from=2-1, to=3-3]
-	\arrow[Rightarrow, from=2-3, to=3-3]
-	\arrow[Rightarrow, from=2-5, to=3-5]
-	\arrow[squiggly, no head, from=3-1, to=2-3]
-	\arrow[squiggly, no head, from=3-3, to=3-1]
-	\arrow[Rightarrow, from=3-3, to=4-3]
-	\arrow[Rightarrow, from=3-5, to=4-5]
-	\arrow[squiggly, no head, from=3-5, to=5-3]
-	\arrow[Rightarrow, from=4-3, to=5-3]
+	&&& {\mathbf{(reg)}} &&& \\
+	{\mathbf{(fit)}} &&& {\mathbf{(sH)}} & {\mathbf{(H)}} && {\mathbf{(sH)}+\mathbf{(sfit)}} \\
+	&&& {\text{KC}} &&& {\text{KC}+\mathbf{(sfit)}} \\
+	{\mathbf{(sfit)}} &&& {\text{Neat}} &&& {\text{S.S.}} \\
+	&&& {T_1} &&& {\text{S.}}
+	\arrow[Rightarrow, from=1-4, to=2-1]
+	\arrow[Rightarrow, from=1-4, to=2-4]
+	\arrow[Rightarrow, from=1-4, to=2-7]
+	\arrow[squiggly, no head, from=2-1, to=2-4]
+	\arrow[squiggly, no head, from=2-1, to=3-4]
+	\arrow[Rightarrow, from=2-1, to=4-1]
+	\arrow[Rightarrow, from=2-1, to=5-4]
+	\arrow[Rightarrow, from=2-4, to=2-5]
+	\arrow[Rightarrow, from=2-4, to=3-4]
+	\arrow[squiggly, no head, from=2-5, to=4-7]
+	\arrow[Rightarrow, from=2-5, to=5-4]
+	\arrow[squiggly, from=2-5, to=5-7]
+	\arrow[Rightarrow, from=2-7, to=2-5]
+	\arrow[Rightarrow, from=2-7, to=3-4]
+	\arrow[Rightarrow, from=2-7, to=3-7]
+	\arrow[Rightarrow, from=3-4, to=4-4]
+	\arrow[Rightarrow, from=3-7, to=4-4]
+	\arrow[Rightarrow, from=3-7, to=4-7]
+	%\arrow[Rightarrow, from=3-7, to=5-4]
+	\arrow[squiggly, no head, from=4-1, to=2-4]
+	\arrow[squiggly, no head, from=4-1, to=3-4]
+	\arrow[squiggly, no head, from=4-1, to=4-4]
+	\arrow[squiggly, no head, from=4-1, to=5-4]
+	\arrow[Rightarrow, from=4-4, to=5-4]
+	\arrow[squiggly, no head, from=4-7, to=5-4]
+	\arrow[Rightarrow, from=4-7, to=5-7]
+	\arrow[squiggly, no head, from=5-7, to=5-4]
 \end{tikzcd}\]
+
 
 %\bibliographystyle{amsalpha}
 \bibliographystyle{amsplain}
