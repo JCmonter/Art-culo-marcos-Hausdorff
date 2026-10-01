@@ -99,7 +99,7 @@ Aquí va el resumen
 
 \listoftodos
 
-\section{Introduction}
+\section{Introduction}\label{Introducción}
 \todo{Completar la introducción.}
  \done{hay que modificar el formato bastante, hay muchas separaciones en las demostraciones eso se ve raro 
  tambien te suegiero que agrres un paper que te guste y veas su estructura de como escrbiben las cosas}
@@ -126,8 +126,18 @@ Aquí va el resumen
 	\arrow[Rightarrow, from=3-3, to=4-3]
 	\arrow[Rightarrow, from=3-5, to=4-5]
 	\arrow[Rightarrow, from=3-6, to=4-6]
+	\arrow[Rightarrow, from=2-6, to=3-5]
+	% Squiggly: lado izquierdo
 	\arrow[squiggly, no head, from=2-1, to=2-2]
+	\arrow[squiggly, no head, from=3-1, to=2-2]
+	% Squiggly: T_1 y (sfit)
 	\arrow[squiggly, no head, from=3-4, to=4-5]
+	% Squiggly: lado derecho
+	\arrow[squiggly, no head, from=2-4, to=2-5]
+	\arrow[squiggly, no head, from=2-5, to=2-6]
+	\arrow[squiggly, no head, from=2-4, to=3-5]
+	\arrow[squiggly, no head, from=3-4, to=2-5]
+	\arrow[squiggly, no head, from=3-4, to=3-5]
 \end{tikzcd}
 \]
 
@@ -156,12 +166,12 @@ Aquí va el resumen
 	\arrow[Rightarrow, from=3-5, to=4-3]
 \end{tikzcd}\]
 
-\section{Preliminaries}
+\section{Preliminaries}\label{Preliminaries}
 \done{Combianar secciones 2 y 3}
 \subsection{Frames, nuclei, and open filters}
 We begin by recalling some basic facts and terminology concerning frames, nuclei, and open filters. We refer to \cite{Johnstone82,PicadoPultr,simmonscollection,simmons2006assembly} for general background on frames and point-free topology.
 A frame is a complete lattice \(A\) satisfying the infinite distributive law
-\[a\wedge\bigvee X=\bigvee\{a\wedge s\mid x\in X\}\]
+\[a\wedge\bigvee X=\bigvee\{a\wedge x\mid x\in X\}\]
 for every \(a\in A\) and \(X\subseteq A\). A frame homomorphism \(f\colon A\to B\) is a map preserving finite meets and arbitrary joins. Frames and frame homomorphisms form the category \(\Frm\).
 
 As usual, the distributivity law determines a Heyting implication \(\succ\) on \(A\), characterized by
@@ -351,7 +361,7 @@ Q\longmapsto\nabla(Q)
 Whenever \(F\in A^\wedge\), we shall denote by \(Q\) its corresponding compact saturated subset of \(\pt(A)\), unless it is necessary to emphasize the dependence on \(F\). 
 We shall refer to a pair \((F,Q)\), where \(F\in A^\wedge\) and \(Q\in\mathcal Q(\pt(A))\) correspond under the above bijection, as an HM pair.
 
-\begin{obs}
+\begin{obs}\label{Obs1}
 Notice that the Hofmann--Mislove correspondence also includes the
 degenerate case in which $A$ has no points. Indeed, if
 $\pt(A)=\varnothing$, then the only compact saturated subset of
@@ -399,11 +409,11 @@ As recalled above, \(v_F\) is the least such nucleus. We shall now describe the 
 
 Let \(F\in A^\wedge\). Following the construction used in the general form of the H--M theorem, consider
 \[
-M_F=\{m\in A\setminus F:m\text{ is maximal}\}.
+M_F=\{m\in A\setminus F\mid m\text{ is maximal}\}.
 \]
 Associated with \(F\), define
 \[
-w_F(x)=\bigwedge\{m\in M_F:x\leq m\},
+w_F(x)=\bigwedge\{m\in M_F\mid x\leq m\},
 \qquad x\in A,
 \]
 where the meet of the empty family is understood to be \(1\).
@@ -422,7 +432,7 @@ It follows that the nuclei having \(F\) as their admissible filter form the inte
 \[
 [v_F,w_F]
 =
-\{j\in N(A):v_F\leq j\leq w_F\}.
+\{j\in N(A)\mid v_F\leq j\leq w_F\}.
 \]
 We shall refer to \([v_F,w_F]\) as the admissibility interval associated with \(F\).
 
@@ -434,10 +444,11 @@ which will also play a central role in what follows.
 
 We shall also need a particular class of nuclei arising from subspaces. Let \(S\) be a topological space, and denote by \(E^\circ\) the interior of a subset \(E\subseteq S\). For each \(E\subseteq S\), consider the map
 \[
-[E]:\mathcal O S\longrightarrow\mathcal O S,\qquad
+[E]\colon\mathcal O S\longrightarrow\mathcal O S,\qquad
 [E](U)=(E\cup U)^\circ.
 \]
-Here, for each \(E\subseteq S\), we denote by \(E^\circ\) the interior of \(E\) in \(S\). It is straightforward to verify that \([E]\) is a nucleus on \(\mathcal O S\). 
+
+It is straightforward to verify that \([E]\) is a nucleus on \(\mathcal O S\). 
 A nucleus \(j\) on \(\mathcal O S\) is said to be spatially induced if \(j=[E]\) for some \(E\subseteq S\).
 
 Spatially induced nuclei provide a natural representative within the admissibility interval associated with the neighbourhood filter of a compact saturated subset.
@@ -517,7 +528,7 @@ Proposition \ref{morfismo} defines a map
 \]
 In particular, for every $k\in[v_G,w_G]$, we have
 \begin{equation}\label{comparacionvFwF}
-v_F\leq \Phi(k) \mathcal{U}\leq w_F.
+v_F\leq \Phi(k) \leq w_F.
 \end{equation}
 
 We conclude this section by recording the behavior of spatially induced nuclei under this lifting in the spatial case.
@@ -563,7 +574,7 @@ for every \(y\in\mathcal O S\), and consequently
 \]
 \end{proof}
 
-\section{Separation Properties Induced by Compact Quotients}
+\section{Separation Properties Induced by Compact Quotients}\label{Definiciones}
 The notions studied in this section are largely motivated by the work of Sexton and Simmons on point-sensitive and point-free patch constructions. 
 In particular, Sexton introduced the notion of a neat frame in the study of the patch assembly. Although neatness was originally considered in that context, 
 one of its consequences suggests a different point of view that will be central here: for every open filter \(F\), the fitted nucleus \(v_F\) determines a 
@@ -574,7 +585,7 @@ nuclei associated with open filters that determine compact closed quotients, and
 the fitted nuclei \(v_F\), but on other nuclei lying in their corresponding admissibility intervals. This perspective leads naturally to the notions introduced below.
 
 \subsection{Neat frames}
-We first recall Sexton's original definition of neatness (it is mentioned in \cite{sexton2003,sexton2006ordinal,sexton2006point}). Besides providing the starting point 
+We first recall Sexton's original definition of neatness (it is mentioned in \cite{sexton2006ordinal,sexton2006point, sexton2003}). Besides providing the starting point 
 for the properties studied in this section, this formulation will make explicit the phenomenon concerning compact closed quotients that motivates our approach.
 \begin{dfn}\label{Neat}
 Let $A$ be a frame, let $F\in A^\wedge$ and $\alpha\in \Ord$. We say that:
@@ -714,8 +725,24 @@ Let $A$ be a frame. We say that $A$ is \emph{strongly stacked} if, for every HM 
 \end{dfn}
 
 Clearly, every strongly stacked frame is stacked.
+
+\begin{obs}\label{Obs2}
+If $\pt A=\varnothing$, then, by Remark \ref{Obs1}, the only HM pair is
+$(A,\varnothing)$. Hence the strongly stacked condition is trivially
+satisfied, and therefore so is the stacked condition. Thus, while both
+notions are well defined for pointless frames, their nontrivial content
+arises when $\pt A\neq\varnothing$.
+\end{obs}
+
 \subsection{KC frames}
 
+Recall that neatness requires the fitted nucleus associated with each
+open filter to determine a closed compact quotient. It is then natural
+to ask what happens if this requirement is extended to every nucleus
+admitting an open filter. This leads to a point-free counterpart of the
+classical KC condition considered by Wilansky \cite{Wilansky1967}, where compact
+subsets are required to be closed. Accordingly, we introduce the
+following notion.
 
 \begin{dfn}
 Let $A$ be a frame. We say that $A$ is \emph{KC} if every compact quotient of $A$ is closed.
@@ -730,7 +757,22 @@ there exists $a\in A$ such that
 j=u_a.
 \]
 
-\section{Comparison with Classical Separation Axioms}
+In the spatial setting, Wilansky's KC condition coincides with
+Rosemary's notion of packedness. Moreover, in this case one has
+\[
+    \text{Neat}
+    \iff
+    \text{Packed}
+    =
+    \text{KC and Stacked}.
+\]
+This naturally raises the question of whether analogous relationships
+hold among the point-free notions introduced in this section. We shall
+return to this question in Section \ref{Interaccion entre propiedades}. Before doing so, we first examine
+how these notions interact with the classical separation axioms in
+$\Frm$.
+
+\section{Comparison with Classical Separation Axioms}\label{RelacionConPropiedadesDeSeparacion}
 
 Using the conservativity of the stacked and strongly stacked
 properties [Proposition \eqref{apiladoconservativa}], one can already observe that neither of these
@@ -739,7 +781,7 @@ there exist strongly stacked (and hence stacked) frames which are not
 $T_1$, as well as $T_1$ frames which are not stacked (and hence not
 strongly stacked).
 
-\begin{ej}
+\begin{ej}\label{T1nostacked}
 \mbox{}
 \begin{enumerate}	
 \item The strongly stacked property does not imply $T_1$. Indeed, consider
@@ -850,9 +892,9 @@ Let $A$ be a frame. The following statements hold:
     \]
     for every $F\in A^\wedge$ and that
     \[
-    \{q\in\pt A\mid a\leq q\}\neq\varnothing
+    \mathcal{V}(a)=\{q\in\pt A\mid a\leq q\}\neq\varnothing
     \]
-    for every $a\in A$. Then $A$ is $T_1$.
+    for every $a\neq 1\in A$. Then $A$ is $T_1$.
 \end{enumerate}
 \end{prop}
 
@@ -940,7 +982,7 @@ Let $A$ be a frame. The following statements hold:
     \]
     for every $F\in A^\wedge$ and that
     \[
-    \{q\in\pt A\mid a\leq q\}\neq\varnothing
+    \mathcal{V}(a)=\{q\in\pt A\mid a\leq q\}\neq\varnothing
     \]
     for every $a\in A$. Then $A$ is $T_1$.
 \end{enumerate}
@@ -1309,7 +1351,7 @@ and therefore
 On the other hand,
 \[
 \begin{aligned}
-    (U_*\circ[Q']\circ U)(0)
+    (\mathcal{U}_*\circ[Q']\circ \mathcal{U})(0)
     &=
     \bigwedge Q\\
     &=
@@ -1324,7 +1366,7 @@ On the other hand,
 \]
 Thus,
 \[
-    v_F(0)\neq(U_*\circ[Q']\circ U)(0),
+    v_F(0)\neq(\mathcal{U}_*\circ[Q']\circ \mathcal{U})(0),
 \]
 and consequently $\widetilde{A}$ is not stacked.
 \end{ej}
@@ -1338,6 +1380,28 @@ further illustrates the distinction between separation properties and
 stackedness in the point-free setting. On the one hand, there exist
 non-spatial $T_1$ strongly stacked frames; on the other hand, even the
 stronger Hausdorff condition $\mathbf{(H)}$ does not guarantee stackedness.
+
+At this point, it is useful to consider another point-free version of
+the Hausdorff separation axiom. A frame $A$ is said to be
+strongly Hausdorff, or simply $\mathbf{(sH)}$, if the codiagonal
+\[
+    \nabla_A:A\oplus A\longrightarrow A
+\]
+is a closed quotient. Strong Hausdorffness retains the expected
+Hausdorff behavior on spatial instances, but, unlike $\mathbf{(H)}$, it is not
+a conservative extension of the classical $T_2$ axiom. Nevertheless,
+this stronger condition has an important consequence for the compact
+quotients considered here.
+
+\begin{prop}\label{sHimplicaKC}
+Every strongly Hausdorff frame is KC.
+\end{prop}
+
+\begin{proof}
+This follows directly from of
+\cite[Theorem~9.2.1]{picado2021separation}, which states that every compact quotient of a
+strongly Hausdorff frame is closed.
+\end{proof}
 
 \begin{prop}\label{KCT1}
 Every KC frame is $T_1$.
@@ -1382,7 +1446,56 @@ a=1.
 Thus $p$ is maximal. Since every point of $A$ is maximal, $A$ is $T_1$.
 \end{proof}
 
-\section{Quotients and Permanence Properties}
+\begin{cor}
+Every subfit KC-frame is spatial.
+\end{cor}
+
+\begin{proof}
+Let $A$ be a subfit KC frame. Since every KC frame is $T_1$, the
+result follows from \cite[Proposition~2.5.3]{picado2021separation}.
+\end{proof}
+
+\begin{prop}\label{KCnosfit}
+There exists a KC-frame which is strongly stacked and not subfit.
+Consequently,
+\[
+    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
+\]
+\end{prop}
+
+\begin{proof}
+Consider the frame
+\[
+    A=B\times 2,
+\]
+introduced in Example \ref{T1+S no espacial}. Recall that $A$ is $T_1$, strongly stacked,
+and non-spatial.
+
+The only open filters of $A$ are $A$ and $F_p=\uparrow(0,1)$, where $p=(1,0)$ is the unique point of $A$.
+
+For $F=A$, we have
+\[
+    v_A=w_A=\operatorname{tp}=u_1.
+\]
+
+On the other hand, for $F=F_p$, by Corollary \ref{Igualdadnucleos} yield
+\[
+    v_{F_p}=w_{F_p}=u_p.
+\]
+
+Thus, for every $F\in A^\wedge$, every nucleus in the admissibility
+interval $[v_F,w_F]$ is closed. Hence $A$ is a KC frame.
+
+Finally, $A$ cannot be subfit. Indeed, every $T_1$ subfit frame is
+spatial, whereas $A$ is $T_1$ and non-spatial. Consequently, $A$ is
+a KC frame which is strongly stacked and not subfit. In particular,
+\[
+    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
+\]
+\end{proof}
+
+
+\section{Quotients and Permanence Properties}\label{Permanencia}
 
 Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
 \begin{equation}\label{Qlaxo}
@@ -2200,7 +2313,7 @@ Thus $(A_j)_k$ is closed. Therefore, $A_j$ is KC.
 \end{proof}
 
 
-\section{The Spatial Case}
+\section{The Spatial Case}\label{Analisis espacial}
 
 \begin{lem}\label{inducciontransfinita}
 Let $\alpha\in \Ord$ and $X\in CS$. Then
@@ -2623,7 +2736,7 @@ Hence $a=p$, and $A$ is $T_1$.
 \end{proof}
 
 
-\section{Relations among Compact-Quotient Separation Properties}
+\section{Relations among Compact-Quotient Separation Properties}\label{Interaccion entre propiedades}
 \todo{Ejemplo de neat no KC}
 \todo{Comprobar si neat implica stacked}
 \todo{KC implica S.S.?}
@@ -2853,70 +2966,6 @@ v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
 Since this holds for every HM-pair $(F,Q)$, $A$ is strongly stacked.
 \end{proof}
 
-\begin{cor}
-Every subfit KC-frame is spatial.
-\end{cor}
-
-\begin{proof}
-Let $A$ be a subfit KC-frame. Since every KC-frame is $T_1$, the
-result follows from \cite[Proposition~2.5.3]{picado2021separation}.
-\end{proof}
-
-\begin{prop}
-There exists a KC-frame which is strongly stacked and not subfit.
-Consequently,
-\[
-    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
-\]
-\end{prop}
-
-\begin{proof}
-Consider the frame
-\[
-    A=B\times 2,
-\]
-introduced above, where $B$ is the complete Boolean algebra considered
-in the previous example. Recall that $A$ is $T_1$, strongly stacked,
-and non-spatial.
-
-The only open filters of $A$ are
-\[
-    A
-    \qquad\text{and}\qquad
-    F_p=\uparrow(0,1)=B\times\{1\},
-\]
-where $p=(1,0)$ is the unique point of $A$.
-
-For $F=A$, we have
-\[
-    v_A=w_A=\operatorname{tp}=u_1.
-\]
-Hence
-\[
-    [v_A,w_A]=\{u_1\}.
-\]
-
-On the other hand, for $F=F_p$, the computations in the previous
-example give
-\[
-    v_{F_p}=w_{F_p}=u_p.
-\]
-Therefore,
-\[
-    [v_{F_p},w_{F_p}]=\{u_p\}.
-\]
-
-Thus, for every $F\in A^\wedge$, every nucleus in the admissibility
-interval $[v_F,w_F]$ is closed. Hence $A$ is a KC-frame.
-
-Finally, $A$ cannot be subfit. Indeed, every $T_1$ subfit frame is
-spatial, whereas $A$ is $T_1$ and non-spatial. Consequently, $A$ is
-a KC-frame which is strongly stacked and not subfit. In particular,
-\[
-    \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
-\]
-\end{proof}
-
 \begin{prop}\label{prop:KC}
 Every neat strongly stacked frame is KC.
 \end{prop}
@@ -2960,7 +3009,7 @@ therefore $A$ is KC.
 	\arrow[Rightarrow, from=2-4, to=3-4]
 	\arrow[squiggly, no head, from=2-5, to=4-7]
 	\arrow[Rightarrow, from=2-5, to=5-4]
-	\arrow[squiggly, from=2-5, to=5-7]
+	\arrow[squiggly, no head, from=2-5, to=5-7]
 	\arrow[Rightarrow, from=2-7, to=2-5]
 	\arrow[Rightarrow, from=2-7, to=3-4]
 	\arrow[Rightarrow, from=2-7, to=3-7]
