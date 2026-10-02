@@ -802,7 +802,7 @@ A direct computation shows that
         x, & x\leq r,\\
         1, & x>r,
     \end{cases}
-    =[Q_r'](x).
+    =(\mathcal{U}_*\circ [Q_r']\circ \mathcal{U})(x).
 \]
 Hence, $A$ is strongly stacked. However, $A$ is not $T_1$, since
 its points are not maximal.
@@ -1445,6 +1445,22 @@ a=1.
 \]
 Thus $p$ is maximal. Since every point of $A$ is maximal, $A$ is $T_1$.
 \end{proof}
+
+We briefly recall two separation properties that will be useful in what
+follows. A frame \(A\) is said to be fit if, whenever
+\(a\not\leq b\), there exist \(x,y\in A\) such that
+\[
+a\vee x=1,\qquad y\not\leq b,\qquad x\wedge y\leq b.
+\]
+On the other hand, \(A\) is said to be subfit if, whenever
+\(a\not\leq b\), there exists \(c\in A\) such that
+\[
+a\vee c=1
+\qquad\text{and}\qquad
+b\vee c\neq 1.
+\]
+Every fit frame is subfit. We will denote these properties by
+\(\mathbf{(fit)}\) and \(\mathbf{(sfit)}\), respectively.
 
 \begin{cor}
 Every subfit KC frame is spatial.
@@ -2866,7 +2882,7 @@ neat.
 \end{proof}
 
 \begin{prop}
-Let $A$ be a KC-frame. Then $A$ is stacked if and only if it is
+Let $A$ be a KC frame. Then $A$ is stacked if and only if it is
 strongly stacked.
 \end{prop}
 
@@ -2907,7 +2923,7 @@ Since this holds for every HM-pair $(F,Q)$, the result follows.
 \done{Agregar como corolario el caso espacial del resultado anterior.}
 
 \begin{cor}
-Let $A$ be a KC-frame spatial. Then $S$ is stacked if and only if it is strongly stacked.
+Let $A$ be a KC frame spatial. Then $S$ is stacked if and only if it is strongly stacked.
 \end{cor}
 
 \begin{cor}
@@ -2916,7 +2932,7 @@ neat.
 \end{cor}
 
 \begin{proof}
-Suppose first that $A$ is KC. By the previous results, every KC-frame
+Suppose first that $A$ is KC. By the previous results, every KC frame
 is neat.
 
 Conversely, let $A$ be neat. Since $A$ is spatial, we may write
@@ -2929,8 +2945,8 @@ that $S$ is strongly stacked. Hence $S$ is packed and strongly
 stacked, and therefore $\mathcal{O}(S)$ is KC. Thus $A$ is KC.
 \end{proof}
 
-\begin{prop}
-Let $A$ be a KC-frame. If $A$ is subfit, then $A$ is strongly
+\begin{prop}\label{KCsfitSS}
+Let $A$ be a KC frame. If $A$ is subfit, then $A$ is strongly
 stacked.
 \end{prop}
 
@@ -2963,7 +2979,35 @@ Consequently,
 \[
 v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
 \]
-Since this holds for every HM-pair $(F,Q)$, $A$ is strongly stacked.
+Since this holds for every HM pair $(F,Q)$, $A$ is strongly stacked.
+\end{proof}
+
+\begin{prop}\label{NeatfitKC}
+Let \(A\) be a frame. If \(A\) is neat and fit, then \(A\) is KC.
+\end{prop}
+
+\begin{proof}
+Let \(F\in A^\wedge\) and \(j\in NA\) be such that
+\[
+\nabla(j)=F.
+\]
+Since \(A\) is fit, by \cite[Theorem 3.4]{simmons2006regularity}, every nucleus on \(A\) is fitted. Hence \(j\) is the
+least nucleus in its block. On the other hand, \(v_F\) is also the least
+nucleus admitting \(F\). Therefore,
+\[
+j=v_F.
+\]
+Since \(A\) is neat, there exists \(d\in A\)
+such that
+\[
+v_F=u_d.
+\]
+Consequently,
+\[
+j=u_d.
+\]
+Thus every nucleus whose associated filter is open is closed, and hence
+\(A\) is KC.
 \end{proof}
 
 \begin{prop}\label{prop:KC}
