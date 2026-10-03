@@ -1261,10 +1261,10 @@ v_F=w_F
 for every $F\in A^\wedge$. By Corollary \ref{vF=wF}, $A$ is strongly stacked.
 \end{ej}
 
-\begin{cor}\label{T1apiladonoespacial}
+\begin{thm}\label{T1apiladonoespacial}
 There exist non-spatial $T_1$ strongly stacked frames. In particular, there
 exist non-spatial $T_1$ stacked frames.
-\end{cor}
+\end{thm}
 
 The previous example shows that the $T_1$ and stacked conditions do not imply
 spatiality. We now compare stackedness with the stronger separation property
@@ -1471,13 +1471,13 @@ Let $A$ be a subfit KC frame. Since every KC frame is $T_1$, the
 result follows from \cite[Proposition~2.5.3]{picado2021separation}.
 \end{proof}
 
-\begin{prop}\label{KCnosfit}
+\begin{thm}\label{KCnosfit}
 There exists a KC frame which is strongly stacked and not subfit.
 Consequently,
 \[
     \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
 \]
-\end{prop}
+\end{thm}
 
 \begin{proof}
 Consider the frame
@@ -1510,7 +1510,6 @@ a KC frame which is strongly stacked and not subfit. In particular,
 \]
 \end{proof}
 
-
 \section{Quotients and Permanence Properties}\label{Permanencia}
 
 Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that the following diagram
@@ -1527,7 +1526,7 @@ Simmons shows in \cite[Lemma 8.9 and Corollary 8.10]{simmons2004vietoris} that t
 commutes laxly, that is, $\mathcal{U}\circ v_F\leq v_G \circ \mathcal{U}$. In this diagram $v_F$ and $v_G$ represent the
 fitted nuclei associated with the filters $F\in A^\wedge$ and $G=\nabla(Q)\in \mathcal{O}S^\wedge$, respectively, that is, 
 \[
-f^\infty_F=v_F\quad\text{and}\quad F^\infty_G=v_G.
+f^\infty_F=v_F\quad\text{and}\quad f^\infty_G=v_G.
 \]
 
 Here we prove something more general, since we consider $j\in NA$, $F\in A_j^\wedge$ and $j_*F\in A^\wedge$ to produce the diagram
@@ -1634,7 +1633,7 @@ As $\hat{d}\leq d$, it follows that
 Hence $x\vee d=1$. Therefore, $A_j$ is $\alpha$-neat.
 \end{proof}
 
-The following theorem establishes that tidiness is preserved under binary coproducts.
+The following theorem establishes that neatness is preserved under binary coproducts.
 \begin{prop}\label{tidyplus}
 Let $A_1$ and $A_2$ be $\alpha$-neat frames. Then $A_1\oplus A_2$ is $\alpha$-neat.
 \end{prop}
@@ -1788,11 +1787,11 @@ Let $\gamma=\max\{\alpha, \beta\}$. Then $A_1$ and $A_2$ are both $\gamma$-neat.
 We extend the previous result to arbitrary coproducts.
 
 \begin{prop}\label{coprodE}
-Tidiness is preserved under arbitrary coproducts.
+Neatness is preserved under arbitrary coproducts.
 \end{prop}
 
 \begin{proof}
-Let $\{A_i\}_{i\in I}$ be a family of neat frames, and for each $i\in I$, let $\alpha_i$ be a tidiness degree of $A_i$. Consider 
+Let $\{A_i\}_{i\in I}$ be a family of neat frames, and for each $i\in I$, let $\alpha_i$ be a neatness degree of $A_i$. Consider 
 \[
 A=\bigoplus_{i\in I}A_i
 \]
@@ -2598,7 +2597,7 @@ Particularly,
 a\in [F](x)\iff x\in F\quad \text{and}\quad a\in \langle F\rangle(x)\iff x\nleq a.
 \end{equation}
 
-\begin{prop}\label{IsoVA}
+\begin{thm}\label{IsoVA}
 Let $A$ be a frame, and consider the continuous surjection
 \[
 \pi\colon\pt(VA)\longrightarrow A^\wedge,
@@ -2622,7 +2621,7 @@ Then the following statements hold:
     \]
     for every $a<1$, then $A$ is $T_1$.
 \end{enumerate}
-\end{prop}
+\end{thm}
 
 \begin{proof}
 	\mbox{}
@@ -3020,7 +3019,7 @@ strongly stacked, we have
 \[
 v_F=w_F.
 \]
-Moreover, of tidiness,
+Moreover, of neatness,
 \[
 v_F=u_d,
 \qquad d=v_F(0).
