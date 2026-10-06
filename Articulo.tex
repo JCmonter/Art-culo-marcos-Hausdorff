@@ -2941,7 +2941,37 @@ Hence $a=p$, and $A$ is $T_1$.
 \todo{Relacionar S. y S.S. con fit y sfit}
 \todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
 
-For every HM triple $(F,Q,G)$, we have
+We begin by recalling a relation established by Sexton in the spatial
+setting. By \cite[Theorem 6.2 (a)]{sexton2006ordinal}, for every topological
+space \(S\),
+\[
+    \mathcal{O}S\text{ neat}
+    \quad\Longrightarrow\quad
+    S\text{ strongly stacked}
+    \quad\Longrightarrow\quad
+    S\text{ stacked}.
+\]
+The first of these implications provides a natural starting point for
+comparing neatness and strong stackedness in the point-free setting.
+Indeed, although neatness of a frame does not directly imply strong
+stackedness of the frame itself, it does imply strong stackedness of
+its point space.
+
+\begin{prop}
+If $A$ is a neat frame, then $\pt A$ is strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let \(S=\pt A\). Since neatness is hereditary, \(\mathcal{O}S\) is
+neat. By \cite[Theorem 6.2 (a)]{sexton2006ordinal}, \(S\) is strongly
+stacked.
+\end{proof}
+
+The preceding proposition concerns the point space of \(A\), rather
+than the frame \(A\) itself. It is therefore natural to ask under what
+additional conditions neatness of \(A\) implies that \(A\) is strongly
+stacked. The comparison induced by the spatial reflection provides
+such a condition. For every HM triple $(F,Q,G)$, we have
 \[
 \mathcal{U}\circ v_F\leq v_G\circ\mathcal{U}.
 \]
@@ -2970,8 +3000,9 @@ or equivalently,
 =
 v_G\circ\mathcal{U}.
 \]
-Thus, if $A$ is strongly stacked, the corresponding diagram is commutative.
 
+Thus, strong stackedness forces the comparison induced by the spatial
+reflection to commute. Under neatness, the converse also holds.
 \begin{prop}\label{EficienteFapilado}
 Let $A$ be a neat frame. If
 \[
@@ -3021,16 +3052,8 @@ v_F
 Therefore, $A$ is strongly stacked.
 \end{proof}
 
-Consequently, we have the following result.
-
-\begin{cor}
-If $A$ is a neat frame, then $\pt A$ is strongly stacked.
-\end{cor}
-
-\begin{proof}
-Let $S=\pt A$. Since $A$ is neat, $\mathcal{O}S$ is neat, and therefore
-$S$ is strongly stacked.
-\end{proof}
+We next turn to the KC property and compare it with the preceding
+notions. We first observe that KC always implies neatness.
 
 \begin{prop}
 Let $A$ be a KC-frame. Then $A$ is neat.
@@ -3100,16 +3123,10 @@ A\text{ is strongly stacked}
 Since this holds for every HM-pair $(F,Q)$, the result follows.
 \end{proof}
 
-\done{Agregar como corolario el caso espacial del resultado anterior.}
-
-\begin{cor}
-Let $A$ be a KC frame spatial. Then $S$ is stacked if and only if it is strongly stacked.
-\end{cor}
-
-\begin{cor}
+\begin{prop}
 Let $A$ be a spatial frame. Then $A$ is KC if and only if it is
 neat.
-\end{cor}
+\end{prop}
 
 \begin{proof}
 Suppose first that $A$ is KC. By the previous results, every KC frame
@@ -3124,6 +3141,10 @@ neatnees, $S$ is packed and stacked. Moreover, neatness implies
 that $S$ is strongly stacked. Hence $S$ is packed and strongly
 stacked, and therefore $\mathcal{O}(S)$ is KC. Thus $A$ is KC.
 \end{proof}
+
+The preceding results show that KC imposes strong restrictions on the
+relation between neatness and the two forms of stackedness. We now
+consider converses under additional separation hypotheses.
 
 \begin{prop}\label{KCsfitSS}
 Let $A$ be a KC frame. If $A$ is subfit, then $A$ is strongly
