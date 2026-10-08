@@ -3123,7 +3123,13 @@ A\text{ is strongly stacked}
 Since this holds for every HM-pair $(F,Q)$, the result follows.
 \end{proof}
 
-\begin{prop}
+The preceding proposition does not assert that every KC-frame is stacked. In fact, the following example shows that KC does not imply even stackedness.
+
+\begin{ej}
+    
+\end{ej}
+
+\begin{prop}\label{KCiffNeat}
 Let $A$ be a spatial frame. Then $A$ is KC if and only if it is
 neat.
 \end{prop}
@@ -3235,6 +3241,23 @@ Since every nucleus inducing a compact quotient of $A$ belongs to an
 admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
 nucleus is closed. Hence every compact quotient of $A$ is closed, and
 therefore $A$ is KC.
+\end{proof}
+
+Proposition \ref{KCiffNeat} shows that neatness and the KC property coincide for spatial frames. However, 
+this equivalence does not extend to arbitrary frames. The following theorem provides a non-spatial 
+neat frame admitting a compact quotient which is not closed, thereby establishing that the implication 
+from KC to neatness is strict in the point-free setting.
+
+\begin{thm}
+There exists a non-spatial neat frame which is not KC. Consequently, the implication
+\[
+\mathrm{KC}\Longrightarrow\mathrm{Neat}
+\]
+is strict in the category of frames.
+\end{thm}
+
+\begin{proof}
+    
 \end{proof}
 
 \[\begin{tikzcd}
