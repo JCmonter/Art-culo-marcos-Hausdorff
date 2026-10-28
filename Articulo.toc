@@ -4,9 +4,9 @@
 \contentsline {section}{\tocsection {}{2}{Preliminaries}}{2}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Frames, nuclei, and open filters}}{2}{subsection.2.1}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Compact quotients and admissibility intervals}}{3}{subsection.2.2}%
-\contentsline {section}{\tocsection {}{3}{Separation Properties Induced by Compact Quotients}}{4}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{Comparison with Classical Separation Axioms}}{9}{subsection.3.1}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Inheritance and preservation properties}}{19}{subsection.3.2}%
-\contentsline {section}{\tocsection {}{4}{Interaction among Compact-Quotient Separation Properties}}{31}{section.4}%
-\contentsline {section}{\tocsection {}{5}{Relationship with the patch assembly}}{36}{section.5}%
-\contentsline {section}{\tocsection {}{}{References}}{39}{section*.15}%
+\contentsline {section}{\tocsection {}{3}{Separation properties induced by compact quotients}}{4}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Comparison with Classical Separation Axioms}}{8}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Inheritance and preservation properties}}{10}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{4}{Interaction among Compact-Quotient Separation Properties}}{22}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Relationship with the patch assembly}}{27}{section.5}%
+\contentsline {section}{\tocsection {}{}{References}}{30}{section*.15}%

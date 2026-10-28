@@ -726,6 +726,434 @@ for every \(y\in\mathcal O S\), and consequently
 \end{proof}
 \end{comment}
 
+
+\section{Separation properties induced by compact quotients}\label{Definiciones}
+
+The notions studied in this section are motivated by the work
+of Sexton and Simmons on point-sensitive and point-free patch
+constructions. Our aim is to identify nuclei associated with
+open filters that determine compact closed quotients, and to
+investigate the separation properties arising from this
+requirement. We begin by recalling Sexton's notion of
+neatness (\cite[Definition 4.3]{sexton2006ordinal} and \cite[Definition 8.2.1]{sexton2003}), 
+which provides the starting point for our approach.
+
+\begin{dfn}\label{Neat}
+Let $A$ be a frame, let $F\in A^\wedge$ and $\alpha\in \Ord$. We say that:
+\begin{itemize}
+	\item $F$ is $\alpha$-neat, if 
+	\[
+	x\vee d=1, \quad \text{for every }x\in F,
+	\]
+	where $d=f^\alpha_F(0)$.
+	\item $A$ is $\alpha$-neat if every $F\in A^\wedge$ is $\alpha$-neat.
+	\item $A$ is neat if it is $\alpha$-neat for some $\alpha$. 
+\end{itemize}
+\end{dfn}
+
+
+Let us record a useful consequence of neatness. Suppose
+that $A$ is $\alpha$-neat and let $F\in A^\wedge$.
+Put $d=f_F^\alpha(0)$. Since $x\vee d=1$ for every
+$x\in F$, we have $F\subseteq \nabla(u_d)$. Thus,
+$f_F\leq u_d$, and consequently
+\[
+v_F=f_F^\infty\leq u_d.
+\]
+On the other hand,
+\[
+d=f_F^\alpha(0)\leq v_F(0),
+\]
+so that
+\[
+u_d\leq u_{v_F(0)}\leq v_F.
+\]
+Therefore,
+\[
+v_F=f_F^\infty=u_d.
+\]
+In particular, every fitted nucleus associated with an
+open filter is closed, and hence every such compact
+quotient is simultaneously closed.
+
+
+Sexton showed that a topological space is neat if and
+only if it is both packed and stacked
+\cite[Theorem 6.2]{sexton2006ordinal}. Motivated by this spatial
+characterization, we now introduce point-free
+counterparts of stackedness and strong stackedness.
+
+Let $S$ be a topological space, let $Q\subseteq S$
+be compact saturated, and let
+\[
+G=\mathcal V(Q)\in(\mathcal OS)^\wedge.
+\]
+Recall that $S$ is stacked if
+\[
+v_G(\varnothing)=(Q')^\circ
+\]
+for every such pair $(G,Q)$, and strongly stacked if
+\[
+v_G=[Q']
+\]
+for every such pair.
+
+We now return to the general setting. Let \(A\) be a frame, \(S=\pt(A)\), and let \((F,Q,G)\) be an H--M triple. 
+Recall that the map of Proposition \ref{morfismo}
+\[
+\Phi:[v_G,w_G]\longrightarrow[v_F,w_F],
+\qquad
+\Phi(k)=\mathcal U_*\circ k\circ\mathcal U,
+\]
+provides a natural way of comparing the admissibility interval associated with \(G\) with that associated with \(F\).
+
+\begin{prop}\label{igualdadwF}
+Let \((F,Q,G)\) be an H--M triple. Then \(\Phi(w_G)=w_F\), that is,
+\[
+w_F=\mathcal U_*\circ w_G\circ\mathcal U.
+\]
+\end{prop}
+
+
+\begin{proof}
+By Proposition \ref{morfismo}, we have
+\[
+\Phi(w_G)=U_*\circ w_G\circ U\leq w_F.
+\]
+For the reverse inequality, by adjunction it suffices
+to show that
+\[
+U\circ w_F\leq w_G\circ U.
+\]
+Since $w_G=[M']$, for every $x\in A$ we have
+\[
+w_G(U(x))=[M'](U(x))=(M'\cup U(x))^\circ.
+\]
+Thus, it is enough to prove that
+\[
+U(w_F(x))\subseteq M'\cup U(x).
+\]
+
+Suppose that $y\in U(w_F(x))$ and $y\notin M'$.
+Since $y\notin M'$, we have $y\in M$. Moreover,
+$y\in U(w_F(x))$ implies $w_F(x)\nleq y$.
+But
+\[
+w_F(x)=\bigwedge\{m\in M\mid x\leq m\}.
+\]
+Hence $x\nleq y$, since otherwise
+$w_F(x)\leq y$, a contradiction. Therefore
+$y\in U(x)$, proving the desired inclusion.
+Consequently, $\Phi(w_G)=w_F$.
+\end{proof}
+
+
+Proposition \ref{igualdadwF} shows that $\Phi$ preserves the upper elements
+of the corresponding admissibility intervals.
+Since $[Q']$ is the spatially induced nucleus appearing
+in Sexton's definitions, the nucleus
+\[
+\Phi([Q'])=U_*\circ[Q']\circ U
+\]
+provides a natural point-free counterpart. This
+motivates the following definitions.
+
+
+\begin{dfn}\label{def:apilado-marcos}
+Let $A$ be a frame and $(F,Q)$ an H--M pair.
+We say that:
+\begin{itemize}
+    \item $A$ is \emph{$FQ$-stacked} if
+    \[
+    (U_*\circ[Q']\circ U)(0)=v_F(0).
+    \]
+
+    \item $A$ is \emph{$FQ$-strongly stacked} if
+    \[
+    U_*\circ[Q']\circ U=v_F.
+    \]
+\end{itemize}
+The frame $A$ is \emph{stacked} (respectively,
+\emph{strongly stacked}) if it is $FQ$-stacked
+(respectively, $FQ$-strongly stacked) for every
+H--M pair $(F,Q)$.
+\end{dfn}
+
+Clearly, every strongly stacked frame is stacked. Let us look that these properties are conservative. 
+We first establish the relation between the transfinite iterations defining the fitted nuclei on a space and
+on its frame of open sets.
+
+\begin{lem}\label{inducciontransfinita}
+Let $\alpha\in \Ord$ and $X\in CS$. Then
+\[
+\partial_F^\alpha(X)=\big(f_F^\alpha(X')\big)'.
+\]
+In particular, for every \(U\in\mathcal{O}S\),
+\[
+    \bigl(\partial_F^\infty(U')\bigr)'=v_F(U).
+\]
+\end{lem}
+
+\begin{proof}
+We proceed by transfinite induction on $\alpha$.
+For $\alpha=0$, the identity follows from
+$\partial_F^0=\mathrm{id}=f_F^0$.
+
+Suppose that the identity holds for $\alpha$. Then
+\[
+\begin{aligned}
+\partial_F^{\alpha+1}(X)
+ &=\partial_F(\partial_F^\alpha(X))\\
+ &=\bigl(f_F((\partial_F^\alpha(X))')\bigr)'\\
+ &=\bigl(f_F(f_F^\alpha(X'))\bigr)'\\
+ &=\bigl(f_F^{\alpha+1}(X')\bigr)'.
+\end{aligned}
+\]
+If $\lambda$ is a limit ordinal, then
+\[
+\begin{aligned}
+\partial_F^\lambda(X)
+ &=\bigcap_{\alpha<\lambda}\partial_F^\alpha(X)\\
+ &=\bigcap_{\alpha<\lambda}(f_F^\alpha(X'))'\\
+ &=\left(\bigcup_{\alpha<\lambda}
+ f_F^\alpha(X')\right)'\\
+ &=\bigl(f_F^\lambda(X')\bigr)'.
+\end{aligned}
+\]
+Thus, the identity holds for every ordinal
+$\alpha$. Taking the stable value of the
+iterations yields the last assertion.
+\end{proof}
+
+\begin{prop}\label{apiladoconservativa}
+The notions of stackedness and strong stackedness are conservative.
+\end{prop}
+
+
+\begin{proof}
+Let $S$ be a topological space and put
+$A=\mathcal OS$. For every H--M pair $(F,Q)$,
+we have $v_F=[Q']$ whenever $S$ is strongly
+stacked. By Lemma \ref{lem:auxiliar},
+\[
+U_*\circ[Q']\circ U=[Q']=v_F.
+\]
+Thus, $A$ is strongly stacked.
+
+Conversely, if $A$ is strongly stacked, then
+\[
+v_F=U_*\circ[Q']\circ U=[Q']
+\]
+for every H--M pair $(F,Q)$, and hence $S$
+is strongly stacked.
+
+Now suppose that $S$ is stacked. By definition,
+\[
+Q=\partial_F^\infty(S).
+\]
+Consequently,
+\[
+Q'=(\partial_F^\infty(S))'
+   =v_F(\varnothing),
+\]
+where the last equality follows from Lemma \ref{inducciontransfinita}.
+By Lemma \ref{lem:auxiliar},
+\[
+\begin{aligned}
+(U_*\circ[Q']\circ U)(\varnothing)
+ &=[Q'](\varnothing)\\
+ &=(Q')^\circ\\
+ &=Q'\\
+ &=v_F(\varnothing).
+\end{aligned}
+\]
+Therefore, $A$ is stacked.
+
+Conversely, if $A$ is stacked, then
+\[
+v_F(\varnothing)
+ =(U_*\circ[Q']\circ U)(\varnothing)
+ =Q'.
+\]
+By Lemma \ref{inducciontransfinita},
+\[
+(\partial_F^\infty(S))'=Q',
+\]
+and hence $\partial_F^\infty(S)=Q$.
+Thus, $S$ is stacked.
+\end{proof}
+
+
+Neatness requires every fitted nucleus associated
+with an open filter to determine a closed compact
+quotient. A natural extension is to impose this
+condition on every nucleus admitting an open filter.
+This leads to a point-free counterpart of Wilansky's
+classical KC property \cite{Wilansky1967}.
+
+\begin{dfn}\label{DefKC}
+Let $A$ be a frame. We say that $A$ is \emph{KC} if every compact quotient of $A$ is closed.
+\end{dfn}
+
+
+In the spatial setting, Wilansky's KC property
+coincides with Sexton's notion of packedness.
+Consequently,
+\[
+\text{Neat}\iff \text{KC and Stacked}.
+\]
+Whether analogous relationships hold in the
+point-free setting will be addressed in Section \ref{Interaccion entre propiedades}.
+We first examine how these properties interact
+with classical separation axioms.
+
+
+\subsection{Comparison with Classical Separation Axioms}\label{RelacionConPropiedadesDeSeparacion}
+
+Although stackedness and strong stackedness are
+conservative, neither property is comparable with
+the $T_1$ separation axiom, as the following
+examples show.
+
+
+\begin{ej}\label{T1nostacked}
+\mbox{ }
+\begin{enumerate}
+\item Consider the frame $A=[0,1]$ with its usual
+order. Its open filters are
+\[
+F_r=(r,1],\qquad 0\leq r<1,
+\]
+and the corresponding compact saturated subsets
+of $\pt A=[0,1)$ are $Q_r=[0,r]$.
+A direct computation gives
+\[
+v_{F_r}(x)=
+\begin{cases}
+x,&x\leq r,\\
+1,&x>r,
+\end{cases}
+=(U_*\circ[Q_r']\circ U)(x).
+\]
+Thus, $A$ is strongly stacked but not $T_1$.
+
+\item The Hausdorff frame of Paseka and
+\v{S}marda \cite{PasekaSmarda1992}, considered in
+Example \ref{HnoS}, is $T_1$ but not stacked,
+and hence not strongly stacked.
+\end{enumerate}
+\end{ej}
+
+
+Recall that every $T_1$ stacked space is sober
+and that, in the strongly stacked case,
+$w_G=v_G$. We now investigate analogous
+phenomena for frames.
+
+\begin{prop}\label{maximosenpt}
+Let $A$ be a frame. If
+\[
+v_F(0)=w_F(0)
+\]
+for every $F\in A^\wedge$, then every point of $A$ is maximal in $\pt A$.
+\end{prop}
+
+\begin{proof}
+Let $p,q\in\pt A$ with $p\leq q$, and consider
+the open filter
+\[
+F_q=\{x\in A\mid x\nleq q\}.
+\]
+By the definition of $w_{F_q}$,
+\[
+w_{F_q}=v_q,
+\qquad\text{so}\qquad
+w_{F_q}(0)=q.
+\]
+By hypothesis,
+\[
+q=v_{F_q}(0)=\bigvee_{x\in F_q}\neg x.
+\]
+For every $x\in F_q$, we have $x\nleq q$,
+and hence $x\nleq p$. Since $p$ is a point,
+\[
+x\wedge\neg x=0\leq p
+\quad\Longrightarrow\quad
+\neg x\leq p.
+\]
+Consequently,
+\[
+q=\bigvee_{x\in F_q}\neg x\leq p.
+\]
+Thus $p=q$, proving that every point of $A$
+is maximal.
+\end{proof}
+
+\begin{prop}\label{focales}
+Let $A$ be a $T_1$ frame. Then:
+\begin{enumerate}
+    \item $A$ is stacked if and only if
+    \[
+    v_F(0)=w_F(0)
+    \]
+    for every $F\in A^\wedge$.
+
+    \item $A$ is strongly stacked if and only if
+    \[
+    v_F=w_F
+    \]
+    for every $F\in A^\wedge$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let $(F,Q)$ be an H--M pair. Since $A$ is $T_1$,
+we have $Q=M$, and hence $w_G=[Q']$.
+By Proposition \ref{igualdadwF},
+\[
+\mathcal U_*\circ [Q']\circ \mathcal U=w_F.
+\]
+Both assertions now follow directly from the
+definitions of stackedness and strong stackedness.
+\end{proof}
+
+The preceding characterizations assume that the
+frame is $T_1$. We now consider conditions under
+which the corresponding identities imply the
+$T_1$ separation property.
+
+\begin{cor}
+Let $A$ be a frame such that
+\[
+\mathcal{V}(a)=\{p\in\pt A\mid a\leq p\}
+\neq\varnothing
+\]
+for every $a\neq 1$. If
+\[
+v_F(0)=w_F(0)
+\]
+for every $F\in A^\wedge$, then $A$ is $T_1$.
+In particular, the same conclusion holds if
+$v_F=w_F$ for every $F\in A^\wedge$.
+\end{cor}
+
+\begin{proof}
+By Proposition \ref{maximosenpt}, every point of $A$ is
+maximal in $\pt A$. Suppose that there exist
+$p\in\pt A$ and $a\in A$ such that
+$p<a<1$. By hypothesis, there is
+$q\in\pt A$ with $a\leq q$. Hence
+\[
+p<a\leq q,
+\]
+contradicting the maximality of $p$ in
+$\pt A$. Therefore, every point of $A$
+is maximal in $A$, and hence $A$ is $T_1$.
+The last assertion follows immediately from
+$v_F=w_F\Rightarrow v_F(0)=w_F(0)$.
+\end{proof}
+
+\begin{comment}
 \section{Separation Properties Induced by Compact Quotients}\label{Definiciones}
 The notions studied in this document are largely motivated by the work of Sexton and Simmons on point-sensitive
 and point-free patch constructions. We are interested in identifying those nuclei associated with open filters 
@@ -874,7 +1302,7 @@ Let $A$ be a frame and $(F,Q)$ be an HM pair. We say that:
 \end{itemize}
 \end{dfn}
 
-\begin{comment}
+
 CHECAR SI VALDRÍA LA PENA MENCIONAR LA SIGUIENTE OBSERVACIÓN,
 \begin{obs}\label{Obs2}
 If $\pt A=\varnothing$, then the strongly stacked condition is trivially
@@ -882,7 +1310,6 @@ satisfied, and therefore so is the stacked condition. Thus, while both
 notions are well defined for pointless frames, their nontrivial content
 arises when $\pt A\neq\varnothing$.
 \end{obs}
-\end{comment}
 
 Clearly, every strongly stacked frame is stacked. Let us look that these properties are conservative. 
 We first establish the relation between the transfinite iterations defining the fitted nuclei on a space and
@@ -1399,7 +1826,6 @@ p=v_\mathcal{M}(b)\quad \text{o}\quad v_\mathcal{M}(b)=1.
 De esta manera, si se cumple que $p=v_\mathcal{M}(b)$, entonces $a\nleq p$ y $b\leq p$, es decir, $A$ es espacial. Veamos que $v_\mathcal{M}(b)=1$ nos lleva a una contradicción.\\
 
 \textbf{Hasta aquí llega lo que se debe considerar}\\
-\end{comment}
 
 Notice that the additional hypothesis in Proposition \ref{focales} (3) is automatically
 satisfied whenever $A$ is spatial. Indeed, if $a<1$ and $A$ is spatial, then
@@ -1951,6 +2377,7 @@ a KC frame which is strongly stacked and not subfit. In particular,
     \mathrm{KC}\not\Rightarrow\mathrm{(sfit)}.
 \]
 \end{proof}
+\end{comment}
 
 \subsection{Inheritance and preservation properties}\label{Permanencia}
 
