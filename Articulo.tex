@@ -3523,13 +3523,301 @@ is \(\alpha\)-neat, and hence neat.
 
 The preceding results have a categorical consequence. Indeed, the
 subcategory of neat frames is closed under quotients, by
-Proposition \ref{tidyquout}, and under arbitrary coproducts, by
-Proposition \ref{coprodE}. Hence, the standard criterion for coreflectivity of
+Proposition~\ref{tidyquout}, and under arbitrary coproducts, by
+Proposition~\ref{coprodE}. Hence, the standard criterion for coreflectivity of
 full subcategories of \(\Frm\) applies.
 \begin{cor}
 The subcategory of neat frames is a coreflective subcategory of $\Frm$.
 \end{cor}
 
+
+We now examine the inheritance of the stronger
+properties introduced above. We first show that
+strong stackedness is inherited by open quotients,
+and then establish the corresponding result for KC.
+
+Recall that, for a frame morphism $f:A\to B$
+and $j\in NA$, the induced nuclei satisfy
+\[
+N(f)(j)=
+\bigvee_{a\in A}
+\bigl(u_{f(j(a))}\wedge v_{f(a)}\bigr),
+\qquad
+N(f_*)(k)=f_*\circ k\circ f.
+\]
+
+\begin{prop}\label{Cocientefapilado}
+Let $A$ be a strongly stacked frame and
+$j\in NA$. Then $A_j$ is strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let $F\in A_j^\wedge$, and put
+\[
+G=j_*F,\qquad
+Q=\pt(A_j)\setminus F,\qquad
+R=\pt A\setminus G.
+\]
+Let $\mathcal U\colon A\to\mathcal O(\pt A)$ and
+$\mathcal U_j\colon A_j\to\mathcal O(\pt A_j)$
+be the corresponding spatial reflections.
+Set
+\[
+l=N(\mathcal U_j)([Q']),
+\qquad
+m=N(j^*)(v_G).
+\]
+By the general comparison between the
+admissibility bounds,
+\[
+v_F\leq l.
+\]
+We prove that
+\[
+l\leq m\leq v_F.
+\]
+
+Since $G=j_*F$, by Lemma \ref{finftyf},
+\[
+j^*\circ v_G\leq v_F\circ j^*.
+\]
+Consequently,
+\[
+\begin{aligned}
+m
+&=\bigvee_{x\in A}
+\bigl(u_{j^*(v_G(x))}\wedge v_{j^*(x)}\bigr)\\
+&\leq
+\bigvee_{x\in A}
+\bigl(u_{v_F(j^*(x))}\wedge v_{j^*(x)}\bigr)
+\leq v_F.
+\end{aligned}
+\]
+
+Since $A$ is strongly stacked,
+\[
+v_G=N(\mathcal U)([R']).
+\]
+Hence
+\[
+m=N(j^*)\bigl(N(\mathcal U)([R'])\bigr).
+\]
+Consider the auxiliary nucleus
+\[
+n=N(\mathcal U_j\circ j^*)([Q']).
+\]
+Using the explicit formula for the induced
+nucleus and the identification
+$Q=R\cap\pt(A_j)$, one obtains
+\[
+j^*(n(x))=l(x)
+\qquad(x\in A_j).
+\]
+Moreover, the description of the right
+adjoint $j_*$ gives
+\[
+j^*(n(x))
+\leq
+j^*\bigl(N(\mathcal U)([R'])(x)\bigr).
+\]
+Therefore,
+\[
+u_{j^*(n(x))}\wedge v_x
+\leq
+u_{j^*(N(\mathcal U)([R'])(x))}\wedge v_x
+\leq m.
+\]
+Taking joins over $x\in A_j$ yields
+$l\leq m$. Thus,
+\[
+v_F\leq l\leq m\leq v_F,
+\]
+and consequently
+\[
+v_F=N(\mathcal U_j)([Q']).
+\]
+Therefore $A_j$ is strongly stacked.
+\end{proof}
+
+In particular, since every strongly stacked frame is stacked, we also
+obtain that \(A_j\) is stacked.
+
+\begin{prop}\label{KCquout}
+Let $A$ be a KC frame and $j\in NA$.
+Then $A_j$ is KC.
+\end{prop}
+
+\begin{proof}
+Let $k\in N(A_j)$ be such that $(A_j)_k$
+is compact. By the correspondence of
+open filters, the nucleus
+\[
+l=j_*\circ k\circ j^*
+\]
+defines a compact quotient $A_l$.
+Since $A$ is KC, $l=u_a$ for some $a\in A$.
+
+For every $x\in A$,
+\[
+a\vee x=l(x)=j_*(k(j^*(x))).
+\]
+Applying $j^*$ and using
+$j^*\circ j_*=\mathrm{id}_{A_j}$,
+we obtain
+\[
+j^*(a)\vee j^*(x)=k(j^*(x)).
+\]
+Since $j^*$ is surjective, it follows that
+\[
+k=u_{j^*(a)}.
+\]
+Thus $(A_j)_k$ is closed, and hence
+$A_j$ is KC.
+\end{proof}
+
+We conclude this section by comparing the
+compact quotients of a frame with those of
+its quotients. Let $j\in NA$,
+$F\in A^\wedge$, and $G=j_*F$.
+Consider the compact quotients
+\[
+A_F=\{x\in A\mid v_F(x)=x\},
+\qquad
+A_{j,G}=\{y\in A_j\mid v_G(y)=y\}.
+\]
+
+By Lemma~\ref{finftyf},
+\[
+j\circ v_F\leq v_G\circ j.
+\]
+Since $v_G$ is idempotent, this implies
+\[
+v_G\circ j\circ v_F=v_G\circ j.
+\]
+Thus, the frame morphism
+$H=v_G\circ j:A\to A_{j,G}$
+factors through $v_F$, inducing
+\[
+h:A_F\longrightarrow A_{j,G},
+\qquad h(x)=v_G(j(x)).
+\]
+
+\begin{prop}\label{VFsquare}
+The map $h$ is a frame morphism, and the
+following diagram commutes:
+\begin{equation}\label{Cuadrado}
+\begin{tikzcd}
+A \arrow[r,"v_F"] \arrow[d,"j"']
+  & A_F \arrow[d,"h"]\\
+A_j \arrow[r,"v_G"']
+  & A_{j,G}.
+\end{tikzcd}
+\end{equation}
+\end{prop}
+
+\begin{proof}
+The map $h$ preserves finite meets and $1$,
+as it is the restriction of $H=v_G\circ j$.
+
+Let $X\subseteq A_F$. Since joins in $A_F$
+are computed by applying $v_F$, we have
+\[
+\begin{aligned}
+h\left(\bigvee_{A_F}X\right)
+&=v_G\left(j\left(v_F\left(
+  \bigvee_A X\right)\right)\right)\\
+&=v_G\left(j\left(\bigvee_A X\right)\right)\\
+&=\bigvee_{A_{j,G}}h[X].
+\end{aligned}
+\]
+Thus $h$ preserves arbitrary joins.
+Finally,
+\[
+h\circ v_F=v_G\circ j
+\]
+by construction, so the diagram commutes.
+\end{proof}
+
+We now specialize the preceding construction
+to the spatial reflection
+$\mathcal U_A:A\to\mathcal O(\pt A)$.
+Let $F\in A^\wedge$, and let
+$Q\subseteq\pt A$ be its associated compact
+saturated subset. By the Hofmann--Mislove
+correspondence, put $G=\nabla(Q)$.
+
+The point spaces of $A_F$ and
+$(\mathcal O(\pt A))_G$ are both identified
+with $Q$. Consequently, the preceding
+construction yields a commutative diagram
+relating these compact quotients to
+$\mathcal OQ$.
+
+By \cite[Lemma 5.7.1]{sexton2003}, the point space of the compact
+quotient \(A_F\) is precisely \(Q\). Consequently, the preceding constructions fit into the following
+commutative diagram:
+
+\begin{equation}\label{Qcuadrado}
+\begin{tikzcd}
+	A && {A_F} & \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_G}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}_{A_F}}", from=1-3, to=2-4]
+	\arrow["h"', from=1-3, to=3-3]
+	\arrow["{v_G}"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_{\mathcal{O}S_G}}"', from=3-3, to=2-4]
+\end{tikzcd}
+\end{equation}
+
+Since this diagram is determined by \(F\in A^\wedge\) and its
+associated compact saturated subset \(Q\in\mathcal{Q}S\), we shall
+refer to it as the \(Q\)-square.
+
+\begin{thm}\label{haus1}
+Under the hypotheses of the $Q$-square,
+if $A$ satisfies $(H)$, then
+\[
+\mathcal OQ\cong Q'.
+\]
+Equivalently, the frame of opens of the
+point space of $A_F$ is isomorphic to
+a compact closed quotient of a Hausdorff
+space.
+\end{thm}
+
+\begin{proof}
+Suppose that $A$ satisfies $(H)$.
+Since $(H)$ is conservative,
+$S=\pt A$ is Hausdorff. Thus $Q$ is
+closed in $S$, and hence $Q'\in\mathcal OS$.
+
+Since every Hausdorff space is strongly
+stacked,
+\[
+v_G=[Q']=u_{Q'}.
+\]
+Therefore,
+\[
+(\mathcal OS)_{v_G}
+=(\mathcal OS)_{u_{Q'}}
+\cong Q'.
+\]
+Moreover, $u_{Q'}$ is a complemented
+nucleus, so $(\mathcal OS)_{v_G}$ is
+spatial. Since
+\[
+\pt((\mathcal OS)_{v_G})=Q,
+\]
+we conclude that
+\[
+\mathcal OQ\cong
+(\mathcal OS)_{v_G}\cong Q'.
+\]
+\end{proof}
+
+\begin{comment}
 We now turn to the inheritance of the stronger properties introduced
 above. We first show that strong stackedness is inherited by quotients,
 and then establish the analogous result for the KC property.
@@ -4135,6 +4423,7 @@ we obtain
 \mathcal{O}Q\cong (\mathcal{O}S)_{v_\nabla}\cong \uparrow Q'.
 \]
 \end{proof}
+\end{comment}
 
 \section{Interaction among Compact-Quotient Separation Properties}\label{Interaccion entre propiedades}
 \done{Ejemplo de neat no KC}
