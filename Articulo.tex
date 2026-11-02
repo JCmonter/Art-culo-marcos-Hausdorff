@@ -4425,6 +4425,127 @@ we obtain
 \end{proof}
 \end{comment}
 
+
+\section{Interaction among compact-quotient separation properties}
+
+We begin with a result of Sexton
+\cite[Theorem 6.2(a)]{sexton2006ordinal}, which states that,
+for every topological space $S$,
+\[
+\mathcal OS\text{ neat}
+\Longrightarrow S\text{ strongly stacked}
+\Longrightarrow S\text{ stacked}.
+\]
+This provides a natural starting point for
+comparing neatness and strong stackedness in
+the point-free setting.
+
+
+\begin{prop}\label{NeatSS}
+If $A$ is a neat frame, then $\pt A$
+is strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let $S=\pt A$. Since neatness is hereditary,
+$\mathcal OS$ is neat. By
+\cite[Theorem 6.2(a)]{sexton2006ordinal},
+$S$ is strongly stacked.
+\end{proof}
+
+
+The preceding result concerns the point
+space of $A$, rather than $A$ itself.
+We next identify a condition under which
+neatness implies strong stackedness of
+the frame.
+
+\begin{prop}\label{EficienteFapilado}
+Let $A$ be a neat frame. If
+\[
+\mathcal U\circ v_F=v_G\circ\mathcal U
+\]
+for every H--M triple $(F,Q,G)$, then
+$A$ is strongly stacked.
+\end{prop}
+
+\begin{proof}
+Let $S=\pt A$ and let $(F,Q,G)$ be an
+H--M triple. Since $A$ is neat,
+$\mathcal OS$ is neat, and hence $S$
+is stacked and packed. Thus $Q$ is
+closed in $S$, so $Q'\in\mathcal OS$.
+
+By stackedness and Lemma~\ref{inducciontransfinita},
+\[
+v_G(0)=Q'.
+\]
+Since $\mathcal OS$ is neat,
+\[
+v_G=u_{Q'}=[Q'].
+\]
+By hypothesis,
+\[
+\mathcal U\circ v_F=[Q']\circ\mathcal U.
+\]
+Applying the right adjoint $\mathcal U_*$,
+we obtain
+\[
+v_F=\mathcal U_*\circ[Q']\circ\mathcal U.
+\]
+Therefore $A$ is strongly stacked.
+\end{proof}
+
+
+We next compare KC with the preceding
+properties.
+
+\begin{prop}\label{KCneat}
+Every KC frame is neat.
+\end{prop}
+
+\begin{proof}
+Let $F\in A^\wedge$. Since $v_F$ belongs
+to the admissibility interval $[v_F,w_F]$
+and $A$ is KC, there exists $d\in A$
+such that
+\[
+v_F=u_d,\qquad d=v_F(0).
+\]
+Thus $A$ is neat.
+\end{proof}
+
+\begin{prop}\label{SSiffS}
+Let $A$ be a KC frame. Then $A$ is
+stacked if and only if it is strongly
+stacked.
+\end{prop}
+
+\begin{proof}
+Since every KC frame is $T_1$ and neat,
+for each $F\in A^\wedge$ there exist
+$d,a\in A$ such that
+\[
+v_F=u_d,\qquad w_F=u_a,
+\]
+where $d=v_F(0)$ and $a=w_F(0)$.
+
+By Proposition~\ref{focales},
+\[
+\begin{aligned}
+A\text{ stacked}
+&\iff v_F(0)=w_F(0)
+       \quad\text{for every }F\\
+&\iff d=a
+       \quad\text{for every }F\\
+&\iff v_F=w_F
+       \quad\text{for every }F\\
+&\iff A\text{ strongly stacked}.
+\end{aligned}
+\]
+\end{proof}
+
+\begin{comment}
 \section{Interaction among Compact-Quotient Separation Properties}\label{Interaccion entre propiedades}
 \done{Ejemplo de neat no KC}
 \done{Comprobar si neat implica stacked}
@@ -4449,6 +4570,7 @@ comparing neatness and strong stackedness in the point-free setting.
 Indeed, although neatness of a frame does not directly imply strong
 stackedness of the frame itself, it does imply strong stackedness of
 its point space.
+
 
 \begin{prop}
 If $A$ is a neat frame, then $\pt A$ is strongly stacked.
@@ -4615,20 +4737,34 @@ A\text{ is strongly stacked}
 \]
 Since this holds for every HM-pair $(F,Q)$, the result follows.
 \end{proof}
+\end{comment}
 
-The preceding proposition does not assert that every KC-frame is stacked. In fact, the following example shows that KC does not imply even stackedness.
+\begin{prop}\label{KCiffNeat}
+Let $A$ be a spatial frame. Then $A$ is
+KC if and only if it is neat.
+\end{prop}
 
-\begin{ej}
-    
-\end{ej}
+\begin{proof}
+The forward implication follows from
+Proposition~\ref{KCneat}. Conversely,
+suppose that $A$ is spatial and neat.
+Write $A\cong\mathcal OS$ for some
+topological space $S$.
+By the spatial characterization of
+neatness, $S$ is packed and stacked,
+so $S$ is strongly stacked. Hence
+$\mathcal OS$ is KC, and therefore
+so is $A$.
+\end{proof}
 
+\begin{comment}
 \begin{prop}\label{KCiffNeat}
 Let $A$ be a spatial frame. Then $A$ is KC if and only if it is
 neat.
 \end{prop}
 
 \begin{proof}
-Suppose first that $A$ is KC. By the previous results, every KC frame
+Suppose first that $A$ is KC. By Proposition~\ref{KCneat}, every KC frame
 is neat.
 
 Conversely, let $A$ be neat. Since $A$ is spatial, we may write
@@ -4640,10 +4776,266 @@ neatnees, $S$ is packed and stacked. Moreover, neatness implies
 that $S$ is strongly stacked. Hence $S$ is packed and strongly
 stacked, and therefore $\mathcal{O}(S)$ is KC. Thus $A$ is KC.
 \end{proof}
+\end{comment}
 
-The preceding results show that KC imposes strong restrictions on the
-relation between neatness and the two forms of stackedness. We now
-consider converses under additional separation hypotheses.
+
+\begin{prop}\label{NeatSSimplicaKC}
+Every neat strongly stacked frame is KC.
+\end{prop}
+
+\begin{proof}
+Let $A$ be neat and strongly stacked.
+Since neatness implies $T_1$, by Proposition~\ref{focales},
+\[
+v_F=w_F
+\qquad(F\in A^\wedge).
+\]
+Moreover, by neatness,
+\[
+v_F=u_{v_F(0)}.
+\]
+Thus every admissibility interval
+$[v_F,w_F]$ consists of a single closed
+nucleus. Hence $A$ is KC.
+\end{proof}
+
+
+We have shown that every KC frame is neat
+and that every neat strongly stacked frame
+is KC. This naturally raises the question
+of whether strong stackedness is necessary,
+or equivalently, whether neatness alone
+implies the KC property.
+
+An affirmative answer would make neatness
+and KC equivalent for arbitrary frames,
+as already happens in the spatial setting.
+The following example shows that this is
+not the case.
+
+\begin{thm}\label{NeatNoKC}
+There exists a non-spatial neat frame
+which is neither KC nor strongly stacked.
+Consequently,
+\[
+\mathrm{KC}\subsetneq\mathrm{Neat},
+\qquad
+\mathrm{Neat}\not\subseteq\mathrm{S.S.}
+\]
+\end{thm}
+
+
+\begin{proof}
+Let $B$ be a nontrivial atomless complete Boolean
+algebra, and consider the frame
+\[
+C=\{(a,b)\in B\times B:a\leq b\},
+\]
+with coordinatewise operations. Let
+\[
+A=C\cup\{\top\},
+\]
+where $\top$ is a new greatest element, so that
+$1_C=(1_B,1_B)<\top$. We shall prove that
+$A$ is neat but not KC.
+
+\%textit{Step 1. The Scott-open filters of $A$.}
+
+We first show that the only Scott-open filter
+of $B$ is $B$ itself.
+
+Indeed, let $F$ be a Scott-open filter of $B$.
+Suppose that $0_B\notin F$. For every $a\in F$,
+we have $a>0_B$. Since $B$ is atomless, we can
+choose $b_a$ such that
+\[
+0_B<b_a<a.
+\]
+In particular, $a$ is not compact. More generally,
+a complete atomless Boolean algebra has no
+nonzero compact elements.
+
+Now put
+\[
+d=\bigwedge F.
+\]
+The family
+\[
+D=\{d\vee\neg a:a\in F\}
+\]
+is directed, since $F$ is closed under finite
+meets. Moreover, by complete distributivity
+of finite meets over arbitrary joins,
+\[
+\bigvee D
+=d\vee\bigvee_{a\in F}\neg a
+=d\vee\neg d
+=1_B.
+\]
+Since $1_B\in F$ and $F$ is Scott-open, there
+exists $a\in F$ such that
+\[
+d\vee\neg a\in F.
+\]
+Consequently,
+\[
+d=a\wedge(d\vee\neg a)\in F.
+\]
+Thus $F=\uparrow d$. Scott-openness now implies
+that $d$ is compact, and hence $d=0_B$.
+Therefore $F=B$, proving that
+\[
+B^\wedge=\{B\}.
+\]
+
+We next determine the Scott-open filters of $A$.
+Let $G\in A^\wedge$.
+
+If $G\cap C\neq\varnothing$, then $1_C\in G$.
+Consider the frame homomorphism
+\[
+\delta:B\longrightarrow C,\qquad
+\delta(b)=(b,b).
+\]
+Since the inclusion $C\hookrightarrow A$
+preserves directed joins, the set
+\[
+H=\{b\in B:(b,b)\in G\}
+\]
+is a Scott-open filter of $B$. Hence $H=B$.
+In particular, $(0_B,0_B)\in G$, so $G=A$.
+
+On the other hand, if $G\cap C=\varnothing$,
+then necessarily $G=\{\top\}$.
+
+Finally, $\{\top\}$ is Scott-open, because
+$\top$ is compact in $A$: any family of elements
+whose join is $\top$ must contain $\top$.
+
+We conclude that
+\[
+A^\wedge=\{A,\{\top\}\}.
+\]
+%\textit{Step 2. The frame $A$ is neat.}
+
+Recall that, for every Scott-open filter $F$,
+the associated fitted nucleus is
+\[
+v_F=\left(\bigvee_{a\in F}v_a\right)^\infty.
+\]
+
+Since $0_A\in A$, we have
+\[
+v_A=v_{0_A}=\mathrm{tp}=u_\top.
+\]
+Similarly, since $v_\top=\mathrm{id}_A$,
+\[
+v_{\{\top\}}=v_\top
+=\mathrm{id}_A=u_{0_A}.
+\]
+
+Thus $v_F$ is a closed nucleus for every
+$F\in A^\wedge$. Consequently, $A$ is neat.
+
+%\textit{Step 3. A compact quotient which is
+%not closed.}
+
+Let $e=(0_B,1_B)\in C$. The open nucleus
+$v_e$ of $C$ is given by
+\[
+v_e(a,b)=e\succ_C(a,b)=(b,b).
+\]
+Indeed, for $(c,d)\in C$,
+\[
+(c,d)\wedge e=(0_B,d),
+\]
+and therefore
+\[
+(c,d)\wedge e\leq(a,b)
+\quad\Longleftrightarrow\quad d\leq b.
+\]
+
+Define $j:A\to A$ by
+\[
+j(x)=
+\begin{cases}
+(b,b),&x=(a,b)\in C,\\
+\top,&x=\top.
+\end{cases}
+\]
+
+The map $j$ is inflationary and idempotent.
+Moreover, for $(a,b),(c,d)\in C$,
+\[
+\begin{aligned}
+j((a,b)\wedge(c,d))
+ &=j(a\wedge c,b\wedge d)\\
+ &=(b\wedge d,b\wedge d)\\
+ &=j(a,b)\wedge j(c,d).
+\end{aligned}
+\]
+The cases involving $\top$ are immediate.
+Hence $j$ is a nucleus on $A$.
+
+Its fixed-point frame is
+\[
+A_j=\{(b,b):b\in B\}\cup\{\top\}.
+\]
+
+We claim that $A_j$ is compact. Indeed,
+suppose that
+\[
+\bigvee_{A_j}x_i=\top
+\]
+for some family $\{x_i\}_{i\in I}\subseteq A_j$.
+If none of the $x_i$ were equal to $\top$,
+then $x_i=(b_i,b_i)$ for every $i$, and hence
+\[
+\begin{aligned}
+\bigvee_{A_j}x_i
+ &=j\left(\bigvee_A x_i\right)\\
+ &=j\left(\bigvee_i b_i,\bigvee_i b_i\right)\\
+ &=\left(\bigvee_i b_i,\bigvee_i b_i\right)\\
+ &\leq 1_C<\top,
+\end{aligned}
+\]
+a contradiction. Thus some $x_i=\top$,
+which proves that $A_j$ is compact.
+
+However,
+\[
+j(0_A)=0_A,
+\]
+whereas
+\[
+j(0_B,1_B)=(1_B,1_B)\neq(0_B,1_B).
+\]
+Therefore $j\neq\mathrm{id}_A$.
+
+If $j$ were closed, then
+\[
+j=u_{j(0_A)}=u_{0_A}=\mathrm{id}_A,
+\]
+a contradiction. Hence $j$ is not closed.
+
+We have thus constructed a compact quotient
+$A_j$ of $A$ which is not closed. Therefore
+$A$ is not KC.
+
+Consequently, there exists a neat frame which
+is not KC. Since every KC frame is neat, we
+obtain
+\[
+\mathrm{KC}\subsetneq\mathrm{Neat}.
+\]
+Finally, since every neat strongly stacked
+frame is KC, the frame $A$ is not strongly
+stacked either.
+\end{proof}
+
+The preceding theorem shows that neatness alone does not imply either KC 
+or strong stackedness. We now examine additional separation conditions under 
+which these implications can be recovered.
 
 \begin{prop}\label{KCsfitSS}
 Let $A$ be a KC frame. If $A$ is subfit, then $A$ is strongly
@@ -4708,49 +5100,6 @@ j=u_d.
 \]
 Thus every nucleus whose associated filter is open is closed, and hence
 \(A\) is KC.
-\end{proof}
-
-\begin{prop}\label{prop:KC}
-Every neat strongly stacked frame is KC.
-\end{prop}
-
-\begin{proof}
-Let $F\in A^\wedge$. Since $A$ is neat, it is $T_1$. Hence, as $A$ is
-strongly stacked, we have
-\[
-v_F=w_F.
-\]
-Moreover, of neatness,
-\[
-v_F=u_d,
-\qquad d=v_F(0).
-\]
-Therefore,
-\[
-[v_F,w_F]=\{u_d\}.
-\]
-
-Since every nucleus inducing a compact quotient of $A$ belongs to an
-admissibility interval $[v_F,w_F]$ for some $F\in A^\wedge$, every such
-nucleus is closed. Hence every compact quotient of $A$ is closed, and
-therefore $A$ is KC.
-\end{proof}
-
-Proposition \ref{KCiffNeat} shows that neatness and the KC property coincide for spatial frames. However, 
-this equivalence does not extend to arbitrary frames. The following theorem provides a non-spatial 
-neat frame admitting a compact quotient which is not closed, thereby establishing that the implication 
-from KC to neatness is strict in the point-free setting.
-
-\begin{thm}
-There exists a non-spatial neat frame which is not KC. Consequently, the implication
-\[
-\mathrm{KC}\Longrightarrow\mathrm{Neat}
-\]
-is strict in the category of frames.
-\end{thm}
-
-\begin{proof}
-    
 \end{proof}
 
 \[\begin{tikzcd}
