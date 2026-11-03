@@ -103,7 +103,7 @@ Aquí va el resumen
 \todo{Completar la introducción.}
  \done{hay que modificar el formato bastante, hay muchas separaciones en las demostraciones eso se ve raro 
  tambien te suegiero que agrres un paper que te guste y veas su estructura de como escrbiben las cosas}
-\cite{picado2021separation, hochster1969prime}
+\cite{hochster1969prime}
 
 \[
 \begin{tikzcd}
@@ -1003,7 +1003,7 @@ Consequently,
 \text{Neat}\iff \text{KC and Stacked}.
 \]
 Whether analogous relationships hold in the
-point-free setting will be addressed in Section \ref{Interaccion entre propiedades}.
+point-free setting will be addressed in Section~\ref{Interaccion entre propiedades}.
 We first examine how these properties interact
 with classical separation axioms.
 
@@ -1015,27 +1015,23 @@ conservative, neither property is comparable with
 the $T_1$ separation axiom, as the following
 examples show.
 
-
 \begin{ej}\label{T1nostacked}
 \mbox{ }
 \begin{enumerate}
-\item Consider the frame $A=[0,1]$ with its usual
-order. Its open filters are
-\[
-F_r=(r,1],\qquad 0\leq r<1,
-\]
-and the corresponding compact saturated subsets
-of $\pt A=[0,1)$ are $Q_r=[0,r]$.
-A direct computation gives
+\item The frame $A=[0,1]$, studied in
+Example~\ref{ex:unit-interval-patch}, is
+strongly stacked but not $T_1$. Indeed,
+for every open filter
+$F_r=(r,1]$, $0\leq r<1$, the corresponding
+compact saturated set is $Q_r=[0,r]$, and
 \[
 v_{F_r}(x)=
 \begin{cases}
 x,&x\leq r,\\
 1,&x>r,
 \end{cases}
-=(U_*\circ[Q_r']\circ U)(x).
+=(\mathcal U_*\circ[Q_r']\circ\mathcal U)(x).
 \]
-Thus, $A$ is strongly stacked but not $T_1$.
 
 \item The Hausdorff frame of Paseka and
 \v{S}marda \cite{PasekaSmarda1992}, considered in
@@ -3675,6 +3671,112 @@ Thus $(A_j)_k$ is closed, and hence
 $A_j$ is KC.
 \end{proof}
 
+Now, we work with coproducts of KC frames.
+
+\begin{prop}\label{KCnotreg}
+Let $B$ be a complete atomless Boolean algebra, and let
+\[
+D=B\cup\{\omega\},
+\]
+where $\omega$ is a new top element. Then $D$ is a
+compact KC frame which is not regular.
+\end{prop}
+
+\begin{proof}
+Write $e=1_B$. Since $\omega$ is a new top element,
+every cover of $\omega$ contains $\omega$. Hence
+$D$ is compact.
+
+Moreover, since $B$ is a complete atomless Boolean
+algebra, its only Scott-open filter is $B$.
+Consequently,
+\[
+D^\wedge=\{D,\{\omega\}\}.
+\]
+
+We claim that $D$ is KC. Let $j\in ND$ be a nucleus
+such that $D_j$ is compact. Then
+$\nabla(j)\in D^\wedge$.
+
+If $\nabla(j)=D$, then $j(0)=\omega$, and hence
+$j=u_\omega$.
+
+Otherwise, $\nabla(j)=\{\omega\}$, so
+$j[B]\subseteq B$. Thus, the restriction
+$j|_B$ is a nucleus on $B$. Since every nucleus
+on a Boolean algebra is closed, there exists
+$a\in B$ such that
+\[
+j(b)=a\vee b
+\qquad(b\in B).
+\]
+As $j(\omega)=\omega$, we conclude that $j=u_a$.
+Therefore, $D$ is KC.
+
+Finally, $D$ is not regular. Indeed, if
+$a\prec e$, there exists $c\in D$ such that
+\[
+a\wedge c=0,
+\qquad
+e\vee c=\omega.
+\]
+The latter equality forces $c=\omega$, and
+consequently $a=0$. Thus,
+\[
+\bigvee\{a\in D:a\prec e\}=0\neq e.
+\]
+Hence $D$ is not regular.
+\end{proof}
+
+\begin{thm}\label{oplusKC}
+The class of KC frames is not closed under
+finite coproducts.
+\end{thm}
+
+\begin{proof}
+Let $D=B\cup\{\omega\}$ be the frame constructed
+in Proposition~\ref{KCnotreg}. Then $D$ is
+compact and KC, but not regular.
+
+By \cite[Theorem 9.1.1]{picado2021separation},
+every compact strongly Hausdorff frame is
+regular. Consequently, $D$ is not strongly
+Hausdorff.
+
+Consider the codiagonal frame homomorphism
+\[
+\Delta:D\oplus D\longrightarrow D,
+\]
+characterized by
+\[
+\Delta\iota_1=\mathrm{id}_D=\Delta\iota_2,
+\]
+where $\iota_1,\iota_2$ are the canonical
+coproduct injections.
+
+Since $\Delta$ is surjective, the associated
+nucleus
+\[
+j_\Delta=\Delta_*\Delta
+\]
+determines a quotient of $D\oplus D$
+isomorphic to $D$, and therefore compact.
+
+Suppose that $D\oplus D$ is KC. Then
+$j_\Delta$ must be a closed nucleus.
+Equivalently, the localic diagonal of $D$
+is a closed sublocale, which means that
+$D$ is strongly Hausdorff. This contradicts
+Proposition~\ref{KCnotreg}.
+
+Therefore,
+\[
+D\oplus D\text{ is not KC}.
+\]
+Hence KC is not preserved under finite
+coproducts.
+\end{proof}
+
 We conclude this section by comparing the
 compact quotients of a frame with those of
 its quotients. Let $j\in NA$,
@@ -4426,10 +4528,10 @@ we obtain
 \end{comment}
 
 
-\section{Interaction among compact-quotient separation properties}
+\section{Interaction among compact-quotient separation properties}\label{Interaccion entre propiedades}
 
 We begin with a result of Sexton
-\cite[Theorem 6.2(a)]{sexton2006ordinal}, which states that,
+~\cite[Theorem 6.2(a)]{sexton2006ordinal}, which states that,
 for every topological space $S$,
 \[
 \mathcal OS\text{ neat}
@@ -4449,7 +4551,7 @@ is strongly stacked.
 \begin{proof}
 Let $S=\pt A$. Since neatness is hereditary,
 $\mathcal OS$ is neat. By
-\cite[Theorem 6.2(a)]{sexton2006ordinal},
+~\cite[Theorem 6.2(a)]{sexton2006ordinal},
 $S$ is strongly stacked.
 \end{proof}
 
@@ -4545,15 +4647,17 @@ A\text{ stacked}
 \]
 \end{proof}
 
-\begin{comment}
-\section{Interaction among Compact-Quotient Separation Properties}\label{Interaccion entre propiedades}
-\done{Ejemplo de neat no KC}
-\done{Comprobar si neat implica stacked}
-\done{KC implica S.S.?}
 \todo{Existe alguna propiedad P tal que (H)+P implica staked}
 \todo{T1+S.+P implica (H)?}
 \done{Relacionar S. y S.S. con fit y sfit}
 \todo{Relacionar el trabajo con lo presentado por Guram y Sebastian}
+
+\done{Ejemplo de neat no KC}
+\done{Comprobar si neat implica stacked}
+\done{KC implica S.S.?}
+
+\begin{comment}
+\section{Interaction among Compact-Quotient Separation Properties}\label{Interaccion entre propiedades}
 
 We begin by recalling a relation established by Sexton in the spatial
 setting. By \cite[Theorem 6.2 (a)]{sexton2006ordinal}, for every topological
@@ -4835,11 +4939,11 @@ with coordinatewise operations. Let
 \[
 A=C\cup\{\top\},
 \]
-where $\top$ is a new greatest element, so that
+where $\top$ is a new top element, so that
 $1_C=(1_B,1_B)<\top$. We shall prove that
 $A$ is neat but not KC.
 
-\%textit{Step 1. The Scott-open filters of $A$.}
+%\textit{Step 1. The Scott-open filters of $A$.}
 
 We first show that the only Scott-open filter
 of $B$ is $B$ itself.
@@ -5042,6 +5146,23 @@ Let $A$ be a KC frame. If $A$ is subfit, then $A$ is strongly
 stacked.
 \end{prop}
 
+
+\begin{proof}
+Since $A$ is KC, it is $T_1$, and both
+$v_F$ and $w_F$ are closed nuclei for every
+$F\in A^\wedge$. Thus
+\[
+v_F=u_{v_F(0)}
+\qquad\text{and}\qquad
+w_F=u_{w_F(0)}.
+\]
+By subfitness and \cite[Theorem 3.5]{simmons2006regularity},
+we have $v_F(0)=w_F(0)$. Consequently,
+$v_F=w_F$ for every $F\in A^\wedge$.
+By Proposition~\ref{focales}, $A$ is strongly stacked.
+\end{proof}
+
+\begin{comment}
 \begin{proof}
 Let $(F,Q)$ be an HM-pair and put
 \[
@@ -5073,11 +5194,25 @@ v_F=\mathcal{U}_*\circ[Q']\circ\mathcal{U}.
 \]
 Since this holds for every HM pair $(F,Q)$, $A$ is strongly stacked.
 \end{proof}
+\end{comment}
 
 \begin{prop}\label{NeatfitKC}
 Let \(A\) be a frame. If \(A\) is neat and fit, then \(A\) is KC.
 \end{prop}
 
+\begin{proof}
+Let $j\in NA$ be such that
+$F=\nabla(j)\in A^\wedge$.
+Since $A$ is fit, every nucleus is fitted
+by \cite[Theorem 3.4]{simmons2006regularity}. Hence
+$j=v_F$, as $v_F$ is the least nucleus
+in its admissibility interval.
+
+By neatness, $v_F$ is closed, and therefore
+so is $j$. Thus $A$ is KC.
+\end{proof}
+
+\begin{comment}
 \begin{proof}
 Let \(F\in A^\wedge\) and \(j\in NA\) be such that
 \[
@@ -5101,6 +5236,10 @@ j=u_d.
 Thus every nucleus whose associated filter is open is closed, and hence
 \(A\) is KC.
 \end{proof}
+\end{comment}
+
+The following diagram summarizes the relationships among the separation properties considered in this work, including the implications 
+established in \cite{picado2021separation} and the results obtained here.
 
 \[\begin{tikzcd}
 	&&& {\mathbf{(reg)}} &&& \\
@@ -5148,6 +5287,104 @@ Thus every nucleus whose associated filter is open is closed, and hence
 
 \section{Relationship with the patch assembly}
 
+\begin{ej}\label{ex:unit-interval-patch}
+Consider the frame $A=[0,1]$ with its usual
+order. Its implication is given by
+\[
+a\succ x=
+\begin{cases}
+1,&a\leq x,\\
+x,&a>x.
+\end{cases}
+\]
+Thus the distinguished nuclei satisfy
+\[
+u_a(x)=a\vee x,
+\qquad
+v_a(x)=a\succ x.
+\]
+
+The Scott-open filters of $A$ are
+\[
+A^\wedge
+=\{A\}\cup\{F_m:m\in[0,1)\},
+\qquad F_m=(m,1].
+\]
+For each $m\in[0,1)$, the associated fitted
+nucleus is
+\[
+v_{F_m}(x)=
+\begin{cases}
+x,&x\leq m,\\
+1,&x>m,
+\end{cases}
+\]
+while $v_A=\mathrm{tp}$.
+
+Consequently, the patch assembly $PA$ is
+generated by the nuclei $u_a$ and
+$u_a\wedge v_{F_m}$, where
+\[
+(u_a\wedge v_{F_m})(x)=
+\begin{cases}
+x,&x\leq m,\\
+a\vee x,&x>m.
+\end{cases}
+\]
+
+We now identify the spatial counterpart of
+this construction. The space of points of
+$A$ is $S=[0,1)$, with topology
+\[
+\tau=\{\varnothing\}\cup
+\{[0,a):0<a\leq1\}.
+\]
+The spatial reflection
+\[
+\mathcal U_A:A\longrightarrow\mathcal OS,
+\qquad a\longmapsto[0,a),
+\]
+is an isomorphism.
+
+Since $S$ is totally ordered,
+\cite[Corollary 4.2]{AvilaBezhaniMorandiZaldivar2020}
+implies that $N(\mathcal OS)$ is spatial.
+Moreover, $\mathcal U_A$ preserves
+Scott-open filters. By functoriality of
+the patch assembly, it induces an
+isomorphism
+\[
+P(\mathcal U_A):PA
+\xrightarrow{\cong}P(\mathcal OS).
+\]
+
+The compact saturated subsets of $S$ are
+precisely the sets
+\[
+Q_m=[0,m],\qquad 0\leq m<1,
+\]
+together with $\varnothing$.
+Their complements are $(m,1)$.
+Therefore the patch topology is generated
+by the sets
+\[
+[0,a)\qquad\text{and}\qquad(m,1),
+\]
+which generate the usual topology on
+$[0,1)$.
+
+Consequently,
+\[
+PA\cong
+\mathcal O([0,1),\tau_{\mathrm{usual}})=\mathcal{O}^pS.
+\]
+where $^p S$ denotes the patch space of $S$.
+In particular, $PA$ is spatial and
+Hausdorff, although $A$ is not $T_1$.
+
+\end{ej}
+
+\begin{comment}
 Following the idea presented in \cite{simmons2006regularity} (or, alternatively, in \cite{simmons2004vietoris}), let us consider the linearly ordered frame 
 \[
 A=[0,1].
@@ -5309,9 +5546,10 @@ In our case,
 
 Since the topology generated by the intervals $(m,a)$ coincides with the usual topology on $[0,1)$, the space $^pS$ is Hausdorff. Consequently, $\mathcal{O}^pS\cong PA$ satisfies $\mathbf{(H)}$, 
 even when $A$ is not $T_1$ nor neat.
+\end{comment}
 
 \begin{lem}\label{patchiso}
-Let $A$ be a frame, if the morphism $\mathrm{p}U\colon\mathrm{p}A\rightarrow\mathrm{p}\mathcal{O}S$ 
+Let $A$ be a frame, if the morphism $P(\mathcal{U})\colon PA\rightarrow P\mathcal{O}S$ 
 is an isomorphism, then $A$ is strongly stacked.
 
 \end{lem}
@@ -5319,33 +5557,30 @@ is an isomorphism, then $A$ is strongly stacked.
 
 \begin{proof}
 Consider any open filter $F$ on $A$ and the compact saturated determined by it, say $Q$, 
-thus we have the nuclei $\mathrm{v}_{F}$ and $U_{*}[Q']U=Q[U]$, we neee to observe the action of 
-$\mathrm{p}U$ on these two nuclei, in order to do that remember that we have a conmutative diagram:
-
-
+thus we have the nuclei $\mathrm{v}_{F}$ and $\mathcal{U}_{*}[Q']\mathcal{U}=Q[U]$, we neee to observe the action of 
+$\mathrm{P}(\mathcal{U})$ on these two nuclei, in order to do that remember that we have a conmutative diagram:
 
 \[\begin{tikzcd}
-	A & \mathrm{p}A & NA \\
-	{\mathcal{O}S} & {\mathrm{p}
-	\mathcal{O}S} & {N\mathcal{O}S} \\
+	A & PA & NA \\
+	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
 	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
 	\arrow[from=1-1, to=1-2]
 	\arrow["{\mathcal{U}_A}"', from=1-1, to=2-1]
 	\arrow["\iota",hook, from=1-2, to=1-3]
-	\arrow["{\mathrm{p}(\mathcal{U}_A)}", from=1-2, to=2-2]
+	\arrow["{P(\mathcal{U}_A)}", from=1-2, to=2-2]
 	\arrow["{N(\mathcal{U}_A)}", from=1-3, to=2-3]
 	\arrow[from=2-1, to=2-2]
 	\arrow[hook, from=2-1, to=3-2]
-	\arrow["\imath "',hook, from=2-2, to=2-3]
+	\arrow["\imath '",hook, from=2-2, to=2-3]
 	\arrow["\pi", from=2-2, to=3-2]
 	\arrow["\sigma", from=2-3, to=3-3]
 	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}\]
 
-since $N(\mathcal{U})\iota=\imath\mathrm{p}\mathcal{U}$, that is, $\mathrm{p}\mathcal{U}$ 
-is the restriction of $N(\mathcal{U})$ to $\mathrm{p}A$, then 
+since $N(\mathcal{U})\iota=\imath (P\mathcal{U})$, that is, $P(\mathcal{U})$ 
+is the restriction of $N(\mathcal{U})$ to $PA$, then 
 
-\[\mathrm{p}\mathcal{U}(\mathrm{v}_{F})=N(\mathcal{U})(\mathrm{v}_{F})=\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
+\[P(\mathcal{U})(\mathrm{v}_{F})=N(\mathcal{U})(\mathrm{v}_{F})=\bigvee\{u_{\mathcal{U}(v_{F})}\wedge v_{\mathcal{U}(x)}\mid x\in A \}\]
 
 since the morphism $\mathcal{U}$ transforms open filters we have 
 
@@ -5356,10 +5591,70 @@ since the morphism $\mathcal{U}$ transforms open filters we have
 
 But this representation is the corresponding to the nucleus $\mathrm{v}_{\mathcal{U}F}$.
 \todo{Completar esta prueba}
-
-\todo{Considerar incluir información sobre los parches}
-
 \end{proof}
+
+\done{Considerar incluir información sobre los parches}
+
+\begin{thm}\label{T1SSPA}
+Let $A$ be a $T_1$ strongly stacked frame.
+If $S=\pt A$ is finitely packed, then $A$
+has trivial patch assembly.
+\end{thm}
+
+\begin{proof}
+Let $F\in A^\wedge$, and let $Q$ be its
+corresponding compact saturated subset
+of $S$. Since $S$ is finitely packed,
+we may write
+\[
+Q=\{p_1,\ldots,p_n\}.
+\]
+
+As $A$ is $T_1$ and strongly stacked,
+we have $v_F=w_F$. Hence, for every
+$x\in A$,
+\[
+\begin{aligned}
+v_F(x)
+ &=w_F(x)\\
+ &=\bigwedge_{i=1}^n(p_i\vee x)\\
+ &=\left(\bigwedge_{i=1}^n p_i\right)\vee x.
+\end{aligned}
+\]
+Thus
+\[
+v_F=u_{\bigwedge_{i=1}^n p_i}.
+\]
+
+Consequently, every adjusted nucleus
+$v_F$ is closed. Since $PA$ is generated
+by nuclei of the form $u_a\wedge v_F$,
+all its generators are closed.
+
+The closed nuclei form a subframe of $NA$
+isomorphic to $A$. Therefore
+\[
+PA=\{u_a:a\in A\},
+\]
+and hence $A$ has trivial patch assembly.
+\end{proof}
+
+\begin{cor}\label{C1SSPA}
+Let $A$ be a $T_1$ strongly stacked frame.
+If $S=\pt A$ is finitely packed, then
+$A$ is KC.
+\end{cor}
+
+\begin{proof}
+By Theorem~\ref{T1SSPA}, every fitted
+nucleus $v_F$, with $F\in A^\wedge$,
+is closed. Moreover, since $A$ is $T_1$
+and strongly stacked, $v_F=w_F$.
+Thus every admissibility interval
+$[v_F,w_F]$ consists of a single closed
+nucleus. Hence $A$ is KC.
+\end{proof}
+
 
 %\bibliographystyle{amsalpha}
 \bibliographystyle{amsplain}
