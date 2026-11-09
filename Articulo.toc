@@ -2,8 +2,6 @@
 \contentsline {section}{Todo list}{1}{section*.2}%
 \contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Preliminaries}}{2}{section.2}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Frames, nuclei, and open filters}}{2}{subsection.2.1}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Compact quotients and admissibility intervals}}{3}{subsection.2.2}%
 \contentsline {section}{\tocsection {}{3}{Separation properties induced by compact quotients}}{4}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{Comparison with Classical Separation Axioms}}{8}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{Inheritance and preservation properties}}{15}{subsection.3.2}%

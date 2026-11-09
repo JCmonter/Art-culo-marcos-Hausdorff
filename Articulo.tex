@@ -168,7 +168,7 @@ Aquí va el resumen
 
 \section{Preliminaries}\label{Preliminaries}
 %VERSION COMPACTADA
-\subsection{Frames, nuclei, and open filters}
+%\subsection{Frames, nuclei, and open filters}
 
 We recall the basic notions and notation concerning frames, nuclei, and open filters; for general background, see the standard references on point-free topology (\cite{Johnstone82,PicadoPultr,simmons_frames}).
 
@@ -183,14 +183,14 @@ x\wedge a\leq b\quad\Longleftrightarrow\quad x\leq(a\succ b).
 Every frame morphism $f\colon A\to B$ has a right adjoint $f_*:B\to A$, characterized by
 $f(a)\leq b$ if and only if $a\leq f_*(b)$.
 
-A \emph{nucleus} on $A$ is a map $j:A\to A$ satisfying
+A \emph{nucleus} on $A$ is a map $j\colon A\to A$ satisfying
 \[
 x\leq j(x),\qquad j(j(x))=j(x),\qquad
 j(x\wedge y)=j(x)\wedge j(y).
 \]
 If $j$ is a nucleus, then the fixed-point set $A_j=\{x\in A\mid j(x)=x\}$ is a frame, with joins given by
 $\bigvee_{A_j}X=j(\bigvee_A X)$.
-The map $j^*:A\to A_j$, $j^*(x)=j(x)$, is a surjective frame morphism, and every quotient arises in this way. 
+The map $j^*\colon A\to A_j$, $j^*(x)=j(x)$, is a surjective frame morphism, and every quotient arises in this way. 
 We denote by $NA$ the frame of nuclei on $A$ (\cite[Proposition II.2.5]{Johnstone82}). For $a\in A$, put
 \[
 u_a(x)=a\vee x,\qquad
@@ -198,6 +198,22 @@ v_a(x)=a\succ x,\qquad
 w_a(x)=(x\succ a)\succ a.
 \]
 The nuclei $u_a$ and $v_a$ determine the closed and open quotients, respectively.
+
+Every frame morphism $f\colon A\to B$ induces an adjunction in $NA$.
+For $k\in NB$, its \emph{lifting} along $f$ is
+\begin{equation}\label{levantamiento}
+N(f)_*(k)=f_*\circ k\circ f,
+\end{equation}
+whereas, for $j\in NA$, its \emph{pushforward} along $f$ is
+\begin{equation}\label{empuje}
+N(f)(j)=\bigvee\{u_{f(j(a))}\wedge v_{f(a)}\mid a\in A\}.
+\end{equation}
+Thus, for $j\in NA$ and $k\in NB$,
+\[
+N(f)(j)\leq k
+\quad\Longleftrightarrow\quad
+j\leq N(f)_*(k).
+\]
 
 An element $p\in A$ is \emph{$\wedge$-irreducible} if $p\neq1$ and
 $x\wedge y\leq p$ implies $x\leq p$ or $y\leq p$.
@@ -212,15 +228,13 @@ A filter $F$ on $A$ is \emph{open} if, for every directed $D\subseteq A$,
 \[
 \bigvee D\in F\quad\Longrightarrow\quad D\cap F\neq\varnothing.
 \]
-We write $A^\wedge$ for the collection of open filters. If $f\colon A\to B$ is a frame morphism with right adjoint $f_*$, then
-\begin{equation}\label{Imagenfiltros}
-G\in B^\wedge\Longrightarrow f_*G\in A^\wedge,
-\qquad
-f_*G=\{a\in A\mid f(a)\in G\}.
-\end{equation}
+We write $A^\wedge$ for the collection of open filters.
 
 \begin{prop}\label{fF}
-Let $f=f^*\colon A\to B$ be a frame morphism. If $G\in B^\wedge$, then $f_*G\in A^\wedge$.
+Let $f=f^*\colon A\to B$ be a frame morphism. If $G\in B^\wedge$, then $f_*G\in A^\wedge$ and
+\begin{equation}\label{Imagenfiltros}
+f_*G=\{a\in A\mid f(a)\in G\}.
+\end{equation}
 \end{prop}
 
 Every nucleus $j$ determines its \emph{admissible filter}
@@ -236,26 +250,61 @@ f_F(x)=\bigvee_{a\in F}(a\succ x),
 where the join defining $v_F$ is taken in $NA$.
 For $F\in A^\wedge$, one has $\nabla(v_F)=F$. Thus, open filters correspond bijectively to fitted nuclei whose admissible filters are open (\cite[Lemmas 4.2 and 4.3]{escardo2003joins}).
 
-The Hofmann--Mislove Theorem (\cite[Theorem 2.16]{hofmann2006local}), identifies $A^\wedge$ with the compact saturated subsets of $\pt(A)$. Explicitly, the corresponding sets and filters are
+For a topological space $S$ and $E\subseteq S$, 
+\[
+E^\circ,\quad \overline{E}, \quad E',
+\]
+denote the interior, closure, and complement of $E$, respectively. Each subset $E$ induces a nucleus
+\[
+[E]:\mathcal OS\longrightarrow\mathcal OS,
+\qquad
+[E](U)=(E\cup U)^\circ.
+\]
+A nucleus of this form is called \emph{spatially induced}.
+
+Writing $\mathcal{C}S$ for the lattice of closed subsets of $S$, 
+$E$ induces an idempotent
+\emph{derivative}
+\[
+\langle E\rangle:\mathcal{C}S\to\mathcal{C}S,
+\qquad
+\langle E\rangle(X)=\overline{E\cap X}.
+\]
+It is dual to $[E']$ under complementation:
+\[
+\langle E\rangle(X)=\bigl([E'](X')\bigr)'.
+\]
+For $S=\pt(A)$, the Hofmann--Mislove Theorem (\cite[Theorem 2.16]{hofmann2006local}), identifies $A^\wedge$ with the compact saturated subsets of $S$ ($\mathcal{Q}S)$. 
+Explicitly, the corresponding sets and filters are
 \[
 Q_F=\{p\in\pt(A)\mid (\forall a\in F)\ a\nleq p\},
 \qquad
 F_Q=\{a\in A\mid Q\subseteq\mathcal U(a)\}.
 \]
-We refer to $(F,Q_F)$ as an \emph{HM pair}. When $\pt(A)=\varnothing$, the only open filter is $A$, corresponding to $Q_A=\varnothing$ and to the trivial fitted quotient $v_A=\top_{NA}$.
+When the corresponding open filter or compact saturated subset
+is clear from the context, we write simply $(F,Q)$ for a pair
+associated by the Hofmann--Mislove theorem and call it an
+\emph{HM pair}. If $\pt(A)=\varnothing$, the only open filter is $A$, 
+corresponding to $Q=\varnothing$ and to the trivial fitted quotient $v_A=\top_{NA}$.
 
-\subsection{Compact quotients and admissibility intervals}
+If $Q\in \mathcal{Q}S$, we denote by $\partial_F=\langle Q\rangle$
+the associated idempotent derivative; thus
+\[
+\partial_F(X)=\overline{Q\cap X},
+\qquad X\in\mathcal{C}S.
+\]
+%\subsection{Compact quotients and admissibility intervals}
 
 Recall that the quotient $A_j$ determined by a nucleus $j$ is compact if and only if $\nabla(j)$ is an open filter (\cite[Lemma 4.4]{escardo2003joins}). In particular, for each $F\in A^\wedge$, the fitted nucleus $v_F$ determines a compact quotient. However, a compact quotient need not be uniquely determined by its admissible filter.
 
 For $F\in A^\wedge$, let
 \begin{equation}\label{ConjuntoM}
-M_F=\{m\in A\setminus F\mid m\text{ is maximal in }A\setminus F\}.
+M=\{m\in A\setminus F\mid m\text{ is maximal in }A\setminus F\}.
 \end{equation}
 
 Define
 \[
-w_F(x)=\bigwedge\{m\in M_F\mid x\leq m\}
+w_F(x)=\bigwedge\{m\in M\mid x\leq m\}
 \]
 and the nucleus $w_F$ is the greatest nucleus with admissible filter $F$, whereas $v_F$ is the least one. Consequently,
 \[
@@ -266,16 +315,8 @@ We call this the \emph{admissibility interval} associated with $F$. Evaluating a
 [v_F(0),w_F(0)]\subseteq A.
 \]
 
-We shall also use nuclei induced by subspaces. For a topological space $S$ and $E\subseteq S$, define
-\[
-[E]:\mathcal OS\longrightarrow\mathcal OS,
-\qquad
-[E](U)=(E\cup U)^\circ.
-\]
-A nucleus of this form is called \emph{spatially induced}.
-
-Let $Q$ be a compact saturated subset of $S$, put
-$G=\{U\in\mathcal OS\mid Q\subseteq U\}$, and write $Q'=S\setminus Q$.
+Let $Q\in \mathcal{Q}S$, put
+$G=\{U\in\mathcal OS\mid Q\subseteq U\}$.
 Then
 \[
 \nabla([Q'])=G,
@@ -283,9 +324,8 @@ Then
 v_G\leq[Q']\leq w_G.
 \]
 
-More generally, let $F\in A^\wedge$, let $Q=Q_F$, and put
-$G=F_Q=\nabla(Q)$, viewed as an open filter of $\mathcal O(\pt(A))$.
-We call $(F,Q,G)$ an \emph{HM triple}. 
+More generally, let $F\in A^\wedge$, $Q\in \mathcal{Q}S$, and put
+$G\in \mathcal{O}S^\wedge$, we call $(F,Q,G)$ an \emph{HM triple}. 
 
 \done{Combianar secciones 2 y 3}
 
@@ -703,12 +743,12 @@ for every \(y\in\mathcal O S\), and consequently
 
 The notions studied in this section are motivated by the work
 of Sexton and Simmons on point-sensitive and point-free patch
-constructions. Our aim is to identify nuclei associated with
+constructions~\cite{sexton2006ordinal,sexton2006point,sexton2000,sexton2003}. 
+Our aim is to identify nuclei associated with
 open filters that determine compact closed quotients, and to
 investigate the separation properties arising from this
 requirement. We begin by recalling Sexton's notion of
-neatness (\cite[Definition 4.3]{sexton2006ordinal} and \cite[Definition 8.2.1]{sexton2003}), 
-which provides the starting point for our approach.
+neatness.
 
 \begin{dfn}\label{Neat}
 Let $A$ be a frame, let $F\in A^\wedge$ and $\alpha\in \Ord$. We say that:
@@ -726,7 +766,7 @@ Let $A$ be a frame, let $F\in A^\wedge$ and $\alpha\in \Ord$. We say that:
 
 Let us record a useful consequence of neatness. Suppose
 that $A$ is $\alpha$-neat and let $F\in A^\wedge$.
-Put $d=f_F^\alpha(0)$. Since $x\vee d=1$ for every
+Put $d=f_F^\alpha(0)$, then $x\vee d=1$ for every
 $x\in F$, we have $F\subseteq \nabla(u_d)$. Thus,
 $f_F\leq u_d$, and consequently
 \[
@@ -755,11 +795,7 @@ only if it is both packed and stacked
 characterization, we now introduce point-free
 counterparts of stackedness and strong stackedness.
 
-Let $S$ be a topological space, let $Q\subseteq S$
-be compact saturated, and let
-\[
-G=\nabla(Q)\in(\mathcal OS)^\wedge.
-\]
+Let $S$ be a topological space and let ($G\in \mathcal{O}S^\wedge$, $Q\in \mathcal{Q}S$) be an HM pair.
 Recall that $S$ is stacked if
 \[
 v_G(\varnothing)=(Q')^\circ
@@ -776,7 +812,7 @@ Denote by
 \] 
 the right adjoint of the spatial reflection. 
 \begin{prop}\label{morfismo} 
-For every $k\in[v_G,w_G]$, the composite
+For every $k\in[v_G,w_G]$, the lifiting
 \[
 \mathcal U_*\circ k\circ\mathcal U
 \]
@@ -784,7 +820,7 @@ is a nucleus on $A$ with admissible filter $F$.
 \end{prop}
 
 \begin{proof}
-The composite $\mathcal U_*\circ k\mathcal\circ \mathcal{U}$
+The composite $\mathcal U_*\circ k\circ \mathcal{U}$
 is a nucleus on $A$. Moreover, since
 $\nabla(k)=G$ and
 $\mathcal U_*(V)=1$ if and only if $V=S$,
@@ -849,23 +885,23 @@ to show that
 \]
 Since $w_G=[M']$, for every $x\in A$ we have
 \[
-w_G(U(x))=[M'](U(x))=(M'\cup U(x))^\circ.
+w_G(\mathcal{U}(x))=[M'](\mathcal{U}(x))=(M'\cup \mathcal{U}(x))^\circ.
 \]
 Thus, it is enough to prove that
 \[
-U(w_F(x))\subseteq M'\cup U(x).
+\mathcal{U}(w_F(x))\subseteq M'\cup \mathcal{U}(x).
 \]
 
-Suppose that $y\in U(w_F(x))$ and $y\notin M'$.
+Suppose that $y\in \mathcal{U}(w_F(x))$ and $y\notin M'$.
 Since $y\notin M'$, we have $y\in M$. Moreover,
-$y\in U(w_F(x))$ implies $w_F(x)\nleq y$.
+$y\in \mathcal{U}(w_F(x))$ implies $w_F(x)\nleq y$.
 But
 \[
 w_F(x)=\bigwedge\{m\in M\mid x\leq m\}.
 \]
 Hence $x\nleq y$, since otherwise
 $w_F(x)\leq y$, a contradiction. Therefore
-$y\in U(x)$, proving the desired inclusion.
+$y\in \mathcal{U}(x)$, proving the desired inclusion.
 Consequently, $\Phi(w_G)=w_F$.
 \end{proof}
 
@@ -875,11 +911,9 @@ of the corresponding admissibility intervals.
 Since $[Q']$ is the spatially induced nucleus appearing
 in Sexton's definitions, the nucleus
 \[
-\Phi([Q'])=U_*\circ[Q']\circ U
+\Phi([Q'])=\mathcal{U}_*\circ[Q']\circ \mathcal{U}
 \]
-provides a natural point-free counterpart. This
-motivates the following definitions.
-
+provides a natural point-free counterpart. 
 
 \begin{dfn}\label{def:apilado-marcos}
 Let $A$ be a frame and $(F,Q)$ an H--M pair.
@@ -887,12 +921,12 @@ We say that:
 \begin{itemize}
     \item $A$ is \emph{$FQ$-stacked} if
     \[
-    (U_*\circ[Q']\circ U)(0)=v_F(0).
+    (\mathcal{U}_*\circ[Q']\circ \mathcal{U})(0)=v_F(0).
     \]
 
     \item $A$ is \emph{$FQ$-strongly stacked} if
     \[
-    U_*\circ[Q']\circ U=v_F.
+    \mathcal{U}_*\circ[Q']\circ \mathcal{U}=v_F.
     \]
 \end{itemize}
 The frame $A$ is \emph{stacked} (respectively,
@@ -958,13 +992,13 @@ $A=\mathcal OS$. For every H--M pair $(F,Q)$,
 we have $v_F=[Q']$ whenever $S$ is strongly
 stacked. By Lemma \ref{lem:auxiliar},
 \[
-U_*\circ[Q']\circ U=[Q']=v_F.
+\mathcal{U}_*\circ[Q']\circ \mathcal{U}=[Q']=v_F.
 \]
 Thus, $A$ is strongly stacked.
 
 Conversely, if $A$ is strongly stacked, then
 \[
-v_F=U_*\circ[Q']\circ U=[Q']
+v_F=\mathcal{U}_*\circ[Q']\circ \mathcal{U}=[Q']
 \]
 for every H--M pair $(F,Q)$, and hence $S$
 is strongly stacked.
@@ -1020,10 +1054,7 @@ Let $A$ be a frame. We say that $A$ is \emph{KC} if every compact quotient of $A
 
 In the spatial setting, Wilansky's KC property
 coincides with Sexton's notion of packedness.
-Consequently,
-\[
-\text{Neat}\iff \text{KC and Stacked}.
-\]
+
 Whether analogous relationships hold in the
 point-free setting will be addressed in Section~\ref{Interaccion entre propiedades}.
 We first examine how these properties interact
@@ -1128,7 +1159,7 @@ Let $A$ be a $T_1$ frame. Then:
 
 \begin{proof}
 Let $(F,Q)$ be an H--M pair. Since $A$ is $T_1$,
-we have $Q=M$, and hence $w_G=[Q']$.
+we have $M=Q$, and hence $w_G=[Q']$.
 By Proposition \ref{igualdadwF},
 \[
 \mathcal U_*\circ [Q']\circ \mathcal U=w_F.
@@ -1138,29 +1169,14 @@ definitions of stackedness and strong stackedness.
 \end{proof}
 
 \begin{obs}\label{rem:stacked-equality}
-Notice that the $T_1$ assumption is not needed
-to obtain stackedness from the equality
-\[
-v_F(0)=w_F(0)
-\]
-for every $F\in A^\wedge$.
-Indeed, for every H--M pair $(F,Q)$, we have
-\[
-v_F\leq \mathcal U_*\circ[Q']\circ\mathcal U
-\leq w_F.
-\]
-Evaluating at $0$ yields
-\[
-v_F(0)\leq
-(\mathcal U_*\circ[Q']\circ\mathcal U)(0)
-\leq w_F(0).
-\]
-Thus, the equality of the endpoints implies
-that $A$ is stacked.
+In Proposition~\ref{focales}, it suffices to assume that
+$v_F(0)=w_F(0)$ (respectively, $v_F=w_F$) for every
+$F\in A^\wedge$ to conclude that $A$ is stacked
+(respectively, strongly stacked), without requiring
+$A$ to be $T_1$.
 \end{obs}
 
-The preceding characterizations assume that the
-frame is $T_1$. We now consider conditions under
+We now consider conditions under
 which the corresponding identities imply the
 $T_1$ separation property.
 
@@ -1200,13 +1216,8 @@ admissibility interval, the stacked condition already guarantees this
 phenomenon for those associated with completely prime filters.
 
 \begin{cor}\label{Igualdadnucleos}
-Let $A$ be a $T_1$ stacked frame. Then every
-admissibility interval associated with a completely
-prime filter collapses. More precisely,
-for every $p\in\pt A$,
-\[
-[v_{F_p},w_{F_p}]=\{u_p\}.
-\]
+Let $A$ be a $T_1$ stacked frame. Then $[v_{F_p},w_{F_p}]=\{u_p\}$,
+for every $p\in\pt A$.
 \end{cor}
 
 \begin{proof}
