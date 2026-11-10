@@ -61,6 +61,14 @@
 \newtheorem{obs}[thm]{Remark}
 \newtheorem{ej}[thm]{Example}
 
+% Etiquetas de los diagramas.
+% Los números corresponden a la versión actual del artículo.
+\newcommand{\dProp}[1]{\text{Prop.~#1}}
+\newcommand{\dDef}[1]{\text{Def.~#1}}
+\newcommand{\dEx}[1]{\text{Ex.~#1}}
+\newcommand{\dThm}[1]{\text{Thm.~#1}}
+\newcommand{\dPend}{\text{pend.}}
+
 \renewcommand{\proofname}{Proof}
   %%
     %\providecommand{\corollaryname}{Corollary}
@@ -2553,7 +2561,7 @@ Every strongly Hausdorff frame is KC.
 
 \begin{proof}
 This follows directly from
-\cite[Theorem 9.2.1]{picado2021separation}, which states
+\cite[Theorem III 9.2.1]{picado2021separation}, which states
 that every compact quotient of a strongly
 Hausdorff frame is closed.
 \end{proof}
@@ -2583,38 +2591,90 @@ Thus $p$ is maximal in $A$. Since
 $p$ was arbitrary, $A$ is $T_1$.
 \end{proof}
 
-
-We briefly recall two separation properties
-that will be useful in what follows.
-A frame $A$ is said to be \emph{fit} if,
-whenever $a\nleq b$, there exist $x,y\in A$
-such that
+We briefly recall three separation properties that will be useful in what follows. A frame \(A\) is said to be \emph{regular} if every \(a\in A\) satisfies
 \[
-a\vee x=1,\qquad y\nleq b,
-\qquad x\wedge y\leq b.
+a=\bigvee\{b\in A\mid b\prec a\},
 \]
-On the other hand, $A$ is \emph{subfit}
-if, whenever $a\nleq b$, there exists
-$c\in A$ such that
+where \(b\prec a\) means that there exists \(c\in A\) such that \(b\wedge c=0\) and \(a\vee c=1\).
+
+On the other hand, \(A\) is \emph{fit} if, whenever \(a\nleq b\), there exist \(x,y\in A\) such that
 \[
-a\vee c=1,\qquad b\vee c\neq1.
+a\vee x=1,\qquad y\nleq b,\qquad x\wedge y\leq b.
 \]
-Every fit frame is subfit. We denote
-these properties by $\mathbf{(fit)}$ and $\mathbf{(sfit)}$,
-respectively.
+Finally, \(A\) is \emph{subfit} if, whenever \(a\nleq b\), there exists \(c\in A\) such that
+\[
+a\vee c=1,\qquad b\vee c\neq 1.
+\]
 
+Every regular frame is fit, and every fit frame is subfit. We denote these properties by \(\mathbf{(reg)}\), \(\mathbf{(fit)}\), and \(\mathbf{(sfit)}\), respectively.
 
-\begin{cor}\label{KCespacial}
-Every subfit KC frame is spatial.
-\end{cor}
+\begin{lem}\label{KCespacial}
+Every compact subfit KC frame is spatial.
+\end{lem}
 
 \begin{proof}
-By Proposition~\ref{KCimplicaT1}, every KC
-frame is $T_1$. The conclusion follows
-from~\cite[Proposition 2.5.3]{picado2021separation}, since
-every subfit $T_1$ frame is spatial.
+By~[9, Theorem~II 2.5.4], every compact subfit frame is
+$T_1$-spatial, and hence spatial.
 \end{proof}
 
+The subfitness assumption cannot be omitted: the following
+construction yields a compact KC frame which, as we shall
+show, is not spatial.
+
+\begin{lem}\label{KCnotreg}
+Let $B$ be a complete atomless Boolean algebra, and let
+\[
+D=B\cup\{\omega\},
+\]
+where $\omega$ is a new top element. Then $D$ is a
+compact KC frame which is not regular.
+\end{lem}
+
+\begin{proof}
+Write $e=1_B$. Since $\omega$ is a new top element,
+every cover of $\omega$ contains $\omega$. Hence
+$D$ is compact.
+
+Moreover, since $B$ is a complete atomless Boolean
+algebra, its only Scott-open filter is $B$.
+Consequently,
+\[
+D^\wedge=\{D,\{\omega\}\}.
+\]
+
+We claim that $D$ is KC. Let $j\in ND$ be a nucleus
+such that $D_j$ is compact. Then
+$\nabla(j)\in D^\wedge$.
+
+If $\nabla(j)=D$, then $j(0)=\omega$, and hence
+$j=u_\omega$.
+
+Otherwise, $\nabla(j)=\{\omega\}$, so
+$j[B]\subseteq B$. Thus, the restriction
+$j|_B$ is a nucleus on $B$. Since every nucleus
+on a Boolean algebra is closed, there exists
+$a\in B$ such that
+\[
+j(b)=a\vee b
+\qquad(b\in B).
+\]
+As $j(\omega)=\omega$, we conclude that $j=u_a$.
+Therefore, $D$ is KC.
+
+Finally, $D$ is not regular. Indeed, if
+$a\prec e$, there exists $c\in D$ such that
+\[
+a\wedge c=0,
+\qquad
+e\vee c=\omega.
+\]
+The latter equality forces $c=\omega$, and
+consequently $a=0$. Thus,
+\[
+\bigvee\{a\in D:a\prec e\}=0\neq e.
+\]
+Hence $D$ is not regular.
+\end{proof}
 
 \begin{thm}\label{KCnosfit}
 There exists a KC frame which is strongly
@@ -2625,24 +2685,27 @@ stacked and not subfit. Consequently,
 \end{thm}
 
 \begin{proof}
-Consider the frame $A=B\times2$ introduced
-in Example~\ref{T1+S no espacial}.
-As shown there, $A$ is $T_1$, strongly
-stacked, and non-spatial. Moreover,
-\[
-A^\wedge=\{A,F_p\},
-\]
-and
-\[
-v_F=w_F
-\qquad\text{for every }F\in A^\wedge.
-\]
-Thus, every nucleus in an admissibility
-interval $[v_F,w_F]$ is closed, so $A$ is KC.
+Let $D=B\cup\{\omega\}$ be the frame constructed
+in Lemma~\ref{KCnotreg}.
 
-Finally, $A$ cannot be subfit, since every
-subfit KC frame is spatial by Corollary \ref{KCespacial}. Therefore, $A$ is KC, strongly
-stacked, and not subfit.
+Since $e$ is maximal in $D$, it is a point.
+Any point of $D$ strictly below $e$ would also be a point
+of $B$. However, the atomless Boolean algebra $B$ has no
+points. Hence
+\[
+    \pt(D)=\{e\}.
+\]
+For every $b\in B$, we have
+\[
+    \mathcal U_D(b)=\varnothing.
+\]
+In particular, $\mathcal U_D(0)=\mathcal U_D(e)$ although
+$0\neq e$, so $D$ is not spatial.
+
+If $D$ were subfit, its compactness and the KC property
+would imply that it is spatial by
+Lemma~\ref{KCespacial},
+a contradiction. Therefore $D$ is not subfit.
 \end{proof}
 
 \begin{comment}
@@ -2755,7 +2818,7 @@ Every strongly Hausdorff frame is KC.
 
 \begin{proof}
 This follows directly from of
-\cite[Theorem~9.2.1]{picado2021separation}, which states that every compact quotient of a
+\cite[Theorem~ III 9.2.1]{picado2021separation}, which states that every compact quotient of a
 strongly Hausdorff frame is closed.
 \end{proof}
 
@@ -3702,61 +3765,6 @@ $A_j$ is KC.
 
 Now, we work with coproducts of KC frames.
 
-\begin{prop}\label{KCnotreg}
-Let $B$ be a complete atomless Boolean algebra, and let
-\[
-D=B\cup\{\omega\},
-\]
-where $\omega$ is a new top element. Then $D$ is a
-compact KC frame which is not regular.
-\end{prop}
-
-\begin{proof}
-Write $e=1_B$. Since $\omega$ is a new top element,
-every cover of $\omega$ contains $\omega$. Hence
-$D$ is compact.
-
-Moreover, since $B$ is a complete atomless Boolean
-algebra, its only Scott-open filter is $B$.
-Consequently,
-\[
-D^\wedge=\{D,\{\omega\}\}.
-\]
-
-We claim that $D$ is KC. Let $j\in ND$ be a nucleus
-such that $D_j$ is compact. Then
-$\nabla(j)\in D^\wedge$.
-
-If $\nabla(j)=D$, then $j(0)=\omega$, and hence
-$j=u_\omega$.
-
-Otherwise, $\nabla(j)=\{\omega\}$, so
-$j[B]\subseteq B$. Thus, the restriction
-$j|_B$ is a nucleus on $B$. Since every nucleus
-on a Boolean algebra is closed, there exists
-$a\in B$ such that
-\[
-j(b)=a\vee b
-\qquad(b\in B).
-\]
-As $j(\omega)=\omega$, we conclude that $j=u_a$.
-Therefore, $D$ is KC.
-
-Finally, $D$ is not regular. Indeed, if
-$a\prec e$, there exists $c\in D$ such that
-\[
-a\wedge c=0,
-\qquad
-e\vee c=\omega.
-\]
-The latter equality forces $c=\omega$, and
-consequently $a=0$. Thus,
-\[
-\bigvee\{a\in D:a\prec e\}=0\neq e.
-\]
-Hence $D$ is not regular.
-\end{proof}
-
 \begin{thm}\label{oplusKC}
 The class of KC frames is not closed under
 finite coproducts.
@@ -3764,10 +3772,10 @@ finite coproducts.
 
 \begin{proof}
 Let $D=B\cup\{\omega\}$ be the frame constructed
-in Proposition~\ref{KCnotreg}. Then $D$ is
+in Lemma~\ref{KCnotreg}. Then $D$ is
 compact and KC, but not regular.
 
-By \cite[Theorem 9.1.1]{picado2021separation},
+By \cite[Theorem III 9.1.1]{picado2021separation},
 every compact strongly Hausdorff frame is
 regular. Consequently, $D$ is not strongly
 Hausdorff.
@@ -4585,9 +4593,9 @@ the frame.
 
 \begin{prop}\label{EficienteFapilado}
 Let $A$ be a neat frame. If
-\[
+\begin{equation}\label{WS}
 \mathcal U\circ v_F=v_G\circ\mathcal U
-\]
+\end{equation}
 for every H--M triple $(F,Q,G)$, then
 $A$ is strongly stacked.
 \end{prop}
@@ -4619,6 +4627,9 @@ v_F=\mathcal U_*\circ[Q']\circ\mathcal U.
 Therefore $A$ is strongly stacked.
 \end{proof}
 
+When a frame $A$ satisfies~\eqref{WS} for every HM triple, 
+we say that $A$ is \emph{weakly stacked}
+.
 
 We next compare KC with the preceding
 properties.
@@ -5257,7 +5268,7 @@ Thus every nucleus whose associated filter is open is closed, and hence
 \end{proof}
 \end{comment}
 
-The diagram summarizes the relationships among the separation properties considered in this work, including the implications 
+The diagrams \eqref{Diagrama de implicaciones} and \eqref{Resumen2} summarize the relationships among the separation properties considered in this work, including the implications 
 established in \cite{picado2021separation} and the results obtained here.
 
 \begin{equation}\label{Diagrama de implicaciones}
@@ -5275,40 +5286,54 @@ established in \cite{picado2021separation} and the results obtained here.
 	\arrow[Rightarrow, from=2-1, to=4-1]
 	\arrow[Rightarrow, from=2-1, to=5-4]
 	\arrow[Rightarrow, from=2-4, to=2-5]
-	\arrow[Rightarrow, from=2-4, to=3-4]
-	\arrow[squiggly, no head, from=2-5, to=4-7]
+	\arrow["{\ref{sHimplicaKC}}", Rightarrow, from=2-4, to=3-4]
+	\arrow["{\ref{HnoS}}"{pos=0.4}, squiggly, no head, from=2-5, to=4-7]
 	\arrow[Rightarrow, from=2-5, to=5-4]
 	\arrow[squiggly, no head, from=2-5, to=5-7]
 	\arrow[Rightarrow, from=2-7, to=2-5]
 	\arrow[Rightarrow, from=2-7, to=3-4]
 	\arrow[Rightarrow, from=2-7, to=3-7]
-	\arrow[Rightarrow, from=3-4, to=4-4]
+	\arrow["{\ref{KCneat}}"', Rightarrow, from=3-4, to=4-4]
+	\arrow["{\ref{NeatNoKC}}"{pos=0.3}, squiggly, no head, from=3-4, to=4-7]
+	\arrow[squiggly, no head, from=3-4, to=5-7]
 	\arrow[Rightarrow, from=3-7, to=4-4]
-	\arrow[Rightarrow, from=3-7, to=4-7]
-	%\arrow[Rightarrow, from=3-7, to=5-4]
+	\arrow["{\ref{KCsfitSS}}", Rightarrow, from=3-7, to=4-7]
 	\arrow[squiggly, no head, from=4-1, to=2-4]
-	\arrow[squiggly, no head, from=4-1, to=3-4]
+	\arrow["{\ref{KCnosfit}}"{pos=0.8}, squiggly, no head, from=4-1, to=3-4]
 	\arrow[squiggly, no head, from=4-1, to=4-4]
 	\arrow[squiggly, no head, from=4-1, to=5-4]
+	\arrow["{\ref{KCnosfit}}"'{pos=0.3}, squiggly, no head, from=4-4, to=4-7]
 	\arrow[Rightarrow, from=4-4, to=5-4]
 	\arrow[squiggly, no head, from=4-7, to=5-4]
-	\arrow[Rightarrow, from=4-7, to=5-7]
-	\arrow[squiggly, no head, from=5-7, to=5-4]
-    \arrow[squiggly, no head, from=3-4, to=5-7]
-    %\arrow[squiggly, no head, from=4-4, to=5-7]
-    \arrow[squiggly, no head, from=3-4, to=4-7]
-    \arrow[squiggly, no head, from=4-4, to=4-7]
+	\arrow["{\ref{def:apilado-marcos}}", Rightarrow, from=4-7, to=5-7]
+	\arrow["{\ref{T1nostacked}}", squiggly, no head, from=5-7, to=5-4]
 \end{tikzcd}
 \end{equation}
 
-\[\begin{tikzcd}
+\begin{equation}\label{Resumen2}
+\begin{tikzcd}
 	{\text{Neat}+\text{S.S.}} & {\text{KC}} && {\text{KC}+\mathbf{(sfit})} & {\text{S.S.}} \\
 	{\text{Neat}+\mathbf{(fit)}} &&& {\text{Neat}+\text{W.S.}}
-	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow["{\ref{NeatSSimplicaKC}}", Rightarrow, from=1-1, to=1-2]
 	\arrow[Rightarrow, from=1-4, to=1-5]
-	\arrow[Rightarrow, from=2-1, to=1-2]
-	\arrow[Rightarrow, from=2-4, to=1-5]
-\end{tikzcd}\]
+	\arrow["{\ref{NeatfitKC}}"', Rightarrow, from=2-1, to=1-2]
+	\arrow["{\ref{EficienteFapilado}}"', Rightarrow, from=2-4, to=1-5]
+\end{tikzcd}
+\end{equation}
+
+\begin{obs}
+Some non-implications in the diagram follow from the
+displayed implications. Indeed, if a property $\mathsf P$
+implies $T_1$, then any frame which satisfies $\mathsf R$
+but fails $T_1$ also witnesses
+$\mathsf R\not\Rightarrow\mathsf P$.
+\begin{comment}
+In particular, the existence of strongly stacked
+(and hence stacked) frames which are not $T_1$, and of
+subfit frames which are not $T_1$, rules out implications
+from any of these properties to any property implying $T_1$.
+\end{comment}
+\end{obs}
 
 \section{Relationship with the patch assembly}
 
