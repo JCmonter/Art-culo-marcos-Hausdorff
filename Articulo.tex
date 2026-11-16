@@ -118,7 +118,7 @@ Aquí va el resumen
 	& {T_2} &&& {\mathbf{(reg)}} & \\
 	{\text{S.S.}} & {T_1} & {\text{Neat}} & {\mathbf{(fit)}} & {\mathbf{(sH)}} & {\mathbf{(H)}+\mathbf{(sfit)}} \\
 	{\text{S.}} & {T_0} & {\text{Packed}} & {\mathbf{(sfit)}} & {\mathbf{(H)}} & {T_1+\mathbf{(sfit)}} \\
-	&& {T_1} && {T_1} & {\text{Spatiality}}
+	&& {T_1} && {T_1}
 	\arrow[Rightarrow, from=1-2, to=2-1]
 	\arrow[Rightarrow, from=1-2, to=2-2]
 	\arrow[Rightarrow, from=1-2, to=2-3]
@@ -133,7 +133,7 @@ Aquí va el resumen
 	\arrow[Rightarrow, from=2-6, to=3-6]
 	\arrow[Rightarrow, from=3-3, to=4-3]
 	\arrow[Rightarrow, from=3-5, to=4-5]
-	\arrow[Rightarrow, from=3-6, to=4-6]
+	%\arrow[Rightarrow, from=3-6, to=4-6]
 	\arrow[Rightarrow, from=2-6, to=3-5]
 	% Squiggly: lado izquierdo
 	\arrow[squiggly, no head, from=2-1, to=2-2]
@@ -162,7 +162,7 @@ Aquí va el resumen
 	\arrow[Rightarrow, dashed, from=2-3, to=2-1]
 	\arrow[Rightarrow, dashed, from=2-3, to=3-1]
 	\arrow[Rightarrow, from=2-3, to=3-3]
-	\arrow[Rightarrow, dashed, from=2-3, to=3-5]
+	\arrow[Rightarrow, dashed, from=2-3, to=3-4]
 	\arrow[Rightarrow, dashed, from=2-5, to=2-3]
 	\arrow[Rightarrow, from=2-5, to=3-5]
 	\arrow[squiggly, no head, from=3-1, to=4-3]
@@ -264,7 +264,7 @@ E^\circ,\quad \overline{E}, \quad E',
 \]
 denote the interior, closure, and complement of $E$, respectively. Each subset $E$ induces a nucleus
 \[
-[E]:\mathcal OS\longrightarrow\mathcal OS,
+[E]\colon \mathcal OS\longrightarrow\mathcal OS,
 \qquad
 [E](U)=(E\cup U)^\circ.
 \]
@@ -274,7 +274,7 @@ Writing $\mathcal{C}S$ for the lattice of closed subsets of $S$,
 $E$ induces an idempotent
 \emph{derivative}
 \[
-\langle E\rangle:\mathcal{C}S\to\mathcal{C}S,
+\langle E\rangle\colon \mathcal{C}S\to\mathcal{C}S,
 \qquad
 \langle E\rangle(X)=\overline{E\cap X}.
 \]
@@ -816,7 +816,7 @@ for every such pair.
 
 Denote by
 \[
-\mathcal U_*:\mathcal O(\pt(A))\to A
+\mathcal U_*\colon \mathcal O(\pt(A))\to A
 \] 
 the right adjoint of the spatial reflection. 
 \begin{prop}\label{morfismo} 
@@ -856,8 +856,6 @@ and, in particular,
 v_F\leq\Phi(k)\leq w_F.
 \]
 
-Finally, when $A=\mathcal OS$, identifying $S$ with $\pt(A)$, the spatial reflection is an isomorphism.
-
 \begin{cor}\label{lem:auxiliar}
 If $A=\mathcal OS$, then $\mathcal U_*\circ[E]\circ\mathcal U=[E]$
 for every $E\subseteq S$.
@@ -874,10 +872,7 @@ hence $\Phi([E])=[E]$.
 We now return to the general setting. Let \(A\) be a frame, \(S=\pt(A)\), and let \((F,Q,G)\) be an H--M triple. 
 
 \begin{prop}\label{igualdadwF}
-Let \((F,Q,G)\) be an H--M triple. Then \(\Phi(w_G)=w_F\), that is,
-\[
-w_F=\mathcal U_*\circ w_G\circ\mathcal U.
-\]
+Let \((F,Q,G)\) be an H--M triple. Then \(\Phi(w_G)=w_F\).
 \end{prop}
 
 
@@ -1062,7 +1057,6 @@ Let $A$ be a frame. We say that $A$ is \emph{KC} if every compact quotient of $A
 
 In the spatial setting, Wilansky's KC property
 coincides with Sexton's notion of packedness.
-
 Whether analogous relationships hold in the
 point-free setting will be addressed in Section~\ref{Interaccion entre propiedades}.
 We first examine how these properties interact
