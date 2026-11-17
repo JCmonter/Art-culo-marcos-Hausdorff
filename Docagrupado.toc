@@ -1,0 +1,31 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\tocsection {}{1}{Preliminares}}{1}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Cuestiones en marcos}}{2}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Núcleos}}{2}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Filtros}}{5}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Axiomas de separación}}{10}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{El marco de parches y marcos eficientes}}{12}{subsection.2.4}%
+\contentsline {section}{\tocsection {}{3}{Cuestiones en espacios topológicos}}{16}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{El Teorema de Hofmann-Mislove}}{17}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Operadores espaciales}}{17}{subsection.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3}{Espacios Apilados}}{20}{subsection.3.3}%
+\contentsline {section}{\tocsection {}{4}{Interacciones entre Frm y Top}}{21}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Empujes y levantamientos}}{21}{subsection.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.2}{Modificaciones de parches}}{24}{subsection.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.3}{Nociones de apilamiento}}{24}{subsection.4.3}%
+\contentsline {subsection}{\tocsubsection {}{4.4}{El marco $[0,1]$}}{27}{subsection.4.4}%
+\contentsline {subsection}{\tocsubsection {}{4.5}{Marcos $KC$}}{30}{subsection.4.5}%
+\contentsline {section}{\tocsection {}{5}{El enfoque de Escardo}}{31}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{Algunos núcleos de $N\mathfrak {c}A$}}{36}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{6}{El enfoque de Klinke}}{39}{section.6}%
+\contentsline {section}{\tocsection {}{7}{El enfoque de Igor}}{39}{section.7}%
+\contentsline {section}{\tocsection {}{8}{El enfoque de Balmer y Gallauer}}{39}{section.8}%
+\contentsline {section}{\tocsection {}{9}{Resultados adicionales}}{40}{section.9}%
+\contentsline {section}{\tocsection {}{10}{Aquí empieza el artículo}}{40}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Frames, nuclei, and open filters}}{40}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Compact Quotients and Admissibility Intervals}}{44}{subsection.10.2}%
+\contentsline {section}{\tocsection {}{11}{Separation Properties Induced by Compact Quotients}}{47}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{Comparison with Classical Separation Axioms}}{51}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{Inheritance and preservation properties}}{63}{subsection.11.2}%
+\contentsline {section}{\tocsection {}{12}{Interaction among Compact-Quotient Separation Properties}}{75}{section.12}%
+\contentsline {section}{\tocsection {}{}{References}}{78}{section*.2}%
